@@ -12,7 +12,7 @@ if (len(sys.argv) < 2):
 	sys.exit(-1)
 
 BIN_PREFIX=sys.argv[1]
-DBFILE = "tpch_sf01.duckdb"
+DBFILE = "tpch_sf01.graindb"
 
 
 def find_free_port():
@@ -23,7 +23,7 @@ def find_free_port():
 
 
 # check for binary
-server_binary = "%s/duckdb_rest_server" % BIN_PREFIX
+server_binary = "%s/graindb_rest_server" % BIN_PREFIX
 if not os.path.isfile(server_binary):
 	raise Exception('could not find rest binary')
 
@@ -31,7 +31,7 @@ if not os.path.isfile(server_binary):
 # create database if not exists
 db_file = "%s/%s" % (BIN_PREFIX, DBFILE)
 if not os.path.isfile(db_file):
-	process = subprocess.Popen(("%s/duckdb_dbgen --database=%s --scale_factor=0.1" % (BIN_PREFIX, db_file)).split(' '))
+	process = subprocess.Popen(("%s/graindb_dbgen --database=%s --scale_factor=0.1" % (BIN_PREFIX, db_file)).split(' '))
 	process.wait()
 	if process.returncode != 0 or not os.path.isfile(db_file):
 		raise Exception('dbgen failed')

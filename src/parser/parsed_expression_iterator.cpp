@@ -1,8 +1,8 @@
-#include "duckdb/parser/parsed_expression_iterator.hpp"
+#include "graindb/parser/parsed_expression_iterator.hpp"
 
-#include "duckdb/parser/expression/list.hpp"
+#include "graindb/parser/expression/list.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void ParsedExpressionIterator::EnumerateChildren(const ParsedExpression &expr,

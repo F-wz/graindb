@@ -1,13 +1,13 @@
-#include "duckdb/execution/operator/join/physical_nested_loop_join.hpp"
+#include "graindb/execution/operator/join/physical_nested_loop_join.hpp"
 
-#include "duckdb/common/operator/comparison_operators.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/execution/nested_loop_join.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/execution/nested_loop_join.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 class PhysicalNestedLoopJoinState : public PhysicalComparisonJoinState {
 public:
@@ -327,4 +327,4 @@ unique_ptr<PhysicalOperatorState> PhysicalNestedLoopJoin::GetOperatorState() {
 	return make_unique<PhysicalNestedLoopJoinState>(children[0].get(), children[1].get(), conditions);
 }
 
-} // namespace duckdb
+} // namespace graindb

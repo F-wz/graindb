@@ -1,14 +1,14 @@
-#include "duckdb/optimizer/in_clause_rewriter.hpp"
-#include "duckdb/optimizer/optimizer.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression/bound_comparison_expression.hpp"
-#include "duckdb/planner/expression/bound_conjunction_expression.hpp"
-#include "duckdb/planner/expression/bound_operator_expression.hpp"
-#include "duckdb/planner/operator/logical_chunk_get.hpp"
-#include "duckdb/planner/operator/logical_comparison_join.hpp"
-#include "duckdb/execution/expression_executor.hpp"
+#include "graindb/optimizer/in_clause_rewriter.hpp"
+#include "graindb/optimizer/optimizer.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression/bound_comparison_expression.hpp"
+#include "graindb/planner/expression/bound_conjunction_expression.hpp"
+#include "graindb/planner/expression/bound_operator_expression.hpp"
+#include "graindb/planner/operator/logical_chunk_get.hpp"
+#include "graindb/planner/operator/logical_comparison_join.hpp"
+#include "graindb/execution/expression_executor.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 unique_ptr<LogicalOperator> InClauseRewriter::Rewrite(unique_ptr<LogicalOperator> op) {
 	if (op->children.size() == 1) {
@@ -110,4 +110,4 @@ unique_ptr<Expression> InClauseRewriter::VisitReplace(BoundOperatorExpression &e
 	return result;
 }
 
-} // namespace duckdb
+} // namespace graindb

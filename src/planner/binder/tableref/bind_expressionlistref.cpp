@@ -1,9 +1,9 @@
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/tableref/bound_expressionlistref.hpp"
-#include "duckdb/parser/tableref/expressionlistref.hpp"
-#include "duckdb/planner/expression_binder/insert_binder.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/tableref/bound_expressionlistref.hpp"
+#include "graindb/parser/tableref/expressionlistref.hpp"
+#include "graindb/planner/expression_binder/insert_binder.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<BoundTableRef> Binder::Bind(ExpressionListRef &expr) {

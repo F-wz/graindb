@@ -1,18 +1,18 @@
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression/bound_comparison_expression.hpp"
-#include "duckdb/planner/expression/bound_conjunction_expression.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
-#include "duckdb/planner/expression/bound_operator_expression.hpp"
-#include "duckdb/planner/expression/bound_subquery_expression.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/operator/logical_any_join.hpp"
-#include "duckdb/planner/operator/logical_comparison_join.hpp"
-#include "duckdb/planner/operator/logical_cross_product.hpp"
-#include "duckdb/planner/operator/logical_filter.hpp"
-#include "duckdb/planner/tableref/bound_joinref.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression/bound_comparison_expression.hpp"
+#include "graindb/planner/expression/bound_conjunction_expression.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression/bound_operator_expression.hpp"
+#include "graindb/planner/expression/bound_subquery_expression.hpp"
+#include "graindb/planner/expression_iterator.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/operator/logical_any_join.hpp"
+#include "graindb/planner/operator/logical_comparison_join.hpp"
+#include "graindb/planner/operator/logical_cross_product.hpp"
+#include "graindb/planner/operator/logical_filter.hpp"
+#include "graindb/planner/tableref/bound_joinref.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 //! Create a JoinCondition from a comparison

@@ -1,15 +1,15 @@
-#include "duckdb/common/gzip_stream.hpp"
+#include "graindb/common/gzip_stream.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/file_system.hpp"
-#include "duckdb/common/fstream_util.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/file_system.hpp"
+#include "graindb/common/fstream_util.hpp"
 
 #include "miniz.hpp"
 
 #include <limits>
 
 using namespace std;
-using namespace duckdb;
+using namespace graindb;
 
 /*
 

@@ -2,12 +2,12 @@
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [quack@duckdb.org](mailto:quack@duckdb.org).
+This project and everyone participating in it is governed by a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [quack@graindb.org](mailto:quack@graindb.org).
 
 
 ## **Did you find a bug?**
-* **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/cwida/duckdb/issues).
-* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/cwida/duckdb/issues/new). Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
+* **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/cwida/graindb/issues).
+* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/cwida/graindb/issues/new). Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
 
 ## **Did you write a patch that fixes a bug?**
 * Great!

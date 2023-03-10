@@ -1,9 +1,9 @@
-#include "duckdb/common/types/hyperloglog.hpp"
+#include "graindb/common/types/hyperloglog.hpp"
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 #include "hyperloglog.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 HyperLogLog::HyperLogLog() : hll(nullptr) {

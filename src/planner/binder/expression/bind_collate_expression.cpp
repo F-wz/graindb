@@ -1,7 +1,7 @@
-#include "duckdb/parser/expression/collate_expression.hpp"
-#include "duckdb/planner/expression_binder.hpp"
+#include "graindb/parser/expression/collate_expression.hpp"
+#include "graindb/planner/expression_binder.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BindResult ExpressionBinder::BindExpression(CollateExpression &expr, idx_t depth) {

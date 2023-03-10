@@ -1,9 +1,9 @@
-#include "duckdb/function/aggregate/algebraic_functions.hpp"
-#include "duckdb/function/aggregate_function.hpp"
+#include "graindb/function/aggregate/algebraic_functions.hpp"
+#include "graindb/function/aggregate_function.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 void BuiltinFunctions::RegisterAlgebraicAggregates() {
 	Register<AvgFun>();
@@ -17,4 +17,4 @@ void BuiltinFunctions::RegisterAlgebraicAggregates() {
 	Register<VarSampFun>();
 }
 
-} // namespace duckdb
+} // namespace graindb

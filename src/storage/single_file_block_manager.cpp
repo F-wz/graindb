@@ -1,9 +1,9 @@
-#include "duckdb/storage/single_file_block_manager.hpp"
-#include "duckdb/storage/meta_block_writer.hpp"
-#include "duckdb/storage/meta_block_reader.hpp"
-#include "duckdb/common/exception.hpp"
+#include "graindb/storage/single_file_block_manager.hpp"
+#include "graindb/storage/meta_block_writer.hpp"
+#include "graindb/storage/meta_block_reader.hpp"
+#include "graindb/common/exception.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 SingleFileBlockManager::SingleFileBlockManager(FileSystem &fs, string path, bool read_only, bool create_new,

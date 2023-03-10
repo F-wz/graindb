@@ -1,10 +1,10 @@
 #include "catch.hpp"
-#include "duckdb/common/file_buffer.hpp"
-#include "duckdb/common/file_system.hpp"
-#include "duckdb/common/fstream.hpp"
+#include "graindb/common/file_buffer.hpp"
+#include "graindb/common/file_system.hpp"
+#include "graindb/common/fstream.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static void create_dummy_file(string fname) {

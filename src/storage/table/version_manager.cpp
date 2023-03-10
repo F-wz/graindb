@@ -1,8 +1,8 @@
-#include "duckdb/storage/table/version_manager.hpp"
-#include "duckdb/transaction/transaction.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/storage/table/version_manager.hpp"
+#include "graindb/transaction/transaction.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 idx_t VersionManager::GetSelVector(Transaction &transaction, idx_t index, SelectionVector &sel_vector,

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "duckdb/main/appender.hpp"
-#include "duckdb/main/connection.hpp"
+#include "graindb/main/appender.hpp"
+#include "graindb/main/connection.hpp"
 
 #include <memory>
 
@@ -17,12 +17,12 @@ struct tpcds_table_def {
 #define DBGEN_VERSION 24
 
 struct tpcds_append_information {
-	tpcds_append_information(duckdb::DuckDB &db, std::string schema_name, std::string table_name) : connection(db), appender(connection, schema_name, table_name)
+	tpcds_append_information(graindb::GrainDB &db, std::string schema_name, std::string table_name) : connection(db), appender(connection, schema_name, table_name)
 	     {
 	}
 
-	duckdb::Connection connection;
-	duckdb::Appender appender;
+	graindb::Connection connection;
+	graindb::Appender appender;
 
 	tpcds_table_def table_def;
 };

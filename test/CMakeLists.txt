@@ -33,7 +33,7 @@ add_executable(unittest unittest.cpp ${ALL_OBJECT_FILES})
 
 if(NOT WIN32 AND NOT SUN)
   target_link_libraries(unittest
-                        duckdb
+                        graindb
                         dbgen
                         dsdgen
                         imdb
@@ -42,5 +42,5 @@ if(NOT WIN32 AND NOT SUN)
                         sqlite_transfer
                         miniparquet)
 else()
-  target_link_libraries(unittest duckdb_static test_helpers)
+  target_link_libraries(unittest graindb_static test_helpers)
 endif()

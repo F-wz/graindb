@@ -1,11 +1,11 @@
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/statement/create_statement.hpp"
-#include "duckdb/parser/parsed_data/create_index_info.hpp"
-#include "duckdb/parser/tableref/basetableref.hpp"
-#include "duckdb/parser/transformer.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/statement/create_statement.hpp"
+#include "graindb/parser/parsed_data/create_index_info.hpp"
+#include "graindb/parser/tableref/basetableref.hpp"
+#include "graindb/parser/transformer.hpp"
+#include "graindb/common/string_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static IndexType StringToIndexType(const string &str) {

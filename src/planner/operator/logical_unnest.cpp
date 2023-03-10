@@ -1,6 +1,6 @@
-#include "duckdb/planner/operator/logical_unnest.hpp"
+#include "graindb/planner/operator/logical_unnest.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 vector<ColumnBinding> LogicalUnnest::GetColumnBindings() {

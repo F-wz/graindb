@@ -1,13 +1,13 @@
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/types/time.hpp"
-#include "duckdb/common/types/timestamp.hpp"
-#include "duckdb/common/vector_operations/unary_executor.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/function/scalar/date_functions.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/types/time.hpp"
+#include "graindb/common/types/timestamp.hpp"
+#include "graindb/common/vector_operations/unary_executor.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/function/scalar/date_functions.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static void epoch_function(DataChunk &input, ExpressionState &state, Vector &result) {
 	assert(input.column_count() == 1);
@@ -38,4 +38,4 @@ void EpochFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(epoch);
 }
 
-} // namespace duckdb
+} // namespace graindb

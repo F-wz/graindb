@@ -1,7 +1,7 @@
-#include "duckdb/execution/index/art/node48.hpp"
-#include "duckdb/execution/index/art/node256.hpp"
+#include "graindb/execution/index/art/node48.hpp"
+#include "graindb/execution/index/art/node256.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 
 Node256::Node256(ART &art, size_t compressionLength) : Node(art, NodeType::N256, compressionLength) {
 }

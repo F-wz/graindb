@@ -12,11 +12,11 @@
 #endif
 
 #include "compare_result.hpp"
-#include "duckdb.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/common/types.hpp"
+#include "graindb.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/common/types.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 void DeleteDatabase(string path);
 void TestDeleteDirectory(string path);
@@ -42,4 +42,4 @@ bool NO_FAIL(unique_ptr<QueryResult> result);
 			FAIL(res);                                                                                                 \
 	}
 
-} // namespace duckdb
+} // namespace graindb

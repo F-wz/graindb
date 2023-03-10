@@ -2,11 +2,11 @@
 
 
 class TestSimpleDBAPI(object):
-	def test_prepare(self, duckdb_cursor):
-		result = duckdb_cursor.execute('SELECT CAST(? AS INTEGER), CAST(? AS INTEGER)', ['42', '84']).fetchall()
+	def test_prepare(self, graindb_cursor):
+		result = graindb_cursor.execute('SELECT CAST(? AS INTEGER), CAST(? AS INTEGER)', ['42', '84']).fetchall()
 		assert result == [(42, 84, )], "Incorrect result returned"
 
-		c = duckdb_cursor
+		c = graindb_cursor
 		
 		# from python docs
 		c.execute('''CREATE TABLE stocks

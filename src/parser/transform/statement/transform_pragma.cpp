@@ -1,8 +1,8 @@
-#include "duckdb/parser/statement/pragma_statement.hpp"
-#include "duckdb/parser/transformer.hpp"
-#include "duckdb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/statement/pragma_statement.hpp"
+#include "graindb/parser/transformer.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<PragmaStatement> Transformer::TransformPragma(PGNode *node) {

@@ -1,13 +1,13 @@
 #pragma once
 
 #include "catch.hpp"
-#include "duckdb.hpp"
-#include "duckdb/optimizer/expression_rewriter.hpp"
-#include "duckdb/parser/parsed_expression.hpp"
-#include "duckdb/planner/expression.hpp"
-#include "duckdb/planner/planner.hpp"
+#include "graindb.hpp"
+#include "graindb/optimizer/expression_rewriter.hpp"
+#include "graindb/parser/parsed_expression.hpp"
+#include "graindb/planner/expression.hpp"
+#include "graindb/planner/planner.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 class ClientContext;
 
@@ -28,7 +28,7 @@ public:
 
 	string AddColumns(string columns);
 
-	DuckDB db;
+	GrainDB db;
 	Connection con;
 
 private:
@@ -37,4 +37,4 @@ private:
 	string from_clause;
 };
 
-} // namespace duckdb
+} // namespace graindb

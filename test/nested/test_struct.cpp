@@ -1,15 +1,15 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-#include "duckdb.hpp"
+#include "graindb.hpp"
 
 #include "dbgen.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test filter and projection of nested struct", "[nested]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	con.EnableQueryVerification();
@@ -89,7 +89,7 @@ TEST_CASE("Test filter and projection of nested struct", "[nested]") {
 }
 
 TEST_CASE("Test packing and unpacking lineitem into structs", "[nested][.]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	// con.EnableQueryVerification(); // FIXME something odd happening here

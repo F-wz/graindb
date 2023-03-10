@@ -1,6 +1,6 @@
-#include "duckdb/common/serializer.hpp"
+#include "graindb/common/serializer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 template <> string Deserializer::Read() {

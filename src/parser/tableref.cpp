@@ -1,10 +1,10 @@
-#include "duckdb/parser/tableref.hpp"
+#include "graindb/parser/tableref.hpp"
 
-#include "duckdb/common/printer.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/parser/tableref/list.hpp"
+#include "graindb/common/printer.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/parser/tableref/list.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void TableRef::Serialize(Serializer &serializer) {

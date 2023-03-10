@@ -1,4 +1,4 @@
-add_library_unity(duckdb_optimizer_rules
+add_library_unity(graindb_optimizer_rules
                   OBJECT
                   arithmetic_simplification.cpp
                   case_simplification.cpp
@@ -11,4 +11,4 @@ add_library_unity(duckdb_optimizer_rules
                   move_constants.cpp
                   like_optimizations.cpp)
 set(ALL_OBJECT_FILES ${ALL_OBJECT_FILES}
-                     $<TARGET_OBJECTS:duckdb_optimizer_rules> PARENT_SCOPE)
+                     $<TARGET_OBJECTS:graindb_optimizer_rules> PARENT_SCOPE)

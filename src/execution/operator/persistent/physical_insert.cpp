@@ -1,12 +1,12 @@
-#include "duckdb/execution/operator/persistent/physical_insert.hpp"
+#include "graindb/execution/operator/persistent/physical_insert.hpp"
 
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/common/types/chunk_collection.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/storage/data_table.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/common/types/chunk_collection.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/storage/data_table.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void PhysicalInsert::GetChunkInternal(ClientContext &context, DataChunk &chunk, PhysicalOperatorState *state,

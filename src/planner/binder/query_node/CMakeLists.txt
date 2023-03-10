@@ -1,4 +1,4 @@
-add_library_unity(duckdb_bind_query_node
+add_library_unity(graindb_bind_query_node
                   OBJECT
                   bind_select_node.cpp
                   bind_setop_node.cpp
@@ -9,4 +9,4 @@ add_library_unity(duckdb_bind_query_node
                   plan_setop.cpp
                   plan_subquery.cpp)
 set(ALL_OBJECT_FILES ${ALL_OBJECT_FILES}
-                     $<TARGET_OBJECTS:duckdb_bind_query_node> PARENT_SCOPE)
+                     $<TARGET_OBJECTS:graindb_bind_query_node> PARENT_SCOPE)

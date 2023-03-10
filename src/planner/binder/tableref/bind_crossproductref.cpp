@@ -1,8 +1,8 @@
-#include "duckdb/parser/tableref/crossproductref.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/tableref/bound_crossproductref.hpp"
+#include "graindb/parser/tableref/crossproductref.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/tableref/bound_crossproductref.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<BoundTableRef> Binder::Bind(CrossProductRef &ref) {

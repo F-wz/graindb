@@ -1,15 +1,15 @@
-#include "duckdb/storage/table/persistent_segment.hpp"
+#include "graindb/storage/table/persistent_segment.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/types/vector.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/storage/checkpoint/table_data_writer.hpp"
-#include "duckdb/storage/meta_block_reader.hpp"
-#include "duckdb/storage/numeric_segment.hpp"
-#include "duckdb/storage/string_segment.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/types/vector.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/storage/checkpoint/table_data_writer.hpp"
+#include "graindb/storage/meta_block_reader.hpp"
+#include "graindb/storage/numeric_segment.hpp"
+#include "graindb/storage/string_segment.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 PersistentSegment::PersistentSegment(BufferManager &manager, block_id_t id, idx_t offset, TypeId type, idx_t start,

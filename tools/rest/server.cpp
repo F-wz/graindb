@@ -3,12 +3,12 @@
 #include <thread>
 #include <iostream>
 
-#include "duckdb.hpp"
-#include "duckdb/common/types/data_chunk.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/unordered_map.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/main/client_context.hpp"
+#include "graindb.hpp"
+#include "graindb/common/types/data_chunk.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/unordered_map.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/main/client_context.hpp"
 
 // you can set this to enable compression. You will need to link zlib as well.
 // #define CPPHTTPLIB_ZLIB_SUPPORT 1
@@ -19,11 +19,11 @@
 #include <unordered_map>
 
 using namespace httplib;
-using namespace duckdb;
+using namespace graindb;
 using namespace nlohmann;
 
 void print_help() {
-	fprintf(stderr, "🦆 Usage: duckdb_rest_server\n");
+	fprintf(stderr, "🦆 Usage: graindb_rest_server\n");
 	fprintf(stderr, "          --listen=[address]    listening address\n");
 	fprintf(stderr, "          --port=[no]           listening port\n");
 	fprintf(stderr, "          --database=[file]     use given database file\n");
@@ -31,7 +31,7 @@ void print_help() {
 	fprintf(stderr, "          --query_timeout=[sec] query timeout in seconds\n");
 	fprintf(stderr, "          --fetch_timeout=[sec] result set timeout in seconds\n");
 	fprintf(stderr, "          --log=[file]          log queries to file\n\n");
-	fprintf(stderr, "Version: %s\n", DUCKDB_SOURCE_ID);
+	fprintf(stderr, "Version: %s\n", GRAINDB_SOURCE_ID);
 
 }
 
@@ -131,7 +131,7 @@ void serialize_chunk(QueryResult *res, DataChunk *chunk, json &j) {
 
 void serialize_json(const Request &req, Response &resp, json &j) {
 	auto return_type = ReturnContentType::JSON;
-	j["duckdb_version"] = DUCKDB_SOURCE_ID;
+	j["graindb_version"] = GRAINDB_SOURCE_ID;
 
 	if (req.has_header("Accept")) {
 		auto accept = req.get_header_value("Accept");
@@ -308,7 +308,7 @@ int main(int argc, char **argv) {
 		logfile.open(logfile_name, std::ios_base::app);
 	}
 
-	DuckDB duckdb(dbfile.empty() ? nullptr : dbfile.c_str(), &config);
+	GrainDB graindb(dbfile.empty() ? nullptr : dbfile.c_str(), &config);
 
 	svr.Get("/query", [&](const Request &req, Response &resp) {
 		auto q = req.get_param_value("q");
@@ -321,7 +321,7 @@ int main(int argc, char **argv) {
 		json j;
 
 		RestClientState state;
-		state.con = make_unique<Connection>(duckdb);
+		state.con = make_unique<Connection>(graindb);
 		state.con->EnableProfiling();
 		state.touched = std::time(nullptr);
 		bool is_active = true;
@@ -415,7 +415,7 @@ int main(int argc, char **argv) {
 
 	svr.Get("/close", [&](const Request &req, Response &resp) {
 		auto ref = req.get_param_value("ref");
-		Connection conn(duckdb);
+		Connection conn(graindb);
 		json j;
 		std::lock_guard<std::mutex> guard(client_state_map_mutex);
 		if (client_state_map.find(ref) != client_state_map.end()) {

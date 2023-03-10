@@ -1,8 +1,8 @@
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/operator/logical_table_function.hpp"
-#include "duckdb/planner/tableref/bound_table_function.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/operator/logical_table_function.hpp"
+#include "graindb/planner/tableref/bound_table_function.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<LogicalOperator> Binder::CreatePlan(BoundTableFunction &ref) {

@@ -1,8 +1,8 @@
-#include "duckdb/common/enums/logical_operator_type.hpp"
+#include "graindb/common/enums/logical_operator_type.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 //===--------------------------------------------------------------------===//
 // Value <--> String Utilities
@@ -91,4 +91,4 @@ string LogicalOperatorToString(LogicalOperatorType type) {
 	}
 }
 
-} // namespace duckdb
+} // namespace graindb

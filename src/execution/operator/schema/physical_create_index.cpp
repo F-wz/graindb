@@ -1,12 +1,12 @@
-#include "duckdb/execution/operator/schema/physical_create_index.hpp"
+#include "graindb/execution/operator/schema/physical_create_index.hpp"
 
-#include "duckdb/catalog/catalog_entry/index_catalog_entry.hpp"
-#include "duckdb/catalog/catalog_entry/schema_catalog_entry.hpp"
-#include "duckdb/execution/expression_executor.hpp"
+#include "graindb/catalog/catalog_entry/index_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/schema_catalog_entry.hpp"
+#include "graindb/execution/expression_executor.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 void PhysicalCreateIndex::GetChunkInternal(ClientContext &context, DataChunk &chunk, PhysicalOperatorState *state,
                                            SelectionVector *sel, Vector *rid_vector, DataChunk *rai_chunk) {
@@ -39,4 +39,4 @@ void PhysicalCreateIndex::GetChunkInternal(ClientContext &context, DataChunk &ch
 	state->finished = true;
 }
 
-} // namespace duckdb
+} // namespace graindb

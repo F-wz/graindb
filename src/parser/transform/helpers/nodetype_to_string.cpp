@@ -1,6 +1,6 @@
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 
 std::string Transformer::NodetypeToString(PGNodeTag type) {
 	switch (type) {

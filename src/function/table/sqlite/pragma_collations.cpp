@@ -1,14 +1,14 @@
-#include "duckdb/function/table/sqlite_functions.hpp"
+#include "graindb/function/table/sqlite_functions.hpp"
 
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/catalog/catalog_entry/collate_catalog_entry.hpp"
-#include "duckdb/catalog/catalog_entry/schema_catalog_entry.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/transaction/transaction.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/catalog/catalog_entry/collate_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/schema_catalog_entry.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/transaction/transaction.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 struct PragmaCollateData : public TableFunctionData {
 	PragmaCollateData() : initialized(false), offset(0) {
@@ -61,4 +61,4 @@ void PragmaCollations::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(TableFunction("pragma_collations", {}, pragma_collate_bind, pragma_collate_info, nullptr));
 }
 
-} // namespace duckdb
+} // namespace graindb

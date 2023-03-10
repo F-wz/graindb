@@ -1,10 +1,10 @@
-#include "duckdb/planner/expression.hpp"
+#include "graindb/planner/expression.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/hash.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/hash.hpp"
+#include "graindb/planner/expression_iterator.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 Expression::Expression(ExpressionType type, ExpressionClass expression_class, TypeId return_type)
@@ -57,8 +57,8 @@ bool Expression::HasSubquery() const {
 }
 
 hash_t Expression::Hash() const {
-	hash_t hash = duckdb::Hash<uint32_t>((uint32_t)type);
-	hash = CombineHash(hash, duckdb::Hash<uint32_t>((uint32_t)return_type));
+	hash_t hash = graindb::Hash<uint32_t>((uint32_t)type);
+	hash = CombineHash(hash, graindb::Hash<uint32_t>((uint32_t)return_type));
 	ExpressionIterator::EnumerateChildren(*this,
 	                                      [&](const Expression &child) { hash = CombineHash(child.Hash(), hash); });
 	return hash;

@@ -4,12 +4,12 @@
 #include <chrono>
 #include <thread>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Schema dependencies", "[catalog]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	Connection con2(db);
 
@@ -58,7 +58,7 @@ TEST_CASE("Schema dependencies", "[catalog]") {
 
 TEST_CASE("Prepared statement dependencies dependencies", "[catalog]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	Connection con2(db);
 
@@ -92,7 +92,7 @@ TEST_CASE("Prepared statement dependencies dependencies", "[catalog]") {
 
 TEST_CASE("Default values and dependencies", "[catalog]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	Connection con2(db);
 
@@ -137,7 +137,7 @@ TEST_CASE("Default values and dependencies", "[catalog]") {
 
 TEST_CASE("Prepare dependencies and transactions", "[catalog]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	Connection con2(db);
 
@@ -230,7 +230,7 @@ TEST_CASE("Prepare dependencies and transactions", "[catalog]") {
 
 TEST_CASE("Test prepare dependencies with multiple connections", "[catalog]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	auto con = make_unique<Connection>(db);
 	auto con2 = make_unique<Connection>(db);
 	auto con3 = make_unique<Connection>(db);
@@ -275,7 +275,7 @@ static void RunQueryUntilSuccess(Connection &con, string query) {
 	}
 }
 
-static void create_drop_table(DuckDB *db) {
+static void create_drop_table(GrainDB *db) {
 	Connection con(*db);
 
 	while (!finished) {
@@ -294,7 +294,7 @@ static void create_drop_table(DuckDB *db) {
 	}
 }
 
-static void create_use_prepared_statement(DuckDB *db) {
+static void create_use_prepared_statement(GrainDB *db) {
 	Connection con(*db);
 	unique_ptr<QueryResult> result;
 
@@ -316,7 +316,7 @@ static void create_use_prepared_statement(DuckDB *db) {
 }
 
 TEST_CASE("Test parallel dependencies in multiple connections", "[catalog][.]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 
 	// in this test we create and drop a table in one thread (with CASCADE drop)
 	// in the other thread, we create a prepared statement and execute it
@@ -335,7 +335,7 @@ TEST_CASE("Test parallel dependencies in multiple connections", "[catalog][.]") 
 	table_thread.join();
 }
 
-static void create_drop_schema(DuckDB *db) {
+static void create_drop_schema(GrainDB *db) {
 	Connection con(*db);
 
 	while (!finished) {
@@ -349,7 +349,7 @@ static void create_drop_schema(DuckDB *db) {
 	}
 }
 
-static void create_use_table_view(DuckDB *db, int threadnr) {
+static void create_use_table_view(GrainDB *db, int threadnr) {
 	Connection con(*db);
 	unique_ptr<QueryResult> result;
 	string tname = "integers" + to_string(threadnr);
@@ -376,7 +376,7 @@ static void create_use_table_view(DuckDB *db, int threadnr) {
 	}
 }
 TEST_CASE("Test parallel dependencies with schemas and tables", "[catalog][.]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	// FIXME: this test crashes
 	return;
 

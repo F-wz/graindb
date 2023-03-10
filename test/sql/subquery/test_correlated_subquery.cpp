@@ -1,14 +1,14 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "dbgen.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test correlated subqueries", "[subquery]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	con.EnableQueryVerification();
@@ -84,7 +84,7 @@ TEST_CASE("Test correlated subqueries", "[subquery]") {
 
 TEST_CASE("Test correlated aggregate subqueries", "[subquery]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	con.EnableQueryVerification();
@@ -302,7 +302,7 @@ TEST_CASE("Test correlated aggregate subqueries", "[subquery]") {
 
 TEST_CASE("Test correlated EXISTS subqueries", "[subquery]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	con.EnableQueryVerification();
@@ -368,7 +368,7 @@ TEST_CASE("Test correlated EXISTS subqueries", "[subquery]") {
 
 TEST_CASE("Test correlated ANY/ALL subqueries", "[subquery]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	con.EnableQueryVerification();
@@ -439,7 +439,7 @@ TEST_CASE("Test correlated ANY/ALL subqueries", "[subquery]") {
 
 TEST_CASE("Test for COUNT(*) and SUM(i) IS NULL in subqueries", "[subquery]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	con.EnableQueryVerification();
@@ -494,7 +494,7 @@ TEST_CASE("Test for COUNT(*) and SUM(i) IS NULL in subqueries", "[subquery]") {
 
 TEST_CASE("Test multiple correlated columns and strings", "[subquery]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	con.EnableQueryVerification();
@@ -539,7 +539,7 @@ TEST_CASE("Test multiple correlated columns and strings", "[subquery]") {
 
 TEST_CASE("Test complex correlated subqueries", "[subquery]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	con.EnableQueryVerification();
@@ -631,7 +631,7 @@ TEST_CASE("Test complex correlated subqueries", "[subquery]") {
 
 TEST_CASE("Test window functions in correlated subqueries", "[subquery]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	con.EnableQueryVerification();
@@ -665,7 +665,7 @@ TEST_CASE("Test window functions in correlated subqueries", "[subquery]") {
 
 TEST_CASE("Test nested correlated subqueries", "[subquery]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	con.EnableQueryVerification();
@@ -865,7 +865,7 @@ TEST_CASE("Test nested correlated subqueries", "[subquery]") {
 
 TEST_CASE("Test varchar correlated subqueries", "[subquery]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	con.EnableQueryVerification();
@@ -905,7 +905,7 @@ TEST_CASE("Test varchar correlated subqueries", "[subquery]") {
 
 TEST_CASE("Test correlated subqueries based on TPC-DS", "[subquery]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -921,7 +921,7 @@ TEST_CASE("Test correlated subqueries based on TPC-DS", "[subquery]") {
 
 TEST_CASE("Test correlated subquery with grouping columns", "[subquery]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

@@ -1,8 +1,8 @@
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/vector_operations/ternary_executor.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/ternary_executor.hpp"
 
 #include <string.h>
 #include <ctype.h>
@@ -11,7 +11,7 @@
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static idx_t next_needle(const char *input_haystack, idx_t size_haystack, const char *input_needle,
                          const idx_t size_needle) {
@@ -90,4 +90,4 @@ void ReplaceFun::RegisterFunction(BuiltinFunctions &set) {
 	                               replace_function)); // pointer to function implementation
 }
 
-} // namespace duckdb
+} // namespace graindb

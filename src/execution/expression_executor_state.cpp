@@ -1,8 +1,8 @@
-#include "duckdb/execution/expression_executor_state.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression.hpp"
+#include "graindb/execution/expression_executor_state.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void ExpressionState::AddChild(Expression *expr) {

@@ -1,7 +1,7 @@
-#include "duckdb/storage/table/chunk_info.hpp"
-#include "duckdb/transaction/transaction.hpp"
+#include "graindb/storage/table/chunk_info.hpp"
+#include "graindb/transaction/transaction.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static bool UseVersion(Transaction &transaction, transaction_t id) {

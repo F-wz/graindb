@@ -1,10 +1,10 @@
-#include "duckdb/parser/expression/parameter_expression.hpp"
+#include "graindb/parser/expression/parameter_expression.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/common/types/hash.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/common/types/hash.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ParameterExpression::ParameterExpression()
@@ -23,7 +23,7 @@ unique_ptr<ParsedExpression> ParameterExpression::Copy() const {
 
 hash_t ParameterExpression::Hash() const {
 	hash_t result = ParsedExpression::Hash();
-	return CombineHash(duckdb::Hash(parameter_nr), result);
+	return CombineHash(graindb::Hash(parameter_nr), result);
 }
 
 void ParameterExpression::Serialize(Serializer &serializer) {

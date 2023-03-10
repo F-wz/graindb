@@ -1,14 +1,14 @@
-.PHONY: duckdb clean main
+.PHONY: graindb clean main
 
-all: duckdb main
+all: graindb main
 
 clean:
 	rm *.class
 
-duckdb:
+graindb:
 	make -C ../.. jdbc
 
 main:
-	javac DuckDBExample.java
-	java -cp .:../../build/release/tools/jdbc/duckdb_jdbc.jar DuckDBExample
+	javac GrainDBExample.java
+	java -cp .:../../build/release/tools/jdbc/graindb_jdbc.jar GrainDBExample
 

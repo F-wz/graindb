@@ -1,7 +1,7 @@
-#include "duckdb/main/prepared_statement_data.hpp"
-#include "duckdb/execution/physical_operator.hpp"
+#include "graindb/main/prepared_statement_data.hpp"
+#include "graindb/execution/physical_operator.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 PreparedStatementData::PreparedStatementData(StatementType type)

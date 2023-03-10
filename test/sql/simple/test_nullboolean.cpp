@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Booleans and NULLs", "[sql]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -69,16 +69,16 @@ TEST_CASE("Booleans and NULLs", "[sql]") {
 	REQUIRE(CHECK_COLUMN(result, 3, {12, Value(), 11}));
 	REQUIRE(CHECK_COLUMN(result, 4, {16, Value(), 13}));
 
-	// REQUIRE(duckdb_query(connection,
+	// REQUIRE(graindb_query(connection,
 	//                      "SELECT b, COUNT(a), SUM(a), MIN(a), MAX(a) FROM
 	//                      test " "GROUP BY b ORDER BY b", &result) ==
-	//                      DuckDBSuccess);
+	//                      GrainDBSuccess);
 	// REQUIRE(CHECK_NUMERIC_COLUMN(result, 0, {NULL_NUMERIC, 21, 22}));
 	// REQUIRE(CHECK_NUMERIC_COLUMN(result, 1, {2, 0, 2}));
 	// REQUIRE(CHECK_NUMERIC_COLUMN(result, 2, {28, NULL_NUMERIC, 24}));
 	// REQUIRE(CHECK_NUMERIC_COLUMN(result, 3, {12, NULL_NUMERIC, 11}));
 	// REQUIRE(CHECK_NUMERIC_COLUMN(result, 4, {16, NULL_NUMERIC, 13}));
-	// duckdb_destroy_result(result);
+	// graindb_destroy_result(result);
 }
 
 // NOT

@@ -1,17 +1,17 @@
 #include "dsdgen.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/data_chunk.hpp"
-#include "duckdb/storage/data_table.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/data_chunk.hpp"
+#include "graindb/storage/data_table.hpp"
 #include "tpcds_constants.hpp"
 #include "append_info.hpp"
 #include "dsdgen_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 namespace tpcds {
 
-void dbgen(double flt_scale, DuckDB &db, string schema, string suffix) {
+void dbgen(double flt_scale, GrainDB &db, string schema, string suffix) {
 	Connection con(db);
 
 	con.Query("BEGIN TRANSACTION");

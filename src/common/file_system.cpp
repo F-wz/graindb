@@ -1,13 +1,13 @@
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/helper.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/common/checksum.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/main/database.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/helper.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/common/checksum.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/main/database.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 #include <cstdio>

@@ -1,10 +1,10 @@
-#include "duckdb/parser/query_node.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/operator/logical_distinct.hpp"
-#include "duckdb/planner/operator/logical_limit.hpp"
-#include "duckdb/planner/operator/logical_order.hpp"
+#include "graindb/parser/query_node.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/operator/logical_distinct.hpp"
+#include "graindb/planner/operator/logical_limit.hpp"
+#include "graindb/planner/operator/logical_order.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<LogicalOperator> Binder::VisitQueryNode(BoundQueryNode &node, unique_ptr<LogicalOperator> root) {

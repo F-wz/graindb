@@ -1,10 +1,10 @@
 #define CATCH_CONFIG_RUNNER
 #include "catch.hpp"
 
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 
 int main(int argc, char *argv[]) {
 	// delete the testing directory if it exists

@@ -1,12 +1,12 @@
 #include "catch.hpp"
-#include "duckdb/common/value_operations/value_operations.hpp"
+#include "graindb/common/value_operations/value_operations.hpp"
 #include "test_helpers.hpp"
 
 #include <atomic>
 #include <random>
 #include <thread>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 namespace test_concurrent_append {
@@ -16,7 +16,7 @@ static constexpr int INSERT_ELEMENTS = 1000;
 
 TEST_CASE("Sequential append", "[transactions][.]") {
 	unique_ptr<MaterializedQueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	vector<unique_ptr<Connection>> connections;
 
@@ -52,7 +52,7 @@ TEST_CASE("Sequential append", "[transactions][.]") {
 
 static volatile std::atomic<int> finished_threads;
 
-static void insert_random_elements(DuckDB *db, bool *correct, int threadnr) {
+static void insert_random_elements(GrainDB *db, bool *correct, int threadnr) {
 	correct[threadnr] = true;
 	Connection con(*db);
 	// initial count
@@ -78,7 +78,7 @@ static void insert_random_elements(DuckDB *db, bool *correct, int threadnr) {
 
 TEST_CASE("Concurrent append", "[transactions][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// initialize the database

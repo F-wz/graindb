@@ -1,18 +1,18 @@
 #include "catch.hpp"
-#include "duckdb/main/appender.hpp"
+#include "graindb/main/appender.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/types/time.hpp"
-#include "duckdb/common/types/timestamp.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/types/time.hpp"
+#include "graindb/common/types/timestamp.hpp"
 
 #include <vector>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Basic appender tests", "[appender]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// create a table to append to
@@ -93,7 +93,7 @@ TEST_CASE("Basic appender tests", "[appender]") {
 
 TEST_CASE("Test AppendRow", "[appender]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// create a table to append to
@@ -171,7 +171,7 @@ TEST_CASE("Test AppendRow", "[appender]") {
 
 TEST_CASE("Test incorrect usage of appender", "[appender]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// create a table to append to
@@ -225,7 +225,7 @@ TEST_CASE("Test incorrect usage of appender", "[appender]") {
 
 TEST_CASE("Test invalid input for appender", "[appender]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE doubles(d DOUBLE, f REAL)"));
@@ -246,7 +246,7 @@ TEST_CASE("Test invalid input for appender", "[appender]") {
 
 TEST_CASE("Test appender with quotes", "[appender]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE SCHEMA \"my_schema\""));

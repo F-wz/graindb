@@ -1,11 +1,11 @@
-#include "duckdb/optimizer/sip_join_rewriter.hpp"
+#include "graindb/optimizer/sip_join_rewriter.hpp"
 
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/joinside.hpp"
-#include "duckdb/planner/operator/logical_comparison_join.hpp"
-#include "duckdb/storage/data_table.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/joinside.hpp"
+#include "graindb/planner/operator/logical_comparison_join.hpp"
+#include "graindb/storage/data_table.hpp"
 
-namespace duckdb {
+namespace graindb {
 using namespace std;
 
 unique_ptr<LogicalOperator> SIPJoinRewriter::Rewrite(unique_ptr<LogicalOperator> op) {
@@ -212,4 +212,4 @@ void SIPJoinRewriter::VisitOperator(LogicalOperator &op) {
 	}
 }
 
-} // namespace duckdb
+} // namespace graindb

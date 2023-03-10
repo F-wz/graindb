@@ -1,8 +1,8 @@
-#include "duckdb/planner/expression_binder/relation_binder.hpp"
+#include "graindb/planner/expression_binder/relation_binder.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 RelationBinder::RelationBinder(Binder &binder, ClientContext &context, string op)
     : ExpressionBinder(binder, context), op(move(op)) {
@@ -27,4 +27,4 @@ string RelationBinder::UnsupportedAggregateMessage() {
 	return "aggregate functions are not allowed in " + op;
 }
 
-} // namespace duckdb
+} // namespace graindb

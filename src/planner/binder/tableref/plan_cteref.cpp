@@ -1,8 +1,8 @@
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/operator/logical_cteref.hpp"
-#include "duckdb/planner/tableref/bound_cteref.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/operator/logical_cteref.hpp"
+#include "graindb/planner/tableref/bound_cteref.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<LogicalOperator> Binder::CreatePlan(BoundCTERef &ref) {

@@ -4,11 +4,11 @@
 // += *= /= -= %=
 //===--------------------------------------------------------------------===//
 
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
 #include <algorithm>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 //===--------------------------------------------------------------------===//

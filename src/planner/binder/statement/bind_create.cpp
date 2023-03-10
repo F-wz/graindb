@@ -1,19 +1,19 @@
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/catalog/catalog_entry/schema_catalog_entry.hpp"
-#include "duckdb/parser/parsed_data/create_index_info.hpp"
-#include "duckdb/parser/parsed_data/create_rai_info.hpp"
-#include "duckdb/parser/parsed_data/create_view_info.hpp"
-#include "duckdb/parser/statement/create_statement.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/bound_query_node.hpp"
-#include "duckdb/planner/expression_binder/index_binder.hpp"
-#include "duckdb/planner/operator/logical_create.hpp"
-#include "duckdb/planner/operator/logical_create_index.hpp"
-#include "duckdb/planner/operator/logical_create_table.hpp"
-#include "duckdb/planner/operator/logical_get.hpp"
-#include "duckdb/planner/tableref/bound_basetableref.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/catalog/catalog_entry/schema_catalog_entry.hpp"
+#include "graindb/parser/parsed_data/create_index_info.hpp"
+#include "graindb/parser/parsed_data/create_rai_info.hpp"
+#include "graindb/parser/parsed_data/create_view_info.hpp"
+#include "graindb/parser/statement/create_statement.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/bound_query_node.hpp"
+#include "graindb/planner/expression_binder/index_binder.hpp"
+#include "graindb/planner/operator/logical_create.hpp"
+#include "graindb/planner/operator/logical_create_index.hpp"
+#include "graindb/planner/operator/logical_create_table.hpp"
+#include "graindb/planner/operator/logical_get.hpp"
+#include "graindb/planner/tableref/bound_basetableref.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 SchemaCatalogEntry *Binder::BindSchema(CreateInfo &info) {

@@ -1,9 +1,9 @@
-#include "duckdb/execution/operator/join/physical_blockwise_nl_join.hpp"
+#include "graindb/execution/operator/join/physical_blockwise_nl_join.hpp"
 
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/expression_executor.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/expression_executor.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class PhysicalBlockwiseNLJoinState : public PhysicalOperatorState {

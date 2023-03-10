@@ -1,13 +1,13 @@
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/parser/expression/bound_expression.hpp"
-#include "duckdb/function/scalar/nested_functions.hpp"
-#include "duckdb/common/types/chunk_collection.hpp"
-#include "duckdb/common/types/data_chunk.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/parser/expression/bound_expression.hpp"
+#include "graindb/function/scalar/nested_functions.hpp"
+#include "graindb/common/types/chunk_collection.hpp"
+#include "graindb/common/types/data_chunk.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static void list_value_fun(DataChunk &args, ExpressionState &state, Vector &result) {
 	//	auto &func_expr = (BoundFunctionExpression &)state.expr;
@@ -66,4 +66,4 @@ void ListValueFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(fun);
 }
 
-} // namespace duckdb
+} // namespace graindb

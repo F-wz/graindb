@@ -4,11 +4,11 @@
 // operations AND OR !
 //===--------------------------------------------------------------------===//
 
-#include "duckdb/common/vector_operations/binary_executor.hpp"
-#include "duckdb/common/vector_operations/unary_executor.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/binary_executor.hpp"
+#include "graindb/common/vector_operations/unary_executor.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 //===--------------------------------------------------------------------===//

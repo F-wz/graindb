@@ -1,4 +1,4 @@
-add_library_unity(duckdb_transformer_tableref
+add_library_unity(graindb_transformer_tableref
                   OBJECT
                   transform_base_tableref.cpp
                   transform_join.cpp
@@ -7,4 +7,4 @@ add_library_unity(duckdb_transformer_tableref
                   transform_table_function.cpp
                   transform_tableref.cpp)
 set(ALL_OBJECT_FILES ${ALL_OBJECT_FILES}
-                     $<TARGET_OBJECTS:duckdb_transformer_tableref> PARENT_SCOPE)
+                     $<TARGET_OBJECTS:graindb_transformer_tableref> PARENT_SCOPE)

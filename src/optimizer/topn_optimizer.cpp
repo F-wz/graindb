@@ -1,9 +1,9 @@
-#include "duckdb/optimizer/topn_optimizer.hpp"
-#include "duckdb/planner/operator/logical_order.hpp"
-#include "duckdb/planner/operator/logical_limit.hpp"
-#include "duckdb/planner/operator/logical_top_n.hpp"
+#include "graindb/optimizer/topn_optimizer.hpp"
+#include "graindb/planner/operator/logical_order.hpp"
+#include "graindb/planner/operator/logical_limit.hpp"
+#include "graindb/planner/operator/logical_top_n.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<LogicalOperator> TopN::Optimize(unique_ptr<LogicalOperator> op) {

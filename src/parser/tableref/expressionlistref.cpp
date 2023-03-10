@@ -1,8 +1,8 @@
-#include "duckdb/parser/tableref/expressionlistref.hpp"
+#include "graindb/parser/tableref/expressionlistref.hpp"
 
-#include "duckdb/common/serializer.hpp"
+#include "graindb/common/serializer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 bool ExpressionListRef::Equals(const TableRef *other_) const {

@@ -1,4 +1,4 @@
-add_library_unity(duckdb_bind_tableref
+add_library_unity(graindb_bind_tableref
                   OBJECT
                   bind_basetableref.cpp
                   bind_crossproductref.cpp
@@ -16,5 +16,5 @@ add_library_unity(duckdb_bind_tableref
                   plan_table_function.cpp
                   plan_cteref.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_bind_tableref>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_bind_tableref>
     PARENT_SCOPE)

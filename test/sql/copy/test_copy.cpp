@@ -1,18 +1,18 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
-#include "duckdb/common/types/date.hpp"
+#include "graindb/common/file_system.hpp"
+#include "graindb/common/types/date.hpp"
 #include "test_csv_header.hpp"
 #include "test_helpers.hpp"
 
 #include <fstream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test copy statement", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -174,7 +174,7 @@ TEST_CASE("Test copy statement", "[copy]") {
 TEST_CASE("Test CSV file without trailing newline", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -208,7 +208,7 @@ TEST_CASE("Test CSV file without trailing newline", "[copy]") {
 TEST_CASE("Test CSVs with repeating patterns in delimiter/escape/quote", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_dir = GetCSVPath();
@@ -480,7 +480,7 @@ TEST_CASE("Test CSVs with repeating patterns in delimiter/escape/quote", "[copy]
 TEST_CASE("Test long value with escapes", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -526,7 +526,7 @@ TEST_CASE("Test long value with escapes", "[copy]") {
 TEST_CASE("Test NULL option of copy statement", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -652,7 +652,7 @@ TEST_CASE("Test NULL option of copy statement", "[copy]") {
 TEST_CASE("Test force_quote and force_not_null", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -792,17 +792,17 @@ TEST_CASE("Test force_quote and force_not_null", "[copy]") {
 TEST_CASE("Test copy statement with unicode delimiter/quote/escape", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
 
 	// generate CSV file with unicode (> one-byte) delimiter/quote/escape
 	ofstream from_csv_file1(fs.JoinPath(csv_path, "multi_char.csv"));
-	from_csv_file1 << 0 << "🦆ˮdu˧˧🦆ckˮ🦆ˮd˧ˮ˧ˮu🦆ckˮ🦆duck" << endl;
-	from_csv_file1 << 1 << "🦆ˮdou˧ˮbleˮ🦆🦆duck" << endl;
+	from_csv_file1 << 0 << "🦆ˮdu˧˧🦆ckˮ🦆ˮd˧ˮ˧ˮu🦆ckˮ🦆grain" << endl;
+	from_csv_file1 << 1 << "🦆ˮdou˧ˮbleˮ🦆🦆grain" << endl;
 	from_csv_file1 << 2 << "🦆🦆🦆" << endl;
-	from_csv_file1 << 3 << "🦆duck inv˧asion🦆🦆" << endl;
+	from_csv_file1 << 3 << "🦆grain inv˧asion🦆🦆" << endl;
 	from_csv_file1.close();
 
 	// generate CSV file with unicode (> one-byte) delimiter/quote/escape that exceeds the buffer size a few times
@@ -821,21 +821,21 @@ TEST_CASE("Test copy statement with unicode delimiter/quote/escape", "[copy]") {
 	// generate CSV file with one-byte delimiter/quote/escape
 	ofstream from_csv_file3(fs.JoinPath(csv_path, "one_byte_char.csv"));
 	for (int i = 0; i < 3; i++) {
-		from_csv_file3 << i << ",'du''ck','''''du,ck',duck" << endl;
+		from_csv_file3 << i << ",'du''ck','''''du,ck',grain" << endl;
 	}
 	from_csv_file3.close();
 
 	// generate CSV file with unterminated quotes
 	ofstream from_csv_file4(fs.JoinPath(csv_path, "unterminated_quotes.csv"));
 	for (int i = 0; i < 3; i++) {
-		from_csv_file4 << i << ",duck,\"duck" << endl;
+		from_csv_file4 << i << ",grain,\"grain" << endl;
 	}
 	from_csv_file4.close();
 
 	// generate CSV file with quotes that start midway in the value
 	ofstream from_csv_file5(fs.JoinPath(csv_path, "unterminated_quotes_2.csv"));
 	for (int i = 0; i < 3; i++) {
-		from_csv_file5 << i << ",du\"ck,duck" << endl;
+		from_csv_file5 << i << ",du\"ck,grain" << endl;
 	}
 	from_csv_file5.close();
 
@@ -867,9 +867,9 @@ TEST_CASE("Test copy statement with unicode delimiter/quote/escape", "[copy]") {
 	REQUIRE(CHECK_COLUMN(result, 0, {4}));
 	result = con.Query("SELECT * FROM test_unicode_1 ORDER BY 1 LIMIT 4;");
 	REQUIRE(CHECK_COLUMN(result, 0, {0, 1, 2, 3}));
-	REQUIRE(CHECK_COLUMN(result, 1, {"du˧🦆ck", "douˮble", Value(), "duck inv˧asion"}));
+	REQUIRE(CHECK_COLUMN(result, 1, {"du˧🦆ck", "douˮble", Value(), "grain inv˧asion"}));
 	REQUIRE(CHECK_COLUMN(result, 2, {"dˮˮu🦆ck", Value(), Value(), Value()}));
-	REQUIRE(CHECK_COLUMN(result, 3, {"duck", "duck", Value(), Value()}));
+	REQUIRE(CHECK_COLUMN(result, 3, {"grain", "grain", Value(), Value()}));
 
 	// test unicode delimiter/quote/escape that exceeds the buffer size a few times
 	result = con.Query("COPY test_unicode_2 FROM '" + fs.JoinPath(csv_path, "multi_char_buffer_exhausted.csv") +
@@ -890,7 +890,7 @@ TEST_CASE("Test copy statement with unicode delimiter/quote/escape", "[copy]") {
 	REQUIRE(CHECK_COLUMN(result, 0, {0, 1, 2}));
 	REQUIRE(CHECK_COLUMN(result, 1, {"du'ck", "du'ck", "du'ck"}));
 	REQUIRE(CHECK_COLUMN(result, 2, {"''du,ck", "''du,ck", "''du,ck"}));
-	REQUIRE(CHECK_COLUMN(result, 3, {"duck", "duck", "duck"}));
+	REQUIRE(CHECK_COLUMN(result, 3, {"grain", "grain", "grain"}));
 
 	// test correct shared substring behavior at buffer borders
 	result = con.Query("COPY test_unicode_4 FROM '" + fs.JoinPath(csv_path, "shared_substrings.csv") +
@@ -912,15 +912,15 @@ TEST_CASE("Test copy statement with unicode delimiter/quote/escape", "[copy]") {
 
 	// escape and quote cannot be substrings of each other
 	REQUIRE_FAIL(con.Query("COPY test_unicode_1 FROM '" + fs.JoinPath(csv_path, "one_byte_char.csv") +
-	                       "' (ESCAPE 'du', QUOTE 'duck');"));
+	                       "' (ESCAPE 'du', QUOTE 'grain');"));
 	REQUIRE_FAIL(con.Query("COPY test_unicode_1 FROM '" + fs.JoinPath(csv_path, "one_byte_char.csv") +
-	                       "' (ESCAPE 'duck', QUOTE 'du');"));
+	                       "' (ESCAPE 'grain', QUOTE 'du');"));
 
 	// delimiter and quote cannot be substrings of each other
 	REQUIRE_FAIL(con.Query("COPY test_unicode_1 FROM '" + fs.JoinPath(csv_path, "one_byte_char.csv") +
-	                       "' (DELIMITER 'du', QUOTE 'duck');"));
+	                       "' (DELIMITER 'du', QUOTE 'grain');"));
 	REQUIRE_FAIL(con.Query("COPY test_unicode_1 FROM '" + fs.JoinPath(csv_path, "one_byte_char.csv") +
-	                       "' (DELIMITER 'duck', QUOTE 'du');"));
+	                       "' (DELIMITER 'grain', QUOTE 'du');"));
 
 	// delimiter and escape cannot be substrings of each other
 	REQUIRE_FAIL(con.Query("COPY test_unicode_1 FROM '" + fs.JoinPath(csv_path, "one_byte_char.csv") +
@@ -940,9 +940,9 @@ TEST_CASE("Test copy statement with unicode delimiter/quote/escape", "[copy]") {
 	REQUIRE(CHECK_COLUMN(result, 0, {4}));
 	result = con.Query("SELECT * FROM test_unicode_1 ORDER BY 1 LIMIT 4;");
 	REQUIRE(CHECK_COLUMN(result, 0, {0, 1, 2, 3}));
-	REQUIRE(CHECK_COLUMN(result, 1, {"du˧🦆ck", "douˮble", Value(), "duck inv˧asion"}));
+	REQUIRE(CHECK_COLUMN(result, 1, {"du˧🦆ck", "douˮble", Value(), "grain inv˧asion"}));
 	REQUIRE(CHECK_COLUMN(result, 2, {"dˮˮu🦆ck", Value(), Value(), Value()}));
-	REQUIRE(CHECK_COLUMN(result, 3, {"duck", "duck", Value(), Value()}));
+	REQUIRE(CHECK_COLUMN(result, 3, {"grain", "grain", Value(), Value()}));
 
 	// test unicode delimiter/quote/escape
 	result = con.Query("COPY test_unicode_2 TO '" + fs.JoinPath(csv_path, "test_unicode_2.csv") +
@@ -970,13 +970,13 @@ TEST_CASE("Test copy statement with unicode delimiter/quote/escape", "[copy]") {
 	REQUIRE(CHECK_COLUMN(result, 0, {0, 1, 2}));
 	REQUIRE(CHECK_COLUMN(result, 1, {"du'ck", "du'ck", "du'ck"}));
 	REQUIRE(CHECK_COLUMN(result, 2, {"''du,ck", "''du,ck", "''du,ck"}));
-	REQUIRE(CHECK_COLUMN(result, 3, {"duck", "duck", "duck"}));
+	REQUIRE(CHECK_COLUMN(result, 3, {"grain", "grain", "grain"}));
 }
 
 TEST_CASE("Test copy statement with file overwrite", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1011,7 +1011,7 @@ TEST_CASE("Test copy statement with file overwrite", "[copy]") {
 TEST_CASE("Test copy statement with default values", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1049,7 +1049,7 @@ TEST_CASE("Test copy statement with default values", "[copy]") {
 TEST_CASE("Test copy statement with long lines", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1078,7 +1078,7 @@ TEST_CASE("Test copy statement with long lines", "[copy]") {
 TEST_CASE("Test copy statement with quotes and newlines", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1140,7 +1140,7 @@ TEST_CASE("Test copy statement with quotes and newlines", "[copy]") {
 TEST_CASE("Test copy statement with many empty lines", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1165,7 +1165,7 @@ TEST_CASE("Test copy statement with many empty lines", "[copy]") {
 TEST_CASE("Test different line endings", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1199,7 +1199,7 @@ TEST_CASE("Test different line endings", "[copy]") {
 TEST_CASE("Test Windows Newlines with a long file", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1265,7 +1265,7 @@ TEST_CASE("Test Windows Newlines with a long file", "[copy]") {
 TEST_CASE("Test lines that exceed the maximum line size", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1284,7 +1284,7 @@ TEST_CASE("Test lines that exceed the maximum line size", "[copy]") {
 TEST_CASE("Test copy from/to on-time dataset", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1351,7 +1351,7 @@ TEST_CASE("Test copy from/to on-time dataset", "[copy]") {
 TEST_CASE("Test copy from/to lineitem csv", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1398,7 +1398,7 @@ TEST_CASE("Test copy from/to lineitem csv", "[copy]") {
 TEST_CASE("Test copy from web_page csv", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1434,7 +1434,7 @@ TEST_CASE("Test copy from web_page csv", "[copy]") {
 TEST_CASE("Test copy from greek-utf8 csv", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1459,7 +1459,7 @@ TEST_CASE("Test copy from greek-utf8 csv", "[copy]") {
 TEST_CASE("Test copy from ncvoter csv", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1503,7 +1503,7 @@ TEST_CASE("Test copy from ncvoter csv", "[copy]") {
 TEST_CASE("Test date copy", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE date_test(d date);"));
@@ -1522,7 +1522,7 @@ TEST_CASE("Test date copy", "[copy]") {
 TEST_CASE("Test cranlogs broken gzip copy and temp table", "[copy][.]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1539,7 +1539,7 @@ TEST_CASE("Test cranlogs broken gzip copy and temp table", "[copy][.]") {
 TEST_CASE("Test imdb escapes", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1560,7 +1560,7 @@ TEST_CASE("Test imdb escapes", "[copy]") {
 TEST_CASE("Test read CSV function with lineitem", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1594,7 +1594,7 @@ TEST_CASE("Test read CSV function with lineitem", "[copy]") {
 TEST_CASE("Test CSV with UTF8 NFC Normalization", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1615,7 +1615,7 @@ TEST_CASE("Test CSV with UTF8 NFC Normalization", "[copy]") {
 TEST_CASE("Test CSV with Unicode NFC Normalization test suite", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -1637,7 +1637,7 @@ TEST_CASE("Test CSV with Unicode NFC Normalization test suite", "[copy]") {
 }
 
 TEST_CASE("Test CSV reading/writing from relations", "[relation_api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 

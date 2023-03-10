@@ -1,10 +1,10 @@
-#include "duckdb/execution/operator/join/physical_hash_join.hpp"
+#include "graindb/execution/operator/join/physical_hash_join.hpp"
 
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/storage/buffer_manager.hpp"
-#include "duckdb/storage/storage_manager.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/storage/buffer_manager.hpp"
+#include "graindb/storage/storage_manager.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class PhysicalHashJoinState : public PhysicalComparisonJoinState {

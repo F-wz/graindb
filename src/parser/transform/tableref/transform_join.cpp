@@ -1,10 +1,10 @@
-#include "duckdb/common/exception.hpp"
-#include "duckdb/parser/tableref/basetableref.hpp"
-#include "duckdb/parser/tableref/crossproductref.hpp"
-#include "duckdb/parser/tableref/joinref.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/parser/tableref/basetableref.hpp"
+#include "graindb/parser/tableref/crossproductref.hpp"
+#include "graindb/parser/tableref/joinref.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<TableRef> Transformer::TransformJoin(PGJoinExpr *root) {

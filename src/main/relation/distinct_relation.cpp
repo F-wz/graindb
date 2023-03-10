@@ -1,8 +1,8 @@
-#include "duckdb/main/relation/distinct_relation.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/parser/query_node.hpp"
+#include "graindb/main/relation/distinct_relation.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/parser/query_node.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 DistinctRelation::DistinctRelation(shared_ptr<Relation> child_p)
     : Relation(child_p->context, RelationType::DISTINCT_RELATION), child(move(child_p)) {
@@ -30,4 +30,4 @@ string DistinctRelation::ToString(idx_t depth) {
 	;
 }
 
-} // namespace duckdb
+} // namespace graindb

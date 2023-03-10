@@ -1,14 +1,14 @@
-#include "duckdb/planner/table_binding.hpp"
+#include "graindb/planner/table_binding.hpp"
 
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/tableref/subqueryref.hpp"
-#include "duckdb/planner/bind_context.hpp"
-#include "duckdb/planner/bound_query_node.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/operator/logical_get.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/tableref/subqueryref.hpp"
+#include "graindb/planner/bind_context.hpp"
+#include "graindb/planner/bound_query_node.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/operator/logical_get.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TableBinding::TableBinding(const string &alias, TableCatalogEntry &table, LogicalGet &get, idx_t index)

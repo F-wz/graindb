@@ -1,11 +1,11 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test basic joins of tables", "[joins]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	con.EnableQueryVerification();
@@ -99,7 +99,7 @@ TEST_CASE("Test basic joins of tables", "[joins]") {
 }
 
 TEST_CASE("Test join with > STANDARD_VECTOR_SIZE duplicates", "[joins][.]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	con.EnableQueryVerification();
@@ -123,7 +123,7 @@ TEST_CASE("Test join with > STANDARD_VECTOR_SIZE duplicates", "[joins][.]") {
 }
 
 TEST_CASE("Equality + inequality joins", "[joins]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	con.EnableQueryVerification();
@@ -166,7 +166,7 @@ TEST_CASE("Equality + inequality joins", "[joins]") {
 }
 
 TEST_CASE("Equality + inequality anti and semi joins", "[joins]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	con.EnableQueryVerification();
@@ -211,7 +211,7 @@ TEST_CASE("Equality + inequality anti and semi joins", "[joins]") {
 }
 
 TEST_CASE("Equality + inequality anti and semi joins with selection vector", "[joins]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	con.EnableQueryVerification();
@@ -246,7 +246,7 @@ TEST_CASE("Equality + inequality anti and semi joins with selection vector", "[j
 }
 
 TEST_CASE("Test range joins", "[joins]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	con.EnableQueryVerification();
@@ -297,7 +297,7 @@ TEST_CASE("Test range joins", "[joins]") {
 }
 
 TEST_CASE("Test inequality joins", "[joins]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	con.EnableQueryVerification();
@@ -334,7 +334,7 @@ TEST_CASE("Test inequality joins", "[joins]") {
 }
 
 TEST_CASE("Test USING joins", "[joins]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	con.EnableQueryVerification();
@@ -413,7 +413,7 @@ TEST_CASE("Test USING joins", "[joins]") {
 }
 
 TEST_CASE("Test chaining USING joins", "[joins]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	con.EnableQueryVerification();
@@ -476,7 +476,7 @@ TEST_CASE("Test chaining USING joins", "[joins]") {
 }
 
 TEST_CASE("Test joins with various columns that are only used in the join", "[joins]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	con.EnableQueryVerification();
@@ -515,7 +515,7 @@ TEST_CASE("Test joins with various columns that are only used in the join", "[jo
 }
 
 TEST_CASE("Test joins with comparisons involving both sides of the join", "[joins]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	con.EnableQueryVerification();

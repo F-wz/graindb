@@ -1,9 +1,9 @@
-#include "duckdb/execution/operator/helper/physical_prepare.hpp"
+#include "graindb/execution/operator/helper/physical_prepare.hpp"
 
-#include "duckdb/catalog/catalog_entry/prepared_statement_catalog_entry.hpp"
-#include "duckdb/main/client_context.hpp"
+#include "graindb/catalog/catalog_entry/prepared_statement_catalog_entry.hpp"
+#include "graindb/main/client_context.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void PhysicalPrepare::GetChunkInternal(ClientContext &context, DataChunk &chunk, PhysicalOperatorState *state,

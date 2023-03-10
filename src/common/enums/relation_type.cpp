@@ -1,10 +1,10 @@
-#include "duckdb/common/enums/relation_type.hpp"
+#include "graindb/common/enums/relation_type.hpp"
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 string RelationTypeToString(RelationType type) {
 	switch (type) {
@@ -58,4 +58,4 @@ string RelationTypeToString(RelationType type) {
 	}
 }
 
-} // namespace duckdb
+} // namespace graindb

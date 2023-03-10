@@ -1,20 +1,20 @@
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression/bound_aggregate_expression.hpp"
-#include "duckdb/planner/expression/bound_cast_expression.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression/bound_comparison_expression.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
-#include "duckdb/planner/expression/bound_reference_expression.hpp"
-#include "duckdb/planner/expression/bound_subquery_expression.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/operator/list.hpp"
-#include "duckdb/planner/subquery/flatten_dependent_join.hpp"
-#include "duckdb/function/aggregate/distributive_functions.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression/bound_aggregate_expression.hpp"
+#include "graindb/planner/expression/bound_cast_expression.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression/bound_comparison_expression.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression/bound_reference_expression.hpp"
+#include "graindb/planner/expression/bound_subquery_expression.hpp"
+#include "graindb/planner/expression_iterator.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/operator/list.hpp"
+#include "graindb/planner/subquery/flatten_dependent_join.hpp"
+#include "graindb/function/aggregate/distributive_functions.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static unique_ptr<Expression> PlanUncorrelatedSubquery(Binder &binder, BoundSubqueryExpression &expr,
                                                        unique_ptr<LogicalOperator> &root,
@@ -340,4 +340,4 @@ void Binder::PlanSubqueries(unique_ptr<Expression> *expr_ptr, unique_ptr<Logical
 	}
 }
 
-} // namespace duckdb
+} // namespace graindb

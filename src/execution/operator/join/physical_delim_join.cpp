@@ -1,9 +1,9 @@
-#include "duckdb/execution/operator/join/physical_delim_join.hpp"
+#include "graindb/execution/operator/join/physical_delim_join.hpp"
 
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/operator/scan/physical_chunk_scan.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/operator/scan/physical_chunk_scan.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class PhysicalDelimJoinState : public PhysicalOperatorState {

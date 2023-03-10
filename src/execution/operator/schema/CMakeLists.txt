@@ -1,5 +1,5 @@
 add_library_unity(
-  duckdb_operator_schema
+  graindb_operator_schema
   OBJECT
   physical_alter.cpp
   physical_create_index.cpp
@@ -10,5 +10,5 @@ add_library_unity(
   physical_create_view.cpp
   physical_drop.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_operator_schema>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_operator_schema>
     PARENT_SCOPE)

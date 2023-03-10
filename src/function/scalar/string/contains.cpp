@@ -1,17 +1,17 @@
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/vector_operations/unary_executor.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/common/vector_operations/unary_executor.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/unary_executor.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/common/vector_operations/unary_executor.hpp"
 
 #include <ctype.h>
 #include <cstring>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static bool contains_strstr(const string_t &str, const string_t &pattern);
 
@@ -38,4 +38,4 @@ void ContainsFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(GetFunction());
 }
 
-} // namespace duckdb
+} // namespace graindb

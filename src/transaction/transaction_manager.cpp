@@ -1,14 +1,14 @@
-#include "duckdb/transaction/transaction_manager.hpp"
+#include "graindb/transaction/transaction_manager.hpp"
 
-#include "duckdb/catalog/catalog_set.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/helper.hpp"
-#include "duckdb/common/types/timestamp.hpp"
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/storage/storage_manager.hpp"
-#include "duckdb/transaction/transaction.hpp"
+#include "graindb/catalog/catalog_set.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/helper.hpp"
+#include "graindb/common/types/timestamp.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/storage/storage_manager.hpp"
+#include "graindb/transaction/transaction.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TransactionManager::TransactionManager(StorageManager &storage) : storage(storage) {

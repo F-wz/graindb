@@ -1,14 +1,14 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
-#include "duckdb/storage/storage_manager.hpp"
+#include "graindb/common/file_system.hpp"
+#include "graindb/storage/storage_manager.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static void test_in_memory_initialization(string dbdir) {
 	FileSystem fs;
-	unique_ptr<DuckDB> db;
+	unique_ptr<GrainDB> db;
 	string in_memory_tmp = ".tmp";
 
 	// make sure the temporary folder does not exist
@@ -16,7 +16,7 @@ static void test_in_memory_initialization(string dbdir) {
 	fs.RemoveDirectory(in_memory_tmp);
 
 	// cannot create an in-memory database using ":memory:" argument
-	REQUIRE_NOTHROW(db = make_unique<DuckDB>(dbdir));
+	REQUIRE_NOTHROW(db = make_unique<GrainDB>(dbdir));
 
 	// WAL is not null, which indicates that data is being persisted somewhere
 	REQUIRE(db->storage->GetWriteAheadLog() == 0);

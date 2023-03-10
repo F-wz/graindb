@@ -1,10 +1,10 @@
-# this script creates a single header + source file combination out of the DuckDB sources
+# this script creates a single header + source file combination out of the GrainDB sources
 import os, re, sys, shutil
 amal_dir = os.path.join('src', 'amalgamation')
-header_file = os.path.join(amal_dir, "duckdb.hpp")
-source_file = os.path.join(amal_dir, "duckdb.cpp")
-temp_header = 'duckdb.hpp.tmp'
-temp_source = 'duckdb.cpp.tmp'
+header_file = os.path.join(amal_dir, "graindb.hpp")
+source_file = os.path.join(amal_dir, "graindb.cpp")
+temp_header = 'graindb.hpp.tmp'
+temp_source = 'graindb.cpp.tmp'
 
 src_dir = 'src'
 include_dir = os.path.join('src', 'include')
@@ -19,8 +19,8 @@ pg_query_include_dir = os.path.join('third_party', 'libpg_query', 'include')
 utf8proc_dir = os.path.join('third_party', 'utf8proc')
 utf8proc_include_dir = os.path.join('third_party', 'utf8proc', 'include')
 
-# files included in the amalgamated "duckdb.hpp" file
-main_header_files = [os.path.join(include_dir, 'duckdb.hpp'), os.path.join(include_dir, 'duckdb.h'), os.path.join(include_dir, 'duckdb', 'common', 'types', 'date.hpp'), os.path.join(include_dir, 'duckdb', 'common', 'types', 'timestamp.hpp'), os.path.join(include_dir, 'duckdb', 'common', 'types', 'time.hpp'), os.path.join(include_dir, 'duckdb', 'main', 'appender.hpp'), os.path.join(include_dir, 'duckdb', 'main', 'client_context.hpp'), os.path.join(include_dir, 'duckdb', 'function', 'function.hpp'), os.path.join(include_dir, 'duckdb', 'function', 'table_function.hpp'), os.path.join(include_dir, 'duckdb', 'parser', 'parsed_data', 'create_table_function_info.hpp')]
+# files included in the amalgamated "graindb.hpp" file
+main_header_files = [os.path.join(include_dir, 'graindb.hpp'), os.path.join(include_dir, 'graindb.h'), os.path.join(include_dir, 'graindb', 'common', 'types', 'date.hpp'), os.path.join(include_dir, 'graindb', 'common', 'types', 'timestamp.hpp'), os.path.join(include_dir, 'graindb', 'common', 'types', 'time.hpp'), os.path.join(include_dir, 'graindb', 'main', 'appender.hpp'), os.path.join(include_dir, 'graindb', 'main', 'client_context.hpp'), os.path.join(include_dir, 'graindb', 'function', 'function.hpp'), os.path.join(include_dir, 'graindb', 'function', 'table_function.hpp'), os.path.join(include_dir, 'graindb', 'parser', 'parsed_data', 'create_table_function_info.hpp')]
 
 # include paths for where to search for include files during amalgamation
 include_paths = [include_dir, fmt_include_dir, hll_dir, re2_dir, miniz_dir, utf8proc_include_dir, utf8proc_dir, pg_query_include_dir, pg_query_dir]
@@ -28,11 +28,11 @@ include_paths = [include_dir, fmt_include_dir, hll_dir, re2_dir, miniz_dir, utf8
 compile_directories = [src_dir, fmt_dir, hll_dir, miniz_dir, re2_dir, utf8proc_dir, pg_query_dir]
 
 # files always excluded
-always_excluded = ['src/amalgamation/duckdb.cpp', 'src/amalgamation/duckdb.hpp']
+always_excluded = ['src/amalgamation/graindb.cpp', 'src/amalgamation/graindb.hpp']
 # files excluded from the amalgamation
 excluded_files = ['grammar.cpp', 'grammar.hpp', 'symbols.cpp', 'file_system.cpp']
 # files excluded from individual file compilation during test_compile
-excluded_compilation_files = excluded_files + ['gram.hpp', 'kwlist.hpp', "duckdb-c.cpp"]
+excluded_compilation_files = excluded_files + ['gram.hpp', 'kwlist.hpp', "graindb-c.cpp"]
 
 
 linenumbers = False
@@ -125,7 +125,7 @@ def copy_if_different(src, dest):
     shutil.copyfile(src, dest)
 
 def generate_amalgamation(source_file, header_file):
-    # now construct duckdb.hpp from these headers
+    # now construct graindb.hpp from these headers
     print("-----------------------")
     print("-- Writing " + header_file + " --")
     print("-----------------------")
@@ -135,7 +135,7 @@ def generate_amalgamation(source_file, header_file):
             hfile.write(write_file(fpath))
 
 
-    # now construct duckdb.cpp
+    # now construct graindb.cpp
     print("------------------------")
     print("-- Writing " + source_file + " --")
     print("------------------------")

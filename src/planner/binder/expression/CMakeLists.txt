@@ -1,4 +1,4 @@
-add_library_unity(duckdb_bind_expression
+add_library_unity(graindb_bind_expression
                   OBJECT
                   bind_aggregate_expression.cpp
                   bind_case_expression.cpp
@@ -15,4 +15,4 @@ add_library_unity(duckdb_bind_expression
                   bind_unnest_expression.cpp
                   bind_window_expression.cpp)
 set(ALL_OBJECT_FILES ${ALL_OBJECT_FILES}
-                     $<TARGET_OBJECTS:duckdb_bind_expression> PARENT_SCOPE)
+                     $<TARGET_OBJECTS:graindb_bind_expression> PARENT_SCOPE)

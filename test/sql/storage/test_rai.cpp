@@ -1,20 +1,20 @@
 #include "catch.hpp"
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/catalog/catalog_entry/schema_catalog_entry.hpp"
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/common/types/chunk_collection.hpp"
-#include "duckdb/common/types/data_chunk.hpp"
-#include "duckdb/storage/alist.hpp"
-#include "duckdb/storage/data_table.hpp"
-#include "duckdb/storage/rai.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/catalog/catalog_entry/schema_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/common/types/chunk_collection.hpp"
+#include "graindb/common/types/data_chunk.hpp"
+#include "graindb/storage/alist.hpp"
+#include "graindb/storage/data_table.hpp"
+#include "graindb/storage/rai.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test rai append", "[rai]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	con.Query("CREATE TABLE a(id INTEGER)");
@@ -63,7 +63,7 @@ TEST_CASE("Test rai append", "[rai]") {
 
 TEST_CASE("Test rai fetch", "[rai]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	con.Query("CREATE TABLE a(id INTEGER)");

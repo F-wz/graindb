@@ -1,10 +1,10 @@
-#include "duckdb/planner/operator/logical_distinct.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/planner/operator/logical_distinct.hpp"
+#include "graindb/common/string_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 string LogicalDistinct::ParamsToString() const {

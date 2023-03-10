@@ -1,6 +1,6 @@
-#include "duckdb/planner/operator/logical_cross_product.hpp"
+#include "graindb/planner/operator/logical_cross_product.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 LogicalCrossProduct::LogicalCrossProduct() : LogicalOperator(LogicalOperatorType::CROSS_PRODUCT) {

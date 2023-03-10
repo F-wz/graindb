@@ -1,10 +1,10 @@
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/parser/statement/vacuum_statement.hpp"
-#include "duckdb/planner/operator/logical_simple.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/parser/statement/vacuum_statement.hpp"
+#include "graindb/planner/operator/logical_simple.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 BoundStatement Binder::Bind(VacuumStatement &stmt) {
 	BoundStatement result;
@@ -14,4 +14,4 @@ BoundStatement Binder::Bind(VacuumStatement &stmt) {
 	return result;
 }
 
-} // namespace duckdb
+} // namespace graindb

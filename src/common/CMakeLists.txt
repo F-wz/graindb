@@ -5,7 +5,7 @@ add_subdirectory(types)
 add_subdirectory(value_operations)
 add_subdirectory(vector_operations)
 
-add_library_unity(duckdb_common
+add_library_unity(graindb_common
                   OBJECT
                   constants.cpp
                   checksum.cpp
@@ -21,5 +21,5 @@ add_library_unity(duckdb_common
                   types.cpp
                   fstream_util.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_common>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_common>
     PARENT_SCOPE)

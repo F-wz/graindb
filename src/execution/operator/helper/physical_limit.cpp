@@ -1,6 +1,6 @@
-#include "duckdb/execution/operator/helper/physical_limit.hpp"
+#include "graindb/execution/operator/helper/physical_limit.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class PhysicalLimitOperatorState : public PhysicalOperatorState {

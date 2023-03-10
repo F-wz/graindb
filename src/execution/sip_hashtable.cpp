@@ -1,14 +1,14 @@
-#include "duckdb/execution/sip_hashtable.hpp"
+#include "graindb/execution/sip_hashtable.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/operator/comparison_operators.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/storage/buffer_manager.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/storage/buffer_manager.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 using SIPScanStructure = SIPHashTable::SIPScanStructure;
 
@@ -1104,4 +1104,4 @@ void SIPScanStructure::NextSingleJoin(DataChunk &keys, DataChunk &input, DataChu
 	finished = true;
 }
 
-} // namespace duckdb
+} // namespace graindb

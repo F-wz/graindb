@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test IN statement", "[sql]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -85,7 +85,7 @@ TEST_CASE("Test IN statement", "[sql]") {
 
 TEST_CASE("Test large IN statement with varchar", "[sql][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

@@ -125,7 +125,7 @@ extern "C" {
 */
 #define SQLITE_VERSION        "3.23.0"
 #define SQLITE_VERSION_NUMBER 3023000
-#define SQLITE_SOURCE_ID      DUCKDB_SOURCE_ID
+#define SQLITE_SOURCE_ID      GRAINDB_SOURCE_ID
 
 
 /*
@@ -11142,7 +11142,7 @@ struct fts5_api {
 *************************************************************************/
 
 
-// This is a DuckDB hack
+// This is a GrainDB hack
 #ifdef _WIN32
 typedef const wchar_t* LPCWSTR;
 typedef wchar_t* LPWSTR, *PWSTR;

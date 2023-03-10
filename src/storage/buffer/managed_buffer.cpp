@@ -1,7 +1,7 @@
-#include "duckdb/storage/buffer/managed_buffer.hpp"
-#include "duckdb/common/exception.hpp"
+#include "graindb/storage/buffer/managed_buffer.hpp"
+#include "graindb/common/exception.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ManagedBuffer::ManagedBuffer(BufferManager &manager, idx_t size, bool can_destroy, block_id_t id)

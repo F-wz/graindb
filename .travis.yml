@@ -38,18 +38,18 @@ matrix:
         - mkdir -p build/release
         - (cd build/release && cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_ICU_EXTENSION=1 -DJDBC_DRIVER=1 ../.. && cmake --build .)
         - build/release/test/unittest "*"
-        - python3.7 tools/shell/shell-test.py build/release/duckdb_cli
+        - python3.7 tools/shell/shell-test.py build/release/graindb_cli
         - build/release/extension/icu/test/icu_test
         - python3.7 tools/rest/test_the_rest.py build/release/tools/rest
-        - java -cp build/release/tools/jdbc/duckdb_jdbc.jar nl.cwi.da.duckdb.test.TestDuckDBJDBC
+        - java -cp build/release/tools/jdbc/graindb_jdbc.jar nl.cwi.da.graindb.test.TestGrainDBJDBC
         - (cd examples/embedded-c; make)
         - (cd examples/embedded-c++; make)
         - (cd examples/programmatic-querying; make)
         - (cd examples/jdbc; make)
 
       after_success:
-        #- python tools/upload-s3.py lib-linux-amd64 build/release/src/libduckdb*.so build/release/src/libduckdb*.a build/release/duckdb_cli build/release/tools/jdbc/duckdb_jdbc.jar
-        - python3 scripts/asset-upload.py libduckdb-linux-amd64.so=build/release/src/libduckdb*.so duckdb_cli-linux-amd64=build/release/duckdb_cli duckdb_jdbc-linux-amd64.jar=build/release/tools/jdbc/duckdb_jdbc.jar
+        #- python tools/upload-s3.py lib-linux-amd64 build/release/src/libgraindb*.so build/release/src/libgraindb*.a build/release/graindb_cli build/release/tools/jdbc/graindb_jdbc.jar
+        - python3 scripts/asset-upload.py libgraindb-linux-amd64.so=build/release/src/libgraindb*.so graindb_cli-linux-amd64=build/release/graindb_cli graindb_jdbc-linux-amd64.jar=build/release/tools/jdbc/graindb_jdbc.jar
 
 
     - os: osx
@@ -65,13 +65,13 @@ matrix:
       script:
         - (mkdir -p build/release && cd build/release && cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_ICU_EXTENSION=1 -DJDBC_DRIVER=1 ../.. && cmake --build .)
         - build/release/test/unittest
-        - python3 tools/shell/shell-test.py build/release/duckdb_cli
-        - java -cp build/release/tools/jdbc/duckdb_jdbc.jar nl.cwi.da.duckdb.test.TestDuckDBJDBC
+        - python3 tools/shell/shell-test.py build/release/graindb_cli
+        - java -cp build/release/tools/jdbc/graindb_jdbc.jar nl.cwi.da.graindb.test.TestGrainDBJDBC
         - build/release/extension/icu/test/icu_test
 
       after_success:
-        #- python3 tools/upload-s3.py lib-osx build/release/src/libduckdb.dylib build/release/src/libduckdb_static.a build/release/duckdb_cli build/release/tools/jdbc/duckdb_jdbc.jar
-        - python3 scripts/asset-upload.py libduckdb-osx-amd64.dylib=build/release/src/libduckdb*.dylib duckdb_cli-osx-amd64=build/release/duckdb_cli duckdb_jdbc-osx-amd64.jar=build/release/tools/jdbc/duckdb_jdbc.jar
+        #- python3 tools/upload-s3.py lib-osx build/release/src/libgraindb.dylib build/release/src/libgraindb_static.a build/release/graindb_cli build/release/tools/jdbc/graindb_jdbc.jar
+        - python3 scripts/asset-upload.py libgraindb-osx-amd64.dylib=build/release/src/libgraindb*.dylib graindb_cli-osx-amd64=build/release/graindb_cli graindb_jdbc-osx-amd64.jar=build/release/tools/jdbc/graindb_jdbc.jar
 
 
     - os: windows
@@ -87,19 +87,19 @@ matrix:
 
       script:
         - cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_GENERATOR_PLATFORM=x64 -DJDBC_DRIVER=1 -DBUILD_ICU_EXTENSION=1
-        - cmake --build . --target duckdb --config Release
+        - cmake --build . --target graindb --config Release
         - cmake --build . --target unittest --config Release
         - cmake --build . --target shell --config Release
         - cmake --build . --target jdbc --config Release
         - cmake --build . --target icu_test --config Release
         - test/Release/unittest.exe
-        - C:/Python37-x64/python.exe tools/shell/shell-test.py Release/duckdb_cli.exe
-        - C:/Program\ Files/Java/jdk1.8.0_211/bin/java -cp tools/jdbc/duckdb_jdbc.jar nl.cwi.da.duckdb.test.TestDuckDBJDBC
+        - C:/Python37-x64/python.exe tools/shell/shell-test.py Release/graindb_cli.exe
+        - C:/Program\ Files/Java/jdk1.8.0_211/bin/java -cp tools/jdbc/graindb_jdbc.jar nl.cwi.da.graindb.test.TestGrainDBJDBC
         - extension/icu/test/Release/icu_test.exe
 
       after_success:
-        #- C:/Python37-x64/python.exe tools/upload-s3.py lib-windows-amd64 src/Release/duckdb.dll Release/duckdb_cli.exe tools/jdbc/duckdb_jdbc.jar
-        - C:/Python37-x64/python.exe scripts/asset-upload.py libduckdb-windows-amd64.dll=src/Release/duckdb.dll duckdb_cli-windows-amd64.exe=Release/duckdb_cli.exe duckdb_jdbc-windows-amd64.jar=tools/jdbc/duckdb_jdbc.jar
+        #- C:/Python37-x64/python.exe tools/upload-s3.py lib-windows-amd64 src/Release/graindb.dll Release/graindb_cli.exe tools/jdbc/graindb_jdbc.jar
+        - C:/Python37-x64/python.exe scripts/asset-upload.py libgraindb-windows-amd64.dll=src/Release/graindb.dll graindb_cli-windows-amd64.exe=Release/graindb_cli.exe graindb_jdbc-windows-amd64.jar=tools/jdbc/graindb_jdbc.jar
 
 
 # checks: debug mode (with sanitizers), coveralls, valgrind, vector sizes
@@ -238,9 +238,9 @@ matrix:
         - build/release/test/unittest "*"
 
       after_success:
-        - (cd src/amalgamation; zip ../../build/duckdb.zip duckdb.*)
-        # - python tools/upload-s3.py src-amalgamation build/duckdb.zip
-        - python3 scripts/asset-upload.py duckdb_amalgamation.zip=build/duckdb.zip
+        - (cd src/amalgamation; zip ../../build/graindb.zip graindb.*)
+        # - python tools/upload-s3.py src-amalgamation build/graindb.zip
+        - python3 scripts/asset-upload.py graindb_amalgamation.zip=build/graindb.zip
 
 
     - os: osx
@@ -265,7 +265,7 @@ matrix:
       script:
         - C:/Python37-x64/python.exe scripts/amalgamation.py
         - cmake -DAMALGAMATION_BUILD=1 -DCMAKE_BUILD_TYPE=Release -DCMAKE_GENERATOR_PLATFORM=x64
-        - cmake --build . --target duckdb --config Release
+        - cmake --build . --target graindb --config Release
         - cmake --build . --target unittest --config Release
         - test/Release/unittest.exe
 
@@ -296,8 +296,8 @@ matrix:
         - build/release/test/unittest "*"
 
       after_success:
-        #- python tools/upload-s3.py lib-linux-i386 build/release/src/libduckdb*.so build/release/src/libduckdb*.a build/release/duckdb_cli
-        - python3 scripts/asset-upload.py libduckdb-linux-i386.so=build/release/src/libduckdb.so duckdb_cli-linux-i386=build/release/duckdb_cli
+        #- python tools/upload-s3.py lib-linux-i386 build/release/src/libgraindb*.so build/release/src/libgraindb*.a build/release/graindb_cli
+        - python3 scripts/asset-upload.py libgraindb-linux-i386.so=build/release/src/libgraindb.so graindb_cli-linux-i386=build/release/graindb_cli
 
 
     - os: windows
@@ -314,15 +314,15 @@ matrix:
 
       script:
         - cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_GENERATOR_PLATFORM=Win32
-        - cmake --build . --target duckdb --config Release
+        - cmake --build . --target graindb --config Release
         - cmake --build . --target unittest --config Release
         - cmake --build . --target shell --config Release
         - test/Release/unittest.exe
-        - C:/Python37-x64/python.exe tools/shell/shell-test.py Release/duckdb_cli.exe
+        - C:/Python37-x64/python.exe tools/shell/shell-test.py Release/graindb_cli.exe
 
       after_success:
-        #- C:/Python37-x64/python.exe tools/upload-s3.py lib-windows-i386 src/Release/duckdb.dll Release/duckdb_cli.exe
-        - C:/Python37-x64/python.exe scripts/asset-upload.py libduckdb-windows-i386.dll=src/Release/duckdb.dll duckdb_cli-windows-i386.exe=Release/duckdb_cli.exe duckdb_jdbc-windows-i386.jar=tools/jdbc/duckdb_jdbc.jar
+        #- C:/Python37-x64/python.exe tools/upload-s3.py lib-windows-i386 src/Release/graindb.dll Release/graindb_cli.exe
+        - C:/Python37-x64/python.exe scripts/asset-upload.py libgraindb-windows-i386.dll=src/Release/graindb.dll graindb_cli-windows-i386.exe=Release/graindb_cli.exe graindb_jdbc-windows-i386.jar=tools/jdbc/graindb_jdbc.jar
 
 
     - os: linux
@@ -364,9 +364,9 @@ matrix:
 
       script:
         - python scripts/amalgamation.py > /dev/null
-        - rsync -a -e "ssh $SSHFLAGS -p 2222" --exclude=.git --exclude=build --exclude=third_party/sqllogictest --exclude=third_party/imdb .  root@localhost:/duckdb
-        - travis_wait 50 $SCMD 'rm -rf /duckdb/build && mkdir -p /duckdb/build && cd /duckdb/build && export PATH=/opt/csw/bin/:$PATH CXX=g++ CC=gcc  && cmake -DCMAKE_AR=/opt/csw/bin/gar -DCMAKE_BUILD_TYPE=Debug -DAMALGAMATION_BUILD=1 .. && gmake -j2'
-        - $SCMD /duckdb/build/test/unittest "~[copy]~[file_system]~[.]"
+        - rsync -a -e "ssh $SSHFLAGS -p 2222" --exclude=.git --exclude=build --exclude=third_party/sqllogictest --exclude=third_party/imdb .  root@localhost:/graindb
+        - travis_wait 50 $SCMD 'rm -rf /graindb/build && mkdir -p /graindb/build && cd /graindb/build && export PATH=/opt/csw/bin/:$PATH CXX=g++ CC=gcc  && cmake -DCMAKE_AR=/opt/csw/bin/gar -DCMAKE_BUILD_TYPE=Debug -DAMALGAMATION_BUILD=1 .. && gmake -j2'
+        - $SCMD /graindb/build/test/unittest "~[copy]~[file_system]~[.]"
 
 
     # - os: linux
@@ -395,9 +395,9 @@ matrix:
 
     #   script:
     #     - python scripts/amalgamation.py > /dev/null
-    #     - rsync -a -e "ssh $SSHFLAGS -p 2222" --exclude=.git --exclude=build --exclude=third_party/sqllogictest .  root@localhost:/home/duckdb
-    #     - travis_wait 60 $SCMD 'rm -rf /home/duckdb/build && mkdir -p /home/duckdb/build && cd /home/duckdb/build && cmake -DCMAKE_BUILD_TYPE=Debug -DAMALGAMATION_BUILD=1 .. && gmake -j2'
-    #     - $SCMD /home/duckdb/build/test/unittest "~[copy]~[sqlitelogic]~[sqlserver]~[parquet]~[.]"
+    #     - rsync -a -e "ssh $SSHFLAGS -p 2222" --exclude=.git --exclude=build --exclude=third_party/sqllogictest .  root@localhost:/home/graindb
+    #     - travis_wait 60 $SCMD 'rm -rf /home/graindb/build && mkdir -p /home/graindb/build && cd /home/graindb/build && cmake -DCMAKE_BUILD_TYPE=Debug -DAMALGAMATION_BUILD=1 .. && gmake -j2'
+    #     - $SCMD /home/graindb/build/test/unittest "~[copy]~[sqlitelogic]~[sqlserver]~[parquet]~[.]"
 
 
 # APIs: jdbc/ r / python packages
@@ -417,9 +417,9 @@ matrix:
       script:
         - mkdir -p build/release
         - (cd build/release && cmake -DCMAKE_BUILD_TYPE=Release -DJDBC_DRIVER=1 ../.. && cmake --build .)
-        - java -cp build/release/tools/jdbc/duckdb_jdbc.jar nl.cwi.da.duckdb.test.TestDuckDBJDBC
+        - java -cp build/release/tools/jdbc/graindb_jdbc.jar nl.cwi.da.graindb.test.TestGrainDBJDBC
         - git clone https://github.com/cwida/jdbccts.git
-        - (cd jdbccts && make DUCKDB_JAR=../build/release/tools/jdbc/duckdb_jdbc.jar test)
+        - (cd jdbccts && make GRAINDB_JAR=../build/release/tools/jdbc/graindb_jdbc.jar test)
 
 
     - os: linux
@@ -438,7 +438,7 @@ matrix:
       install:
         - ./configure
         - R CMD build .
-        - R CMD INSTALL duckdb_*.tar.gz
+        - R CMD INSTALL graindb_*.tar.gz
 
       script:
         - (cd tests && R -f testthat.R)
@@ -447,9 +447,9 @@ matrix:
 
       after_success:
         - R -e "tools::write_PACKAGES(dir = '.', type = 'source')"
-        - python ../upload-s3.py rstats/src/contrib duckdb_*.tar.gz PACKAGES*
-        - python ../upload-s3.py rstats duckdb_*.tar.gz
-        - python3 ../../scripts/asset-upload.py duckdb_r_src.tar.gz=duckdb_*.tar.gz
+        - python ../upload-s3.py rstats/src/contrib graindb_*.tar.gz PACKAGES*
+        - python ../upload-s3.py rstats graindb_*.tar.gz
+        - python3 ../../scripts/asset-upload.py graindb_r_src.tar.gz=graindb_*.tar.gz
 
 
     - os: osx
@@ -470,17 +470,17 @@ matrix:
       install:
         - ./configure
         - R CMD build .
-        - R CMD INSTALL --build duckdb_*.tar.gz
-        - R CMD INSTALL duckdb_*.tgz
+        - R CMD INSTALL --build graindb_*.tar.gz
+        - R CMD INSTALL graindb_*.tgz
 
       script:
         - (cd tests && R -f testthat.R)
 
       after_success:
         - R -e "tools::write_PACKAGES(dir = '.', type = 'mac.binary')"
-        - python3 ../upload-s3.py rstats/bin/macosx/el-capitan/contrib/3.6 duckdb_*.tgz PACKAGES*
-        - python3 ../upload-s3.py rstats duckdb_*.tgz
-        - python3 ../../scripts/asset-upload.py duckdb_r_osx.tgz=duckdb_*.tgz
+        - python3 ../upload-s3.py rstats/bin/macosx/el-capitan/contrib/3.6 graindb_*.tgz PACKAGES*
+        - python3 ../upload-s3.py rstats graindb_*.tgz
+        - python3 ../../scripts/asset-upload.py graindb_r_osx.tgz=graindb_*.tgz
 
 
     - os: windows
@@ -503,15 +503,15 @@ matrix:
         - C:/Program\ Files/R/R-3.6.0/bin/R.exe -f dependencies.R
         - sh configure
         - C:/Program\ Files/R/R-3.6.0/bin/R.exe CMD build .
-        - C:/Program\ Files/R/R-3.6.0/bin/R.exe CMD INSTALL --build --no-multiarch duckdb_*.tar.gz
-        - C:/Program\ Files/R/R-3.6.0/bin/R.exe CMD INSTALL duckdb_*.zip
+        - C:/Program\ Files/R/R-3.6.0/bin/R.exe CMD INSTALL --build --no-multiarch graindb_*.tar.gz
+        - C:/Program\ Files/R/R-3.6.0/bin/R.exe CMD INSTALL graindb_*.zip
         - (cd tests; C:/Program\ Files/R/R-3.6.0/bin/R.exe -f testthat.R)
 
       after_success:
-        - C:/Python37-x64/python.exe ../upload-s3.py rstats duckdb_*.zip
+        - C:/Python37-x64/python.exe ../upload-s3.py rstats graindb_*.zip
         - C:/Program\ Files/R/R-3.6.0/bin/R.exe -e "tools::write_PACKAGES(dir = '.', type = 'win.binary')"
-        - C:/Python37-x64/python.exe ../upload-s3.py rstats/bin/windows/contrib/3.6 duckdb_*.zip PACKAGES*
-        - C:/Python37-x64/python.exe ../../scripts/asset-upload.py duckdb_r_windows.zip=duckdb_*.zip
+        - C:/Python37-x64/python.exe ../upload-s3.py rstats/bin/windows/contrib/3.6 graindb_*.zip PACKAGES*
+        - C:/Python37-x64/python.exe ../../scripts/asset-upload.py graindb_r_windows.zip=graindb_*.zip
 
 
     - os: linux
@@ -528,12 +528,12 @@ matrix:
         - pip install cibuildwheel==0.10.2 boto3
         - cd tools/pythonpkg
         - python setup.py sdist
-        - mkdir duckdb_tarball && tar xvf dist/duckdb-*.tar.gz --strip-components=1 -C duckdb_tarball
-        - cibuildwheel --output-dir wheelhouse duckdb_tarball
+        - mkdir graindb_tarball && tar xvf dist/graindb-*.tar.gz --strip-components=1 -C graindb_tarball
+        - cibuildwheel --output-dir wheelhouse graindb_tarball
         - cd ../..
       after_success:
-        - python tools/upload-s3.py python tools/pythonpkg/wheelhouse/*.whl tools/pythonpkg/dist/duckdb-*.tar.gz
-       # - python3 scripts/asset-upload.py duckdb_python_src.tar.gz=tools/pythonpkg/dist/duckdb-*.tar.gz tools/pythonpkg/wheelhouse/*.whl
+        - python tools/upload-s3.py python tools/pythonpkg/wheelhouse/*.whl tools/pythonpkg/dist/graindb-*.tar.gz
+       # - python3 scripts/asset-upload.py graindb_python_src.tar.gz=tools/pythonpkg/dist/graindb-*.tar.gz tools/pythonpkg/wheelhouse/*.whl
 
 
     - os: linux
@@ -553,7 +553,7 @@ matrix:
         - python setup.py install
         - python -m pytest tests
         - python setup.py sdist
-        - mkdir duckdb_tarball && tar xvf dist/duckdb-*.tar.gz --strip-components=1 -C duckdb_tarball
+        - mkdir graindb_tarball && tar xvf dist/graindb-*.tar.gz --strip-components=1 -C graindb_tarball
 
 
     - os: osx
@@ -571,8 +571,8 @@ matrix:
       script:
         - cd tools/pythonpkg
         - python3 setup.py sdist
-        - mkdir duckdb_tarball && tar xvf dist/duckdb-*.tar.gz --strip-components=1 -C duckdb_tarball
-        - cibuildwheel --output-dir wheelhouse duckdb_tarball
+        - mkdir graindb_tarball && tar xvf dist/graindb-*.tar.gz --strip-components=1 -C graindb_tarball
+        - cibuildwheel --output-dir wheelhouse graindb_tarball
         - cd ../..
 
       after_success:
@@ -605,8 +605,8 @@ matrix:
       script:
         - cd tools/pythonpkg
         - C:/Python37-x64/python.exe setup.py sdist
-        - mkdir duckdb_tarball && tar xvf dist/duckdb-*.tar.gz --strip-components=1 -C duckdb_tarball
-        - C:/Python37-x64/python.exe -m cibuildwheel --platform windows --output-dir wheelhouse duckdb_tarball
+        - mkdir graindb_tarball && tar xvf dist/graindb-*.tar.gz --strip-components=1 -C graindb_tarball
+        - C:/Python37-x64/python.exe -m cibuildwheel --platform windows --output-dir wheelhouse graindb_tarball
         - cd ../..
 
       after_success:

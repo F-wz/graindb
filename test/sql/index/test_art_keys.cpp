@@ -1,10 +1,10 @@
 #include "catch.hpp"
-#include "duckdb/execution/index/art/art_key.hpp"
-#include "duckdb/common/types/string_type.hpp"
+#include "graindb/execution/index/art/art_key.hpp"
+#include "graindb/common/types/string_type.hpp"
 #include <iostream>
 #include <cstring>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static void TestKeyEqual(Key &left, Key &right) {

@@ -1,12 +1,12 @@
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/parser/statement/execute_statement.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/operator/logical_execute.hpp"
-#include "duckdb/planner/expression_binder/constant_binder.hpp"
-#include "duckdb/catalog/catalog_entry/prepared_statement_catalog_entry.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/parser/statement/execute_statement.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/operator/logical_execute.hpp"
+#include "graindb/planner/expression_binder/constant_binder.hpp"
+#include "graindb/catalog/catalog_entry/prepared_statement_catalog_entry.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundStatement Binder::Bind(ExecuteStatement &stmt) {

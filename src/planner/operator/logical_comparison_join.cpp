@@ -1,8 +1,8 @@
-#include "duckdb/planner/operator/logical_comparison_join.hpp"
+#include "graindb/planner/operator/logical_comparison_join.hpp"
 
-#include "duckdb/common/string_util.hpp"
+#include "graindb/common/string_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 LogicalComparisonJoin::LogicalComparisonJoin(JoinType join_type, LogicalOperatorType logical_type)

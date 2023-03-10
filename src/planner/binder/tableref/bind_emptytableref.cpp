@@ -1,8 +1,8 @@
-#include "duckdb/parser/tableref/emptytableref.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/tableref/bound_dummytableref.hpp"
+#include "graindb/parser/tableref/emptytableref.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/tableref/bound_dummytableref.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<BoundTableRef> Binder::Bind(EmptyTableRef &ref) {

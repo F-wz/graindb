@@ -1,13 +1,13 @@
-#include "duckdb/parser/expression/window_expression.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression/bound_window_expression.hpp"
-#include "duckdb/planner/expression_binder/select_binder.hpp"
-#include "duckdb/planner/query_node/bound_select_node.hpp"
+#include "graindb/parser/expression/window_expression.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression/bound_window_expression.hpp"
+#include "graindb/planner/expression_binder/select_binder.hpp"
+#include "graindb/planner/query_node/bound_select_node.hpp"
 
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/catalog/catalog_entry/aggregate_function_catalog_entry.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/catalog/catalog_entry/aggregate_function_catalog_entry.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static SQLType ResolveWindowExpressionType(ExpressionType window_type, SQLType child_type) {

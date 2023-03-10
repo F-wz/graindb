@@ -1,9 +1,9 @@
-#include "duckdb/execution/operator/filter/physical_filter.hpp"
+#include "graindb/execution/operator/filter/physical_filter.hpp"
 
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression/bound_conjunction_expression.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression/bound_conjunction_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class PhysicalFilterState : public PhysicalOperatorState {

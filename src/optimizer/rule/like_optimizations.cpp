@@ -1,12 +1,12 @@
-#include "duckdb/optimizer/rule/like_optimizations.hpp"
+#include "graindb/optimizer/rule/like_optimizations.hpp"
 
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
 
 #include <regex>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 LikeOptimizationRule::LikeOptimizationRule(ExpressionRewriter &rewriter) : Rule(rewriter) {

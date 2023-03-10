@@ -1,11 +1,11 @@
-#include "duckdb/planner/expression/bound_cast_expression.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/operator/logical_projection.hpp"
-#include "duckdb/planner/operator/logical_set_operation.hpp"
-#include "duckdb/planner/query_node/bound_set_operation_node.hpp"
+#include "graindb/planner/expression/bound_cast_expression.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/operator/logical_projection.hpp"
+#include "graindb/planner/operator/logical_set_operation.hpp"
+#include "graindb/planner/query_node/bound_set_operation_node.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<LogicalOperator> Binder::CastLogicalOperatorToTypes(vector<SQLType> &source_types,

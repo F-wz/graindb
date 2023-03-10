@@ -1,8 +1,8 @@
-#include "duckdb/common/serializer/buffered_deserializer.hpp"
+#include "graindb/common/serializer/buffered_deserializer.hpp"
 
 #include <cstring>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BufferedDeserializer::BufferedDeserializer(data_ptr_t ptr, idx_t data_size) : ptr(ptr), endptr(ptr + data_size) {

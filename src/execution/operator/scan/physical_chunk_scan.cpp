@@ -1,6 +1,6 @@
-#include "duckdb/execution/operator/scan/physical_chunk_scan.hpp"
+#include "graindb/execution/operator/scan/physical_chunk_scan.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class PhysicalChunkScanState : public PhysicalOperatorState {

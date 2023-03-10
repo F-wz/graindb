@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test basic transaction functionality", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 	con.EnableQueryVerification();
 
@@ -23,7 +23,7 @@ TEST_CASE("Test basic transaction functionality", "[transactions]") {
 
 TEST_CASE("Test operations on transaction local data", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -63,7 +63,7 @@ TEST_CASE("Test operations on transaction local data", "[transactions]") {
 
 TEST_CASE("Test appends on transaction local data with unique indices", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -83,7 +83,7 @@ TEST_CASE("Test appends on transaction local data with unique indices", "[transa
 
 TEST_CASE("Test appends with multiple transactions", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 	con.EnableQueryVerification();
 
@@ -143,7 +143,7 @@ TEST_CASE("Test appends with multiple transactions", "[transactions]") {
 
 TEST_CASE("Test operations on transaction local data with unique indices", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -195,7 +195,7 @@ TEST_CASE("Test operations on transaction local data with unique indices", "[tra
 
 TEST_CASE("Test transaction aborts after failures", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

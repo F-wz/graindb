@@ -1,8 +1,8 @@
-#include "duckdb/optimizer/filter_pushdown.hpp"
-#include "duckdb/planner/operator/logical_filter.hpp"
-#include "duckdb/planner/operator/logical_get.hpp"
-#include "duckdb/storage/data_table.hpp"
-using namespace duckdb;
+#include "graindb/optimizer/filter_pushdown.hpp"
+#include "graindb/planner/operator/logical_filter.hpp"
+#include "graindb/planner/operator/logical_get.hpp"
+#include "graindb/storage/data_table.hpp"
+using namespace graindb;
 using namespace std;
 
 unique_ptr<LogicalOperator> FilterPushdown::PushdownGet(unique_ptr<LogicalOperator> op) {

@@ -1,12 +1,12 @@
-#include "duckdb/parser/statement/delete_statement.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression_binder/where_binder.hpp"
-#include "duckdb/planner/operator/logical_delete.hpp"
-#include "duckdb/planner/operator/logical_filter.hpp"
-#include "duckdb/planner/operator/logical_get.hpp"
-#include "duckdb/planner/bound_tableref.hpp"
+#include "graindb/parser/statement/delete_statement.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression_binder/where_binder.hpp"
+#include "graindb/planner/operator/logical_delete.hpp"
+#include "graindb/planner/operator/logical_filter.hpp"
+#include "graindb/planner/operator/logical_get.hpp"
+#include "graindb/planner/bound_tableref.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundStatement Binder::Bind(DeleteStatement &stmt) {

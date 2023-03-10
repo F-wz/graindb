@@ -1,25 +1,25 @@
-#include "duckdb/common/types/value.hpp"
+#include "graindb/common/types/value.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/limits.hpp"
-#include "duckdb/common/operator/aggregate_operators.hpp"
-#include "duckdb/common/operator/cast_operators.hpp"
-#include "duckdb/common/operator/comparison_operators.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/limits.hpp"
+#include "graindb/common/operator/aggregate_operators.hpp"
+#include "graindb/common/operator/cast_operators.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
 
 #include "utf8proc_wrapper.hpp"
-#include "duckdb/common/operator/numeric_binary_operators.hpp"
-#include "duckdb/common/printer.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/types/time.hpp"
-#include "duckdb/common/types/timestamp.hpp"
-#include "duckdb/common/types/vector.hpp"
-#include "duckdb/common/value_operations/value_operations.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/common/operator/numeric_binary_operators.hpp"
+#include "graindb/common/printer.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/types/time.hpp"
+#include "graindb/common/types/timestamp.hpp"
+#include "graindb/common/types/vector.hpp"
+#include "graindb/common/value_operations/value_operations.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/string_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 Value::Value(string_t val) : Value(string(val.GetData(), val.GetSize())) {
@@ -346,7 +346,7 @@ template <> double Value::GetValue() {
 
 Value Value::Numeric(TypeId type, int64_t value) {
 	assert(!TypeIsIntegral(type) ||
-	       (value >= duckdb::MinimumValue(type) && (value < 0 || (uint64_t)value <= duckdb::MaximumValue(type))));
+	       (value >= graindb::MinimumValue(type) && (value < 0 || (uint64_t)value <= graindb::MaximumValue(type))));
 	Value val(type);
 	val.is_null = false;
 	switch (type) {

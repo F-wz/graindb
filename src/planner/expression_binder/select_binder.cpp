@@ -1,14 +1,14 @@
-#include "duckdb/planner/expression_binder/select_binder.hpp"
+#include "graindb/planner/expression_binder/select_binder.hpp"
 
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/expression/window_expression.hpp"
-#include "duckdb/parser/parsed_expression_iterator.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression/bound_window_expression.hpp"
-#include "duckdb/planner/expression_binder/aggregate_binder.hpp"
-#include "duckdb/planner/query_node/bound_select_node.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/expression/window_expression.hpp"
+#include "graindb/parser/parsed_expression_iterator.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression/bound_window_expression.hpp"
+#include "graindb/planner/expression_binder/aggregate_binder.hpp"
+#include "graindb/planner/query_node/bound_select_node.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 SelectBinder::SelectBinder(Binder &binder, ClientContext &context, BoundSelectNode &node, BoundGroupInformation &info)

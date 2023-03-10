@@ -1,5 +1,5 @@
 add_library_unity(
-  duckdb_operator_scan
+  graindb_operator_scan
   OBJECT
   physical_chunk_scan.cpp
   physical_dummy_scan.cpp
@@ -10,5 +10,5 @@ add_library_unity(
   physical_table_function.cpp
   physical_table_scan.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_operator_scan>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_operator_scan>
     PARENT_SCOPE)

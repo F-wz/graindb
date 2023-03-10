@@ -1,10 +1,10 @@
-#include "duckdb/function/scalar/operators.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/operator/numeric_binary_operators.hpp"
+#include "graindb/function/scalar/operators.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/operator/numeric_binary_operators.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 template <class OP> static scalar_function_t GetScalarBinaryFunction(SQLType type) {
 	switch (type.id) {
@@ -217,4 +217,4 @@ void ModFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(functions);
 }
 
-} // namespace duckdb
+} // namespace graindb

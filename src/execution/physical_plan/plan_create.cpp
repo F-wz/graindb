@@ -1,12 +1,12 @@
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/planner/logical_operator.hpp"
-#include "duckdb/planner/operator/logical_create.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/planner/logical_operator.hpp"
+#include "graindb/planner/operator/logical_create.hpp"
 
-#include "duckdb/execution/operator/schema/physical_create_schema.hpp"
-#include "duckdb/execution/operator/schema/physical_create_sequence.hpp"
-#include "duckdb/execution/operator/schema/physical_create_view.hpp"
+#include "graindb/execution/operator/schema/physical_create_schema.hpp"
+#include "graindb/execution/operator/schema/physical_create_sequence.hpp"
+#include "graindb/execution/operator/schema/physical_create_view.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreatePlan(LogicalCreate &op) {
 	switch (op.type) {
@@ -21,4 +21,4 @@ unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreatePlan(LogicalCreate &op
 	}
 }
 
-} // namespace duckdb
+} // namespace graindb

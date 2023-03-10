@@ -1,8 +1,8 @@
-#include "duckdb/catalog/dependency_manager.hpp"
+#include "graindb/catalog/dependency_manager.hpp"
 
-#include "duckdb/catalog/catalog.hpp"
+#include "graindb/catalog/catalog.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 DependencyManager::DependencyManager(Catalog &catalog) : catalog(catalog) {

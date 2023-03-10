@@ -1,7 +1,7 @@
-#include "duckdb/storage/storage_lock.hpp"
-#include "duckdb/common/common.hpp"
+#include "graindb/storage/storage_lock.hpp"
+#include "graindb/common/common.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 StorageLockKey::StorageLockKey(StorageLock &lock, StorageLockType type) : lock(lock), type(type) {

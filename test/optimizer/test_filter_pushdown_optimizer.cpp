@@ -1,16 +1,16 @@
 #include "catch.hpp"
-#include "duckdb/common/helper.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression/bound_comparison_expression.hpp"
-#include "duckdb/planner/expression/bound_operator_expression.hpp"
-#include "duckdb/planner/expression/common_subexpression.hpp"
+#include "graindb/common/helper.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression/bound_comparison_expression.hpp"
+#include "graindb/planner/expression/bound_operator_expression.hpp"
+#include "graindb/planner/expression/common_subexpression.hpp"
 #include "expression_helper.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/planner/operator/logical_get.hpp"
-#include <duckdb/optimizer/filter_pushdown.hpp>
-#include <duckdb/optimizer/optimizer.hpp>
+#include "graindb/planner/operator/logical_get.hpp"
+#include <graindb/optimizer/filter_pushdown.hpp>
+#include <graindb/optimizer/optimizer.hpp>
 #include <vector>
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test Table Filter Push Down", "[filterpushdown-optimizer]") {
@@ -205,7 +205,7 @@ TEST_CASE("Test Table Filter Push Down String", "[filterpushdown-optimizer]") {
 
 TEST_CASE("Test Table Filter Push Down Scan", "[filterpushdown-optimizer][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	vector<int> input;
@@ -263,7 +263,7 @@ TEST_CASE("Test Table Filter Push Down Scan TPCQ6", "[filterpushdown-optimizer]"
 
 TEST_CASE("Test Table Filter Push Down Scan String", "[filterpushdown-optimizer][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	vector<string> input{"pedro", "peter", "mark"};

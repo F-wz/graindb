@@ -1,11 +1,11 @@
-#include "duckdb/storage/index.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression/bound_reference_expression.hpp"
-#include "duckdb/storage/table/append_state.hpp"
+#include "graindb/storage/index.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression_iterator.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression/bound_reference_expression.hpp"
+#include "graindb/storage/table/append_state.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 Index::Index(IndexType type, vector<column_t> column_ids,

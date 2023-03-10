@@ -43,12 +43,12 @@ set(INSTALL_INCLUDE_DIR
 if (WIN32 AND NOT CYGWIN)
   set(DEF_INSTALL_CMAKE_DIR cmake)
 else ()
-  set(DEF_INSTALL_CMAKE_DIR lib/cmake/DuckDB)
+  set(DEF_INSTALL_CMAKE_DIR lib/cmake/GrainDB)
 endif ()
 set(INSTALL_CMAKE_DIR
     ${DEF_INSTALL_CMAKE_DIR}
     CACHE PATH "Installation directory for CMake files")
-set(DUCKDB_EXPORT_SET "DuckDBExports")
+set(GRAINDB_EXPORT_SET "GrainDBExports")
 
 # Make relative install paths absolute
 foreach (p
@@ -106,7 +106,7 @@ option(AMALGAMATION_BUILD
        "Build from the amalgamation files, rather than from the normal sources."
        FALSE)
 
-option(JDBC_DRIVER "Build the DuckDB JDBC driver" FALSE)
+option(JDBC_DRIVER "Build the GrainDB JDBC driver" FALSE)
 
 option(TREAT_WARNINGS_AS_ERRORS "Treat warnings as errors" FALSE)
 
@@ -276,38 +276,38 @@ add_subdirectory(examples/embedded-c++)
 add_subdirectory(examples/spectrum_runner)
 
 # Write the export set for build and install tree
-install(EXPORT "${DUCKDB_EXPORT_SET}" DESTINATION "${INSTALL_CMAKE_DIR}")
-export(EXPORT "${DUCKDB_EXPORT_SET}"
-       FILE "${PROJECT_BINARY_DIR}/${DUCKDB_EXPORT_SET}.cmake")
+install(EXPORT "${GRAINDB_EXPORT_SET}" DESTINATION "${INSTALL_CMAKE_DIR}")
+export(EXPORT "${GRAINDB_EXPORT_SET}"
+       FILE "${PROJECT_BINARY_DIR}/${GRAINDB_EXPORT_SET}.cmake")
 
 # Only write the cmake package configuration if the templates exist
-set(CMAKE_CONFIG_TEMPLATE "${CMAKE_SOURCE_DIR}/DuckDBConfig.cmake.in")
+set(CMAKE_CONFIG_TEMPLATE "${CMAKE_SOURCE_DIR}/GrainDBConfig.cmake.in")
 set(CMAKE_CONFIG_VERSION_TEMPLATE
-    "${CMAKE_SOURCE_DIR}/DuckDBConfigVersion.cmake.in")
+    "${CMAKE_SOURCE_DIR}/GrainDBConfigVersion.cmake.in")
 if (EXISTS ${CMAKE_CONFIG_TEMPLATE} AND EXISTS ${CMAKE_CONFIG_VERSION_TEMPLATE})
 
   # Configure cmake package config for the build tree
   set(CONF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/src/include")
   configure_file(${CMAKE_CONFIG_TEMPLATE}
-                 "${PROJECT_BINARY_DIR}/DuckDBConfig.cmake" @ONLY)
+                 "${PROJECT_BINARY_DIR}/GrainDBConfig.cmake" @ONLY)
 
   # Configure cmake package config for the install tree
   file(RELATIVE_PATH
        REL_INCLUDE_DIR
        "${INSTALL_CMAKE_DIR}"
        "${INSTALL_INCLUDE_DIR}")
-  set(CONF_INCLUDE_DIRS "\${DuckDB_CMAKE_DIR}/${REL_INCLUDE_DIR}")
+  set(CONF_INCLUDE_DIRS "\${GrainDB_CMAKE_DIR}/${REL_INCLUDE_DIR}")
   configure_file(
     ${CMAKE_CONFIG_TEMPLATE}
-    "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/DuckDBConfig.cmake" @ONLY)
+    "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/GrainDBConfig.cmake" @ONLY)
 
   # Configure cmake package version for build and install tree
   configure_file(${CMAKE_CONFIG_VERSION_TEMPLATE}
-                 "${PROJECT_BINARY_DIR}/DuckDBConfigVersion.cmake" @ONLY)
+                 "${PROJECT_BINARY_DIR}/GrainDBConfigVersion.cmake" @ONLY)
 
   # Install the cmake package
   install(
-    FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/DuckDBConfig.cmake"
-    "${PROJECT_BINARY_DIR}/DuckDBConfigVersion.cmake"
+    FILES "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/GrainDBConfig.cmake"
+    "${PROJECT_BINARY_DIR}/GrainDBConfigVersion.cmake"
     DESTINATION "${INSTALL_CMAKE_DIR}")
 endif ()

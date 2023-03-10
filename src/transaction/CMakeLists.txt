@@ -1,4 +1,4 @@
-add_library_unity(duckdb_transaction
+add_library_unity(graindb_transaction
                   OBJECT
                   undo_buffer.cpp
                   transaction_context.cpp
@@ -8,5 +8,5 @@ add_library_unity(duckdb_transaction
                   rollback_state.cpp
                   cleanup_state.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_transaction>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_transaction>
     PARENT_SCOPE)

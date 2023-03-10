@@ -9,4 +9,4 @@ include_directories(../../third_party/imdb/include)
 link_directories(../../build/release/src)
 
 add_executable(spectrum_runner spectrum_runner.cpp)
-target_link_libraries(spectrum_runner duckdb dbgen ldbc imdb nlohmann_json)
+target_link_libraries(spectrum_runner graindb dbgen ldbc imdb nlohmann_json)

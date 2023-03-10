@@ -1,12 +1,12 @@
 #include "catch.hpp"
-#include "duckdb/common/operator/cast_operators.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/common/limits.hpp"
-#include "duckdb/common/types.hpp"
-#include "duckdb/common/types/vector.hpp"
+#include "graindb/common/operator/cast_operators.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/common/limits.hpp"
+#include "graindb/common/types.hpp"
+#include "graindb/common/types/vector.hpp"
 #include <vector>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 template <class SRC, class DST> static void TestNumericCast(vector<SRC> &working_values, vector<SRC> &broken_values) {

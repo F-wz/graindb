@@ -1,11 +1,11 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test results API", "[api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// result equality
@@ -35,7 +35,7 @@ TEST_CASE("Test results API", "[api]") {
 }
 
 TEST_CASE("Test iterating over results", "[api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE data(i INTEGER, j VARCHAR)"));
@@ -54,7 +54,7 @@ TEST_CASE("Test iterating over results", "[api]") {
 }
 
 TEST_CASE("Error in streaming result after initial query", "[api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// create a big table with strings that are numbers

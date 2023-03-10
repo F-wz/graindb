@@ -1,7 +1,7 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 #define COLUMN_COUNT 10000
@@ -10,7 +10,7 @@ using namespace std;
 
 TEST_CASE("Test many columns", "[create][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	ostringstream ss;

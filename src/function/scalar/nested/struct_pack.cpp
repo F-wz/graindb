@@ -1,13 +1,13 @@
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/parser/expression/bound_expression.hpp"
-#include "duckdb/function/scalar/nested_functions.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/parser/expression/bound_expression.hpp"
+#include "graindb/function/scalar/nested_functions.hpp"
 
 #include <set>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static void struct_pack_fun(DataChunk &args, ExpressionState &state, Vector &result) {
 	auto &func_expr = (BoundFunctionExpression &)state.expr;
@@ -66,4 +66,4 @@ void StructPackFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(fun);
 }
 
-} // namespace duckdb
+} // namespace graindb

@@ -1,12 +1,12 @@
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/catalog/catalog_entry/scalar_function_catalog_entry.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/parser/expression/function_expression.hpp"
-#include "duckdb/planner/expression/bound_cast_expression.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/planner/expression_binder.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/catalog/catalog_entry/scalar_function_catalog_entry.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/parser/expression/function_expression.hpp"
+#include "graindb/planner/expression/bound_cast_expression.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/planner/expression_binder.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BindResult ExpressionBinder::BindExpression(FunctionExpression &function, idx_t depth) {

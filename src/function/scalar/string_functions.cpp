@@ -1,8 +1,8 @@
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 void BuiltinFunctions::RegisterStringFunctions() {
 	Register<ReverseFun>();
@@ -31,4 +31,4 @@ void BuiltinFunctions::RegisterStringFunctions() {
 	Register<UnicodeFun>();
 }
 
-} // namespace duckdb
+} // namespace graindb

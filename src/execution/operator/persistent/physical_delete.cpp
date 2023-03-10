@@ -1,9 +1,9 @@
-#include "duckdb/execution/operator/persistent/physical_delete.hpp"
+#include "graindb/execution/operator/persistent/physical_delete.hpp"
 
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/storage/data_table.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/storage/data_table.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void PhysicalDelete::GetChunkInternal(ClientContext &context, DataChunk &chunk, PhysicalOperatorState *state,

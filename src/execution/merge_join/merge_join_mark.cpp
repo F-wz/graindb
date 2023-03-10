@@ -1,9 +1,9 @@
-#include "duckdb/common/operator/comparison_operators.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/merge_join.hpp"
-#include "duckdb/parser/expression/comparison_expression.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/merge_join.hpp"
+#include "graindb/parser/expression/comparison_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 template <class T> idx_t MergeJoinMark::Equality::Operation(ScalarMergeInfo &l, ChunkMergeInfo &r) {
@@ -44,11 +44,11 @@ template <class T, class OP> static idx_t merge_join_mark_gt(ScalarMergeInfo &l,
 	return 0;
 }
 template <class T> idx_t MergeJoinMark::GreaterThan::Operation(ScalarMergeInfo &l, ChunkMergeInfo &r) {
-	return merge_join_mark_gt<T, duckdb::GreaterThan>(l, r);
+	return merge_join_mark_gt<T, graindb::GreaterThan>(l, r);
 }
 
 template <class T> idx_t MergeJoinMark::GreaterThanEquals::Operation(ScalarMergeInfo &l, ChunkMergeInfo &r) {
-	return merge_join_mark_gt<T, duckdb::GreaterThanEquals>(l, r);
+	return merge_join_mark_gt<T, graindb::GreaterThanEquals>(l, r);
 }
 
 template <class T, class OP> static idx_t merge_join_mark_lt(ScalarMergeInfo &l, ChunkMergeInfo &r) {
@@ -86,11 +86,11 @@ template <class T, class OP> static idx_t merge_join_mark_lt(ScalarMergeInfo &l,
 }
 
 template <class T> idx_t MergeJoinMark::LessThan::Operation(ScalarMergeInfo &l, ChunkMergeInfo &r) {
-	return merge_join_mark_lt<T, duckdb::LessThan>(l, r);
+	return merge_join_mark_lt<T, graindb::LessThan>(l, r);
 }
 
 template <class T> idx_t MergeJoinMark::LessThanEquals::Operation(ScalarMergeInfo &l, ChunkMergeInfo &r) {
-	return merge_join_mark_lt<T, duckdb::LessThanEquals>(l, r);
+	return merge_join_mark_lt<T, graindb::LessThanEquals>(l, r);
 }
 
 INSTANTIATE_MERGEJOIN_TEMPLATES(MergeJoinMark, Equality, ScalarMergeInfo, ChunkMergeInfo);

@@ -1,8 +1,8 @@
-#include "duckdb/common/enums/statement_type.hpp"
+#include "graindb/common/enums/statement_type.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 string StatementTypeToString(StatementType type) {
 	switch (type) {
@@ -47,4 +47,4 @@ string StatementTypeToString(StatementType type) {
 	}
 }
 
-} // namespace duckdb
+} // namespace graindb

@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Extract function", "[date]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -58,7 +58,7 @@ TEST_CASE("Extract function", "[date]") {
 
 TEST_CASE("Extract function edge cases", "[date]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// century changes in the year 1
@@ -110,7 +110,7 @@ TEST_CASE("Extract function edge cases", "[date]") {
 
 TEST_CASE("Extract timestamp function", "[timestamp]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -161,7 +161,7 @@ TEST_CASE("Extract timestamp function", "[timestamp]") {
 
 TEST_CASE("Extract milliseconds from timestamp", "[timestamp]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

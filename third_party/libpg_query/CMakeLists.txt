@@ -19,10 +19,10 @@ add_library(pg_query STATIC
 target_include_directories(
   pg_query
   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>)
-set_target_properties(pg_query PROPERTIES EXPORT_NAME duckdb_pg_query)
+set_target_properties(pg_query PROPERTIES EXPORT_NAME graindb_pg_query)
 
 install(TARGETS pg_query
-        EXPORT "${DUCKDB_EXPORT_SET}"
+        EXPORT "${GRAINDB_EXPORT_SET}"
         LIBRARY DESTINATION "${INSTALL_LIB_DIR}"
         ARCHIVE DESTINATION "${INSTALL_LIB_DIR}")
 

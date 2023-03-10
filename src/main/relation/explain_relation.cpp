@@ -1,11 +1,11 @@
-#include "duckdb/main/relation/explain_relation.hpp"
-#include "duckdb/parser/statement/explain_statement.hpp"
-#include "duckdb/parser/statement/select_statement.hpp"
-#include "duckdb/parser/parsed_data/create_view_info.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/main/client_context.hpp"
+#include "graindb/main/relation/explain_relation.hpp"
+#include "graindb/parser/statement/explain_statement.hpp"
+#include "graindb/parser/statement/select_statement.hpp"
+#include "graindb/parser/parsed_data/create_view_info.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/main/client_context.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 ExplainRelation::ExplainRelation(shared_ptr<Relation> child_p)
     : Relation(child_p->context, RelationType::EXPLAIN_RELATION), child(move(child_p)) {
@@ -32,4 +32,4 @@ string ExplainRelation::ToString(idx_t depth) {
 	return str + child->ToString(depth + 1);
 }
 
-} // namespace duckdb
+} // namespace graindb

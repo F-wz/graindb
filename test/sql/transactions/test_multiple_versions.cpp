@@ -1,13 +1,13 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/storage/storage_info.hpp"
+#include "graindb/storage/storage_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test multiple versions of the same data", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 	con.EnableQueryVerification();
 
@@ -64,7 +64,7 @@ TEST_CASE("Test multiple versions of the same data", "[transactions]") {
 
 TEST_CASE("Test multiple versions of the same data with a data set that exceeds a single block", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 	con.EnableQueryVerification();
 

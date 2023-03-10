@@ -1,8 +1,8 @@
-#include "duckdb/parser/tableref/joinref.hpp"
+#include "graindb/parser/tableref/joinref.hpp"
 
-#include "duckdb/common/serializer.hpp"
+#include "graindb/common/serializer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 bool JoinRef::Equals(const TableRef *other_) const {

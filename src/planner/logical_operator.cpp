@@ -1,9 +1,9 @@
-#include "duckdb/planner/logical_operator.hpp"
+#include "graindb/planner/logical_operator.hpp"
 
-#include "duckdb/common/printer.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/common/printer.hpp"
+#include "graindb/common/string_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 string LogicalOperator::ParamsToString() const {

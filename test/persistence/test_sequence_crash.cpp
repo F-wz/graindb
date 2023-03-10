@@ -1,7 +1,7 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
-#include "duckdb.hpp"
-#include "duckdb/main/appender.hpp"
+#include "graindb/common/file_system.hpp"
+#include "graindb.hpp"
+#include "graindb/main/appender.hpp"
 #include "test_helpers.hpp"
 
 #include <signal.h>
@@ -9,7 +9,7 @@
 #include <unistd.h>
 #include <thread>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test that sequence never returns the same value twice even with aborts", "[persistence][.]") {
@@ -19,7 +19,7 @@ TEST_CASE("Test that sequence never returns the same value twice even with abort
 	DeleteDatabase(dbdir);
 	// create a database
 	{
-		DuckDB db(dbdir);
+		GrainDB db(dbdir);
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE SEQUENCE seq"));
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE a (i INTEGER DEFAULT nextval('seq'), j INTEGER)"));
@@ -31,7 +31,7 @@ TEST_CASE("Test that sequence never returns the same value twice even with abort
 		pid_t pid = fork();
 		if (pid == 0) {
 			// child process, connect to the database and start inserting values
-			DuckDB db(dbdir);
+			GrainDB db(dbdir);
 			Connection con(db);
 			while (true) {
 				con.Query("INSERT INTO a (j) VALUES(1)");
@@ -51,7 +51,7 @@ TEST_CASE("Test that sequence never returns the same value twice even with abort
 	}
 	// now connect to the database
 	{
-		DuckDB db(dbdir);
+		GrainDB db(dbdir);
 		Connection con(db);
 		// verify that "i" only has unique values from the sequence
 		// i.e. COUNT = COUNT(DISTINCT)
@@ -61,7 +61,7 @@ TEST_CASE("Test that sequence never returns the same value twice even with abort
 	DeleteDatabase(dbdir);
 }
 
-static void write_entries_to_table(DuckDB *db, int i) {
+static void write_entries_to_table(GrainDB *db, int i) {
 	Connection con(*db);
 	if (i % 2 == 0) {
 		// i % 2 = 0, insert values
@@ -84,7 +84,7 @@ TEST_CASE("Test that sequence never returns the same value twice even with abort
 	DeleteDatabase(dbdir);
 	// create a database
 	{
-		DuckDB db(dbdir);
+		GrainDB db(dbdir);
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE SEQUENCE seq"));
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE a (i INTEGER DEFAULT nextval('seq'), j INTEGER)"));
@@ -95,7 +95,7 @@ TEST_CASE("Test that sequence never returns the same value twice even with abort
 		pid_t pid = fork();
 		if (pid == 0) {
 			// child process, connect to the database and start inserting values in separate threads
-			DuckDB db(dbdir);
+			GrainDB db(dbdir);
 			thread write_threads[8];
 			for (size_t i = 0; i < 8; i++) {
 				write_threads[i] = thread(write_entries_to_table, &db, i);
@@ -117,7 +117,7 @@ TEST_CASE("Test that sequence never returns the same value twice even with abort
 	}
 	// now connect to the database
 	{
-		DuckDB db(dbdir);
+		GrainDB db(dbdir);
 		Connection con(db);
 		// verify that "i" only has unique values from the sequence
 		// i.e. COUNT = COUNT(DISTINCT)

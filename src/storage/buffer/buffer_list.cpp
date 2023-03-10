@@ -1,8 +1,8 @@
-#include "duckdb/storage/buffer/buffer_list.hpp"
+#include "graindb/storage/buffer/buffer_list.hpp"
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<BufferEntry> BufferList::Pop() {

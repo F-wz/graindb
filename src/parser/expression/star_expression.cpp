@@ -1,6 +1,6 @@
-#include "duckdb/parser/expression/star_expression.hpp"
+#include "graindb/parser/expression/star_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 StarExpression::StarExpression() : ParsedExpression(ExpressionType::STAR, ExpressionClass::STAR) {

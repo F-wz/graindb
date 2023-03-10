@@ -1,13 +1,13 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test temporary catalog entry creation", "[catalog]") {
 	unique_ptr<QueryResult> result;
 
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// basic temp table creation works
@@ -82,7 +82,7 @@ TEST_CASE("Test persistent temporary structures", "[catalog]") {
 	string db_folder = TestCreatePath("temptbls");
 
 	{
-		DuckDB db_p(db_folder);
+		GrainDB db_p(db_folder);
 		Connection con_p(db_p);
 		REQUIRE_NO_FAIL(con_p.Query("CREATE TEMPORARY TABLE temp.a (i INTEGER)"));
 		REQUIRE_NO_FAIL(con_p.Query("INSERT INTO a VALUES (42)"));
@@ -110,7 +110,7 @@ TEST_CASE("Test persistent temporary structures", "[catalog]") {
 	}
 
 	{
-		DuckDB db_p(db_folder);
+		GrainDB db_p(db_folder);
 		Connection con_p(db_p);
 		REQUIRE_FAIL(con_p.Query("SELECT * FROM a"));
 		REQUIRE_NO_FAIL(con_p.Query("CREATE TEMPORARY TABLE a (i INTEGER)"));

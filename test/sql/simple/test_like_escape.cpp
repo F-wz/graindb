@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test scalar LIKE statement with custom ESCAPE", "[like]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// scalar like with escape
@@ -44,7 +44,7 @@ TEST_CASE("Test scalar LIKE statement with custom ESCAPE", "[like]") {
 
 TEST_CASE("Test LIKE statement with ESCAPE in the middle of the pattern", "[like]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE strings(s STRING, pat STRING);"));

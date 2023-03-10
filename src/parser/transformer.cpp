@@ -1,10 +1,10 @@
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/transformer.hpp"
 
-#include "duckdb/parser/expression/list.hpp"
-#include "duckdb/parser/statement/list.hpp"
-#include "duckdb/parser/tableref/emptytableref.hpp"
+#include "graindb/parser/expression/list.hpp"
+#include "graindb/parser/statement/list.hpp"
+#include "graindb/parser/tableref/emptytableref.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 bool Transformer::TransformParseTree(PGList *tree, vector<unique_ptr<SQLStatement>> &statements) {

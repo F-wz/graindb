@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test Common Table Expressions (CTE)", "[cte]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -50,7 +50,7 @@ TEST_CASE("Test Common Table Expressions (CTE)", "[cte]") {
 
 TEST_CASE("Test Recursive Common Table Expressions UNION ALL (CTE)", "[rec_cte_union_all]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -121,7 +121,7 @@ TEST_CASE("Test Recursive Common Table Expressions UNION ALL (CTE)", "[rec_cte_u
 
 TEST_CASE("Test Recursive Common Table Expressions UNION (CTE)", "[rec_cte_union]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

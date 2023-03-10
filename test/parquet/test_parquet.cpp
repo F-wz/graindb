@@ -1,13 +1,13 @@
-#include "duckdb_miniparquet.hpp"
+#include "graindb_miniparquet.hpp"
 #include "catch.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/common/types/timestamp.hpp"
+#include "graindb/common/types/timestamp.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test basic parquet reading", "[parquet]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Parquet::Init(db);
 
 	Connection con(db);

@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Simple table creation transaction tests", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	// create two connections
 	Connection con_one(db);
 	Connection con_two(db);
@@ -73,7 +73,7 @@ TEST_CASE("Simple table creation transaction tests", "[transactions]") {
 
 TEST_CASE("Stacked schema changes", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	// create two connections
 	Connection con(db);
 

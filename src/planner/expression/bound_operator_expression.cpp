@@ -1,7 +1,7 @@
-#include "duckdb/planner/expression/bound_operator_expression.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/planner/expression/bound_operator_expression.hpp"
+#include "graindb/common/string_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundOperatorExpression::BoundOperatorExpression(ExpressionType type, TypeId return_type)

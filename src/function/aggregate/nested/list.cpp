@@ -1,10 +1,10 @@
-#include "duckdb/function/aggregate/nested_functions.hpp"
-#include "duckdb/planner/expression/bound_aggregate_expression.hpp"
-#include "duckdb/common/types/chunk_collection.hpp"
+#include "graindb/function/aggregate/nested_functions.hpp"
+#include "graindb/planner/expression/bound_aggregate_expression.hpp"
+#include "graindb/common/types/chunk_collection.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 struct list_agg_state_t {
 	ChunkCollection *cc;
@@ -104,4 +104,4 @@ void ListFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(agg);
 }
 
-} // namespace duckdb
+} // namespace graindb

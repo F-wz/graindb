@@ -1,12 +1,12 @@
-#include "duckdb/function/aggregate/distributive_functions.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/function/aggregate/distributive_functions.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 #include <string>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 struct string_agg_state_t {
 	char *dataptr;
@@ -89,4 +89,4 @@ void StringAggFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(string_agg);
 }
 
-} // namespace duckdb
+} // namespace graindb

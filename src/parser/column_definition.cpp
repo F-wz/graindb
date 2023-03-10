@@ -1,7 +1,7 @@
-#include "duckdb/parser/column_definition.hpp"
-#include "duckdb/common/serializer.hpp"
+#include "graindb/parser/column_definition.hpp"
+#include "graindb/common/serializer.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 ColumnDefinition ColumnDefinition::Copy() {
 	ColumnDefinition copy(name, type);
@@ -23,4 +23,4 @@ ColumnDefinition ColumnDefinition::Deserialize(Deserializer &source) {
 	return ColumnDefinition(column_name, column_type, move(default_value));
 }
 
-} // namespace duckdb
+} // namespace graindb

@@ -1,12 +1,12 @@
-#include "duckdb/function/aggregate/distributive_functions.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/function/aggregate_function.hpp"
+#include "graindb/function/aggregate/distributive_functions.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/function/aggregate_function.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 void BuiltinFunctions::RegisterDistributiveAggregates() {
 	Register<BitAndFun>();
@@ -21,4 +21,4 @@ void BuiltinFunctions::RegisterDistributiveAggregates() {
 	Register<StringAggFun>();
 }
 
-} // namespace duckdb
+} // namespace graindb

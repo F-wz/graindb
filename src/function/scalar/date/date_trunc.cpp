@@ -1,17 +1,17 @@
-#include "duckdb/function/scalar/date_functions.hpp"
-#include "duckdb/common/enums/date_part_specifier.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/types/time.hpp"
-#include "duckdb/common/types/timestamp.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/function/scalar/date_functions.hpp"
+#include "graindb/common/enums/date_part_specifier.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/types/time.hpp"
+#include "graindb/common/types/timestamp.hpp"
+#include "graindb/common/string_util.hpp"
 
 // TODO date_trunc function should also handle interval data type when it is implemented. See
 // https://www.postgresql.org/docs/9.1/functions-datetime.html
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 struct MillenniumTruncOperator {
 	template <class TA, class TR> static inline TR Operation(TA input) {
@@ -191,4 +191,4 @@ void DateTruncFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(date_trunc);
 }
 
-} // namespace duckdb
+} // namespace graindb

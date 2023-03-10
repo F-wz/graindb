@@ -1,7 +1,7 @@
 library("testthat")
 
 # the easy part
-test_check("duckdb")
+test_check("graindb")
 
 dbplyr_tests <- function() {
 	if (!identical(Sys.getenv("NOT_CRAN"), "true")) {
@@ -19,8 +19,8 @@ dbplyr_tests <- function() {
 	tests <- Sys.glob(file.path(dbplyr_src, "dbplyr*", "tests"))
 	setwd(tests)
 
-	options(duckdb.debug=T)
-	test_register_src("duckdb", duckdb::src_duckdb())
+	options(graindb.debug=T)
+	test_register_src("graindb", graindb::src_graindb())
 
 	# TODO fix excluded test cases
 	test_check("dbplyr", stop_on_failure=TRUE,, invert=T, filter="(verb-joins|verb-mutate)")

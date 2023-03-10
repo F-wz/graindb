@@ -1,8 +1,8 @@
-#include "duckdb/execution/operator/schema/physical_drop.hpp"
+#include "graindb/execution/operator/schema/physical_drop.hpp"
 
-#include "duckdb/main/client_context.hpp"
+#include "graindb/main/client_context.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void PhysicalDrop::GetChunkInternal(ClientContext &context, DataChunk &chunk, PhysicalOperatorState *state,

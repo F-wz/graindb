@@ -1,9 +1,9 @@
-#include "duckdb/execution/operator/projection/physical_projection.hpp"
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/planner/expression/bound_reference_expression.hpp"
-#include "duckdb/planner/operator/logical_projection.hpp"
+#include "graindb/execution/operator/projection/physical_projection.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/planner/expression/bound_reference_expression.hpp"
+#include "graindb/planner/operator/logical_projection.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreatePlan(LogicalProjection &op) {

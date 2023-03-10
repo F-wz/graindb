@@ -1,23 +1,23 @@
-#include "duckdb/parser/statement/update_statement.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression/bound_default_expression.hpp"
-#include "duckdb/planner/expression_binder/update_binder.hpp"
-#include "duckdb/planner/expression_binder/where_binder.hpp"
-#include "duckdb/planner/operator/logical_filter.hpp"
-#include "duckdb/planner/operator/logical_get.hpp"
-#include "duckdb/planner/operator/logical_projection.hpp"
-#include "duckdb/planner/operator/logical_update.hpp"
-#include "duckdb/planner/constraints/bound_check_constraint.hpp"
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/storage/data_table.hpp"
-#include "duckdb/planner/bound_tableref.hpp"
+#include "graindb/parser/statement/update_statement.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression/bound_default_expression.hpp"
+#include "graindb/planner/expression_binder/update_binder.hpp"
+#include "graindb/planner/expression_binder/where_binder.hpp"
+#include "graindb/planner/operator/logical_filter.hpp"
+#include "graindb/planner/operator/logical_get.hpp"
+#include "graindb/planner/operator/logical_projection.hpp"
+#include "graindb/planner/operator/logical_update.hpp"
+#include "graindb/planner/constraints/bound_check_constraint.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/storage/data_table.hpp"
+#include "graindb/planner/bound_tableref.hpp"
 
 #include <algorithm>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static void BindExtraColumns(TableCatalogEntry &table, LogicalGet &get, LogicalProjection &proj, LogicalUpdate &update,
                              unordered_set<column_t> &bound_columns) {
@@ -170,4 +170,4 @@ BoundStatement Binder::Bind(UpdateStatement &stmt) {
 	return result;
 }
 
-} // namespace duckdb
+} // namespace graindb

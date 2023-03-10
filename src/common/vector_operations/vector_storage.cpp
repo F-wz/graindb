@@ -1,8 +1,8 @@
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 template <class T> static void CopyToStorageLoop(VectorData &vdata, idx_t count, data_ptr_t target) {
 	auto ldata = (T *)vdata.data;
@@ -101,4 +101,4 @@ void VectorOperations::ReadFromStorage(data_ptr_t source, idx_t count, Vector &r
 	}
 }
 
-} // namespace duckdb
+} // namespace graindb

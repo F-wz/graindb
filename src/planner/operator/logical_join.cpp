@@ -1,9 +1,9 @@
-#include "duckdb/planner/operator/logical_join.hpp"
+#include "graindb/planner/operator/logical_join.hpp"
 
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression_iterator.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 LogicalJoin::LogicalJoin(JoinType join_type, LogicalOperatorType logical_type)

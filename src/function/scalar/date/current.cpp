@@ -1,13 +1,13 @@
-#include "duckdb/function/scalar/date_functions.hpp"
+#include "graindb/function/scalar/date_functions.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/types/timestamp.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/types/timestamp.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static void current_time_function(DataChunk &input, ExpressionState &state, Vector &result) {
 	assert(input.column_count() == 0);
@@ -42,4 +42,4 @@ void CurrentTimestampFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction({"now", "current_timestamp"}, ScalarFunction({}, SQLType::TIMESTAMP, current_timestamp_function));
 }
 
-} // namespace duckdb
+} // namespace graindb

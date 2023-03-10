@@ -11,7 +11,7 @@ if os.getenv('TWINE_USERNAME') is None or os.getenv('TWINE_PASSWORD') is None:
 release_name = sys.argv[1]
 release_rev = None
 
-request = urllib.request.Request("https://api.github.com/repos/cwida/duckdb/git/refs/tags/")
+request = urllib.request.Request("https://api.github.com/repos/cwida/graindb/git/refs/tags/")
 with urllib.request.urlopen(request,  context=ssl._create_unverified_context()) as url:
 	data = json.loads(url.read().decode())
 
@@ -26,7 +26,7 @@ if (release_rev is None):
 
 print("Using sha %s for release %s" % (release_rev, release_name))
 
-binurl = "http://download.duckdb.org/rev/%s/python/" % release_rev
+binurl = "http://download.graindb.org/rev/%s/python/" % release_rev
 # assemble python files for release
 
 fdir = tempfile.mkdtemp()

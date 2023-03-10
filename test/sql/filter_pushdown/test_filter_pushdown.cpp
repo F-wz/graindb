@@ -1,15 +1,15 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "test_helpers.hpp"
 
 #include <iostream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test filter pushdown", "[filterpushdown]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	con.EnableProfiling();
@@ -124,7 +124,7 @@ TEST_CASE("Test filter pushdown", "[filterpushdown]") {
 
 TEST_CASE("Test filter pushdown with more data", "[filterpushdown][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableProfiling();
 
@@ -357,7 +357,7 @@ TEST_CASE("Test filter pushdown with more data", "[filterpushdown][.]") {
 
 TEST_CASE("Test filter pushdown with more advanced expressions", "[filterpushdown][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableProfiling();
 
@@ -404,7 +404,7 @@ TEST_CASE("Test filter pushdown with more advanced expressions", "[filterpushdow
 
 TEST_CASE("Test moving/duplicating conditions", "[filterpushdown][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableProfiling();
 

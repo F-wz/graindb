@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 //
-//                         DuckDB
+//                         GrainDB
 //
 // benchmark_runner.hpp
 //
@@ -11,12 +11,12 @@
 #pragma once
 
 #include "benchmark.hpp"
-#include "duckdb/common/constants.hpp"
-#include "duckdb/common/fstream.hpp"
-#include "duckdb/main/connection.hpp"
+#include "graindb/common/constants.hpp"
+#include "graindb/common/fstream.hpp"
+#include "graindb/main/connection.hpp"
 
-namespace duckdb {
-class DuckDB;
+namespace graindb {
+class GrainDB;
 
 //! The benchmark runner class is responsible for running benchmarks
 class BenchmarkRunner {
@@ -24,17 +24,17 @@ class BenchmarkRunner {
 	}
 
 public:
-	static constexpr const char *DUCKDB_BENCHMARK_DIRECTORY = "duckdb_benchmark_data";
+	static constexpr const char *GRAINDB_BENCHMARK_DIRECTORY = "graindb_benchmark_data";
 
 	static BenchmarkRunner &GetInstance() {
 		static BenchmarkRunner instance;
 		return instance;
 	}
 
-	//! Save the current database state, exporting it to a set of CSVs in the DUCKDB_BENCHMARK_DIRECTORY directory
-	static void SaveDatabase(DuckDB &db, string name);
-	//! Try to initialize the database from the DUCKDB_BENCHMARK_DIRECTORY
-	static bool TryLoadDatabase(DuckDB &db, string name, bool enableRAIs = false, string rai_stmt = "");
+	//! Save the current database state, exporting it to a set of CSVs in the GRAINDB_BENCHMARK_DIRECTORY directory
+	static void SaveDatabase(GrainDB &db, string name);
+	//! Try to initialize the database from the GRAINDB_BENCHMARK_DIRECTORY
+	static bool TryLoadDatabase(GrainDB &db, string name, bool enableRAIs = false, string rai_stmt = "");
 	//! Inject join order into optimizer
 	static void InjectJO(Connection &conn, string jo_path);
 
@@ -55,4 +55,4 @@ public:
 	ofstream log_file;
 };
 
-} // namespace duckdb
+} // namespace graindb

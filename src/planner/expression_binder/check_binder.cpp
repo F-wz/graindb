@@ -1,9 +1,9 @@
-#include "duckdb/planner/expression_binder/check_binder.hpp"
+#include "graindb/planner/expression_binder/check_binder.hpp"
 
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/planner/expression/bound_reference_expression.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/planner/expression/bound_reference_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 CheckBinder::CheckBinder(Binder &binder, ClientContext &context, string table, vector<ColumnDefinition> &columns,

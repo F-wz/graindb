@@ -1,13 +1,13 @@
-#include "duckdb/parser/expression/case_expression.hpp"
-#include "duckdb/parser/expression/cast_expression.hpp"
-#include "duckdb/parser/expression/function_expression.hpp"
-#include "duckdb/parser/expression/operator_expression.hpp"
-#include "duckdb/parser/expression/star_expression.hpp"
-#include "duckdb/parser/expression/window_expression.hpp"
-#include "duckdb/parser/transformer.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/parser/expression/case_expression.hpp"
+#include "graindb/parser/expression/cast_expression.hpp"
+#include "graindb/parser/expression/function_expression.hpp"
+#include "graindb/parser/expression/operator_expression.hpp"
+#include "graindb/parser/expression/star_expression.hpp"
+#include "graindb/parser/expression/window_expression.hpp"
+#include "graindb/parser/transformer.hpp"
+#include "graindb/common/string_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static ExpressionType WindowToExpressionType(string &fun_name) {

@@ -1,8 +1,8 @@
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
 
-#include "duckdb/common/types/hash.hpp"
+#include "graindb/common/types/hash.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundColumnRefExpression::BoundColumnRefExpression(string alias, TypeId type, ColumnBinding binding, idx_t depth)
@@ -21,9 +21,9 @@ unique_ptr<Expression> BoundColumnRefExpression::Copy() {
 
 hash_t BoundColumnRefExpression::Hash() const {
 	auto result = Expression::Hash();
-	result = CombineHash(result, duckdb::Hash<uint64_t>(binding.column_index));
-	result = CombineHash(result, duckdb::Hash<uint64_t>(binding.table_index));
-	return CombineHash(result, duckdb::Hash<uint64_t>(depth));
+	result = CombineHash(result, graindb::Hash<uint64_t>(binding.column_index));
+	result = CombineHash(result, graindb::Hash<uint64_t>(binding.table_index));
+	return CombineHash(result, graindb::Hash<uint64_t>(depth));
 }
 
 bool BoundColumnRefExpression::Equals(const BaseExpression *other_) const {

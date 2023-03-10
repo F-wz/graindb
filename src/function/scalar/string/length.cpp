@@ -1,12 +1,12 @@
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 #include "utf8proc.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 // length returns the size in characters
 struct StringLengthOperator {
@@ -54,4 +54,4 @@ void UnicodeFun::RegisterFunction(BuiltinFunctions &set) {
 	                               ScalarFunction::UnaryFunction<string_t, int32_t, UnicodeOperator, true>));
 }
 
-} // namespace duckdb
+} // namespace graindb

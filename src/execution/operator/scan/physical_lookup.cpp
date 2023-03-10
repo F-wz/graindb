@@ -1,18 +1,18 @@
-#include "duckdb/execution/operator/scan/physical_lookup.hpp"
+#include "graindb/execution/operator/scan/physical_lookup.hpp"
 
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/main/database.hpp"
-#include "duckdb/storage/buffer_manager.hpp"
-#include "duckdb/storage/numeric_segment.hpp"
-#include "duckdb/storage/storage_manager.hpp"
-#include "duckdb/storage/table/transient_segment.hpp"
-#include "duckdb/storage/uncompressed_segment.hpp"
-#include "duckdb/transaction/transaction.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/main/database.hpp"
+#include "graindb/storage/buffer_manager.hpp"
+#include "graindb/storage/numeric_segment.hpp"
+#include "graindb/storage/storage_manager.hpp"
+#include "graindb/storage/table/transient_segment.hpp"
+#include "graindb/storage/uncompressed_segment.hpp"
+#include "graindb/transaction/transaction.hpp"
 
 #include <iostream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 PhysicalLookup::PhysicalLookup(LogicalOperator &op, TableCatalogEntry &tableref, idx_t table_index, DataTable &table,

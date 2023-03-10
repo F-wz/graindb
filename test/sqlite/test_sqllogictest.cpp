@@ -33,7 +33,7 @@
 #include <unistd.h>
 #define stricmp strcasecmp
 #endif
-#include "slt_duckdb.hpp"
+#include "slt_graindb.hpp"
 
 #include <algorithm>
 #include <dirent.h>
@@ -301,7 +301,7 @@ static void execute_file(string script) {
 	int haltOnError = 0;                        /* Stop on first error if true */
 	int enableTrace = 0;                        /* Trace SQL statements if true */
 	const char *zScriptFile = 0;                /* Input script filename */
-	const char *zDbEngine = "DuckDB";           /* Name of database engine */
+	const char *zDbEngine = "GrainDB";           /* Name of database engine */
 	const char *zConnection = 0;                /* Connection string on DB engine */
 	const DbEngine *pEngine = 0;                /* Pointer to DbEngine object */
 	int i;                                      /* Loop counter */
@@ -322,17 +322,17 @@ static void execute_file(string script) {
 	int bHt = 0;                                /* True if -ht command-line option */
 	const char *zParam = 0;                     /* Argument to -parameters */
 
-	const DbEngine duckdbEngine = {
-	    "DuckDB",            /* zName */
+	const DbEngine graindbEngine = {
+	    "GrainDB",            /* zName */
 	    0,                   /* pAuxData */
-	    duckdbConnect,       /* xConnect */
-	    duckdbGetEngineName, /* xGetEngineName */
-	    duckdbStatement,     /* xStatement */
-	    duckdbQuery,         /* xQuery */
-	    duckdbFreeResults,   /* xFreeResults */
-	    duckdbDisconnect     /* xDisconnect */
+	    graindbConnect,       /* xConnect */
+	    graindbGetEngineName, /* xGetEngineName */
+	    graindbStatement,     /* xStatement */
+	    graindbQuery,         /* xQuery */
+	    graindbFreeResults,   /* xFreeResults */
+	    graindbDisconnect     /* xDisconnect */
 	};
-	pEngine = &duckdbEngine;
+	pEngine = &graindbEngine;
 
 	REQUIRE(pEngine);
 	/*

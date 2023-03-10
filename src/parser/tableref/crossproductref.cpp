@@ -1,8 +1,8 @@
-#include "duckdb/parser/tableref/crossproductref.hpp"
+#include "graindb/parser/tableref/crossproductref.hpp"
 
-#include "duckdb/common/serializer.hpp"
+#include "graindb/common/serializer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 bool CrossProductRef::Equals(const TableRef *other_) const {

@@ -1,5 +1,5 @@
 add_library_unity(
-  duckdb_func_string
+  graindb_func_string
   OBJECT
   reverse.cpp
   caseconvert.cpp
@@ -20,5 +20,5 @@ add_library_unity(
   left_right.cpp
   contains.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_func_string>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_func_string>
     PARENT_SCOPE)

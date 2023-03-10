@@ -1,8 +1,8 @@
-#include "duckdb/planner/operator/logical_filter.hpp"
+#include "graindb/planner/operator/logical_filter.hpp"
 
-#include "duckdb/planner/expression/bound_conjunction_expression.hpp"
+#include "graindb/planner/expression/bound_conjunction_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 LogicalFilter::LogicalFilter(unique_ptr<Expression> expression) : LogicalOperator(LogicalOperatorType::FILTER) {

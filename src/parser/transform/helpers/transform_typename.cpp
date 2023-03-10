@@ -1,8 +1,8 @@
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 SQLType Transformer::TransformTypeName(PGTypeName *type_name) {

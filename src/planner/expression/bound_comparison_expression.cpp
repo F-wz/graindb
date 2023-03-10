@@ -1,6 +1,6 @@
-#include "duckdb/planner/expression/bound_comparison_expression.hpp"
+#include "graindb/planner/expression/bound_comparison_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundComparisonExpression::BoundComparisonExpression(ExpressionType type, unique_ptr<Expression> left,

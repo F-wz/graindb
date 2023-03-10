@@ -1,9 +1,9 @@
-#include "duckdb/optimizer/sip_join_merger.hpp"
+#include "graindb/optimizer/sip_join_merger.hpp"
 
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/operator/logical_comparison_join.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/operator/logical_comparison_join.hpp"
 
-namespace duckdb {
+namespace graindb {
 using namespace std;
 
 unique_ptr<LogicalOperator> SIPJoinMerger::Rewrite(unique_ptr<LogicalOperator> op) {
@@ -178,4 +178,4 @@ void SIPJoinMerger::Merge(LogicalComparisonJoin &join) {
 		return;
 	}
 }
-} // namespace duckdb
+} // namespace graindb

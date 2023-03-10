@@ -1,9 +1,9 @@
-#include "duckdb/parser/constraints/not_null_constraint.hpp"
+#include "graindb/parser/constraints/not_null_constraint.hpp"
 
-#include "duckdb/common/serializer.hpp"
+#include "graindb/common/serializer.hpp"
 
 using namespace std;
-using namespace duckdb;
+using namespace graindb;
 
 string NotNullConstraint::ToString() const {
 	return "NOT NULL Constraint";

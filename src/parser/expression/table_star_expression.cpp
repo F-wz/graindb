@@ -1,7 +1,7 @@
-#include "duckdb/parser/expression/table_star_expression.hpp"
-#include "duckdb/common/serializer.hpp"
+#include "graindb/parser/expression/table_star_expression.hpp"
+#include "graindb/common/serializer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TableStarExpression::TableStarExpression(string relation_name)

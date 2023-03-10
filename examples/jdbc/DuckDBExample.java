@@ -6,13 +6,13 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DuckDBExample {
+public class GrainDBExample {
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
-		Class.forName("nl.cwi.da.duckdb.DuckDBDriver");
+		Class.forName("nl.cwi.da.graindb.GrainDBDriver");
 
 		// this JDBC url creates a temporary in-memory database. If you want to use a
 		// persistent DB, append its file name
-		Connection conn = DriverManager.getConnection("jdbc:duckdb:");
+		Connection conn = DriverManager.getConnection("jdbc:graindb:");
 
 		Statement stmt = conn.createStatement();
 		stmt.execute("CREATE TABLE test (a INTEGER, b VARCHAR)");

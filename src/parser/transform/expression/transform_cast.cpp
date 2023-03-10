@@ -1,9 +1,9 @@
-#include "duckdb/common/limits.hpp"
-#include "duckdb/parser/expression/cast_expression.hpp"
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/common/limits.hpp"
+#include "graindb/parser/expression/cast_expression.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<ParsedExpression> Transformer::TransformTypeCast(PGTypeCast *root) {

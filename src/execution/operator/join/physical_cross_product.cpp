@@ -1,8 +1,8 @@
-#include "duckdb/execution/operator/join/physical_cross_product.hpp"
+#include "graindb/execution/operator/join/physical_cross_product.hpp"
 
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class PhysicalCrossProductOperatorState : public PhysicalOperatorState {

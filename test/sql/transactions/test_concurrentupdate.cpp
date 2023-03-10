@@ -1,12 +1,12 @@
 #include "catch.hpp"
-#include "duckdb/common/value_operations/value_operations.hpp"
+#include "graindb/common/value_operations/value_operations.hpp"
 #include "test_helpers.hpp"
 
 #include <atomic>
 #include <random>
 #include <thread>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 namespace test_concurrent_update {
@@ -17,7 +17,7 @@ static constexpr int MONEY_PER_ACCOUNT = 10;
 
 TEST_CASE("Single thread update", "[transactions]") {
 	unique_ptr<MaterializedQueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// initialize the database
@@ -44,7 +44,7 @@ TEST_CASE("Single thread update", "[transactions]") {
 }
 
 static volatile bool finished_updating = false;
-static void read_total_balance(DuckDB *db, bool *read_correct) {
+static void read_total_balance(GrainDB *db, bool *read_correct) {
 	*read_correct = true;
 	Connection con(*db);
 	while (!finished_updating) {
@@ -58,7 +58,7 @@ static void read_total_balance(DuckDB *db, bool *read_correct) {
 
 TEST_CASE("Concurrent update", "[updates][.]") {
 	unique_ptr<MaterializedQueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// fixed seed random numbers
@@ -123,7 +123,7 @@ TEST_CASE("Concurrent update", "[updates][.]") {
 
 static std::atomic<size_t> finished_threads;
 
-static void write_random_numbers_to_account(DuckDB *db, bool *correct, size_t nr) {
+static void write_random_numbers_to_account(GrainDB *db, bool *correct, size_t nr) {
 	correct[nr] = true;
 	Connection con(*db);
 	for (size_t i = 0; i < TRANSACTION_UPDATE_COUNT; i++) {
@@ -163,7 +163,7 @@ static void write_random_numbers_to_account(DuckDB *db, bool *correct, size_t nr
 
 TEST_CASE("Multiple concurrent updaters", "[updates][.]") {
 	unique_ptr<MaterializedQueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	finished_updating = false;

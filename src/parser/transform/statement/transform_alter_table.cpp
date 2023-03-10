@@ -1,13 +1,13 @@
-#include "duckdb/parser/statement/alter_table_statement.hpp"
-#include "duckdb/parser/transformer.hpp"
-#include "duckdb/parser/tableref/basetableref.hpp"
-#include "duckdb/parser/expression/cast_expression.hpp"
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/constraint.hpp"
+#include "graindb/parser/statement/alter_table_statement.hpp"
+#include "graindb/parser/transformer.hpp"
+#include "graindb/parser/tableref/basetableref.hpp"
+#include "graindb/parser/expression/cast_expression.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/constraint.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 unique_ptr<AlterTableStatement> Transformer::TransformAlter(PGNode *node) {
 	auto stmt = reinterpret_cast<PGAlterTableStmt *>(node);
@@ -76,4 +76,4 @@ unique_ptr<AlterTableStatement> Transformer::TransformAlter(PGNode *node) {
 	return result;
 }
 
-} // namespace duckdb
+} // namespace graindb

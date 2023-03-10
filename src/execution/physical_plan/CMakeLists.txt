@@ -1,4 +1,4 @@
-add_library_unity(duckdb_physical_plan
+add_library_unity(graindb_physical_plan
                   OBJECT
                   plan_aggregate.cpp
                   plan_any_join.cpp
@@ -36,5 +36,5 @@ add_library_unity(duckdb_physical_plan
                   plan_expression_get.cpp
                   plan_recursive_cte.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_physical_plan>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_physical_plan>
     PARENT_SCOPE)

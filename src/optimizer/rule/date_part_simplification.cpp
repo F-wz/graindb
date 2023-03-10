@@ -1,14 +1,14 @@
-#include "duckdb/optimizer/rule/date_part_simplification.hpp"
+#include "graindb/optimizer/rule/date_part_simplification.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/optimizer/matcher/expression_matcher.hpp"
-#include "duckdb/optimizer/expression_rewriter.hpp"
-#include "duckdb/common/enums/date_part_specifier.hpp"
-#include "duckdb/function/function.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/optimizer/matcher/expression_matcher.hpp"
+#include "graindb/optimizer/expression_rewriter.hpp"
+#include "graindb/common/enums/date_part_specifier.hpp"
+#include "graindb/function/function.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 DatePartSimplificationRule::DatePartSimplificationRule(ExpressionRewriter &rewriter) : Rule(rewriter) {

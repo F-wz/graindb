@@ -1,9 +1,9 @@
-#include "duckdb/planner/subquery/has_correlated_expressions.hpp"
+#include "graindb/planner/subquery/has_correlated_expressions.hpp"
 
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression/bound_subquery_expression.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression/bound_subquery_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 HasCorrelatedExpressions::HasCorrelatedExpressions(const vector<CorrelatedColumnInfo> &correlated)

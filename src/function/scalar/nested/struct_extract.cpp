@@ -1,11 +1,11 @@
-#include "duckdb/function/scalar/nested_functions.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/function/scalar/nested_functions.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/common/string_util.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static void struct_extract_fun(DataChunk &args, ExpressionState &state, Vector &result) {
 	auto &func_expr = (BoundFunctionExpression &)state.expr;
@@ -95,4 +95,4 @@ void StructExtractFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(fun);
 }
 
-} // namespace duckdb
+} // namespace graindb

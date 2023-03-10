@@ -1,4 +1,4 @@
-add_library_unity(duckdb_common_enums
+add_library_unity(graindb_common_enums
                   OBJECT
                   catalog_type.cpp
                   expression_type.cpp
@@ -8,5 +8,5 @@ add_library_unity(duckdb_common_enums
                   statement_type.cpp
                   relation_type.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_common_enums>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_common_enums>
     PARENT_SCOPE)

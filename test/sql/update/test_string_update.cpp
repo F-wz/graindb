@@ -1,13 +1,13 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/storage/storage_info.hpp"
+#include "graindb/storage/storage_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test update of string columns", "[update]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// create a table
@@ -46,7 +46,7 @@ TEST_CASE("Test update of string columns", "[update]") {
 
 TEST_CASE("Test update of string columns with NULLs", "[update]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// create a table
@@ -71,7 +71,7 @@ TEST_CASE("Test update of string columns with NULLs", "[update]") {
 
 TEST_CASE("Test repeated update of string in same segment", "[update]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// create a table
@@ -105,7 +105,7 @@ TEST_CASE("Test repeated update of string in same segment", "[update]") {
 
 TEST_CASE("Test repeated update of string in same transaction", "[update]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// create a table
@@ -129,7 +129,7 @@ TEST_CASE("Test repeated update of string in same transaction", "[update]") {
 
 TEST_CASE("Test rollback of string update", "[update]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// create a table
@@ -191,7 +191,7 @@ TEST_CASE("Test rollback of string update", "[update]") {
 
 TEST_CASE("Test rollback of string update with NULL", "[update]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// create a table
@@ -237,7 +237,7 @@ TEST_CASE("Test rollback of string update with NULL", "[update]") {
 
 TEST_CASE("Test string updates with many strings", "[update][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// create a table
@@ -288,7 +288,7 @@ TEST_CASE("Test string updates with many strings", "[update][.]") {
 
 TEST_CASE("Test update of big string", "[update][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// create a table

@@ -1,9 +1,9 @@
-#include "duckdb/parser/statement/drop_statement.hpp"
-#include "duckdb/parser/statement/execute_statement.hpp"
-#include "duckdb/parser/statement/prepare_statement.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/statement/drop_statement.hpp"
+#include "graindb/parser/statement/execute_statement.hpp"
+#include "graindb/parser/statement/prepare_statement.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<PrepareStatement> Transformer::TransformPrepare(PGNode *node) {

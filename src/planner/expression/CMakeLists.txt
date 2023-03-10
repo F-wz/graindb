@@ -1,4 +1,4 @@
-add_library_unity(duckdb_planner_expression
+add_library_unity(graindb_planner_expression
                   OBJECT
                   bound_aggregate_expression.cpp
                   bound_between_expression.cpp
@@ -17,4 +17,4 @@ add_library_unity(duckdb_planner_expression
                   bound_window_expression.cpp
                   common_subexpression.cpp)
 set(ALL_OBJECT_FILES ${ALL_OBJECT_FILES}
-                     $<TARGET_OBJECTS:duckdb_planner_expression> PARENT_SCOPE)
+                     $<TARGET_OBJECTS:graindb_planner_expression> PARENT_SCOPE)

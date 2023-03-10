@@ -1,9 +1,9 @@
-#include "duckdb/common/types/hash.hpp"
+#include "graindb/common/types/hash.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/value_operations/value_operations.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/value_operations/value_operations.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 hash_t ValueOperations::Hash(const Value &op) {
@@ -12,23 +12,23 @@ hash_t ValueOperations::Hash(const Value &op) {
 	}
 	switch (op.type) {
 	case TypeId::BOOL:
-		return duckdb::Hash(op.value_.boolean);
+		return graindb::Hash(op.value_.boolean);
 	case TypeId::INT8:
-		return duckdb::Hash(op.value_.tinyint);
+		return graindb::Hash(op.value_.tinyint);
 	case TypeId::INT16:
-		return duckdb::Hash(op.value_.smallint);
+		return graindb::Hash(op.value_.smallint);
 	case TypeId::INT32:
-		return duckdb::Hash(op.value_.integer);
+		return graindb::Hash(op.value_.integer);
 	case TypeId::INT64:
-		return duckdb::Hash(op.value_.bigint);
+		return graindb::Hash(op.value_.bigint);
 	case TypeId::FLOAT:
-		return duckdb::Hash(op.value_.float_);
+		return graindb::Hash(op.value_.float_);
 	case TypeId::DOUBLE:
-		return duckdb::Hash(op.value_.double_);
+		return graindb::Hash(op.value_.double_);
 	case TypeId::POINTER:
-		return duckdb::Hash(op.value_.pointer);
+		return graindb::Hash(op.value_.pointer);
 	case TypeId::VARCHAR:
-		return duckdb::Hash(op.str_value.c_str());
+		return graindb::Hash(op.str_value.c_str());
 	default:
 		throw NotImplementedException("Unimplemented type for hash");
 	}

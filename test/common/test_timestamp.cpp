@@ -1,9 +1,9 @@
 #include "catch.hpp"
-#include "duckdb/common/types/timestamp.hpp"
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/types/time.hpp"
+#include "graindb/common/types/timestamp.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/types/time.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static void VerifyTimestamp(date_t date, dtime_t time, int64_t epoch) {

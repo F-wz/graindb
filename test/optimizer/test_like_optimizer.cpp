@@ -1,10 +1,10 @@
 #include "catch.hpp"
-#include "duckdb/common/helper.hpp"
-#include "duckdb/planner/expression/bound_operator_expression.hpp"
-#include "duckdb/optimizer/rule/like_optimizations.hpp"
+#include "graindb/common/helper.hpp"
+#include "graindb/planner/expression/bound_operator_expression.hpp"
+#include "graindb/optimizer/rule/like_optimizations.hpp"
 #include "expression_helper.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test Like Optimization Rules", "[like-optimizer]") {

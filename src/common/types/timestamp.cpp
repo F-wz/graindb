@@ -1,14 +1,14 @@
-#include "duckdb/common/types/timestamp.hpp"
+#include "graindb/common/types/timestamp.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/types/time.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/types/time.hpp"
 
 #include <iomanip>
 #include <iostream>
 #include <sstream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 constexpr const int32_t MONTHS_PER_YEAR = 12;

@@ -1,8 +1,8 @@
-#include "duckdb/execution/merge_join.hpp"
+#include "graindb/execution/merge_join.hpp"
 
-#include "duckdb/parser/expression/comparison_expression.hpp"
+#include "graindb/parser/expression/comparison_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 template <class MJ, class L_ARG, class R_ARG> static idx_t merge_join(L_ARG &l, R_ARG &r) {

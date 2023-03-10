@@ -1,6 +1,6 @@
-#include "duckdb/function/cast_rules.hpp"
+#include "graindb/function/cast_rules.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 //! The target type determines the preferred implicit casts

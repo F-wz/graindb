@@ -1,13 +1,13 @@
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression/bound_conjunction_expression.hpp"
-#include "duckdb/execution/adaptive_filter.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression/bound_conjunction_expression.hpp"
+#include "graindb/execution/adaptive_filter.hpp"
 
 #include <chrono>
 #include <random>
 #include <vector>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 using namespace chrono;
 

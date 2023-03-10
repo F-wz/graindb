@@ -1,6 +1,6 @@
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 string Transformer::TransformAlias(PGAlias *root) {

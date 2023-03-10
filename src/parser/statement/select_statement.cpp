@@ -1,9 +1,9 @@
-#include "duckdb/parser/statement/select_statement.hpp"
+#include "graindb/parser/statement/select_statement.hpp"
 
-#include "duckdb/common/assert.hpp"
-#include "duckdb/common/serializer.hpp"
+#include "graindb/common/assert.hpp"
+#include "graindb/common/serializer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<SelectStatement> SelectStatement::Copy() {

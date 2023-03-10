@@ -1,8 +1,8 @@
 dist
-duckdb.egg-info
+graindb.egg-info
 build
 .eggs
 .pytest_cache
-/duckdb_tarball/
-duckdb.cpp
-duckdb.hpp
+/graindb_tarball/
+graindb.cpp
+graindb.hpp

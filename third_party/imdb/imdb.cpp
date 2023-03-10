@@ -1,11 +1,11 @@
 #include "include/imdb.hpp"
 
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "imdb_constants.hpp"
 
 #include <fstream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 namespace imdb {

@@ -1,14 +1,14 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "dbgen.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test LEFT OUTER JOIN", "[join]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

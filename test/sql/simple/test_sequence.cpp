@@ -5,12 +5,12 @@
 #include <mutex>
 #include <thread>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test Sequences", "[sequence]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	// note: query verification is disabled for these queries
 	// because running the same query multiple times with a sequence does not result in the same answer
@@ -205,7 +205,7 @@ TEST_CASE("Test Sequences", "[sequence]") {
 
 TEST_CASE("Test Sequences Are Transactional", "[sequence]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	Connection con2(db);
 
@@ -254,11 +254,11 @@ TEST_CASE("Test Sequences Are Transactional", "[sequence]") {
 }
 
 struct ConcurrentData {
-	DuckDB &db;
+	GrainDB &db;
 	mutex lock;
 	vector<int64_t> results;
 
-	ConcurrentData(DuckDB &db) : db(db) {
+	ConcurrentData(GrainDB &db) : db(db) {
 	}
 };
 
@@ -277,7 +277,7 @@ static void append_values_from_sequence(ConcurrentData *data) {
 
 TEST_CASE("Test Concurrent Usage of Sequences", "[sequence][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	thread threads[THREAD_COUNT];
 	ConcurrentData data(db);
@@ -332,7 +332,7 @@ TEST_CASE("Test Concurrent Usage of Sequences", "[sequence][.]") {
 
 TEST_CASE("Test query verification failures", "[sequence]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

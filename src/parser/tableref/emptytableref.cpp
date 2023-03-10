@@ -1,8 +1,8 @@
-#include "duckdb/parser/tableref/emptytableref.hpp"
+#include "graindb/parser/tableref/emptytableref.hpp"
 
-#include "duckdb/common/serializer.hpp"
+#include "graindb/common/serializer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 bool EmptyTableRef::Equals(const TableRef *other) const {

@@ -1,8 +1,8 @@
-#include "duckdb/execution/index/art/node.hpp"
-#include "duckdb/execution/index/art/art.hpp"
-#include "duckdb/common/exception.hpp"
+#include "graindb/execution/index/art/node.hpp"
+#include "graindb/execution/index/art/art.hpp"
+#include "graindb/common/exception.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 
 Node::Node(ART &art, NodeType type, size_t compressedPrefixSize) : prefix_length(0), count(0), type(type) {
 	this->prefix = unique_ptr<uint8_t[]>(new uint8_t[compressedPrefixSize]);

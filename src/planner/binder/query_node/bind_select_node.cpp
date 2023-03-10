@@ -1,21 +1,21 @@
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/tableref/joinref.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression_binder/constant_binder.hpp"
-#include "duckdb/planner/expression_binder/group_binder.hpp"
-#include "duckdb/planner/expression_binder/having_binder.hpp"
-#include "duckdb/planner/expression_binder/order_binder.hpp"
-#include "duckdb/planner/expression_binder/select_binder.hpp"
-#include "duckdb/planner/expression_binder/where_binder.hpp"
-#include "duckdb/planner/query_node/bound_select_node.hpp"
-#include "duckdb/parser/expression/table_star_expression.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/tableref/joinref.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression_binder/constant_binder.hpp"
+#include "graindb/planner/expression_binder/group_binder.hpp"
+#include "graindb/planner/expression_binder/having_binder.hpp"
+#include "graindb/planner/expression_binder/order_binder.hpp"
+#include "graindb/planner/expression_binder/select_binder.hpp"
+#include "graindb/planner/expression_binder/where_binder.hpp"
+#include "graindb/planner/query_node/bound_select_node.hpp"
+#include "graindb/parser/expression/table_star_expression.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static int64_t BindConstant(Binder &binder, ClientContext &context, string clause, unique_ptr<ParsedExpression> &expr) {
 	ConstantBinder constant_binder(binder, context, clause);
@@ -309,4 +309,4 @@ unique_ptr<BoundQueryNode> Binder::BindNode(SelectNode &statement) {
 	return move(result);
 }
 
-} // namespace duckdb
+} // namespace graindb

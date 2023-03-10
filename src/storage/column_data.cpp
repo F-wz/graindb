@@ -1,11 +1,11 @@
-#include "duckdb/storage/column_data.hpp"
+#include "graindb/storage/column_data.hpp"
 
-#include "duckdb/storage/data_table.hpp"
-#include "duckdb/storage/storage_manager.hpp"
-#include "duckdb/storage/table/persistent_segment.hpp"
-#include "duckdb/storage/table/transient_segment.hpp"
+#include "graindb/storage/data_table.hpp"
+#include "graindb/storage/storage_manager.hpp"
+#include "graindb/storage/table/persistent_segment.hpp"
+#include "graindb/storage/table/transient_segment.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ColumnData::ColumnData(BufferManager &manager, DataTableInfo &table_info)

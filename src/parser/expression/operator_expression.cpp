@@ -1,10 +1,10 @@
-#include "duckdb/parser/expression/operator_expression.hpp"
+#include "graindb/parser/expression/operator_expression.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/common/string_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 OperatorExpression::OperatorExpression(ExpressionType type, unique_ptr<ParsedExpression> left,

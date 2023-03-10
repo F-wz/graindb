@@ -1,10 +1,10 @@
-#include "duckdb/optimizer/join_order/query_graph.hpp"
+#include "graindb/optimizer/join_order/query_graph.hpp"
 
-#include "duckdb/common/printer.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/optimizer/join_order/join_relation.hpp"
+#include "graindb/common/printer.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/optimizer/join_order/join_relation.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 using QueryEdge = QueryGraph::QueryEdge;

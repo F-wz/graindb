@@ -1,16 +1,16 @@
 #include "catch.hpp"
 #include "dbgen.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/common/string_util.hpp"
 #include "test_helpers.hpp"
 
 #include <chrono>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test TPC-H SF0", "[tpch]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	tpch::dbgen(0, db);
@@ -24,7 +24,7 @@ TEST_CASE("Test TPC-H SF0.01", "[tpch]") {
 	double sf = 0.01;
 
 	// generate the TPC-H data for SF 0.1
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	tpch::dbgen(sf, db);
 
@@ -40,7 +40,7 @@ TEST_CASE("Test TPC-H SF0.1 with rai", "[tpch]") {
 	double sf = 0.1;
 
 	// generate the TPC-H data for SF 0.1
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	tpch::dbgen(sf, db);
 
@@ -63,7 +63,7 @@ TEST_CASE("Test TPC-H SF0.1", "[tpch][.]") {
 	double sf = 0.1;
 
 	// generate the TPC-H data for SF 0.1
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	tpch::dbgen(sf, db);
 

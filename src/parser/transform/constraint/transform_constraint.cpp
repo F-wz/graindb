@@ -1,9 +1,9 @@
-#include "duckdb/parser/column_definition.hpp"
-#include "duckdb/parser/constraint.hpp"
-#include "duckdb/parser/constraints/list.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/column_definition.hpp"
+#include "graindb/parser/constraint.hpp"
+#include "graindb/parser/constraints/list.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<Constraint> Transformer::TransformConstraint(PGListCell *cell) {

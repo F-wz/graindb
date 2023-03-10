@@ -1,21 +1,21 @@
-#include "duckdb/optimizer/optimizer.hpp"
+#include "graindb/optimizer/optimizer.hpp"
 
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/optimizer/column_lifetime_optimizer.hpp"
-#include "duckdb/optimizer/expression_heuristics.hpp"
-#include "duckdb/optimizer/filter_pushdown.hpp"
-#include "duckdb/optimizer/in_clause_rewriter.hpp"
-#include "duckdb/optimizer/index_scan.hpp"
-#include "duckdb/optimizer/join_order_optimizer.hpp"
-#include "duckdb/optimizer/regex_range_filter.hpp"
-#include "duckdb/optimizer/remove_unused_columns.hpp"
-#include "duckdb/optimizer/rule/list.hpp"
-#include "duckdb/optimizer/sip_join_merger.hpp"
-#include "duckdb/optimizer/sip_join_rewriter.hpp"
-#include "duckdb/optimizer/topn_optimizer.hpp"
-#include "duckdb/planner/binder.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/optimizer/column_lifetime_optimizer.hpp"
+#include "graindb/optimizer/expression_heuristics.hpp"
+#include "graindb/optimizer/filter_pushdown.hpp"
+#include "graindb/optimizer/in_clause_rewriter.hpp"
+#include "graindb/optimizer/index_scan.hpp"
+#include "graindb/optimizer/join_order_optimizer.hpp"
+#include "graindb/optimizer/regex_range_filter.hpp"
+#include "graindb/optimizer/remove_unused_columns.hpp"
+#include "graindb/optimizer/rule/list.hpp"
+#include "graindb/optimizer/sip_join_merger.hpp"
+#include "graindb/optimizer/sip_join_rewriter.hpp"
+#include "graindb/optimizer/topn_optimizer.hpp"
+#include "graindb/planner/binder.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 Optimizer::Optimizer(Binder &binder, ClientContext &context) : context(context), binder(binder), rewriter(context) {

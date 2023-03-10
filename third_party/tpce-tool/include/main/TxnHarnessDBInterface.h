@@ -48,14 +48,14 @@
 #include "TxnHarnessSendToMarketInterface.h"
 #include "utilities/error.h"
 
-#include "duckdb/main/connection.hpp"
+#include "graindb/main/connection.hpp"
 
 using namespace std;
 
 namespace TPCE {
 
 class CTradeOrderDBInterface {
-	duckdb::Connection con;
+	graindb::Connection con;
 
 public:
 	void DoTradeOrderFrame1(const TTradeOrderFrame1Input *pIn, TTradeOrderFrame1Output *pOut);

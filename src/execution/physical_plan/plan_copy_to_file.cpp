@@ -1,8 +1,8 @@
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/execution/operator/persistent/physical_copy_to_file.hpp"
-#include "duckdb/planner/operator/logical_copy_to_file.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/execution/operator/persistent/physical_copy_to_file.hpp"
+#include "graindb/planner/operator/logical_copy_to_file.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreatePlan(LogicalCopyToFile &op) {

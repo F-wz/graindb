@@ -1,9 +1,9 @@
-#include "duckdb/parser/expression/parameter_expression.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression/bound_parameter_expression.hpp"
-#include "duckdb/planner/expression_binder.hpp"
+#include "graindb/parser/expression/parameter_expression.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression/bound_parameter_expression.hpp"
+#include "graindb/planner/expression_binder.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BindResult ExpressionBinder::BindExpression(ParameterExpression &expr, idx_t depth) {

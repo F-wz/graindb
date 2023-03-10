@@ -1,15 +1,15 @@
-#include "duckdb/common/types.hpp"
+#include "graindb/common/types.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/common/types/string_type.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/common/types/string_type.hpp"
 
 #include <cmath>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 const SQLType SQLType::SQLNULL = SQLType(SQLTypeId::SQLNULL);
 const SQLType SQLType::BOOLEAN = SQLType(SQLTypeId::BOOLEAN);
@@ -428,4 +428,4 @@ bool ApproxEqual(double ldecimal, double rdecimal) {
 	return fabs(ldecimal - rdecimal) <= epsilon;
 }
 
-} // namespace duckdb
+} // namespace graindb

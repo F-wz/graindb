@@ -1,8 +1,8 @@
-#include "duckdb/storage/buffer_manager.hpp"
+#include "graindb/storage/buffer_manager.hpp"
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BufferManager::BufferManager(FileSystem &fs, BlockManager &manager, string tmp, idx_t maximum_memory)

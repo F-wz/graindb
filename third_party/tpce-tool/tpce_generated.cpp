@@ -8,7 +8,7 @@
 
 #include "tpce_generated.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 namespace TPCE {
@@ -50,12 +50,12 @@ void append_char(tpce_append_information &info, char value) {
 	append_string(info, val);
 }
 
-template <typename T> class DuckDBBaseLoader : public CBaseLoader<T> {
+template <typename T> class GrainDBBaseLoader : public CBaseLoader<T> {
   protected:
 	tpce_append_information info;
 
   public:
-	DuckDBBaseLoader(Connection &con, string schema, string table) :
+	GrainDBBaseLoader(Connection &con, string schema, string table) :
 		info(con, schema, table) {
 	}
 
@@ -65,10 +65,10 @@ template <typename T> class DuckDBBaseLoader : public CBaseLoader<T> {
 };
 
 
-class DuckDBAccountPermissionLoad : public DuckDBBaseLoader<ACCOUNT_PERMISSION_ROW> {
+class GrainDBAccountPermissionLoad : public GrainDBBaseLoader<ACCOUNT_PERMISSION_ROW> {
 public:
-	DuckDBAccountPermissionLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBAccountPermissionLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -83,10 +83,10 @@ public:
 	}
 
 };
-class DuckDBAddressLoad : public DuckDBBaseLoader<ADDRESS_ROW> {
+class GrainDBAddressLoad : public GrainDBBaseLoader<ADDRESS_ROW> {
 public:
-	DuckDBAddressLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBAddressLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -101,10 +101,10 @@ public:
 	}
 
 };
-class DuckDBBrokerLoad : public DuckDBBaseLoader<BROKER_ROW> {
+class GrainDBBrokerLoad : public GrainDBBaseLoader<BROKER_ROW> {
 public:
-	DuckDBBrokerLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBBrokerLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -119,10 +119,10 @@ public:
 	}
 
 };
-class DuckDBCashTransactionLoad : public DuckDBBaseLoader<CASH_TRANSACTION_ROW> {
+class GrainDBCashTransactionLoad : public GrainDBBaseLoader<CASH_TRANSACTION_ROW> {
 public:
-	DuckDBCashTransactionLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBCashTransactionLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -136,10 +136,10 @@ public:
 	}
 
 };
-class DuckDBChargeLoad : public DuckDBBaseLoader<CHARGE_ROW> {
+class GrainDBChargeLoad : public GrainDBBaseLoader<CHARGE_ROW> {
 public:
-	DuckDBChargeLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBChargeLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -152,10 +152,10 @@ public:
 	}
 
 };
-class DuckDBCommissionRateLoad : public DuckDBBaseLoader<COMMISSION_RATE_ROW> {
+class GrainDBCommissionRateLoad : public GrainDBBaseLoader<COMMISSION_RATE_ROW> {
 public:
-	DuckDBCommissionRateLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBCommissionRateLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -171,10 +171,10 @@ public:
 	}
 
 };
-class DuckDBCompanyLoad : public DuckDBBaseLoader<COMPANY_ROW> {
+class GrainDBCompanyLoad : public GrainDBBaseLoader<COMPANY_ROW> {
 public:
-	DuckDBCompanyLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBCompanyLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -193,10 +193,10 @@ public:
 	}
 
 };
-class DuckDBCompanyCompetitorLoad : public DuckDBBaseLoader<COMPANY_COMPETITOR_ROW> {
+class GrainDBCompanyCompetitorLoad : public GrainDBBaseLoader<COMPANY_COMPETITOR_ROW> {
 public:
-	DuckDBCompanyCompetitorLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBCompanyCompetitorLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -209,10 +209,10 @@ public:
 	}
 
 };
-class DuckDBCustomerLoad : public DuckDBBaseLoader<CUSTOMER_ROW> {
+class GrainDBCustomerLoad : public GrainDBBaseLoader<CUSTOMER_ROW> {
 public:
-	DuckDBCustomerLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBCustomerLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -246,10 +246,10 @@ public:
 	}
 
 };
-class DuckDBCustomerAccountLoad : public DuckDBBaseLoader<CUSTOMER_ACCOUNT_ROW> {
+class GrainDBCustomerAccountLoad : public GrainDBBaseLoader<CUSTOMER_ACCOUNT_ROW> {
 public:
-	DuckDBCustomerAccountLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBCustomerAccountLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -265,10 +265,10 @@ public:
 	}
 
 };
-class DuckDBCustomerTaxrateLoad : public DuckDBBaseLoader<CUSTOMER_TAXRATE_ROW> {
+class GrainDBCustomerTaxrateLoad : public GrainDBBaseLoader<CUSTOMER_TAXRATE_ROW> {
 public:
-	DuckDBCustomerTaxrateLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBCustomerTaxrateLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -280,10 +280,10 @@ public:
 	}
 
 };
-class DuckDBDailyMarketLoad : public DuckDBBaseLoader<DAILY_MARKET_ROW> {
+class GrainDBDailyMarketLoad : public GrainDBBaseLoader<DAILY_MARKET_ROW> {
 public:
-	DuckDBDailyMarketLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBDailyMarketLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -299,10 +299,10 @@ public:
 	}
 
 };
-class DuckDBExchangeLoad : public DuckDBBaseLoader<EXCHANGE_ROW> {
+class GrainDBExchangeLoad : public GrainDBBaseLoader<EXCHANGE_ROW> {
 public:
-	DuckDBExchangeLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBExchangeLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -319,10 +319,10 @@ public:
 	}
 
 };
-class DuckDBFinancialLoad : public DuckDBBaseLoader<FINANCIAL_ROW> {
+class GrainDBFinancialLoad : public GrainDBBaseLoader<FINANCIAL_ROW> {
 public:
-	DuckDBFinancialLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBFinancialLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -346,10 +346,10 @@ public:
 	}
 
 };
-class DuckDBHoldingLoad : public DuckDBBaseLoader<HOLDING_ROW> {
+class GrainDBHoldingLoad : public GrainDBBaseLoader<HOLDING_ROW> {
 public:
-	DuckDBHoldingLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBHoldingLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -365,10 +365,10 @@ public:
 	}
 
 };
-class DuckDBHoldingHistoryLoad : public DuckDBBaseLoader<HOLDING_HISTORY_ROW> {
+class GrainDBHoldingHistoryLoad : public GrainDBBaseLoader<HOLDING_HISTORY_ROW> {
 public:
-	DuckDBHoldingHistoryLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBHoldingHistoryLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -382,10 +382,10 @@ public:
 	}
 
 };
-class DuckDBHoldingSummaryLoad : public DuckDBBaseLoader<HOLDING_SUMMARY_ROW> {
+class GrainDBHoldingSummaryLoad : public GrainDBBaseLoader<HOLDING_SUMMARY_ROW> {
 public:
-	DuckDBHoldingSummaryLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBHoldingSummaryLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -398,10 +398,10 @@ public:
 	}
 
 };
-class DuckDBIndustryLoad : public DuckDBBaseLoader<INDUSTRY_ROW> {
+class GrainDBIndustryLoad : public GrainDBBaseLoader<INDUSTRY_ROW> {
 public:
-	DuckDBIndustryLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBIndustryLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -414,10 +414,10 @@ public:
 	}
 
 };
-class DuckDBLastTradeLoad : public DuckDBBaseLoader<LAST_TRADE_ROW> {
+class GrainDBLastTradeLoad : public GrainDBBaseLoader<LAST_TRADE_ROW> {
 public:
-	DuckDBLastTradeLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBLastTradeLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -432,10 +432,10 @@ public:
 	}
 
 };
-class DuckDBNewsItemLoad : public DuckDBBaseLoader<NEWS_ITEM_ROW> {
+class GrainDBNewsItemLoad : public GrainDBBaseLoader<NEWS_ITEM_ROW> {
 public:
-	DuckDBNewsItemLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBNewsItemLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -452,10 +452,10 @@ public:
 	}
 
 };
-class DuckDBNewsXRefLoad : public DuckDBBaseLoader<NEWS_XREF_ROW> {
+class GrainDBNewsXRefLoad : public GrainDBBaseLoader<NEWS_XREF_ROW> {
 public:
-	DuckDBNewsXRefLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBNewsXRefLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -467,10 +467,10 @@ public:
 	}
 
 };
-class DuckDBSectorLoad : public DuckDBBaseLoader<SECTOR_ROW> {
+class GrainDBSectorLoad : public GrainDBBaseLoader<SECTOR_ROW> {
 public:
-	DuckDBSectorLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBSectorLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -482,10 +482,10 @@ public:
 	}
 
 };
-class DuckDBSecurityLoad : public DuckDBBaseLoader<SECURITY_ROW> {
+class GrainDBSecurityLoad : public GrainDBBaseLoader<SECURITY_ROW> {
 public:
-	DuckDBSecurityLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBSecurityLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -511,10 +511,10 @@ public:
 	}
 
 };
-class DuckDBSettlementLoad : public DuckDBBaseLoader<SETTLEMENT_ROW> {
+class GrainDBSettlementLoad : public GrainDBBaseLoader<SETTLEMENT_ROW> {
 public:
-	DuckDBSettlementLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBSettlementLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -528,10 +528,10 @@ public:
 	}
 
 };
-class DuckDBStatusTypeLoad : public DuckDBBaseLoader<STATUS_TYPE_ROW> {
+class GrainDBStatusTypeLoad : public GrainDBBaseLoader<STATUS_TYPE_ROW> {
 public:
-	DuckDBStatusTypeLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBStatusTypeLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -543,10 +543,10 @@ public:
 	}
 
 };
-class DuckDBTaxRateLoad : public DuckDBBaseLoader<TAX_RATE_ROW> {
+class GrainDBTaxRateLoad : public GrainDBBaseLoader<TAX_RATE_ROW> {
 public:
-	DuckDBTaxRateLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBTaxRateLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -559,10 +559,10 @@ public:
 	}
 
 };
-class DuckDBTradeLoad : public DuckDBBaseLoader<TRADE_ROW> {
+class GrainDBTradeLoad : public GrainDBBaseLoader<TRADE_ROW> {
 public:
-	DuckDBTradeLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBTradeLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -587,10 +587,10 @@ public:
 	}
 
 };
-class DuckDBTradeHistoryLoad : public DuckDBBaseLoader<TRADE_HISTORY_ROW> {
+class GrainDBTradeHistoryLoad : public GrainDBBaseLoader<TRADE_HISTORY_ROW> {
 public:
-	DuckDBTradeHistoryLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBTradeHistoryLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -603,10 +603,10 @@ public:
 	}
 
 };
-class DuckDBTradeRequestLoad : public DuckDBBaseLoader<TRADE_REQUEST_ROW> {
+class GrainDBTradeRequestLoad : public GrainDBBaseLoader<TRADE_REQUEST_ROW> {
 public:
-	DuckDBTradeRequestLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBTradeRequestLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -622,10 +622,10 @@ public:
 	}
 
 };
-class DuckDBTradeTypeLoad : public DuckDBBaseLoader<TRADE_TYPE_ROW> {
+class GrainDBTradeTypeLoad : public GrainDBBaseLoader<TRADE_TYPE_ROW> {
 public:
-	DuckDBTradeTypeLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBTradeTypeLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -639,10 +639,10 @@ public:
 	}
 
 };
-class DuckDBWatchItemLoad : public DuckDBBaseLoader<WATCH_ITEM_ROW> {
+class GrainDBWatchItemLoad : public GrainDBBaseLoader<WATCH_ITEM_ROW> {
 public:
-	DuckDBWatchItemLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBWatchItemLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -654,10 +654,10 @@ public:
 	}
 
 };
-class DuckDBWatchListLoad : public DuckDBBaseLoader<WATCH_LIST_ROW> {
+class GrainDBWatchListLoad : public GrainDBBaseLoader<WATCH_LIST_ROW> {
 public:
-	DuckDBWatchListLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBWatchListLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -669,10 +669,10 @@ public:
 	}
 
 };
-class DuckDBZipCodeLoad : public DuckDBBaseLoader<ZIP_CODE_ROW> {
+class GrainDBZipCodeLoad : public GrainDBBaseLoader<ZIP_CODE_ROW> {
 public:
-	DuckDBZipCodeLoad(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDBZipCodeLoad(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -686,168 +686,168 @@ public:
 
 };
 CBaseLoader<ACCOUNT_PERMISSION_ROW> *
-DuckDBLoaderFactory::CreateAccountPermissionLoader() {
-	return new DuckDBAccountPermissionLoad(con, schema, "account_permission" + suffix);
+GrainDBLoaderFactory::CreateAccountPermissionLoader() {
+	return new GrainDBAccountPermissionLoad(con, schema, "account_permission" + suffix);
 }
 
 CBaseLoader<ADDRESS_ROW> *
-DuckDBLoaderFactory::CreateAddressLoader() {
-	return new DuckDBAddressLoad(con, schema, "address" + suffix);
+GrainDBLoaderFactory::CreateAddressLoader() {
+	return new GrainDBAddressLoad(con, schema, "address" + suffix);
 }
 
 CBaseLoader<BROKER_ROW> *
-DuckDBLoaderFactory::CreateBrokerLoader() {
-	return new DuckDBBrokerLoad(con, schema, "broker" + suffix);
+GrainDBLoaderFactory::CreateBrokerLoader() {
+	return new GrainDBBrokerLoad(con, schema, "broker" + suffix);
 }
 
 CBaseLoader<CASH_TRANSACTION_ROW> *
-DuckDBLoaderFactory::CreateCashTransactionLoader() {
-	return new DuckDBCashTransactionLoad(con, schema, "cash_transaction" + suffix);
+GrainDBLoaderFactory::CreateCashTransactionLoader() {
+	return new GrainDBCashTransactionLoad(con, schema, "cash_transaction" + suffix);
 }
 
 CBaseLoader<CHARGE_ROW> *
-DuckDBLoaderFactory::CreateChargeLoader() {
-	return new DuckDBChargeLoad(con, schema, "charge" + suffix);
+GrainDBLoaderFactory::CreateChargeLoader() {
+	return new GrainDBChargeLoad(con, schema, "charge" + suffix);
 }
 
 CBaseLoader<COMMISSION_RATE_ROW> *
-DuckDBLoaderFactory::CreateCommissionRateLoader() {
-	return new DuckDBCommissionRateLoad(con, schema, "commission_rate" + suffix);
+GrainDBLoaderFactory::CreateCommissionRateLoader() {
+	return new GrainDBCommissionRateLoad(con, schema, "commission_rate" + suffix);
 }
 
 CBaseLoader<COMPANY_ROW> *
-DuckDBLoaderFactory::CreateCompanyLoader() {
-	return new DuckDBCompanyLoad(con, schema, "company" + suffix);
+GrainDBLoaderFactory::CreateCompanyLoader() {
+	return new GrainDBCompanyLoad(con, schema, "company" + suffix);
 }
 
 CBaseLoader<COMPANY_COMPETITOR_ROW> *
-DuckDBLoaderFactory::CreateCompanyCompetitorLoader() {
-	return new DuckDBCompanyCompetitorLoad(con, schema, "company_competitor" + suffix);
+GrainDBLoaderFactory::CreateCompanyCompetitorLoader() {
+	return new GrainDBCompanyCompetitorLoad(con, schema, "company_competitor" + suffix);
 }
 
 CBaseLoader<CUSTOMER_ROW> *
-DuckDBLoaderFactory::CreateCustomerLoader() {
-	return new DuckDBCustomerLoad(con, schema, "customer" + suffix);
+GrainDBLoaderFactory::CreateCustomerLoader() {
+	return new GrainDBCustomerLoad(con, schema, "customer" + suffix);
 }
 
 CBaseLoader<CUSTOMER_ACCOUNT_ROW> *
-DuckDBLoaderFactory::CreateCustomerAccountLoader() {
-	return new DuckDBCustomerAccountLoad(con, schema, "customer_account" + suffix);
+GrainDBLoaderFactory::CreateCustomerAccountLoader() {
+	return new GrainDBCustomerAccountLoad(con, schema, "customer_account" + suffix);
 }
 
 CBaseLoader<CUSTOMER_TAXRATE_ROW> *
-DuckDBLoaderFactory::CreateCustomerTaxrateLoader() {
-	return new DuckDBCustomerTaxrateLoad(con, schema, "customer_taxrate" + suffix);
+GrainDBLoaderFactory::CreateCustomerTaxrateLoader() {
+	return new GrainDBCustomerTaxrateLoad(con, schema, "customer_taxrate" + suffix);
 }
 
 CBaseLoader<DAILY_MARKET_ROW> *
-DuckDBLoaderFactory::CreateDailyMarketLoader() {
-	return new DuckDBDailyMarketLoad(con, schema, "daily_market" + suffix);
+GrainDBLoaderFactory::CreateDailyMarketLoader() {
+	return new GrainDBDailyMarketLoad(con, schema, "daily_market" + suffix);
 }
 
 CBaseLoader<EXCHANGE_ROW> *
-DuckDBLoaderFactory::CreateExchangeLoader() {
-	return new DuckDBExchangeLoad(con, schema, "exchange" + suffix);
+GrainDBLoaderFactory::CreateExchangeLoader() {
+	return new GrainDBExchangeLoad(con, schema, "exchange" + suffix);
 }
 
 CBaseLoader<FINANCIAL_ROW> *
-DuckDBLoaderFactory::CreateFinancialLoader() {
-	return new DuckDBFinancialLoad(con, schema, "financial" + suffix);
+GrainDBLoaderFactory::CreateFinancialLoader() {
+	return new GrainDBFinancialLoad(con, schema, "financial" + suffix);
 }
 
 CBaseLoader<HOLDING_ROW> *
-DuckDBLoaderFactory::CreateHoldingLoader() {
-	return new DuckDBHoldingLoad(con, schema, "holding" + suffix);
+GrainDBLoaderFactory::CreateHoldingLoader() {
+	return new GrainDBHoldingLoad(con, schema, "holding" + suffix);
 }
 
 CBaseLoader<HOLDING_HISTORY_ROW> *
-DuckDBLoaderFactory::CreateHoldingHistoryLoader() {
-	return new DuckDBHoldingHistoryLoad(con, schema, "holding_history" + suffix);
+GrainDBLoaderFactory::CreateHoldingHistoryLoader() {
+	return new GrainDBHoldingHistoryLoad(con, schema, "holding_history" + suffix);
 }
 
 CBaseLoader<HOLDING_SUMMARY_ROW> *
-DuckDBLoaderFactory::CreateHoldingSummaryLoader() {
-	return new DuckDBHoldingSummaryLoad(con, schema, "holding_summary" + suffix);
+GrainDBLoaderFactory::CreateHoldingSummaryLoader() {
+	return new GrainDBHoldingSummaryLoad(con, schema, "holding_summary" + suffix);
 }
 
 CBaseLoader<INDUSTRY_ROW> *
-DuckDBLoaderFactory::CreateIndustryLoader() {
-	return new DuckDBIndustryLoad(con, schema, "industry" + suffix);
+GrainDBLoaderFactory::CreateIndustryLoader() {
+	return new GrainDBIndustryLoad(con, schema, "industry" + suffix);
 }
 
 CBaseLoader<LAST_TRADE_ROW> *
-DuckDBLoaderFactory::CreateLastTradeLoader() {
-	return new DuckDBLastTradeLoad(con, schema, "last_trade" + suffix);
+GrainDBLoaderFactory::CreateLastTradeLoader() {
+	return new GrainDBLastTradeLoad(con, schema, "last_trade" + suffix);
 }
 
 CBaseLoader<NEWS_ITEM_ROW> *
-DuckDBLoaderFactory::CreateNewsItemLoader() {
-	return new DuckDBNewsItemLoad(con, schema, "news_item" + suffix);
+GrainDBLoaderFactory::CreateNewsItemLoader() {
+	return new GrainDBNewsItemLoad(con, schema, "news_item" + suffix);
 }
 
 CBaseLoader<NEWS_XREF_ROW> *
-DuckDBLoaderFactory::CreateNewsXRefLoader() {
-	return new DuckDBNewsXRefLoad(con, schema, "news_xref" + suffix);
+GrainDBLoaderFactory::CreateNewsXRefLoader() {
+	return new GrainDBNewsXRefLoad(con, schema, "news_xref" + suffix);
 }
 
 CBaseLoader<SECTOR_ROW> *
-DuckDBLoaderFactory::CreateSectorLoader() {
-	return new DuckDBSectorLoad(con, schema, "sector" + suffix);
+GrainDBLoaderFactory::CreateSectorLoader() {
+	return new GrainDBSectorLoad(con, schema, "sector" + suffix);
 }
 
 CBaseLoader<SECURITY_ROW> *
-DuckDBLoaderFactory::CreateSecurityLoader() {
-	return new DuckDBSecurityLoad(con, schema, "security" + suffix);
+GrainDBLoaderFactory::CreateSecurityLoader() {
+	return new GrainDBSecurityLoad(con, schema, "security" + suffix);
 }
 
 CBaseLoader<SETTLEMENT_ROW> *
-DuckDBLoaderFactory::CreateSettlementLoader() {
-	return new DuckDBSettlementLoad(con, schema, "settlement" + suffix);
+GrainDBLoaderFactory::CreateSettlementLoader() {
+	return new GrainDBSettlementLoad(con, schema, "settlement" + suffix);
 }
 
 CBaseLoader<STATUS_TYPE_ROW> *
-DuckDBLoaderFactory::CreateStatusTypeLoader() {
-	return new DuckDBStatusTypeLoad(con, schema, "status_type" + suffix);
+GrainDBLoaderFactory::CreateStatusTypeLoader() {
+	return new GrainDBStatusTypeLoad(con, schema, "status_type" + suffix);
 }
 
 CBaseLoader<TAX_RATE_ROW> *
-DuckDBLoaderFactory::CreateTaxRateLoader() {
-	return new DuckDBTaxRateLoad(con, schema, "tax_rate" + suffix);
+GrainDBLoaderFactory::CreateTaxRateLoader() {
+	return new GrainDBTaxRateLoad(con, schema, "tax_rate" + suffix);
 }
 
 CBaseLoader<TRADE_ROW> *
-DuckDBLoaderFactory::CreateTradeLoader() {
-	return new DuckDBTradeLoad(con, schema, "trade" + suffix);
+GrainDBLoaderFactory::CreateTradeLoader() {
+	return new GrainDBTradeLoad(con, schema, "trade" + suffix);
 }
 
 CBaseLoader<TRADE_HISTORY_ROW> *
-DuckDBLoaderFactory::CreateTradeHistoryLoader() {
-	return new DuckDBTradeHistoryLoad(con, schema, "trade_history" + suffix);
+GrainDBLoaderFactory::CreateTradeHistoryLoader() {
+	return new GrainDBTradeHistoryLoad(con, schema, "trade_history" + suffix);
 }
 
 CBaseLoader<TRADE_REQUEST_ROW> *
-DuckDBLoaderFactory::CreateTradeRequestLoader() {
-	return new DuckDBTradeRequestLoad(con, schema, "trade_request" + suffix);
+GrainDBLoaderFactory::CreateTradeRequestLoader() {
+	return new GrainDBTradeRequestLoad(con, schema, "trade_request" + suffix);
 }
 
 CBaseLoader<TRADE_TYPE_ROW> *
-DuckDBLoaderFactory::CreateTradeTypeLoader() {
-	return new DuckDBTradeTypeLoad(con, schema, "trade_type" + suffix);
+GrainDBLoaderFactory::CreateTradeTypeLoader() {
+	return new GrainDBTradeTypeLoad(con, schema, "trade_type" + suffix);
 }
 
 CBaseLoader<WATCH_ITEM_ROW> *
-DuckDBLoaderFactory::CreateWatchItemLoader() {
-	return new DuckDBWatchItemLoad(con, schema, "watch_item" + suffix);
+GrainDBLoaderFactory::CreateWatchItemLoader() {
+	return new GrainDBWatchItemLoad(con, schema, "watch_item" + suffix);
 }
 
 CBaseLoader<WATCH_LIST_ROW> *
-DuckDBLoaderFactory::CreateWatchListLoader() {
-	return new DuckDBWatchListLoad(con, schema, "watch_list" + suffix);
+GrainDBLoaderFactory::CreateWatchListLoader() {
+	return new GrainDBWatchListLoad(con, schema, "watch_list" + suffix);
 }
 
 CBaseLoader<ZIP_CODE_ROW> *
-DuckDBLoaderFactory::CreateZipCodeLoader() {
-	return new DuckDBZipCodeLoad(con, schema, "zip_code" + suffix);
+GrainDBLoaderFactory::CreateZipCodeLoader() {
+	return new GrainDBZipCodeLoad(con, schema, "zip_code" + suffix);
 }
 
 static string AccountPermissionSchema(string schema, string suffix) {
@@ -1173,7 +1173,7 @@ static string ZipCodeSchema(string schema, string suffix) {
 	    "zc_div VARCHAR)";
 }
 
-void CreateTPCESchema(duckdb::DuckDB &db, duckdb::Connection &con, std::string &schema, std::string &suffix) {
+void CreateTPCESchema(graindb::GrainDB &db, graindb::Connection &con, std::string &schema, std::string &suffix) {
 	con.Query(AccountPermissionSchema(schema, suffix));
 	con.Query(AddressSchema(schema, suffix));
 	con.Query(BrokerSchema(schema, suffix));

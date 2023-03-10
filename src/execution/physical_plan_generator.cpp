@@ -1,16 +1,16 @@
-#include "duckdb/execution/physical_plan_generator.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
 
-#include "duckdb/catalog/catalog_entry/scalar_function_catalog_entry.hpp"
-#include "duckdb/execution/column_binding_resolver.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
+#include "graindb/catalog/catalog_entry/scalar_function_catalog_entry.hpp"
+#include "graindb/execution/column_binding_resolver.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
 
 #include <iostream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 class DependencyExtractor : public LogicalOperatorVisitor {
 public:
@@ -29,7 +29,7 @@ protected:
 private:
 	unordered_set<CatalogEntry *> &dependencies;
 };
-} // namespace duckdb
+} // namespace graindb
 
 unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreatePlan(unique_ptr<LogicalOperator> op) {
 	// first resolve column references

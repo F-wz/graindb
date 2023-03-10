@@ -1,12 +1,12 @@
 #include "catch.hpp"
-#include "duckdb/common/value_operations/value_operations.hpp"
+#include "graindb/common/value_operations/value_operations.hpp"
 #include "test_helpers.hpp"
 
 #include <atomic>
 #include <random>
 #include <thread>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 namespace test_concurrent_delete {
@@ -16,7 +16,7 @@ static constexpr int INSERT_ELEMENTS = 100;
 
 TEST_CASE("Single thread delete", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	vector<unique_ptr<Connection>> connections;
 
@@ -45,7 +45,7 @@ TEST_CASE("Single thread delete", "[transactions]") {
 
 TEST_CASE("Sequential delete", "[transactions]") {
 	unique_ptr<MaterializedQueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	vector<unique_ptr<Connection>> connections;
 	Value count;
@@ -100,7 +100,7 @@ TEST_CASE("Sequential delete", "[transactions]") {
 
 TEST_CASE("Rollback delete", "[transactions]") {
 	unique_ptr<MaterializedQueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	vector<unique_ptr<Connection>> connections;
 
@@ -139,7 +139,7 @@ TEST_CASE("Rollback delete", "[transactions]") {
 
 static volatile std::atomic<int> finished_threads;
 
-static void delete_elements(DuckDB *db, bool *correct, size_t threadnr) {
+static void delete_elements(GrainDB *db, bool *correct, size_t threadnr) {
 	correct[threadnr] = true;
 	Connection con(*db);
 	// initial count
@@ -173,7 +173,7 @@ static void delete_elements(DuckDB *db, bool *correct, size_t threadnr) {
 
 TEST_CASE("Concurrent delete", "[transactions][.]") {
 	unique_ptr<MaterializedQueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// initialize the database

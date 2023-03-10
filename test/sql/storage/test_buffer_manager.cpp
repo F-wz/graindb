@@ -1,9 +1,9 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/storage/storage_info.hpp"
+#include "graindb/storage/storage_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test scanning a table and computing an aggregate over a table that exceeds buffer manager size",
@@ -21,7 +21,7 @@ TEST_CASE("Test scanning a table and computing an aggregate over a table that ex
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (11, 22), (13, 22), (12, 21), (NULL, NULL)"));
@@ -40,7 +40,7 @@ TEST_CASE("Test scanning a table and computing an aggregate over a table that ex
 		REQUIRE(CHECK_COLUMN(result, 0, {sum}));
 	}
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT SUM(a) + SUM(b) FROM test");
 		REQUIRE(CHECK_COLUMN(result, 0, {sum}));
@@ -60,7 +60,7 @@ TEST_CASE("Test storing a big string that exceeds buffer manager size", "[storag
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert the big string
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		string big_string = string(string_length, 'a');
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a VARCHAR, j BIGINT);"));
@@ -80,7 +80,7 @@ TEST_CASE("Test storing a big string that exceeds buffer manager size", "[storag
 		REQUIRE(CHECK_COLUMN(result, 0, {Value::BIGINT(iteration - 1)}));
 	}
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT LENGTH(a) FROM test");
 		REQUIRE(CHECK_COLUMN(result, 0, {Value::BIGINT(string_length)}));
@@ -90,7 +90,7 @@ TEST_CASE("Test storing a big string that exceeds buffer manager size", "[storag
 	// now reload the database, but this time with a max memory of 5MB
 	{
 		config->maximum_memory = 5000000;
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		// we can still select the integer
 		result = con.Query("SELECT j FROM test");
@@ -101,7 +101,7 @@ TEST_CASE("Test storing a big string that exceeds buffer manager size", "[storag
 	{
 		// reloading with a bigger limit again makes it work
 		config->maximum_memory = (idx_t)-1;
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT LENGTH(a) FROM test");
 		REQUIRE(CHECK_COLUMN(result, 0, {Value::BIGINT(string_length)}));
@@ -126,7 +126,7 @@ TEST_CASE("Test appending and checkpointing a table that exceeds buffer manager 
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert the big string
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (1, 10), (2, 20), (3, 30), (NULL, NULL)"));
@@ -149,7 +149,7 @@ TEST_CASE("Test appending and checkpointing a table that exceeds buffer manager 
 	}
 	for (idx_t i = 0; i < 2; i++) {
 		// reload the table and checkpoint, still with a 10MB limit
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 
 		result = con.Query("SELECT COUNT(*), COUNT(a), SUM(a), SUM(b) FROM test");
@@ -164,7 +164,7 @@ TEST_CASE("Test appending and checkpointing a table that exceeds buffer manager 
 TEST_CASE("Modifying the buffer manager limit at runtime for an in-memory database", "[storage][.]") {
 	unique_ptr<MaterializedQueryResult> result;
 
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// initialize an in-memory database of size 10MB

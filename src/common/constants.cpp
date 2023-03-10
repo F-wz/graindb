@@ -1,11 +1,11 @@
-#include "duckdb/common/constants.hpp"
+#include "graindb/common/constants.hpp"
 
 #include <limits>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 const idx_t INVALID_INDEX = (idx_t)-1;
 const row_t MAX_ROW_ID = 4611686018427388000ULL; // 2^62
@@ -29,4 +29,4 @@ uint64_t NextPowerOfTwo(uint64_t v) {
 	return v;
 }
 
-} // namespace duckdb
+} // namespace graindb

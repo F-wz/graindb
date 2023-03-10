@@ -1,7 +1,7 @@
-#include "duckdb/parser/parsed_data/alter_table_info.hpp"
-#include "duckdb/common/serializer.hpp"
+#include "graindb/parser/parsed_data/alter_table_info.hpp"
+#include "graindb/common/serializer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void AlterInfo::Serialize(Serializer &serializer) {

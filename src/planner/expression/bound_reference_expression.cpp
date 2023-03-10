@@ -1,9 +1,9 @@
-#include "duckdb/planner/expression/bound_reference_expression.hpp"
+#include "graindb/planner/expression/bound_reference_expression.hpp"
 
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/common/types/hash.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/common/types/hash.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundReferenceExpression::BoundReferenceExpression(string alias, TypeId type, idx_t index)
@@ -27,7 +27,7 @@ bool BoundReferenceExpression::Equals(const BaseExpression *other_) const {
 }
 
 hash_t BoundReferenceExpression::Hash() const {
-	return CombineHash(Expression::Hash(), duckdb::Hash<idx_t>(index));
+	return CombineHash(Expression::Hash(), graindb::Hash<idx_t>(index));
 }
 
 unique_ptr<Expression> BoundReferenceExpression::Copy() {

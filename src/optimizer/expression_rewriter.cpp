@@ -1,10 +1,10 @@
-#include "duckdb/optimizer/expression_rewriter.hpp"
+#include "graindb/optimizer/expression_rewriter.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
-#include "duckdb/planner/operator/logical_filter.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/planner/expression_iterator.hpp"
+#include "graindb/planner/operator/logical_filter.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<Expression> ExpressionRewriter::ApplyRules(LogicalOperator &op, const vector<Rule *> &rules,

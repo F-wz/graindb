@@ -1,8 +1,8 @@
-#include "duckdb/planner/expression/common_subexpression.hpp"
+#include "graindb/planner/expression/common_subexpression.hpp"
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 CommonSubExpression::CommonSubExpression(unique_ptr<Expression> child, string alias)

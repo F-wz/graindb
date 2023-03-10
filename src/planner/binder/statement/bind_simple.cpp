@@ -1,16 +1,16 @@
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/parser/statement/alter_table_statement.hpp"
-#include "duckdb/parser/statement/transaction_statement.hpp"
-#include "duckdb/parser/statement/pragma_statement.hpp"
-#include "duckdb/planner/operator/logical_simple.hpp"
-#include "duckdb/catalog/catalog.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/parser/statement/alter_table_statement.hpp"
+#include "graindb/parser/statement/transaction_statement.hpp"
+#include "graindb/parser/statement/pragma_statement.hpp"
+#include "graindb/planner/operator/logical_simple.hpp"
+#include "graindb/catalog/catalog.hpp"
 
 using namespace std;
 
 //! This file contains the binder definitions for statements that do not need to be bound at all and only require a
 //! straightforward conversion
 
-namespace duckdb {
+namespace graindb {
 
 BoundStatement Binder::Bind(AlterTableStatement &stmt) {
 	BoundStatement result;
@@ -45,4 +45,4 @@ BoundStatement Binder::Bind(TransactionStatement &stmt) {
 	return result;
 }
 
-} // namespace duckdb
+} // namespace graindb

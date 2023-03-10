@@ -1,8 +1,8 @@
-#include "duckdb/execution/index/art/node4.hpp"
-#include "duckdb/execution/index/art/node16.hpp"
-#include "duckdb/execution/index/art/art.hpp"
+#include "graindb/execution/index/art/node4.hpp"
+#include "graindb/execution/index/art/node16.hpp"
+#include "graindb/execution/index/art/art.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 
 Node4::Node4(ART &art, size_t compressionLength) : Node(art, NodeType::N4, compressionLength) {
 	memset(key, 0, sizeof(key));

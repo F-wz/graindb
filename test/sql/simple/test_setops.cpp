@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test UNION/EXCEPT/INTERSECT", "[setop]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	result = con.Query("SELECT 1 UNION ALL SELECT 2");
@@ -82,7 +82,7 @@ TEST_CASE("Test UNION/EXCEPT/INTERSECT", "[setop]") {
 
 TEST_CASE("Test UNION in subquery with aliases", "[setop]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE t(i INTEGER)"));
@@ -97,7 +97,7 @@ TEST_CASE("Test UNION in subquery with aliases", "[setop]") {
 
 TEST_CASE("Test EXCEPT / INTERSECT", "[setop]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE a(i INTEGER)"));
@@ -115,7 +115,7 @@ TEST_CASE("Test EXCEPT / INTERSECT", "[setop]") {
 
 TEST_CASE("Test nested EXCEPT", "[setop]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("create table a (i integer)"));
@@ -132,7 +132,7 @@ TEST_CASE("Test nested EXCEPT", "[setop]") {
 
 TEST_CASE("Test UNION type casting", "[setop]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// type casting in single union

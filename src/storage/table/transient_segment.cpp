@@ -1,13 +1,13 @@
-#include "duckdb/storage/table/transient_segment.hpp"
+#include "graindb/storage/table/transient_segment.hpp"
 
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/types/vector.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/storage/numeric_segment.hpp"
-#include "duckdb/storage/string_segment.hpp"
-#include "duckdb/storage/table/append_state.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/types/vector.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/storage/numeric_segment.hpp"
+#include "graindb/storage/string_segment.hpp"
+#include "graindb/storage/table/append_state.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TransientSegment::TransientSegment(BufferManager &manager, TypeId type, idx_t start)

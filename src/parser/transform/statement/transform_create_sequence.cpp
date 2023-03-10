@@ -1,9 +1,9 @@
-#include "duckdb/parser/statement/create_statement.hpp"
-#include "duckdb/parser/parsed_data/create_sequence_info.hpp"
-#include "duckdb/parser/tableref/basetableref.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/statement/create_statement.hpp"
+#include "graindb/parser/parsed_data/create_sequence_info.hpp"
+#include "graindb/parser/tableref/basetableref.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<CreateStatement> Transformer::TransformCreateSequence(PGNode *node) {

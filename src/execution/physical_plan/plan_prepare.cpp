@@ -1,9 +1,9 @@
-#include "duckdb/execution/operator/scan/physical_dummy_scan.hpp"
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/planner/operator/logical_prepare.hpp"
-#include "duckdb/execution/operator/helper/physical_prepare.hpp"
+#include "graindb/execution/operator/scan/physical_dummy_scan.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/planner/operator/logical_prepare.hpp"
+#include "graindb/execution/operator/helper/physical_prepare.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreatePlan(LogicalPrepare &op) {

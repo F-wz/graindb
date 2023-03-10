@@ -1,10 +1,10 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "test_helpers.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 class ReadOnlyFileSystem : public FileSystem {
 	unique_ptr<FileHandle> OpenFile(const char *path, uint8_t flags, FileLockType lock_type) override {
@@ -34,7 +34,7 @@ TEST_CASE("Test read only storage", "[storage]") {
 	DeleteDatabase(storage_database);
 
 	{
-		DuckDB db(storage_database);
+		GrainDB db(storage_database);
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER)"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (42)"));
@@ -44,7 +44,7 @@ TEST_CASE("Test read only storage", "[storage]") {
 		config.file_system = make_unique_base<FileSystem, ReadOnlyFileSystem>();
 		config.access_mode = AccessMode::READ_ONLY;
 		config.use_temporary_directory = false;
-		DuckDB db(storage_database, &config);
+		GrainDB db(storage_database, &config);
 		Connection con(db);
 		result = con.Query("SELECT * FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {42}));
@@ -64,4 +64,4 @@ TEST_CASE("Test read only storage", "[storage]") {
 	DeleteDatabase(storage_database);
 }
 
-} // namespace duckdb
+} // namespace graindb

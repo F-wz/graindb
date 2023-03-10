@@ -1,8 +1,8 @@
-#include "duckdb/main/relation/setop_relation.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/parser/query_node/set_operation_node.hpp"
+#include "graindb/main/relation/setop_relation.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/parser/query_node/set_operation_node.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 SetOpRelation::SetOpRelation(shared_ptr<Relation> left_p, shared_ptr<Relation> right_p, SetOperationType setop_type_p)
     : Relation(left_p->context, RelationType::SET_OPERATION_RELATION), left(move(left_p)), right(move(right_p)),
@@ -48,4 +48,4 @@ string SetOpRelation::ToString(idx_t depth) {
 	return str + "\n" + left->ToString(depth + 1) + right->ToString(depth + 1);
 }
 
-} // namespace duckdb
+} // namespace graindb

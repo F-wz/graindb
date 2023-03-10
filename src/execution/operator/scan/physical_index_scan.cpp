@@ -1,9 +1,9 @@
-#include "duckdb/execution/operator/scan/physical_index_scan.hpp"
+#include "graindb/execution/operator/scan/physical_index_scan.hpp"
 
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/transaction/transaction.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/transaction/transaction.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class PhysicalIndexScanOperatorState : public PhysicalOperatorState {

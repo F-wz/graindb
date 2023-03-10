@@ -1,10 +1,10 @@
-#include "duckdb/parser/statement/create_statement.hpp"
-#include "duckdb/parser/parsed_data/create_table_info.hpp"
-#include "duckdb/parser/transformer.hpp"
-#include "duckdb/parser/constraint.hpp"
-#include "duckdb/parser/expression/collate_expression.hpp"
+#include "graindb/parser/statement/create_statement.hpp"
+#include "graindb/parser/parsed_data/create_table_info.hpp"
+#include "graindb/parser/transformer.hpp"
+#include "graindb/parser/constraint.hpp"
+#include "graindb/parser/expression/collate_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 string Transformer::TransformCollation(PGCollateClause *collate) {

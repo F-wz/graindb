@@ -1,6 +1,6 @@
-#include "duckdb/execution/operator/join/physical_comparison_join.hpp"
+#include "graindb/execution/operator/join/physical_comparison_join.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 PhysicalComparisonJoin::PhysicalComparisonJoin(LogicalOperator &op, PhysicalOperatorType type,

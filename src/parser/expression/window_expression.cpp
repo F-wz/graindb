@@ -1,9 +1,9 @@
-#include "duckdb/parser/expression/window_expression.hpp"
+#include "graindb/parser/expression/window_expression.hpp"
 
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/common/string_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 WindowExpression::WindowExpression(ExpressionType type, string schema, string function_name)

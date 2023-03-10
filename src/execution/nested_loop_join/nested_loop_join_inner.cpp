@@ -1,7 +1,7 @@
-#include "duckdb/common/operator/comparison_operators.hpp"
-#include "duckdb/execution/nested_loop_join.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
+#include "graindb/execution/nested_loop_join.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 struct InitialNestedLoopJoin {
@@ -117,22 +117,22 @@ idx_t nested_loop_join_inner(Vector &left, Vector &right, idx_t left_size, idx_t
 	assert(left.type == right.type);
 	switch (comparison_type) {
 	case ExpressionType::COMPARE_EQUAL:
-		return nested_loop_join_inner_operator<NLTYPE, duckdb::Equals>(left, right, left_size, right_size, lpos, rpos,
+		return nested_loop_join_inner_operator<NLTYPE, graindb::Equals>(left, right, left_size, right_size, lpos, rpos,
 		                                                               lvector, rvector, current_match_count);
 	case ExpressionType::COMPARE_NOTEQUAL:
-		return nested_loop_join_inner_operator<NLTYPE, duckdb::NotEquals>(left, right, left_size, right_size, lpos,
+		return nested_loop_join_inner_operator<NLTYPE, graindb::NotEquals>(left, right, left_size, right_size, lpos,
 		                                                                  rpos, lvector, rvector, current_match_count);
 	case ExpressionType::COMPARE_LESSTHAN:
-		return nested_loop_join_inner_operator<NLTYPE, duckdb::LessThan>(left, right, left_size, right_size, lpos, rpos,
+		return nested_loop_join_inner_operator<NLTYPE, graindb::LessThan>(left, right, left_size, right_size, lpos, rpos,
 		                                                                 lvector, rvector, current_match_count);
 	case ExpressionType::COMPARE_GREATERTHAN:
-		return nested_loop_join_inner_operator<NLTYPE, duckdb::GreaterThan>(
+		return nested_loop_join_inner_operator<NLTYPE, graindb::GreaterThan>(
 		    left, right, left_size, right_size, lpos, rpos, lvector, rvector, current_match_count);
 	case ExpressionType::COMPARE_LESSTHANOREQUALTO:
-		return nested_loop_join_inner_operator<NLTYPE, duckdb::LessThanEquals>(
+		return nested_loop_join_inner_operator<NLTYPE, graindb::LessThanEquals>(
 		    left, right, left_size, right_size, lpos, rpos, lvector, rvector, current_match_count);
 	case ExpressionType::COMPARE_GREATERTHANOREQUALTO:
-		return nested_loop_join_inner_operator<NLTYPE, duckdb::GreaterThanEquals>(
+		return nested_loop_join_inner_operator<NLTYPE, graindb::GreaterThanEquals>(
 		    left, right, left_size, right_size, lpos, rpos, lvector, rvector, current_match_count);
 	default:
 		throw NotImplementedException("Unimplemented comparison type for join!");

@@ -1,4 +1,4 @@
-add_library_unity(duckdb_expression_binders
+add_library_unity(graindb_expression_binders
                   OBJECT
                   aggregate_binder.cpp
                   alter_binder.cpp
@@ -15,4 +15,4 @@ add_library_unity(duckdb_expression_binders
                   update_binder.cpp
                   where_binder.cpp)
 set(ALL_OBJECT_FILES ${ALL_OBJECT_FILES}
-                     $<TARGET_OBJECTS:duckdb_expression_binders> PARENT_SCOPE)
+                     $<TARGET_OBJECTS:graindb_expression_binders> PARENT_SCOPE)

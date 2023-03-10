@@ -1,9 +1,9 @@
-Package: duckdb
-Title: DBI Package for the DuckDB Database Management System
+Package: graindb
+Title: DBI Package for the GrainDB Database Management System
 Version: 0.1.7
-Authors@R: c(person(given = "DuckDB Contributors", role = "aut"),
+Authors@R: c(person(given = "GrainDB Contributors", role = "aut"),
     person("Hannes", "M\u00fchleisen", role = c("aut", "cre"), email = "hannes@cwi.nl", comment = c(ORCID = "0000-0001-8552-0029")))
-Description: DuckDB is an embedded analytical data management system with SQL support. This package includes all of DuckDB as well as R DBI & dplyr connectors.
+Description: GrainDB is an embedded analytical data management system with SQL support. This package includes all of GrainDB as well as R DBI & dplyr connectors.
 Depends: 
     R (>= 3.5.0),
     DBI
@@ -18,10 +18,10 @@ Imports:
 Suggests: 
     DBItest, 
     callr
-URL: https://www.duckdb.org, https://github.com/cwida/duckdb
-BugReports: https://github.com/cwida/duckdb/issues
+URL: https://www.graindb.org, https://github.com/cwida/graindb
+BugReports: https://github.com/cwida/graindb/issues
 Collate: 
-    'duckdb.R'
+    'graindb.R'
     'Driver.R'
     'Connection.R'
     'Result.R'

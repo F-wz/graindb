@@ -1,17 +1,17 @@
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/planner/logical_operator.hpp"
-#include "duckdb/planner/operator/logical_simple.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/planner/logical_operator.hpp"
+#include "graindb/planner/operator/logical_simple.hpp"
 
-#include "duckdb/execution/operator/helper/physical_pragma.hpp"
-#include "duckdb/execution/operator/helper/physical_transaction.hpp"
-#include "duckdb/execution/operator/schema/physical_alter.hpp"
-#include "duckdb/execution/operator/schema/physical_create_schema.hpp"
-#include "duckdb/execution/operator/schema/physical_create_sequence.hpp"
-#include "duckdb/execution/operator/schema/physical_create_view.hpp"
-#include "duckdb/execution/operator/schema/physical_drop.hpp"
-#include "duckdb/execution/operator/helper/physical_vacuum.hpp"
+#include "graindb/execution/operator/helper/physical_pragma.hpp"
+#include "graindb/execution/operator/helper/physical_transaction.hpp"
+#include "graindb/execution/operator/schema/physical_alter.hpp"
+#include "graindb/execution/operator/schema/physical_create_schema.hpp"
+#include "graindb/execution/operator/schema/physical_create_sequence.hpp"
+#include "graindb/execution/operator/schema/physical_create_view.hpp"
+#include "graindb/execution/operator/schema/physical_drop.hpp"
+#include "graindb/execution/operator/helper/physical_vacuum.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreatePlan(LogicalSimple &op) {

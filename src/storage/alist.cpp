@@ -1,6 +1,6 @@
-#include "duckdb/storage/alist.hpp"
+#include "graindb/storage/alist.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void AList::AppendPKFK(Vector &source, Vector &edges, idx_t count, RAIDirection direction) {

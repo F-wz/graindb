@@ -1,14 +1,14 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
-#include "duckdb/common/types/date.hpp"
+#include "graindb/common/file_system.hpp"
+#include "graindb/common/types/date.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Basic prepared statements", "[prepared]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("PREPARE s1 AS SELECT CAST($1 AS INTEGER), CAST($2 AS STRING)"));
@@ -64,7 +64,7 @@ TEST_CASE("Basic prepared statements", "[prepared]") {
 
 TEST_CASE("Prepared statements and subqueries", "[prepared]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// simple subquery
@@ -95,7 +95,7 @@ TEST_CASE("Prepared statements and subqueries", "[prepared]") {
 
 TEST_CASE("PREPARE for SELECT clause", "[prepared]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE a (i TINYINT)"));
@@ -122,7 +122,7 @@ TEST_CASE("PREPARE for SELECT clause", "[prepared]") {
 
 TEST_CASE("PREPARE for INSERT", "[prepared]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE b (i TINYINT)"));
@@ -159,7 +159,7 @@ TEST_CASE("PREPARE for INSERT", "[prepared]") {
 
 TEST_CASE("PREPARE for INSERT with dates", "[prepared]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// prepared DATE insert
@@ -181,7 +181,7 @@ TEST_CASE("PREPARE for INSERT with dates", "[prepared]") {
 
 TEST_CASE("PREPARE for DELETE/UPDATE", "[prepared]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// DELETE
@@ -221,7 +221,7 @@ TEST_CASE("PREPARE for DELETE/UPDATE", "[prepared]") {
 
 TEST_CASE("PREPARE for UPDATE", "[prepared]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE b (i TINYINT)"));
@@ -243,7 +243,7 @@ TEST_CASE("PREPARE for UPDATE", "[prepared]") {
 
 TEST_CASE("PREPARE many types for INSERT", "[prepared]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// prepare different types in insert
@@ -264,7 +264,7 @@ TEST_CASE("PREPARE many types for INSERT", "[prepared]") {
 
 TEST_CASE("PREPARE and DROPping tables", "[prepared]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con1(db);
 	Connection con2(db);
 
@@ -294,7 +294,7 @@ TEST_CASE("PREPARE and WAL", "[prepared][.]") {
 	DeleteDatabase(prepare_database);
 	{
 		// create a database and insert values
-		DuckDB db(prepare_database);
+		GrainDB db(prepare_database);
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE t (a INTEGER)"));
 		REQUIRE_NO_FAIL(con.Query("PREPARE p1 AS INSERT INTO t VALUES ($1)"));
@@ -305,7 +305,7 @@ TEST_CASE("PREPARE and WAL", "[prepared][.]") {
 		REQUIRE(CHECK_COLUMN(result, 0, {42, 43}));
 	}
 	{
-		DuckDB db(prepare_database);
+		GrainDB db(prepare_database);
 		Connection con(db);
 
 		result = con.Query("SELECT a FROM t");
@@ -316,7 +316,7 @@ TEST_CASE("PREPARE and WAL", "[prepared][.]") {
 	}
 	// reload the database from disk
 	{
-		DuckDB db(prepare_database);
+		GrainDB db(prepare_database);
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("PREPARE p1 AS DELETE FROM t WHERE a=$1"));
 		REQUIRE_NO_FAIL(con.Query("EXECUTE p1(43)"));
@@ -327,7 +327,7 @@ TEST_CASE("PREPARE and WAL", "[prepared][.]") {
 	// reload again
 
 	{
-		DuckDB db(prepare_database);
+		GrainDB db(prepare_database);
 		Connection con(db);
 
 		result = con.Query("SELECT a FROM t");
@@ -335,7 +335,7 @@ TEST_CASE("PREPARE and WAL", "[prepared][.]") {
 	}
 
 	{
-		DuckDB db(prepare_database);
+		GrainDB db(prepare_database);
 		Connection con(db);
 
 		result = con.Query("SELECT a FROM t");
@@ -348,7 +348,7 @@ TEST_CASE("PREPARE and WAL", "[prepared][.]") {
 		REQUIRE(CHECK_COLUMN(result, 0, {43}));
 	}
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(prepare_database);
+		GrainDB db(prepare_database);
 		Connection con(db);
 
 		result = con.Query("SELECT a FROM t");
@@ -359,7 +359,7 @@ TEST_CASE("PREPARE and WAL", "[prepared][.]") {
 
 TEST_CASE("PREPARE with NULL", "[prepared]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE b (i TINYINT)"));
@@ -384,7 +384,7 @@ TEST_CASE("PREPARE with NULL", "[prepared]") {
 
 TEST_CASE("PREPARE multiple statements", "[prepared]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	string query = "SELECT $1::INTEGER; SELECT $1::INTEGER;";
@@ -410,7 +410,7 @@ static unique_ptr<QueryResult> TestExecutePrepared(Connection &con, string query
 
 TEST_CASE("Prepare all types of statements", "[prepared]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	string csv_path = TestCreatePath("prepared_files");

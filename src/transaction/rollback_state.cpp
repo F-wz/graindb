@@ -1,14 +1,14 @@
-#include "duckdb/transaction/rollback_state.hpp"
-#include "duckdb/transaction/delete_info.hpp"
-#include "duckdb/transaction/update_info.hpp"
+#include "graindb/transaction/rollback_state.hpp"
+#include "graindb/transaction/delete_info.hpp"
+#include "graindb/transaction/update_info.hpp"
 
-#include "duckdb/storage/uncompressed_segment.hpp"
-#include "duckdb/storage/table/chunk_info.hpp"
+#include "graindb/storage/uncompressed_segment.hpp"
+#include "graindb/storage/table/chunk_info.hpp"
 
-#include "duckdb/catalog/catalog_entry.hpp"
-#include "duckdb/catalog/catalog_set.hpp"
+#include "graindb/catalog/catalog_entry.hpp"
+#include "graindb/catalog/catalog_set.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void RollbackState::RollbackEntry(UndoFlags type, data_ptr_t data) {

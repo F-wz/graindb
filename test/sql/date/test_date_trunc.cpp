@@ -1,16 +1,16 @@
 #include "catch.hpp"
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/types/time.hpp"
-#include "duckdb/common/types/timestamp.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/types/time.hpp"
+#include "graindb/common/types/timestamp.hpp"
 #include "test_helpers.hpp"
 #include "iostream"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test date truncate functionality", "[date]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

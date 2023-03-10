@@ -1,10 +1,10 @@
 #include "catch.hpp"
 #include "expression_helper.hpp"
-#include "duckdb/planner/operator/logical_top_n.hpp"
-#include "duckdb/optimizer/topn_optimizer.hpp"
+#include "graindb/planner/operator/logical_top_n.hpp"
+#include "graindb/optimizer/topn_optimizer.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test Top N optimization", "[topn]") {

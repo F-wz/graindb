@@ -1,10 +1,10 @@
-#include "duckdb/planner/expression/bound_function_expression.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
 
-#include "duckdb/catalog/catalog_entry/scalar_function_catalog_entry.hpp"
-#include "duckdb/common/types/hash.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/catalog/catalog_entry/scalar_function_catalog_entry.hpp"
+#include "graindb/common/types/hash.hpp"
+#include "graindb/common/string_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundFunctionExpression::BoundFunctionExpression(TypeId return_type, ScalarFunction bound_function, bool is_operator)
@@ -27,7 +27,7 @@ string BoundFunctionExpression::ToString() const {
 
 hash_t BoundFunctionExpression::Hash() const {
 	hash_t result = Expression::Hash();
-	return CombineHash(result, duckdb::Hash(function.name.c_str()));
+	return CombineHash(result, graindb::Hash(function.name.c_str()));
 }
 
 bool BoundFunctionExpression::Equals(const BaseExpression *other_) const {

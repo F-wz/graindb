@@ -1,11 +1,11 @@
-#include "duckdb/function/aggregate/nested_functions.hpp"
+#include "graindb/function/aggregate/nested_functions.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 void BuiltinFunctions::RegisterNestedAggregates() {
 	Register<ListFun>();
 }
 
-} // namespace duckdb
+} // namespace graindb

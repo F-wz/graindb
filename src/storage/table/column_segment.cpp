@@ -1,7 +1,7 @@
-#include "duckdb/storage/table/column_segment.hpp"
+#include "graindb/storage/table/column_segment.hpp"
 #include <cstring>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ColumnSegment::ColumnSegment(TypeId type, ColumnSegmentType segment_type, idx_t start, idx_t count)

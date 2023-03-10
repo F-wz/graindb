@@ -1,10 +1,10 @@
-#include "duckdb/common/enums/expression_type.hpp"
+#include "graindb/common/enums/expression_type.hpp"
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 string ExpressionTypeToString(ExpressionType type) {
 	switch (type) {
@@ -201,4 +201,4 @@ ExpressionType FlipComparisionExpression(ExpressionType type) {
 	return flipped_type;
 }
 
-} // namespace duckdb
+} // namespace graindb

@@ -1,18 +1,18 @@
-#include "duckdb/function/scalar/string_functions.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/common/vector_operations/unary_executor.hpp"
-#include "duckdb/common/vector_operations/binary_executor.hpp"
-#include "duckdb/common/vector_operations/ternary_executor.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/common/vector_operations/unary_executor.hpp"
+#include "graindb/common/vector_operations/binary_executor.hpp"
+#include "graindb/common/vector_operations/ternary_executor.hpp"
 #include "utf8proc_wrapper.hpp"
 
 #include "re2/re2.h"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 RegexpMatchesBindData::RegexpMatchesBindData(unique_ptr<RE2> constant_pattern, string range_min, string range_max,
                                              bool range_success)
@@ -119,4 +119,4 @@ void RegexpFun::RegisterFunction(BuiltinFunctions &set) {
 	                               SQLType::VARCHAR, regexp_replace_function));
 }
 
-} // namespace duckdb
+} // namespace graindb

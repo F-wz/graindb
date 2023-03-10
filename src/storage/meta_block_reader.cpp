@@ -1,8 +1,8 @@
-#include "duckdb/storage/meta_block_reader.hpp"
+#include "graindb/storage/meta_block_reader.hpp"
 
 #include <cstring>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 MetaBlockReader::MetaBlockReader(BufferManager &manager, block_id_t block_id)

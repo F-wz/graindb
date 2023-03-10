@@ -1,10 +1,10 @@
-#include "duckdb/planner/logical_operator_visitor.hpp"
+#include "graindb/planner/logical_operator_visitor.hpp"
 
-#include "duckdb/planner/expression/list.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
-#include "duckdb/planner/operator/list.hpp"
+#include "graindb/planner/expression/list.hpp"
+#include "graindb/planner/expression_iterator.hpp"
+#include "graindb/planner/operator/list.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void LogicalOperatorVisitor::VisitOperator(LogicalOperator &op) {

@@ -88,10 +88,10 @@ add_library(re2::re2 ALIAS re2)
 target_include_directories(
   re2
   PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
-set_target_properties(re2 PROPERTIES EXPORT_NAME duckdb_re2)
+set_target_properties(re2 PROPERTIES EXPORT_NAME graindb_re2)
 
 install(TARGETS re2
-        EXPORT "${DUCKDB_EXPORT_SET}"
+        EXPORT "${GRAINDB_EXPORT_SET}"
         LIBRARY DESTINATION "${INSTALL_LIB_DIR}"
         ARCHIVE DESTINATION "${INSTALL_LIB_DIR}")
 

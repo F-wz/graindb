@@ -1,10 +1,10 @@
-#include "duckdb/main/relation/update_relation.hpp"
-#include "duckdb/parser/statement/update_statement.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/parser/tableref/basetableref.hpp"
+#include "graindb/main/relation/update_relation.hpp"
+#include "graindb/parser/statement/update_statement.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/parser/tableref/basetableref.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 UpdateRelation::UpdateRelation(ClientContext &context, unique_ptr<ParsedExpression> condition_p, string schema_name_p,
                                string table_name_p, vector<string> update_columns_p,
@@ -49,4 +49,4 @@ string UpdateRelation::ToString(idx_t depth) {
 	return str;
 }
 
-} // namespace duckdb
+} // namespace graindb

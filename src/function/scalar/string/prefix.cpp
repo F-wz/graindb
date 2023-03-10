@@ -1,11 +1,11 @@
-#include "duckdb/function/scalar/string_functions.hpp"
-#include "duckdb/common/types/string_type.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
+#include "graindb/common/types/string_type.hpp"
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static bool prefix(const string_t &str, const string_t &pattern);
 
@@ -68,4 +68,4 @@ void PrefixFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(GetFunction());
 }
 
-} // namespace duckdb
+} // namespace graindb

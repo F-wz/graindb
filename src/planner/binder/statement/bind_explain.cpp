@@ -1,8 +1,8 @@
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/parser/statement/explain_statement.hpp"
-#include "duckdb/planner/operator/logical_explain.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/parser/statement/explain_statement.hpp"
+#include "graindb/planner/operator/logical_explain.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundStatement Binder::Bind(ExplainStatement &stmt) {

@@ -1,8 +1,8 @@
-#include "duckdb/execution/operator/aggregate/physical_window.hpp"
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/planner/operator/logical_window.hpp"
+#include "graindb/execution/operator/aggregate/physical_window.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/planner/operator/logical_window.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreatePlan(LogicalWindow &op) {

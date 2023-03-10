@@ -1,8 +1,8 @@
-#include "duckdb/parser/tableref/subqueryref.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/tableref/bound_subqueryref.hpp"
+#include "graindb/parser/tableref/subqueryref.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/tableref/bound_subqueryref.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<BoundTableRef> Binder::Bind(SubqueryRef &ref) {

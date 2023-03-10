@@ -1,8 +1,8 @@
-#include "duckdb/common/types/string_type.hpp"
-#include "duckdb/common/types/value.hpp"
+#include "graindb/common/types/string_type.hpp"
+#include "graindb/common/types/value.hpp"
 #include "utf8proc_wrapper.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 void string_t::Verify() {
 	auto dataptr = GetData();
@@ -32,4 +32,4 @@ void string_t::Verify() {
 	}
 }
 
-} // namespace duckdb
+} // namespace graindb

@@ -1,8 +1,8 @@
-#include "duckdb/common/types/vector_buffer.hpp"
+#include "graindb/common/types/vector_buffer.hpp"
 
-#include "duckdb/common/types/chunk_collection.hpp"
+#include "graindb/common/types/chunk_collection.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 VectorBuffer::VectorBuffer(idx_t data_size) : type(VectorBufferType::STANDARD_BUFFER) {

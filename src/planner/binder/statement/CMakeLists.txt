@@ -1,4 +1,4 @@
-add_library_unity(duckdb_bind_statement
+add_library_unity(graindb_bind_statement
                   OBJECT
                   bind_copy.cpp
                   bind_create.cpp
@@ -15,5 +15,5 @@ add_library_unity(duckdb_bind_statement
                   bind_update.cpp
                   bind_vacuum.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_bind_statement>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_bind_statement>
     PARENT_SCOPE)

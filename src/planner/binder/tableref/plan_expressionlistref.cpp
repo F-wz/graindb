@@ -1,9 +1,9 @@
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/tableref/bound_expressionlistref.hpp"
-#include "duckdb/planner/operator/logical_expression_get.hpp"
-#include "duckdb/planner/operator/logical_get.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/tableref/bound_expressionlistref.hpp"
+#include "graindb/planner/operator/logical_expression_get.hpp"
+#include "graindb/planner/operator/logical_get.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<LogicalOperator> Binder::CreatePlan(BoundExpressionListRef &ref) {

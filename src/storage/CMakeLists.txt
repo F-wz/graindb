@@ -2,7 +2,7 @@ add_subdirectory(buffer)
 add_subdirectory(checkpoint)
 add_subdirectory(table)
 
-add_library_unity(duckdb_storage
+add_library_unity(graindb_storage
                   OBJECT
                   alist.cpp
                   buffer_manager.cpp
@@ -25,5 +25,5 @@ add_library_unity(duckdb_storage
                   storage_lock.cpp
                   wal_replay.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_storage>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_storage>
     PARENT_SCOPE)

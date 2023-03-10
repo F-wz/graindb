@@ -1,7 +1,7 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static void TestAddition(Connection &con, string type) {
@@ -23,7 +23,7 @@ static void TestAddition(Connection &con, string type) {
 }
 
 TEST_CASE("Test type resolution of functions", "[function]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -37,7 +37,7 @@ TEST_CASE("Test type resolution of functions", "[function]") {
 }
 
 TEST_CASE("Test type resolution of function with parameter expressions", "[function]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	con.EnableQueryVerification();

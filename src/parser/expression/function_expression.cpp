@@ -1,10 +1,10 @@
-#include "duckdb/parser/expression/function_expression.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/common/types/hash.hpp"
+#include "graindb/parser/expression/function_expression.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/common/types/hash.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 FunctionExpression::FunctionExpression(string schema, string function_name,
@@ -54,9 +54,9 @@ bool FunctionExpression::Equals(const FunctionExpression *a, const FunctionExpre
 
 hash_t FunctionExpression::Hash() const {
 	hash_t result = ParsedExpression::Hash();
-	result = CombineHash(result, duckdb::Hash<const char *>(schema.c_str()));
-	result = CombineHash(result, duckdb::Hash<const char *>(function_name.c_str()));
-	result = CombineHash(result, duckdb::Hash<bool>(distinct));
+	result = CombineHash(result, graindb::Hash<const char *>(schema.c_str()));
+	result = CombineHash(result, graindb::Hash<const char *>(function_name.c_str()));
+	result = CombineHash(result, graindb::Hash<bool>(distinct));
 	return result;
 }
 

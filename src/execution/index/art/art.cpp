@@ -1,10 +1,10 @@
-#include "duckdb/execution/index/art/art.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/index/art/art.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 #include <algorithm>
 #include <ctgmath>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ART::ART(vector<column_t> column_ids, vector<unique_ptr<Expression>> unbound_expressions,

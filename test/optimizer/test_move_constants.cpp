@@ -1,9 +1,9 @@
-#include "duckdb/common/helper.hpp"
+#include "graindb/common/helper.hpp"
 #include "expression_helper.hpp"
-#include "duckdb/optimizer/rule/constant_folding.hpp"
-#include "duckdb/optimizer/rule/move_constants.hpp"
+#include "graindb/optimizer/rule/constant_folding.hpp"
+#include "graindb/optimizer/rule/move_constants.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test move constants", "[optimizer]") {

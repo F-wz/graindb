@@ -1,8 +1,8 @@
-#include "duckdb/common/operator/comparison_operators.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/nested_loop_join.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/nested_loop_join.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 template <class T, class OP>
@@ -62,17 +62,17 @@ static void mark_join(Vector &left, Vector &right, idx_t lcount, idx_t rcount, b
 	assert(left.type == right.type);
 	switch (comparison_type) {
 	case ExpressionType::COMPARE_EQUAL:
-		return mark_join_operator<duckdb::Equals>(left, right, lcount, rcount, found_match);
+		return mark_join_operator<graindb::Equals>(left, right, lcount, rcount, found_match);
 	case ExpressionType::COMPARE_NOTEQUAL:
-		return mark_join_operator<duckdb::NotEquals>(left, right, lcount, rcount, found_match);
+		return mark_join_operator<graindb::NotEquals>(left, right, lcount, rcount, found_match);
 	case ExpressionType::COMPARE_LESSTHAN:
-		return mark_join_operator<duckdb::LessThan>(left, right, lcount, rcount, found_match);
+		return mark_join_operator<graindb::LessThan>(left, right, lcount, rcount, found_match);
 	case ExpressionType::COMPARE_GREATERTHAN:
-		return mark_join_operator<duckdb::GreaterThan>(left, right, lcount, rcount, found_match);
+		return mark_join_operator<graindb::GreaterThan>(left, right, lcount, rcount, found_match);
 	case ExpressionType::COMPARE_LESSTHANOREQUALTO:
-		return mark_join_operator<duckdb::LessThanEquals>(left, right, lcount, rcount, found_match);
+		return mark_join_operator<graindb::LessThanEquals>(left, right, lcount, rcount, found_match);
 	case ExpressionType::COMPARE_GREATERTHANOREQUALTO:
-		return mark_join_operator<duckdb::GreaterThanEquals>(left, right, lcount, rcount, found_match);
+		return mark_join_operator<graindb::GreaterThanEquals>(left, right, lcount, rcount, found_match);
 	default:
 		throw NotImplementedException("Unimplemented comparison type for join!");
 	}

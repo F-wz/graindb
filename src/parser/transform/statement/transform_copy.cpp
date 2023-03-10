@@ -1,15 +1,15 @@
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/expression/star_expression.hpp"
-#include "duckdb/parser/statement/copy_statement.hpp"
-#include "duckdb/parser/statement/select_statement.hpp"
-#include "duckdb/parser/tableref/basetableref.hpp"
-#include "duckdb/parser/transformer.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/common/types/value.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/expression/star_expression.hpp"
+#include "graindb/parser/statement/copy_statement.hpp"
+#include "graindb/parser/statement/select_statement.hpp"
+#include "graindb/parser/tableref/basetableref.hpp"
+#include "graindb/parser/transformer.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/common/types/value.hpp"
 
 #include <cstring>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static ExternalFileFormat StringToExternalFileFormat(const string &str) {
@@ -98,7 +98,7 @@ void HandleOptions(PGCopyStmt *stmt, CopyInfo &info) {
 				info.header = header_val->val.ival == 1 ? true : false;
 				break;
 			case T_PGString: {
-				auto val = duckdb::Value(string(header_val->val.str));
+				auto val = graindb::Value(string(header_val->val.str));
 				info.header = val.CastAs(TypeId::BOOL).value_.boolean;
 				break;
 			}

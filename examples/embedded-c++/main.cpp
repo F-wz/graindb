@@ -1,10 +1,10 @@
 #include "dbgen.hpp"
-#include "duckdb.hpp"
-#include "duckdb/catalog/catalog_entry/schema_catalog_entry.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/planner/planner.hpp"
-#include "duckdb/storage/data_table.hpp"
-#include "duckdb/transaction/transaction.hpp"
+#include "graindb.hpp"
+#include "graindb/catalog/catalog_entry/schema_catalog_entry.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/planner/planner.hpp"
+#include "graindb/storage/data_table.hpp"
+#include "graindb/transaction/transaction.hpp"
 #include "imdb.hpp"
 #include "ldbc.hpp"
 
@@ -17,10 +17,10 @@
 #define N_RUN 1
 
 using namespace std;
-using namespace duckdb;
+using namespace graindb;
 
 void DebugLDBC() {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	auto result = con.Query("SELECT 1;");
 	int table_ids[] = {5, 6, 16};
@@ -83,7 +83,7 @@ void DebugLDBC() {
 
 void RunnerWrapper(string query, string rais, string jo, vector<string> table_names, int state) {
 	// Load dataset
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.Query("BEGIN TRANSACTION");
 	for (int t = 0; t < 21; t++) {
@@ -336,7 +336,7 @@ void SIPJoinOrderQ2() {
 }
 
 void testLDBCCreateRAI() {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	auto result = con.Query("BEGIN TRANSACTION");
 	for (idx_t i = 0; i < 17; i++) {
@@ -383,7 +383,7 @@ void testLDBCCreateRAI() {
 }
 
 void testTPCHCreateRAI() {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	tpch::dbgen(0.1, db);
 	auto result = con.Query("CREATE PKFK RAI supplierInNation ON supplier (FROM s_nationkey REFERENCES "
@@ -437,7 +437,7 @@ void testLDBCEnumeratedPlans() {
 	idx_t plan_nums[] = {40, 224, 1344, 40};
 	string query_names[] = {"ic01a", "ic01b", "ic01c", "ic02"};
 	string queries[] = {ldbc_ic01a, ldbc_ic01b, ldbc_ic01c, ldbc_ic02};
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	ldbc::dbgen(con, 1, false, true);
 	con.EnableProfiling();
@@ -478,7 +478,7 @@ void testLDBCEnumeratedPlans() {
 }
 
 void testLDBCQueries() {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	ldbc::dbgen(con, 1, false, true);
 	for (idx_t i = 1; i < 26; i++) {
@@ -489,7 +489,7 @@ void testLDBCQueries() {
 }
 
 void GenerateSelectivityForKnows() {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	string data_dir = "/home/g35jin/ldbc_dataset/sf30/social_network/relation";
 	con.Query(
@@ -519,7 +519,7 @@ void GenerateSelectivityForKnows() {
 }
 
 void GenerateSelectivityForLikesComment() {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	string data_dir = "/home/g35jin/ldbc_dataset/sf30/social_network/relation";
 	con.Query(
@@ -549,7 +549,7 @@ void GenerateSelectivityForLikesComment() {
 }
 
 void GenerateSelectivityForumPost(int step) {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	string data_dir = "/home/g35jin/ldbc_dataset/sf30/social_network/relation";
 	con.Query("create table post (ps_id bigint not null, id bigint not null, vid varchar, ps_imagefile varchar, "
@@ -578,7 +578,7 @@ void GenerateSelectivityForumPost(int step) {
 }
 
 void GenerateSelectivityLikesCmtDate(int step) {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	string data_dir = "/home/g35jin/ldbc_dataset/sf30/social_network/relation";
 	con.Query(
@@ -610,7 +610,7 @@ void GenerateSelectivityLikesCmtDate(int step) {
 }
 
 void GenerateSelectivityKnowsDate(int step) {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	string data_dir = "/home/g35jin/ldbc_dataset/sf30/social_network/relation";
 	con.Query(
@@ -641,7 +641,7 @@ void GenerateSelectivityKnowsDate(int step) {
 }
 
 void TestSIPThreshold() {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection conn(db);
 	conn.Query("CREATE TABLE person(id INTEGER, name VARCHAR, placeid INTEGER);");
 	conn.Query("CREATE TABLE likes(pid INTEGER, mid INTEGER);");
@@ -680,7 +680,7 @@ void TestSIPThreshold() {
 }
 
 void runJOBProfiler() {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	imdb::dbgen(con, true, true);
 	con.EnableProfiling();

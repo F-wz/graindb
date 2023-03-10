@@ -1,10 +1,10 @@
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression/bound_comparison_expression.hpp"
-#include "duckdb/common/operator/comparison_operators.hpp"
-#include "duckdb/common/vector_operations/binary_executor.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression/bound_comparison_expression.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
+#include "graindb/common/vector_operations/binary_executor.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<ExpressionState> ExpressionExecutor::InitializeState(BoundComparisonExpression &expr,
@@ -84,17 +84,17 @@ idx_t ExpressionExecutor::Select(BoundComparisonExpression &expr, ExpressionStat
 
 	switch (expr.type) {
 	case ExpressionType::COMPARE_EQUAL:
-		return templated_select_operation<duckdb::Equals>(left, right, sel, count, true_sel, false_sel);
+		return templated_select_operation<graindb::Equals>(left, right, sel, count, true_sel, false_sel);
 	case ExpressionType::COMPARE_NOTEQUAL:
-		return templated_select_operation<duckdb::NotEquals>(left, right, sel, count, true_sel, false_sel);
+		return templated_select_operation<graindb::NotEquals>(left, right, sel, count, true_sel, false_sel);
 	case ExpressionType::COMPARE_LESSTHAN:
-		return templated_select_operation<duckdb::LessThan>(left, right, sel, count, true_sel, false_sel);
+		return templated_select_operation<graindb::LessThan>(left, right, sel, count, true_sel, false_sel);
 	case ExpressionType::COMPARE_GREATERTHAN:
-		return templated_select_operation<duckdb::GreaterThan>(left, right, sel, count, true_sel, false_sel);
+		return templated_select_operation<graindb::GreaterThan>(left, right, sel, count, true_sel, false_sel);
 	case ExpressionType::COMPARE_LESSTHANOREQUALTO:
-		return templated_select_operation<duckdb::LessThanEquals>(left, right, sel, count, true_sel, false_sel);
+		return templated_select_operation<graindb::LessThanEquals>(left, right, sel, count, true_sel, false_sel);
 	case ExpressionType::COMPARE_GREATERTHANOREQUALTO:
-		return templated_select_operation<duckdb::GreaterThanEquals>(left, right, sel, count, true_sel, false_sel);
+		return templated_select_operation<graindb::GreaterThanEquals>(left, right, sel, count, true_sel, false_sel);
 	case ExpressionType::COMPARE_DISTINCT_FROM:
 		throw NotImplementedException("Unimplemented compare: COMPARE_DISTINCT_FROM");
 	default:

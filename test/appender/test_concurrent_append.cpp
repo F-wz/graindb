@@ -1,12 +1,12 @@
 #include "catch.hpp"
-#include "duckdb/main/appender.hpp"
+#include "graindb/main/appender.hpp"
 #include "test_helpers.hpp"
 
 #include <atomic>
 #include <thread>
 #include <vector>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 atomic<int> finished_threads;
@@ -14,7 +14,7 @@ atomic<int> finished_threads;
 #define THREAD_COUNT 20
 #define INSERT_ELEMENTS 2000
 
-static void append_to_integers(DuckDB *db, size_t threadnr) {
+static void append_to_integers(GrainDB *db, size_t threadnr) {
 	REQUIRE(db);
 	Connection con(*db);
 
@@ -32,7 +32,7 @@ static void append_to_integers(DuckDB *db, size_t threadnr) {
 
 TEST_CASE("Test concurrent appends", "[appender][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// create a single table to append to

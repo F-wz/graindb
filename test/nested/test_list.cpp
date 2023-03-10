@@ -1,26 +1,26 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "dbgen.hpp"
 #include "test_helpers.hpp"
 
-#include "duckdb.hpp"
-#include "duckdb/parser/parsed_data/create_table_function_info.hpp"
-#include "duckdb/function/table_function.hpp"
-#include "duckdb/function/scalar_function.hpp"
-#include "duckdb/execution/operator/list.hpp"
-#include "duckdb/catalog/catalog_entry/list.hpp"
-#include "duckdb/function/function.hpp"
-#include "duckdb/planner/expression/list.hpp"
-#include "duckdb/parser/expression/function_expression.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/function/aggregate_function.hpp"
-#include "duckdb/parser/parsed_data/create_aggregate_function_info.hpp"
+#include "graindb.hpp"
+#include "graindb/parser/parsed_data/create_table_function_info.hpp"
+#include "graindb/function/table_function.hpp"
+#include "graindb/function/scalar_function.hpp"
+#include "graindb/execution/operator/list.hpp"
+#include "graindb/catalog/catalog_entry/list.hpp"
+#include "graindb/function/function.hpp"
+#include "graindb/planner/expression/list.hpp"
+#include "graindb/parser/expression/function_expression.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/function/aggregate_function.hpp"
+#include "graindb/parser/parsed_data/create_aggregate_function_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test scalar lists", "[nested]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	unique_ptr<QueryResult> result;
@@ -101,7 +101,7 @@ TEST_CASE("Test scalar lists", "[nested]") {
 }
 
 TEST_CASE("Test filter and projection of nested lists", "[nested]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	unique_ptr<QueryResult> result;
@@ -317,7 +317,7 @@ TEST_CASE("Test filter and projection of nested lists", "[nested]") {
 }
 
 TEST_CASE("Test packing and unpacking lineitem into lists", "[nested][.]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<MaterializedQueryResult> result;
 	con.EnableQueryVerification(); // FIXME something odd happening here
@@ -401,7 +401,7 @@ TEST_CASE("Test packing and unpacking lineitem into lists", "[nested][.]") {
 }
 
 // TEST_CASE("Aggregate lists", "[nested]") {
-//	DuckDB db(nullptr);
+//	GrainDB db(nullptr);
 //	Connection con(db);
 //	con.EnableQueryVerification();
 //	unique_ptr<QueryResult> result;

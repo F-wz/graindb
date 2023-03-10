@@ -2,10 +2,10 @@
 #include <limits.h>
 #include <cstring> // strlen() on Solaris
 
-#include "duckdb/execution/index/art/art_key.hpp"
-#include "duckdb/execution/index/art/art.hpp"
+#include "graindb/execution/index/art/art_key.hpp"
+#include "graindb/execution/index/art/art.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 
 //! these are optimized and assume a particular byte order
 #define BSWAP16(x) ((uint16_t)((((uint16_t)(x)&0xff00) >> 8) | (((uint16_t)(x)&0x00ff) << 8)))

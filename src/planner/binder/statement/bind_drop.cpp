@@ -1,11 +1,11 @@
-#include "duckdb/parser/statement/drop_statement.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/operator/logical_simple.hpp"
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/catalog/standard_entry.hpp"
-#include "duckdb/catalog/catalog_entry/schema_catalog_entry.hpp"
+#include "graindb/parser/statement/drop_statement.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/operator/logical_simple.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/catalog/standard_entry.hpp"
+#include "graindb/catalog/catalog_entry/schema_catalog_entry.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundStatement Binder::Bind(DropStatement &stmt) {

@@ -1,12 +1,12 @@
 #include "catch.hpp"
-#include "duckdb/common/helper.hpp"
-#include "duckdb/planner/expression/bound_operator_expression.hpp"
-#include "duckdb/optimizer/rule/empty_needle_removal.hpp"
-#include "duckdb/optimizer/rule/constant_folding.hpp"
-#include "duckdb/execution/expression_executor.hpp"
+#include "graindb/common/helper.hpp"
+#include "graindb/planner/expression/bound_operator_expression.hpp"
+#include "graindb/optimizer/rule/empty_needle_removal.hpp"
+#include "graindb/optimizer/rule/constant_folding.hpp"
+#include "graindb/execution/expression_executor.hpp"
 #include "expression_helper.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static void require_case(ExpressionHelper &helper, string input) {

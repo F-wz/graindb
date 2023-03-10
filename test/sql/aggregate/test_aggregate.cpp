@@ -1,13 +1,13 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/main/appender.hpp"
+#include "graindb/main/appender.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test BIT_AND operator", "[aggregate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// test on scalar values
@@ -43,7 +43,7 @@ TEST_CASE("Test BIT_AND operator", "[aggregate]") {
 
 TEST_CASE("Test BIT_OR operator", "[aggregate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// test on scalar values
@@ -79,7 +79,7 @@ TEST_CASE("Test BIT_OR operator", "[aggregate]") {
 
 TEST_CASE("Test BIT_XOR operator", "[aggregate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// test on scalar values
@@ -115,7 +115,7 @@ TEST_CASE("Test BIT_XOR operator", "[aggregate]") {
 
 TEST_CASE("Test COUNT operator", "[aggregate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// test counts on scalar values
@@ -148,7 +148,7 @@ TEST_CASE("Test COUNT operator", "[aggregate]") {
 
 TEST_CASE("Test aggregates with scalar inputs", "[aggregate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// test aggregate on scalar values
@@ -194,7 +194,7 @@ TEST_CASE("Test aggregates with scalar inputs", "[aggregate]") {
 
 TEST_CASE("Test COVAR operators", "[aggregate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// test incorrect usage of COVAR_POP function
@@ -262,7 +262,7 @@ TEST_CASE("Test COVAR operators", "[aggregate]") {
 
 TEST_CASE("Test STRING_AGG operator", "[aggregate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// test incorrect usage of STRING_AGG function
@@ -310,7 +310,7 @@ TEST_CASE("Test STRING_AGG operator", "[aggregate]") {
 
 TEST_CASE("Test distinct STRING_AGG operator", "[aggregate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE strings(s VARCHAR);"));
@@ -323,7 +323,7 @@ TEST_CASE("Test distinct STRING_AGG operator", "[aggregate]") {
 
 TEST_CASE("Test STRING_AGG operator with many groups", "[aggregate][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("BEGIN TRANSACTION;"));
@@ -357,7 +357,7 @@ TEST_CASE("Test STRING_AGG operator with many groups", "[aggregate][.]") {
 
 TEST_CASE("STRING_AGG big", "[aggregate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// test string aggregation on a set of values
@@ -391,7 +391,7 @@ TEST_CASE("STRING_AGG big", "[aggregate]") {
 
 TEST_CASE("Test AVG operator", "[aggregate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// test average on a scalar value
@@ -427,7 +427,7 @@ TEST_CASE("Test AVG operator", "[aggregate]") {
 
 TEST_CASE("Test implicit aggregate operators", "[aggregate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// test implicit aggregates on empty set
@@ -446,7 +446,7 @@ TEST_CASE("Test implicit aggregate operators", "[aggregate]") {
 
 TEST_CASE("Test built in aggregate operator usage", "[aggregate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// test incorrect usage of the COUNT aggregate
@@ -481,7 +481,7 @@ TEST_CASE("Test built in aggregate operator usage", "[aggregate]") {
 
 TEST_CASE("Test GROUP BY on expression", "[aggregate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integer(i INTEGER, j INTEGER);"));
@@ -510,7 +510,7 @@ TEST_CASE("Test GROUP BY on expression", "[aggregate]") {
 
 TEST_CASE("Test GROUP BY with many groups", "[aggregate][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER, j INTEGER);"));
@@ -527,7 +527,7 @@ TEST_CASE("Test GROUP BY with many groups", "[aggregate][.]") {
 
 TEST_CASE("Test FIRST with non-inlined strings", "[aggregate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE tbl(a INTEGER, b VARCHAR)"));

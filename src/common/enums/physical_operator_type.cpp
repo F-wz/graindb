@@ -1,8 +1,8 @@
-#include "duckdb/common/enums/physical_operator_type.hpp"
+#include "graindb/common/enums/physical_operator_type.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 string PhysicalOperatorToString(PhysicalOperatorType type) {
 	switch (type) {
@@ -110,4 +110,4 @@ string PhysicalOperatorToString(PhysicalOperatorType type) {
 	}
 }
 
-} // namespace duckdb
+} // namespace graindb

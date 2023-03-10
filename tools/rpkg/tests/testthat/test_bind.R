@@ -29,7 +29,7 @@ test_convert <- function(con, type, val) {
 }
 
 test_that("dbBind() works as expected for all types", {
-	con <- dbConnect(duckdb::duckdb())
+	con <- dbConnect(graindb::graindb())
 	test_convert(con, "BOOLEAN", TRUE)
 	test_convert(con, "BOOLEAN", FALSE)
 
@@ -52,7 +52,7 @@ test_that("dbBind() works as expected for all types", {
 })
 
 test_that("dbBind() is called from dbGetQuery and dbExecute", {
-	con <- dbConnect(duckdb::duckdb())
+	con <- dbConnect(graindb::graindb())
 
 	res <- dbGetQuery(con, "SELECT CAST (? AS INTEGER), CAST(? AS STRING)", 42, "Hello")
 
@@ -91,7 +91,7 @@ test_that("dbBind() is called from dbGetQuery and dbExecute", {
 
 test_that("various error cases for dbBind()", {
 	# testthat::skip("eek")
-	con <- dbConnect(duckdb::duckdb())
+	con <- dbConnect(graindb::graindb())
 
 	q <- dbSendQuery(con, "SELECT CAST (? AS INTEGER)")
 

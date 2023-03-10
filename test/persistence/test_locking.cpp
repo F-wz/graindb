@@ -1,14 +1,14 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
-#include "duckdb.hpp"
-#include "duckdb/main/appender.hpp"
+#include "graindb/common/file_system.hpp"
+#include "graindb.hpp"
+#include "graindb/main/appender.hpp"
 #include "test_helpers.hpp"
 
 #include <signal.h>
 #include <sys/mman.h>
 #include <unistd.h>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 #define BOOL_COUNT 3
@@ -26,7 +26,7 @@ TEST_CASE("Test write lock with multiple processes", "[persistence][.]") {
 	if (pid == 0) {
 		// child process
 		// open db for writing
-		DuckDB db(dbdir);
+		GrainDB db(dbdir);
 		Connection con(db);
 		// opened db for writing
 		// insert some values
@@ -38,14 +38,14 @@ TEST_CASE("Test write lock with multiple processes", "[persistence][.]") {
 			usleep(100);
 		}
 	} else if (pid > 0) {
-		unique_ptr<DuckDB> db;
+		unique_ptr<GrainDB> db;
 		// parent process
 		// sleep a bit to wait for child process
 		while (*count == 0) {
 			usleep(100);
 		}
 		// try to open db for writing, this should fail
-		REQUIRE_THROWS(db = make_unique<DuckDB>(dbdir));
+		REQUIRE_THROWS(db = make_unique<GrainDB>(dbdir));
 		// kill the child
 		if (kill(pid, SIGKILL) != 0) {
 			FAIL();
@@ -63,7 +63,7 @@ TEST_CASE("Test read lock with multiple processes", "[persistence][.]") {
 
 	// create the database
 	{
-		DuckDB db(dbdir);
+		GrainDB db(dbdir);
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE a(i INTEGER)"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO a VALUES (42)"));
@@ -75,7 +75,7 @@ TEST_CASE("Test read lock with multiple processes", "[persistence][.]") {
 	if (pid == 0) {
 		// child process
 		// open db for reading
-		DuckDB db(dbdir, &config);
+		GrainDB db(dbdir, &config);
 		Connection con(db);
 
 		(*count)++;
@@ -86,16 +86,16 @@ TEST_CASE("Test read lock with multiple processes", "[persistence][.]") {
 			con.Query("SELECT * FROM a");
 		}
 	} else if (pid > 0) {
-		unique_ptr<DuckDB> db;
+		unique_ptr<GrainDB> db;
 		// parent process
 		// sleep a bit to wait for child process
 		while (*count == 0) {
 			usleep(100);
 		}
 		// try to open db for writing, this should fail
-		REQUIRE_THROWS(db = make_unique<DuckDB>(dbdir));
+		REQUIRE_THROWS(db = make_unique<GrainDB>(dbdir));
 		// but opening db for reading should work
-		REQUIRE_NOTHROW(db = make_unique<DuckDB>(dbdir, &config));
+		REQUIRE_NOTHROW(db = make_unique<GrainDB>(dbdir, &config));
 		// we can query the database
 		Connection con(*db);
 		REQUIRE_NO_FAIL(con.Query("SELECT * FROM a"));

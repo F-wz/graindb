@@ -1,6 +1,6 @@
-#include "duckdb/common/types/vector.hpp"
+#include "graindb/common/types/vector.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 nullmask_t ZERO_MASK = nullmask_t(0);
 const SelectionVector ConstantVector::ZeroSelectionVector = SelectionVector((sel_t *)ConstantVector::zero_vector);
@@ -458,4 +458,4 @@ const sel_t FlatVector::incremental_vector[] = {
 #error Unsupported VECTOR_SIZE!
 #endif
 
-} // namespace duckdb
+} // namespace graindb

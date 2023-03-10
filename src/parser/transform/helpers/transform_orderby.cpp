@@ -1,8 +1,8 @@
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/parser/statement/select_statement.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/statement/select_statement.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 bool Transformer::TransformOrderBy(PGList *order, vector<OrderByNode> &result) {

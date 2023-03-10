@@ -1,9 +1,9 @@
-#include "duckdb/main/prepared_statement.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/main/prepared_statement_data.hpp"
+#include "graindb/main/prepared_statement.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/main/prepared_statement_data.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 PreparedStatement::PreparedStatement(ClientContext *context, string name, string query, PreparedStatementData &data,

@@ -1,11 +1,11 @@
-#include "duckdb/function/aggregate/distributive_functions.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/function/aggregate/distributive_functions.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 template <class T> struct FirstState {
 	bool is_set;
@@ -141,4 +141,4 @@ void FirstFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(first);
 }
 
-} // namespace duckdb
+} // namespace graindb

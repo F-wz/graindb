@@ -53,7 +53,7 @@
 #ifndef UTF8PROC_H
 #define UTF8PROC_H
 
-// DuckDB change:
+// GrainDB change:
 #define UTF8PROC_STATIC
 
 /** @name API version

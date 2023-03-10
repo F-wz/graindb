@@ -1,20 +1,20 @@
-#include "duckdb/function/function.hpp"
+#include "graindb/function/function.hpp"
 
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/catalog/catalog_entry/scalar_function_catalog_entry.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/function/aggregate_function.hpp"
-#include "duckdb/function/cast_rules.hpp"
-#include "duckdb/function/scalar/string_functions.hpp"
-#include "duckdb/function/scalar_function.hpp"
-#include "duckdb/parser/parsed_data/create_aggregate_function_info.hpp"
-#include "duckdb/parser/parsed_data/create_collation_info.hpp"
-#include "duckdb/parser/parsed_data/create_scalar_function_info.hpp"
-#include "duckdb/parser/parsed_data/create_table_function_info.hpp"
-#include "duckdb/planner/expression/bound_cast_expression.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/catalog/catalog_entry/scalar_function_catalog_entry.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/function/aggregate_function.hpp"
+#include "graindb/function/cast_rules.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar_function.hpp"
+#include "graindb/parser/parsed_data/create_aggregate_function_info.hpp"
+#include "graindb/parser/parsed_data/create_collation_info.hpp"
+#include "graindb/parser/parsed_data/create_scalar_function_info.hpp"
+#include "graindb/parser/parsed_data/create_table_function_info.hpp"
+#include "graindb/planner/expression/bound_cast_expression.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 // add your initializer for new functions here

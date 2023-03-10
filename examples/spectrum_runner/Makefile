@@ -1,6 +1,6 @@
-.PHONY: duckdb clean debug release
+.PHONY: graindb clean debug release
 
-all: duckdb release
+all: graindb release
 
 clean:
 	rm -rf build
@@ -24,7 +24,7 @@ release:
 	cmake $(GENERATOR) $(FORCE_COLOR) -DCMAKE_BUILD_TYPE=Release ../.. && \
 	make
 
-duckdb:
+graindb:
 	cd ../../.. && \
 	make debug -j8
 # main:

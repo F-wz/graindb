@@ -1,8 +1,8 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Shutdown with running transaction", "[storage]") {
@@ -14,7 +14,7 @@ TEST_CASE("Shutdown with running transaction", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (11, 22), (13, 22);"));
@@ -25,7 +25,7 @@ TEST_CASE("Shutdown with running transaction", "[storage]") {
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT * FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {11, 13}));
@@ -43,14 +43,14 @@ TEST_CASE("UNIQUE INDEX after shutdown", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER PRIMARY KEY, b INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (11, 22), (13, 22);"));
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 
 		result = con.Query("SELECT * FROM test ORDER BY a");
@@ -71,14 +71,14 @@ TEST_CASE("CREATE INDEX statement after shutdown", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (11, 22), (13, 22);"));
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 
 		result = con.Query("SELECT * FROM test ORDER BY a");
@@ -105,7 +105,7 @@ TEST_CASE("CREATE INDEX statement after shutdown", "[storage]") {
 	}
 	// now with updates
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 
 		result = con.Query("SELECT * FROM test ORDER BY a");

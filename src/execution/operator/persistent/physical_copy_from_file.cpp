@@ -1,12 +1,12 @@
-#include "duckdb/execution/operator/persistent/physical_copy_from_file.hpp"
+#include "graindb/execution/operator/persistent/physical_copy_from_file.hpp"
 
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/execution/operator/persistent/buffered_csv_reader.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/execution/operator/persistent/buffered_csv_reader.hpp"
 
 #include <algorithm>
 #include <fstream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class PhysicalCopyFromFileOperatorState : public PhysicalOperatorState {

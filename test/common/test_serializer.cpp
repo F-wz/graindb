@@ -1,11 +1,11 @@
 #include "catch.hpp"
-#include "duckdb/common/serializer/buffered_deserializer.hpp"
-#include "duckdb/common/serializer/buffered_serializer.hpp"
-#include "duckdb/common/types/data_chunk.hpp"
-#include "duckdb/common/value_operations/value_operations.hpp"
+#include "graindb/common/serializer/buffered_deserializer.hpp"
+#include "graindb/common/serializer/buffered_serializer.hpp"
+#include "graindb/common/types/data_chunk.hpp"
+#include "graindb/common/value_operations/value_operations.hpp"
 #include "expression_helper.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Basic serializer test", "[serializer]") {
@@ -102,7 +102,7 @@ TEST_CASE("Value serialization", "[serializer]") {
 }
 
 TEST_CASE("Expression serializer", "[serializer]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	ExpressionHelper helper(con.context);

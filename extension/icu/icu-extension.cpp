@@ -1,17 +1,17 @@
 #include "icu-extension.hpp"
 #include "icu-collate.hpp"
 
-#include "duckdb/main/database.hpp"
-#include "duckdb/main/connection.hpp"
+#include "graindb/main/database.hpp"
+#include "graindb/main/connection.hpp"
 
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/function/scalar_function.hpp"
-#include "duckdb/common/vector_operations/unary_executor.hpp"
-#include "duckdb/parser/parsed_data/create_collation_info.hpp"
-#include "duckdb/catalog/catalog.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/function/scalar_function.hpp"
+#include "graindb/common/vector_operations/unary_executor.hpp"
+#include "graindb/parser/parsed_data/create_collation_info.hpp"
+#include "graindb/catalog/catalog.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 struct IcuBindData : public FunctionData {
 	std::unique_ptr<icu::Collator> collator;
@@ -68,7 +68,7 @@ static ScalarFunction get_icu_function(string collation) {
 	return ScalarFunction(collation, {SQLType::VARCHAR}, SQLType::BIGINT, icu_collate_function, false, icu_collate_bind);
 }
 
-void ICUExtension::Load(DuckDB &db) {
+void ICUExtension::Load(GrainDB &db) {
 	// load the collations
 	Connection con(db);
 	con.BeginTransaction();

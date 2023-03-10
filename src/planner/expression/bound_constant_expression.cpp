@@ -1,9 +1,9 @@
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
 
-#include "duckdb/common/types/hash.hpp"
-#include "duckdb/common/value_operations/value_operations.hpp"
+#include "graindb/common/types/hash.hpp"
+#include "graindb/common/value_operations/value_operations.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundConstantExpression::BoundConstantExpression(Value value)

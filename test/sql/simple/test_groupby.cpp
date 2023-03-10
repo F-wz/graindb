@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test aggregation/group by statements", "[aggregations]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -148,7 +148,7 @@ TEST_CASE("Test aggregation/group by statements", "[aggregations]") {
 
 TEST_CASE("Test aliases in group by/aggregation", "[aggregations]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -218,7 +218,7 @@ TEST_CASE("Test aliases in group by/aggregation", "[aggregations]") {
 
 TEST_CASE("GROUP BY large strings", "[aggregations]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a VARCHAR, b INTEGER);"));
 	REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES ('helloworld', 22), "
@@ -231,7 +231,7 @@ TEST_CASE("GROUP BY large strings", "[aggregations]") {
 
 TEST_CASE("Group by multiple columns", "[aggregations]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER, j INTEGER, k INTEGER);"));
@@ -248,7 +248,7 @@ TEST_CASE("Group by multiple columns", "[aggregations]") {
 
 TEST_CASE("Aggregate only COUNT STAR", "[aggregations]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER, j INTEGER);"));
@@ -266,7 +266,7 @@ TEST_CASE("Aggregate only COUNT STAR", "[aggregations]") {
 
 TEST_CASE("GROUP BY NULL value", "[aggregations]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER, j INTEGER);"));
@@ -279,7 +279,7 @@ TEST_CASE("GROUP BY NULL value", "[aggregations]") {
 
 TEST_CASE("Aggregating from empty table", "[aggregations]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE emptyaggr(i INTEGER);"));
@@ -303,7 +303,7 @@ TEST_CASE("Aggregating from empty table", "[aggregations]") {
 
 TEST_CASE("DISTINCT aggregations", "[aggregations]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE distinctagg(i INTEGER, j INTEGER);"));
@@ -328,7 +328,7 @@ TEST_CASE("DISTINCT aggregations", "[aggregations]") {
 
 TEST_CASE("STDDEV aggregations", "[aggregations]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("create table stddev_test(val integer, grp integer)"));
@@ -426,7 +426,7 @@ TEST_CASE("STDDEV aggregations", "[aggregations]") {
 
 TEST_CASE("Test aggregations on strings", "[aggregations]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

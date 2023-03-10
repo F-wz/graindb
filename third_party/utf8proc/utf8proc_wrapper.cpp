@@ -2,7 +2,7 @@
 #include "utf8proc_wrapper.h"
 #include "utf8proc.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 // This function efficiently checks if a string is valid UTF8.

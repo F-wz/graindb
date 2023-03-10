@@ -1,4 +1,4 @@
-add_library_unity(duckdb_expression_executor
+add_library_unity(graindb_expression_executor
                   OBJECT
                   execute_between.cpp
                   execute_case.cpp
@@ -11,4 +11,4 @@ add_library_unity(duckdb_expression_executor
                   execute_parameter.cpp
                   execute_reference.cpp)
 set(ALL_OBJECT_FILES ${ALL_OBJECT_FILES}
-                     $<TARGET_OBJECTS:duckdb_expression_executor> PARENT_SCOPE)
+                     $<TARGET_OBJECTS:graindb_expression_executor> PARENT_SCOPE)

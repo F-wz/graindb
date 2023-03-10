@@ -1,8 +1,8 @@
-#include "duckdb/planner/expression_binder/aggregate_binder.hpp"
+#include "graindb/planner/expression_binder/aggregate_binder.hpp"
 
-#include "duckdb/planner/binder.hpp"
+#include "graindb/planner/binder.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 AggregateBinder::AggregateBinder(Binder &binder, ClientContext &context) : ExpressionBinder(binder, context, true) {

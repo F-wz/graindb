@@ -1,13 +1,13 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 // The tests in this file are taken from https://www.manuelrigger.at/dbms-bugs/
 TEST_CASE("Test queries found by Rigger that cause problems in other systems", "[rigger]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -127,7 +127,7 @@ TEST_CASE("Test queries found by Rigger that cause problems in other systems", "
 
 TEST_CASE("Tests found by Rigger", "[rigger]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	SECTION("489") {

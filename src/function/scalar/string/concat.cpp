@@ -1,15 +1,15 @@
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/vector_operations/binary_executor.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/binary_executor.hpp"
 
 #include <string.h>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static void concat_function(DataChunk &args, ExpressionState &state, Vector &result) {
 	result.vector_type = VectorType::CONSTANT_VECTOR;
@@ -256,4 +256,4 @@ void ConcatFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(concat_ws);
 }
 
-} // namespace duckdb
+} // namespace graindb

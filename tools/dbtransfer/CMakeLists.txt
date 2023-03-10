@@ -6,4 +6,4 @@ include_directories(include)
 include_directories(../../third_party/sqlite/include)
 
 add_library(sqlite_transfer STATIC sqlite_transfer.cpp)
-target_link_libraries(sqlite_transfer duckdb sqlite3)
+target_link_libraries(sqlite_transfer graindb sqlite3)

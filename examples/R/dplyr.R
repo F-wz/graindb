@@ -1,7 +1,7 @@
 library("DBI")
 library("dplyr")
 
-dsrc <- duckdb::src_duckdb()
+dsrc <- graindb::src_graindb()
 
 # taken from the dbplyr vignette
 # https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html

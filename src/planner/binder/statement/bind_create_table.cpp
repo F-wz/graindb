@@ -1,14 +1,14 @@
-#include "duckdb/parser/constraints/list.hpp"
-#include "duckdb/parser/expression/cast_expression.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/constraints/list.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
-#include "duckdb/planner/expression_binder/check_binder.hpp"
-#include "duckdb/planner/expression_binder/constant_binder.hpp"
-#include "duckdb/parser/parsed_data/create_table_info.hpp"
-#include "duckdb/planner/parsed_data/bound_create_table_info.hpp"
+#include "graindb/parser/constraints/list.hpp"
+#include "graindb/parser/expression/cast_expression.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/constraints/list.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression_binder/check_binder.hpp"
+#include "graindb/planner/expression_binder/constant_binder.hpp"
+#include "graindb/parser/parsed_data/create_table_info.hpp"
+#include "graindb/planner/parsed_data/bound_create_table_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static void CreateColumnMap(BoundCreateTableInfo &info) {

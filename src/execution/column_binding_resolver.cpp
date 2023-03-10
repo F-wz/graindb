@@ -1,15 +1,15 @@
-#include "duckdb/execution/column_binding_resolver.hpp"
+#include "graindb/execution/column_binding_resolver.hpp"
 
-#include "duckdb/planner/operator/logical_comparison_join.hpp"
-#include "duckdb/planner/operator/logical_create_index.hpp"
-#include "duckdb/planner/operator/logical_delim_join.hpp"
+#include "graindb/planner/operator/logical_comparison_join.hpp"
+#include "graindb/planner/operator/logical_create_index.hpp"
+#include "graindb/planner/operator/logical_delim_join.hpp"
 
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression/bound_reference_expression.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression/bound_reference_expression.hpp"
 
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ColumnBindingResolver::ColumnBindingResolver() {

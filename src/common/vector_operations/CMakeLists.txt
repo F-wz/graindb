@@ -1,4 +1,4 @@
-add_library_unity(duckdb_vector_operations
+add_library_unity(graindb_vector_operations
                   OBJECT
                   boolean_operators.cpp
                   vector_cast.cpp
@@ -11,4 +11,4 @@ add_library_unity(duckdb_vector_operations
                   null_operations.cpp
                   numeric_inplace_operators.cpp)
 set(ALL_OBJECT_FILES ${ALL_OBJECT_FILES}
-                     $<TARGET_OBJECTS:duckdb_vector_operations> PARENT_SCOPE)
+                     $<TARGET_OBJECTS:graindb_vector_operations> PARENT_SCOPE)

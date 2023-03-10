@@ -1,7 +1,7 @@
-#include "duckdb/common/fstream_util.hpp"
+#include "graindb/common/fstream_util.hpp"
 
 using namespace std;
-using namespace duckdb;
+using namespace graindb;
 
 void FstreamUtil::OpenFile(const string &file_path, fstream &new_file, ios_base::openmode mode) {
 	new_file.open(file_path, mode);

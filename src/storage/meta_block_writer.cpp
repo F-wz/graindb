@@ -1,8 +1,8 @@
-#include "duckdb/storage/meta_block_writer.hpp"
+#include "graindb/storage/meta_block_writer.hpp"
 
 #include <cstring>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 MetaBlockWriter::MetaBlockWriter(BlockManager &manager) : manager(manager) {

@@ -1,10 +1,10 @@
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/operator/list.hpp"
-#include "duckdb/planner/query_node/bound_select_node.hpp"
-#include "duckdb/planner/operator/logical_expression_get.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/operator/list.hpp"
+#include "graindb/planner/query_node/bound_select_node.hpp"
+#include "graindb/planner/operator/logical_expression_get.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<LogicalOperator> Binder::PlanFilter(unique_ptr<Expression> condition, unique_ptr<LogicalOperator> root) {

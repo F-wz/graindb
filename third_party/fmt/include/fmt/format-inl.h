@@ -1202,7 +1202,7 @@ template <> struct formatter<internal::bigint> {
 };
 
 FMT_FUNC void internal::error_handler::on_error(const char* message) {
-  FMT_THROW(duckdb::Exception(message));
+  FMT_THROW(graindb::Exception(message));
 }
 
 FMT_END_NAMESPACE

@@ -1,16 +1,16 @@
 #include "expression_helper.hpp"
 
-#include "duckdb.hpp"
-#include "duckdb/optimizer/rule/constant_folding.hpp"
-#include "duckdb/parser/parser.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/bound_query_node.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
-#include "duckdb/planner/operator/logical_projection.hpp"
-#include "duckdb/planner/planner.hpp"
-#include "duckdb/planner/query_node/bound_select_node.hpp"
+#include "graindb.hpp"
+#include "graindb/optimizer/rule/constant_folding.hpp"
+#include "graindb/parser/parser.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/bound_query_node.hpp"
+#include "graindb/planner/expression_iterator.hpp"
+#include "graindb/planner/operator/logical_projection.hpp"
+#include "graindb/planner/planner.hpp"
+#include "graindb/planner/query_node/bound_select_node.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ExpressionHelper::ExpressionHelper() : db(nullptr), con(db), rewriter(*con.context) {

@@ -1,8 +1,8 @@
-#include "duckdb/common/helper.hpp"
+#include "graindb/common/helper.hpp"
 #include "expression_helper.hpp"
-#include "duckdb/optimizer/rule/distributivity.hpp"
+#include "graindb/optimizer/rule/distributivity.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Distributivity test", "[optimizer]") {

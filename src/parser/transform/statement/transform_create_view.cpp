@@ -1,8 +1,8 @@
-#include "duckdb/parser/statement/create_statement.hpp"
-#include "duckdb/parser/transformer.hpp"
-#include "duckdb/parser/parsed_data/create_view_info.hpp"
+#include "graindb/parser/statement/create_statement.hpp"
+#include "graindb/parser/transformer.hpp"
+#include "graindb/parser/parsed_data/create_view_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<CreateStatement> Transformer::TransformCreateView(PGNode *node) {

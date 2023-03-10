@@ -1,6 +1,6 @@
-#include "duckdb/planner/expression/bound_case_expression.hpp"
+#include "graindb/planner/expression/bound_case_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundCaseExpression::BoundCaseExpression(unique_ptr<Expression> check, unique_ptr<Expression> res_if_true,

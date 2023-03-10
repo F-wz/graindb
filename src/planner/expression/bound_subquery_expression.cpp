@@ -1,8 +1,8 @@
-#include "duckdb/planner/expression/bound_subquery_expression.hpp"
+#include "graindb/planner/expression/bound_subquery_expression.hpp"
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundSubqueryExpression::BoundSubqueryExpression(TypeId return_type)

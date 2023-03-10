@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test binding parameters with union expressions", "[setops]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test(a INTEGER);"));
@@ -109,7 +109,7 @@ TEST_CASE("Test binding parameters with union expressions", "[setops]") {
 
 TEST_CASE("Test union with nulls", "[setops]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	result = con.Query("SELECT NULL as a, NULL as b, 1 as id UNION SELECT CAST('2015-10-11 00:00:00' AS TIMESTAMP) as "

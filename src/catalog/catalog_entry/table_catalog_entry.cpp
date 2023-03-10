@@ -1,28 +1,28 @@
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
 
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/catalog/catalog_entry/schema_catalog_entry.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/execution/index/art/art.hpp"
-#include "duckdb/main/database.hpp"
-#include "duckdb/parser/constraints/list.hpp"
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/parsed_data/alter_table_info.hpp"
-#include "duckdb/parser/parsed_expression_iterator.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/constraints/bound_check_constraint.hpp"
-#include "duckdb/planner/constraints/bound_not_null_constraint.hpp"
-#include "duckdb/planner/constraints/bound_unique_constraint.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
-#include "duckdb/planner/expression/bound_reference_expression.hpp"
-#include "duckdb/planner/expression_binder/alter_binder.hpp"
-#include "duckdb/planner/parsed_data/bound_create_table_info.hpp"
-#include "duckdb/storage/storage_manager.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/catalog/catalog_entry/schema_catalog_entry.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/execution/index/art/art.hpp"
+#include "graindb/main/database.hpp"
+#include "graindb/parser/constraints/list.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/parsed_data/alter_table_info.hpp"
+#include "graindb/parser/parsed_expression_iterator.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/constraints/bound_check_constraint.hpp"
+#include "graindb/planner/constraints/bound_not_null_constraint.hpp"
+#include "graindb/planner/constraints/bound_unique_constraint.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression/bound_reference_expression.hpp"
+#include "graindb/planner/expression_binder/alter_binder.hpp"
+#include "graindb/planner/parsed_data/bound_create_table_info.hpp"
+#include "graindb/storage/storage_manager.hpp"
 
 #include <algorithm>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TableCatalogEntry::TableCatalogEntry(Catalog *catalog, SchemaCatalogEntry *schema, BoundCreateTableInfo *info,

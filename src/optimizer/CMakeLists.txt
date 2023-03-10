@@ -3,7 +3,7 @@ add_subdirectory(join_order)
 add_subdirectory(pushdown)
 add_subdirectory(rule)
 
-add_library_unity(duckdb_optimizer
+add_library_unity(graindb_optimizer
                   OBJECT
                   cse_optimizer.cpp
                   column_lifetime_analyzer.cpp
@@ -21,5 +21,5 @@ add_library_unity(duckdb_optimizer
                   sip_join_rewriter.cpp
                   topn_optimizer.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_optimizer>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_optimizer>
     PARENT_SCOPE)

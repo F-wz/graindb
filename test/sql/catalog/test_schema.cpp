@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Schema creation/deletion", "[catalog]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// cannot drop MAIN schema
@@ -50,7 +50,7 @@ TEST_CASE("Schema creation/deletion", "[catalog]") {
 
 TEST_CASE("Schema creation/deletion with transactions", "[catalog]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// create a schema with a table
@@ -91,7 +91,7 @@ TEST_CASE("Schema creation/deletion with transactions", "[catalog]") {
 
 TEST_CASE("Catalog conflicts", "[catalog]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	REQUIRE_NO_FAIL(con.Query("BEGIN TRANSACTION;"));

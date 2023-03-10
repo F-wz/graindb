@@ -1,17 +1,17 @@
-#include "duckdb/optimizer/regex_range_filter.hpp"
+#include "graindb/optimizer/regex_range_filter.hpp"
 
-#include "duckdb/catalog/catalog_entry/scalar_function_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/scalar_function_catalog_entry.hpp"
 
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
-#include "duckdb/planner/expression.hpp"
-#include "duckdb/planner/expression/bound_comparison_expression.hpp"
-#include "duckdb/planner/expression/bound_conjunction_expression.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/planner/operator/logical_filter.hpp"
+#include "graindb/planner/expression.hpp"
+#include "graindb/planner/expression/bound_comparison_expression.hpp"
+#include "graindb/planner/expression/bound_conjunction_expression.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/planner/operator/logical_filter.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<LogicalOperator> RegexRangeFilter::Rewrite(unique_ptr<LogicalOperator> op) {

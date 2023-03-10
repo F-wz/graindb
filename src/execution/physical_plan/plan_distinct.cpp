@@ -1,13 +1,13 @@
-#include "duckdb/execution/operator/aggregate/physical_hash_aggregate.hpp"
-#include "duckdb/execution/operator/projection/physical_projection.hpp"
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/function/aggregate/distributive_functions.hpp"
-#include "duckdb/planner/expression/bound_aggregate_expression.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression/bound_reference_expression.hpp"
-#include "duckdb/planner/operator/logical_distinct.hpp"
+#include "graindb/execution/operator/aggregate/physical_hash_aggregate.hpp"
+#include "graindb/execution/operator/projection/physical_projection.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/function/aggregate/distributive_functions.hpp"
+#include "graindb/planner/expression/bound_aggregate_expression.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression/bound_reference_expression.hpp"
+#include "graindb/planner/operator/logical_distinct.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreateDistinct(unique_ptr<PhysicalOperator> child) {

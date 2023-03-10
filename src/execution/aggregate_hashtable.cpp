@@ -1,17 +1,17 @@
-#include "duckdb/execution/aggregate_hashtable.hpp"
+#include "graindb/execution/aggregate_hashtable.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/planner/expression/bound_aggregate_expression.hpp"
-#include "duckdb/catalog/catalog_entry/aggregate_function_catalog_entry.hpp"
-#include "duckdb/common/vector_operations/unary_executor.hpp"
-#include "duckdb/common/operator/comparison_operators.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/planner/expression/bound_aggregate_expression.hpp"
+#include "graindb/catalog/catalog_entry/aggregate_function_catalog_entry.hpp"
+#include "graindb/common/vector_operations/unary_executor.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
 
 #include <cmath>
 #include <map>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 SuperLargeHashTable::SuperLargeHashTable(idx_t initial_capacity, vector<TypeId> group_types,

@@ -1,7 +1,7 @@
 #include "sqlite3.h"
 
 #include <ctype.h>
-#include <duckdb.hpp>
+#include <graindb.hpp>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,11 +9,11 @@
 #include <string>
 #include <chrono>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
-#define SOURCE_ID DUCKDB_SOURCE_ID
-#define LIB_VERSION "DuckDB"
+#define SOURCE_ID GRAINDB_SOURCE_ID
+#define LIB_VERSION "GrainDB"
 
 static char *sqlite3_strdup(const char *str);
 
@@ -44,7 +44,7 @@ struct sqlite3_stmt {
 };
 
 struct sqlite3 {
-	unique_ptr<DuckDB> db;
+	unique_ptr<GrainDB> db;
 	unique_ptr<Connection> con;
 	string last_error;
 };
@@ -73,7 +73,7 @@ int sqlite3_open(const char *filename, /* Database filename (UTF-8) */
 	sqlite3 *pDb = nullptr;
 	try {
 		pDb = new sqlite3();
-		pDb->db = make_unique<DuckDB>(filename);
+		pDb->db = make_unique<GrainDB>(filename);
 		pDb->con = make_unique<Connection>(*pDb->db);
 	} catch (std::exception &ex) {
 		if (pDb) {
@@ -325,7 +325,7 @@ exec_out:
 	sqlite3_free(azVals);
 	if (rc != SQLITE_OK && pzErrMsg && !*pzErrMsg) {
 		// error but no error message set
-		*pzErrMsg = sqlite3_strdup("Unknown error in DuckDB!");
+		*pzErrMsg = sqlite3_strdup("Unknown error in GrainDB!");
 	}
 	return rc;
 }

@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test subqueries", "[subqueries]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -95,7 +95,7 @@ TEST_CASE("Test subqueries", "[subqueries]") {
 
 TEST_CASE("Test subqueries with (NOT) IN clause", "[subqueries]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -121,7 +121,7 @@ TEST_CASE("Test subqueries with (NOT) IN clause", "[subqueries]") {
 
 TEST_CASE("Test correlated subqueries in WHERE clause", "[subqueries]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -146,7 +146,7 @@ TEST_CASE("Test correlated subqueries in WHERE clause", "[subqueries]") {
 
 TEST_CASE("Joins in subqueries", "[subqueries]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -170,7 +170,7 @@ TEST_CASE("Joins in subqueries", "[subqueries]") {
 
 TEST_CASE("UNIONS of subqueries", "[subqueries]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -181,7 +181,7 @@ TEST_CASE("UNIONS of subqueries", "[subqueries]") {
 
 TEST_CASE("Aliasing and aggregation in subqueries", "[subqueries]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

@@ -1,11 +1,11 @@
-#include "duckdb/common/string_util.hpp"
+#include "graindb/common/string_util.hpp"
 
 #include "catch.hpp"
 
 #include <vector>
 #include <string>
 
-using namespace duckdb;
+using namespace graindb;
 
 TEST_CASE("Test join vector items", "[string_util]") {
 	SECTION("Three string items") {

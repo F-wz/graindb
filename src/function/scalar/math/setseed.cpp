@@ -1,11 +1,11 @@
-#include "duckdb/function/scalar/math_functions.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
+#include "graindb/function/scalar/math_functions.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 struct SetseedBindData : public FunctionData {

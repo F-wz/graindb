@@ -5,11 +5,11 @@
 #include <chrono>
 #include <iostream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test TPC-E", "[tpce][.]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// a higher scale factor for TPC-E means LESS data (for some reason)

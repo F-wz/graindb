@@ -1,13 +1,13 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test functioning of checksum", "[storage]") {
 	FileSystem fs;
-	unique_ptr<DuckDB> database;
+	unique_ptr<GrainDB> database;
 	auto storage_database = TestCreatePath("checksum_test");
 	auto config = GetTestConfig();
 
@@ -15,13 +15,13 @@ TEST_CASE("Test functioning of checksum", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test(a INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (3);"));
 	}
 	// we can open the database file now
-	REQUIRE_NOTHROW(database = make_unique<DuckDB>(storage_database, config.get()));
+	REQUIRE_NOTHROW(database = make_unique<GrainDB>(storage_database, config.get()));
 	database.reset();
 
 	// now write random values into the file
@@ -31,7 +31,7 @@ TEST_CASE("Test functioning of checksum", "[storage]") {
 	handle->Sync();
 	handle.reset();
 	// reloading the database no longer works
-	REQUIRE_THROWS(database = make_unique<DuckDB>(storage_database, config.get()));
+	REQUIRE_THROWS(database = make_unique<GrainDB>(storage_database, config.get()));
 
 	DeleteDatabase(storage_database);
 }

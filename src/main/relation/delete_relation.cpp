@@ -1,10 +1,10 @@
-#include "duckdb/main/relation/delete_relation.hpp"
-#include "duckdb/parser/statement/delete_statement.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/parser/tableref/basetableref.hpp"
+#include "graindb/main/relation/delete_relation.hpp"
+#include "graindb/parser/statement/delete_statement.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/parser/tableref/basetableref.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 DeleteRelation::DeleteRelation(ClientContext &context, unique_ptr<ParsedExpression> condition_p, string schema_name_p,
                                string table_name_p)
@@ -40,4 +40,4 @@ string DeleteRelation::ToString(idx_t depth) {
 	return str;
 }
 
-} // namespace duckdb
+} // namespace graindb

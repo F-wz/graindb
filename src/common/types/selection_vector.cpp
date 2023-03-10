@@ -1,7 +1,7 @@
-#include "duckdb/common/types/selection_vector.hpp"
-#include "duckdb/common/printer.hpp"
+#include "graindb/common/types/selection_vector.hpp"
+#include "graindb/common/printer.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 string SelectionVector::ToString(idx_t count) const {
 	string result = "Selection Vector (" + std::to_string(count) + ") [";
@@ -31,4 +31,4 @@ buffer_ptr<SelectionData> SelectionVector::Slice(const SelectionVector &sel, idx
 	return data;
 }
 
-} // namespace duckdb
+} // namespace graindb

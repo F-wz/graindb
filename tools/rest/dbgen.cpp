@@ -2,16 +2,16 @@
 #include <cstdio>
 #include <stdlib.h> /* atoi */
 
-#include "duckdb.hpp"
+#include "graindb.hpp"
 #include "dbgen.hpp"
 
-#include "duckdb/common/string_util.hpp"
+#include "graindb/common/string_util.hpp"
 
 using namespace std;
-using namespace duckdb;
+using namespace graindb;
 
 void print_help() {
-	fprintf(stderr, "🦆 Usage: duckdb_dbgen\n");
+	fprintf(stderr, "🦆 Usage: graindb_dbgen\n");
 	fprintf(stderr, "         --database=[file]    use given database file\n");
 	fprintf(stderr, "         --scale_factor=[sf]  TPCH scale factor (default: 1)\n");
 }
@@ -55,9 +55,9 @@ int main(int argc, char **argv) {
 	}
 
 	{
-		DuckDB duckdb(dbfile, &config);
-		tpch::dbgen(scale_factor, duckdb);
+		GrainDB graindb(dbfile, &config);
+		tpch::dbgen(scale_factor, graindb);
 	} // hack to checkpoint WAL
-	{ DuckDB duckdb(dbfile, &config); }
+	{ GrainDB graindb(dbfile, &config); }
 	return 0;
 }

@@ -1,9 +1,9 @@
-#include "duckdb.hpp"
-#include "duckdb/catalog/catalog_entry/schema_catalog_entry.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/planner/planner.hpp"
-#include "duckdb/storage/data_table.hpp"
-#include "duckdb/transaction/transaction.hpp"
+#include "graindb.hpp"
+#include "graindb/catalog/catalog_entry/schema_catalog_entry.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/planner/planner.hpp"
+#include "graindb/storage/data_table.hpp"
+#include "graindb/transaction/transaction.hpp"
 #include "imdb.hpp"
 
 #include <algorithm>
@@ -16,7 +16,7 @@
 #define NUM_RUN_TIMES 5
 
 using namespace std;
-using namespace duckdb;
+using namespace graindb;
 
 struct QueryRunResult {
 public:
@@ -49,7 +49,7 @@ public:
 		cout << "jos_id,graindb,num_tuples,elapsed_time" << endl;
 		// Run query without rai
 		for (idx_t i = start_jos_id; i < num_jos; i++) {
-			DuckDB db(nullptr);
+			GrainDB db(nullptr);
 			Connection conn(db);
 			Initialize(conn, false);
 			auto query_result = RunQueryWithAJos(conn, query, i, false);
@@ -59,7 +59,7 @@ public:
 		}
 		// Run query with rai
 		for (idx_t i = start_jos_id; i < num_jos; i++) {
-			DuckDB db(nullptr);
+			GrainDB db(nullptr);
 			Connection conn(db);
 			Initialize(conn, true);
 			auto query_result = RunQueryWithAJos(conn, query, i, true);

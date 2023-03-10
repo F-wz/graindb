@@ -1,14 +1,14 @@
 #include "catch.hpp"
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/types/timestamp.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/types/timestamp.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("IF test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -41,7 +41,7 @@ TEST_CASE("IF test", "[function]") {
 
 TEST_CASE("IFNULL test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

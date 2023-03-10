@@ -1,4 +1,4 @@
-add_library_unity(duckdb_optimizer_pushdown
+add_library_unity(graindb_optimizer_pushdown
                   OBJECT
                   pushdown_aggregate.cpp
                   pushdown_cross_product.cpp
@@ -11,4 +11,4 @@ add_library_unity(duckdb_optimizer_pushdown
                   pushdown_set_operation.cpp
                   pushdown_single_join.cpp)
 set(ALL_OBJECT_FILES ${ALL_OBJECT_FILES}
-                     $<TARGET_OBJECTS:duckdb_optimizer_pushdown> PARENT_SCOPE)
+                     $<TARGET_OBJECTS:graindb_optimizer_pushdown> PARENT_SCOPE)

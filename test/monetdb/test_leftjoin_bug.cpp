@@ -1,14 +1,14 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "dbgen.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("MonetDB Test: leftjoin.Bug-3981.sql", "[monetdb]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -23,7 +23,7 @@ TEST_CASE("MonetDB Test: leftjoin.Bug-3981.sql", "[monetdb]") {
 
 TEST_CASE("MonetDB Test: null_matches_in_outer.Bug-6398.sql", "[monetdb]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -50,7 +50,7 @@ TEST_CASE("MonetDB Test: null_matches_in_outer.Bug-6398.sql", "[monetdb]") {
 
 TEST_CASE("MonetDB Test: outerjoin_project.Bug-3725.sql", "[monetdb]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

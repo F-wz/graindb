@@ -1,10 +1,10 @@
-#include "duckdb/common/exception.hpp"
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/expression/star_expression.hpp"
-#include "duckdb/parser/expression/table_star_expression.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/expression/star_expression.hpp"
+#include "graindb/parser/expression/table_star_expression.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<ParsedExpression> Transformer::TransformColumnRef(PGColumnRef *root) {

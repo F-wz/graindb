@@ -1,6 +1,6 @@
 import json, os, sys, glob, mimetypes, urllib.request
 
-api_url = 'https://api.github.com/repos/cwida/duckdb/'
+api_url = 'https://api.github.com/repos/cwida/graindb/'
 tag = 'master-builds'
 
 if (len(sys.argv) < 2):

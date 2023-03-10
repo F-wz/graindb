@@ -1,9 +1,9 @@
-#include "duckdb/main/relation/limit_relation.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/query_node.hpp"
-#include "duckdb/parser/expression/constant_expression.hpp"
+#include "graindb/main/relation/limit_relation.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/query_node.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 LimitRelation::LimitRelation(shared_ptr<Relation> child_p, int64_t limit, int64_t offset)
     : Relation(child_p->context, RelationType::PROJECTION_RELATION), limit(limit), offset(offset), child(move(child_p)) {
@@ -40,4 +40,4 @@ string LimitRelation::ToString(idx_t depth) {
 	return str + child->ToString(depth + 1);
 }
 
-} // namespace duckdb
+} // namespace graindb

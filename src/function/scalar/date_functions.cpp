@@ -1,6 +1,6 @@
-#include "duckdb/function/scalar/date_functions.hpp"
+#include "graindb/function/scalar/date_functions.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void BuiltinFunctions::RegisterDateFunctions() {

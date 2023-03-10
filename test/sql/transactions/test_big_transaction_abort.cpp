@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test that index entries are properly removed after aborted append", "[transactions][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 	con.EnableQueryVerification();
 
@@ -46,7 +46,7 @@ TEST_CASE("Test that index entries are properly removed after aborted append", "
 
 TEST_CASE("Test abort of big append", "[transactions][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 	con.EnableQueryVerification();
 

@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Single PRIMARY KEY constraint", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER PRIMARY KEY, j INTEGER)"));
@@ -58,7 +58,7 @@ TEST_CASE("Single PRIMARY KEY constraint", "[constraints]") {
 
 TEST_CASE("Multiple PRIMARY KEY constraint", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER, j VARCHAR, PRIMARY KEY(i, j))"));
@@ -82,7 +82,7 @@ TEST_CASE("Multiple PRIMARY KEY constraint", "[constraints]") {
 
 TEST_CASE("PRIMARY KEY and transactions", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER PRIMARY KEY)"));
@@ -100,7 +100,7 @@ TEST_CASE("PRIMARY KEY and transactions", "[constraints]") {
 
 TEST_CASE("PRIMARY KEY and update/delete", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// create a table
@@ -138,7 +138,7 @@ TEST_CASE("PRIMARY KEY and update/delete", "[constraints]") {
 
 TEST_CASE("PRIMARY KEY and update/delete on multiple columns", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	//! create a table
@@ -188,7 +188,7 @@ TEST_CASE("PRIMARY KEY and update/delete on multiple columns", "[constraints]") 
 
 TEST_CASE("PRIMARY KEY prefix stress test multiple columns", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	//! create a table
@@ -224,7 +224,7 @@ TEST_CASE("PRIMARY KEY prefix stress test multiple columns", "[constraints]") {
 
 TEST_CASE("PRIMARY KEY and update/delete in the same transaction", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER PRIMARY KEY)"));
@@ -255,7 +255,7 @@ TEST_CASE("PRIMARY KEY and update/delete in the same transaction", "[constraints
 
 TEST_CASE("Test appending the same value many times to a primary key column", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	con.Query("CREATE TABLE integers(i INTEGER PRIMARY KEY)");
@@ -294,7 +294,7 @@ TEST_CASE("Test appending the same value many times to a primary key column", "[
 
 TEST_CASE("PRIMARY KEY and concurency conflicts", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER PRIMARY KEY)"));
@@ -339,7 +339,7 @@ TEST_CASE("PRIMARY KEY and concurency conflicts", "[constraints]") {
 
 TEST_CASE("ART FP String Constraint", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE numbers(i varchar PRIMARY KEY, j INTEGER)"));
@@ -371,7 +371,7 @@ TEST_CASE("ART FP String Constraint", "[constraints]") {
 
 TEST_CASE("PRIMARY KEY constraint on more than two columns", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query(
@@ -395,7 +395,7 @@ TEST_CASE("PRIMARY KEY constraint on more than two columns", "[constraints]") {
 
 TEST_CASE("PRIMARY KEY constraint that only covers a subset of the columns", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(
@@ -425,7 +425,7 @@ TEST_CASE("PRIMARY KEY constraint that only covers a subset of the columns", "[c
 
 TEST_CASE("PRIMARY KEY constraint on multiple string columns with overlapping values", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE tst(a varchar, b varchar,PRIMARY KEY(a,b))"));
@@ -452,7 +452,7 @@ TEST_CASE("PRIMARY KEY constraint on multiple string columns with overlapping va
 
 TEST_CASE("Multi-column boolean PRIMARY KEY constraint", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER, j BOOLEAN, PRIMARY KEY(i, j))"));

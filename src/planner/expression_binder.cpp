@@ -1,16 +1,16 @@
-#include "duckdb/planner/expression_binder.hpp"
+#include "graindb/planner/expression_binder.hpp"
 
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/expression/subquery_expression.hpp"
-#include "duckdb/parser/parsed_expression_iterator.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression/bound_cast_expression.hpp"
-#include "duckdb/planner/expression/bound_default_expression.hpp"
-#include "duckdb/planner/expression/bound_parameter_expression.hpp"
-#include "duckdb/planner/expression/bound_subquery_expression.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/expression/subquery_expression.hpp"
+#include "graindb/parser/parsed_expression_iterator.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression/bound_cast_expression.hpp"
+#include "graindb/planner/expression/bound_default_expression.hpp"
+#include "graindb/planner/expression/bound_parameter_expression.hpp"
+#include "graindb/planner/expression/bound_subquery_expression.hpp"
+#include "graindb/planner/expression_iterator.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ExpressionBinder::ExpressionBinder(Binder &binder, ClientContext &context, bool replace_binder)

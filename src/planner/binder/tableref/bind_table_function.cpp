@@ -1,12 +1,12 @@
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/parser/expression/function_expression.hpp"
-#include "duckdb/parser/tableref/table_function_ref.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression_binder/constant_binder.hpp"
-#include "duckdb/planner/tableref/bound_table_function.hpp"
-#include "duckdb/execution/expression_executor.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/parser/expression/function_expression.hpp"
+#include "graindb/parser/tableref/table_function_ref.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression_binder/constant_binder.hpp"
+#include "graindb/planner/tableref/bound_table_function.hpp"
+#include "graindb/execution/expression_executor.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<BoundTableRef> Binder::Bind(TableFunctionRef &ref) {

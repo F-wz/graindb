@@ -1,14 +1,14 @@
-#include "duckdb/optimizer/rule/constant_folding.hpp"
+#include "graindb/optimizer/rule/constant_folding.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/optimizer/expression_rewriter.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/optimizer/expression_rewriter.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 //! The ConstantFoldingExpressionMatcher matches on any scalar expression (i.e. Expression::IsFoldable is true)
 class ConstantFoldingExpressionMatcher : public FoldableConstantMatcher {
@@ -21,7 +21,7 @@ public:
 		return FoldableConstantMatcher::Match(expr, bindings);
 	}
 };
-} // namespace duckdb
+} // namespace graindb
 
 ConstantFoldingRule::ConstantFoldingRule(ExpressionRewriter &rewriter) : Rule(rewriter) {
 	auto op = make_unique<ConstantFoldingExpressionMatcher>();

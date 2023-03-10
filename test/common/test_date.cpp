@@ -1,10 +1,10 @@
 #include "catch.hpp"
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/types/time.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/types/time.hpp"
 
 #include <vector>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Date parsing works", "[date]") {

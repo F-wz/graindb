@@ -1,8 +1,8 @@
-#include "duckdb/parser/expression/case_expression.hpp"
-#include "duckdb/parser/expression/operator_expression.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/expression/case_expression.hpp"
+#include "graindb/parser/expression/operator_expression.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 // COALESCE(a,b,c) returns the first argument that is NOT NULL, so

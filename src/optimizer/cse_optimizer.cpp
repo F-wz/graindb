@@ -1,11 +1,11 @@
-#include "duckdb/optimizer/cse_optimizer.hpp"
+#include "graindb/optimizer/cse_optimizer.hpp"
 
-#include "duckdb/planner/expression/common_subexpression.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
-#include "duckdb/planner/operator/logical_filter.hpp"
-#include "duckdb/planner/operator/logical_projection.hpp"
+#include "graindb/planner/expression/common_subexpression.hpp"
+#include "graindb/planner/expression_iterator.hpp"
+#include "graindb/planner/operator/logical_filter.hpp"
+#include "graindb/planner/operator/logical_projection.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void CommonSubExpressionOptimizer::VisitOperator(LogicalOperator &op) {

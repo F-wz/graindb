@@ -1,8 +1,8 @@
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/parser/transformer.hpp"
-#include "duckdb/common/operator/cast_operators.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/transformer.hpp"
+#include "graindb/common/operator/cast_operators.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<ParsedExpression> Transformer::TransformValue(PGValue val) {

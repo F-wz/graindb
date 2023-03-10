@@ -1,18 +1,18 @@
-#include "duckdb/optimizer/remove_unused_columns.hpp"
+#include "graindb/optimizer/remove_unused_columns.hpp"
 
-#include "duckdb/function/aggregate/distributive_functions.hpp"
-#include "duckdb/planner/column_binding_map.hpp"
-#include "duckdb/planner/expression/bound_aggregate_expression.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
-#include "duckdb/planner/operator/logical_aggregate.hpp"
-#include "duckdb/planner/operator/logical_comparison_join.hpp"
-#include "duckdb/planner/operator/logical_filter.hpp"
-#include "duckdb/planner/operator/logical_get.hpp"
-#include "duckdb/planner/operator/logical_projection.hpp"
+#include "graindb/function/aggregate/distributive_functions.hpp"
+#include "graindb/planner/column_binding_map.hpp"
+#include "graindb/planner/expression/bound_aggregate_expression.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression_iterator.hpp"
+#include "graindb/planner/operator/logical_aggregate.hpp"
+#include "graindb/planner/operator/logical_comparison_join.hpp"
+#include "graindb/planner/operator/logical_filter.hpp"
+#include "graindb/planner/operator/logical_get.hpp"
+#include "graindb/planner/operator/logical_projection.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void RemoveUnusedColumns::ReplaceBinding(ColumnBinding current_binding, ColumnBinding new_binding) {

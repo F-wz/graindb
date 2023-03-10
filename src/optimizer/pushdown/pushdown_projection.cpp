@@ -1,10 +1,10 @@
-#include "duckdb/optimizer/filter_pushdown.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
-#include "duckdb/planner/operator/logical_empty_result.hpp"
-#include "duckdb/planner/operator/logical_projection.hpp"
+#include "graindb/optimizer/filter_pushdown.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression_iterator.hpp"
+#include "graindb/planner/operator/logical_empty_result.hpp"
+#include "graindb/planner/operator/logical_projection.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static unique_ptr<Expression> ReplaceProjectionBindings(LogicalProjection &proj, unique_ptr<Expression> expr) {

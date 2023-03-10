@@ -1,4 +1,4 @@
-add_library_unity(duckdb_operator_helper
+add_library_unity(graindb_operator_helper
                   OBJECT
                   physical_execute.cpp
                   physical_limit.cpp
@@ -7,4 +7,4 @@ add_library_unity(duckdb_operator_helper
                   physical_transaction.cpp
                   physical_vacuum.cpp)
 set(ALL_OBJECT_FILES ${ALL_OBJECT_FILES}
-                     $<TARGET_OBJECTS:duckdb_operator_helper> PARENT_SCOPE)
+                     $<TARGET_OBJECTS:graindb_operator_helper> PARENT_SCOPE)

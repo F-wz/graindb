@@ -1,8 +1,8 @@
-#include "duckdb/parser/expression/conjunction_expression.hpp"
-#include "duckdb/parser/expression/operator_expression.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/expression/conjunction_expression.hpp"
+#include "graindb/parser/expression/operator_expression.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<ParsedExpression> Transformer::TransformBoolExpr(PGBoolExpr *root) {

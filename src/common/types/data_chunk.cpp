@@ -1,14 +1,14 @@
-#include "duckdb/common/types/data_chunk.hpp"
+#include "graindb/common/types/data_chunk.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/helper.hpp"
-#include "duckdb/common/printer.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/unordered_map.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/helper.hpp"
+#include "graindb/common/printer.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/unordered_map.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 DataChunk::DataChunk() : count(0) {

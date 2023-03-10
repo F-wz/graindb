@@ -1,18 +1,18 @@
 #include <cstring> // strlen() on Solaris
 
-#include "duckdb/common/types/vector.hpp"
+#include "graindb/common/types/vector.hpp"
 
-#include "duckdb/common/assert.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/printer.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/types/chunk_collection.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/common/types/null_value.hpp"
+#include "graindb/common/assert.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/printer.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/types/chunk_collection.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/common/types/null_value.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 Vector::Vector(TypeId type, bool create_data, bool zero_data)
     : vector_type(VectorType::FLAT_VECTOR), type(type), data(nullptr) {
@@ -834,4 +834,4 @@ void ListVector::SetEntry(Vector &vector, unique_ptr<ChunkCollection> cc) {
 	((VectorListBuffer *)vector.auxiliary.get())->SetChild(move(cc));
 }
 
-} // namespace duckdb
+} // namespace graindb

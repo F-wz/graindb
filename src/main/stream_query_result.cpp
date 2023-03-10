@@ -1,9 +1,9 @@
-#include "duckdb/main/stream_query_result.hpp"
+#include "graindb/main/stream_query_result.hpp"
 
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/main/materialized_query_result.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/main/materialized_query_result.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 StreamQueryResult::StreamQueryResult(StatementType statement_type, ClientContext &context, vector<SQLType> sql_types,

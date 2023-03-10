@@ -2,13 +2,13 @@
 // cast_operators.cpp
 // Description: This file contains the implementation of the different casts
 //===--------------------------------------------------------------------===//
-#include "duckdb/common/operator/cast_operators.hpp"
+#include "graindb/common/operator/cast_operators.hpp"
 
-#include "duckdb/common/vector_operations/unary_executor.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/types/chunk_collection.hpp"
+#include "graindb/common/vector_operations/unary_executor.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/types/chunk_collection.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 template <class SRC, class OP> static void string_cast(Vector &source, Vector &result, idx_t count) {
@@ -42,35 +42,35 @@ static void numeric_cast_switch(Vector &source, Vector &result, SQLType source_t
 	switch (target_type.id) {
 	case SQLTypeId::BOOLEAN:
 		assert(result.type == TypeId::BOOL);
-		UnaryExecutor::Execute<SRC, bool, duckdb::Cast, true>(source, result, count);
+		UnaryExecutor::Execute<SRC, bool, graindb::Cast, true>(source, result, count);
 		break;
 	case SQLTypeId::TINYINT:
 		assert(result.type == TypeId::INT8);
-		UnaryExecutor::Execute<SRC, int8_t, duckdb::Cast, true>(source, result, count);
+		UnaryExecutor::Execute<SRC, int8_t, graindb::Cast, true>(source, result, count);
 		break;
 	case SQLTypeId::SMALLINT:
 		assert(result.type == TypeId::INT16);
-		UnaryExecutor::Execute<SRC, int16_t, duckdb::Cast, true>(source, result, count);
+		UnaryExecutor::Execute<SRC, int16_t, graindb::Cast, true>(source, result, count);
 		break;
 	case SQLTypeId::INTEGER:
 		assert(result.type == TypeId::INT32);
-		UnaryExecutor::Execute<SRC, int32_t, duckdb::Cast, true>(source, result, count);
+		UnaryExecutor::Execute<SRC, int32_t, graindb::Cast, true>(source, result, count);
 		break;
 	case SQLTypeId::BIGINT:
 		assert(result.type == TypeId::INT64);
-		UnaryExecutor::Execute<SRC, int64_t, duckdb::Cast, true>(source, result, count);
+		UnaryExecutor::Execute<SRC, int64_t, graindb::Cast, true>(source, result, count);
 		break;
 	case SQLTypeId::FLOAT:
 		assert(result.type == TypeId::FLOAT);
-		UnaryExecutor::Execute<SRC, float, duckdb::Cast, true>(source, result, count);
+		UnaryExecutor::Execute<SRC, float, graindb::Cast, true>(source, result, count);
 		break;
 	case SQLTypeId::DECIMAL:
 	case SQLTypeId::DOUBLE:
 		assert(result.type == TypeId::DOUBLE);
-		UnaryExecutor::Execute<SRC, double, duckdb::Cast, true>(source, result, count);
+		UnaryExecutor::Execute<SRC, double, graindb::Cast, true>(source, result, count);
 		break;
 	case SQLTypeId::VARCHAR: {
-		string_cast<SRC, duckdb::StringCast>(source, result, count);
+		string_cast<SRC, graindb::StringCast>(source, result, count);
 		break;
 	}
 	case SQLTypeId::LIST: {
@@ -121,15 +121,15 @@ static void string_cast_switch(Vector &source, Vector &result, SQLType source_ty
 		break;
 	case SQLTypeId::DATE:
 		assert(result.type == TypeId::INT32);
-		UnaryExecutor::Execute<string_t, date_t, duckdb::CastToDate, true>(source, result, count);
+		UnaryExecutor::Execute<string_t, date_t, graindb::CastToDate, true>(source, result, count);
 		break;
 	case SQLTypeId::TIME:
 		assert(result.type == TypeId::INT32);
-		UnaryExecutor::Execute<string_t, dtime_t, duckdb::CastToTime, true>(source, result, count);
+		UnaryExecutor::Execute<string_t, dtime_t, graindb::CastToTime, true>(source, result, count);
 		break;
 	case SQLTypeId::TIMESTAMP:
 		assert(result.type == TypeId::INT64);
-		UnaryExecutor::Execute<string_t, timestamp_t, duckdb::CastToTimestamp, true>(source, result, count);
+		UnaryExecutor::Execute<string_t, timestamp_t, graindb::CastToTimestamp, true>(source, result, count);
 		break;
 	default:
 		null_cast(source, result, source_type, target_type, count);
@@ -142,11 +142,11 @@ static void date_cast_switch(Vector &source, Vector &result, SQLType source_type
 	switch (target_type.id) {
 	case SQLTypeId::VARCHAR:
 		// date to varchar
-		string_cast<date_t, duckdb::CastFromDate>(source, result, count);
+		string_cast<date_t, graindb::CastFromDate>(source, result, count);
 		break;
 	case SQLTypeId::TIMESTAMP:
 		// date to timestamp
-		UnaryExecutor::Execute<date_t, timestamp_t, duckdb::CastDateToTimestamp, true>(source, result, count);
+		UnaryExecutor::Execute<date_t, timestamp_t, graindb::CastDateToTimestamp, true>(source, result, count);
 		break;
 	default:
 		null_cast(source, result, source_type, target_type, count);
@@ -159,7 +159,7 @@ static void time_cast_switch(Vector &source, Vector &result, SQLType source_type
 	switch (target_type.id) {
 	case SQLTypeId::VARCHAR:
 		// time to varchar
-		string_cast<dtime_t, duckdb::CastFromTime>(source, result, count);
+		string_cast<dtime_t, graindb::CastFromTime>(source, result, count);
 		break;
 	default:
 		null_cast(source, result, source_type, target_type, count);
@@ -173,15 +173,15 @@ static void timestamp_cast_switch(Vector &source, Vector &result, SQLType source
 	switch (target_type.id) {
 	case SQLTypeId::VARCHAR:
 		// timestamp to varchar
-		string_cast<timestamp_t, duckdb::CastFromTimestamp>(source, result, count);
+		string_cast<timestamp_t, graindb::CastFromTimestamp>(source, result, count);
 		break;
 	case SQLTypeId::DATE:
 		// timestamp to date
-		UnaryExecutor::Execute<timestamp_t, date_t, duckdb::CastTimestampToDate, true>(source, result, count);
+		UnaryExecutor::Execute<timestamp_t, date_t, graindb::CastTimestampToDate, true>(source, result, count);
 		break;
 	case SQLTypeId::TIME:
 		// timestamp to time
-		UnaryExecutor::Execute<timestamp_t, dtime_t, duckdb::CastTimestampToTime, true>(source, result, count);
+		UnaryExecutor::Execute<timestamp_t, dtime_t, graindb::CastTimestampToTime, true>(source, result, count);
 		break;
 	default:
 		null_cast(source, result, source_type, target_type, count);
@@ -238,9 +238,9 @@ void VectorOperations::Cast(Vector &source, Vector &result, SQLType source_type,
 	case SQLTypeId::VARCHAR:
 		assert(source.type == TypeId::VARCHAR);
 		if (strict) {
-			string_cast_switch<duckdb::StrictCast>(source, result, source_type, target_type, count);
+			string_cast_switch<graindb::StrictCast>(source, result, source_type, target_type, count);
 		} else {
-			string_cast_switch<duckdb::Cast>(source, result, source_type, target_type, count);
+			string_cast_switch<graindb::Cast>(source, result, source_type, target_type, count);
 		}
 		break;
 	case SQLTypeId::SQLNULL: {

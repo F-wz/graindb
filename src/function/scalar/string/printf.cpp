@@ -1,10 +1,10 @@
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 #include "fmt/format.h"
 #include "fmt/printf.h"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 struct FMTPrintf {
 	template <class ctx>
@@ -128,4 +128,4 @@ void PrintfFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(format_fun);
 }
 
-} // namespace duckdb
+} // namespace graindb

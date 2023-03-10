@@ -1,9 +1,9 @@
-#include "duckdb/execution/operator/schema/physical_create_rai.hpp"
+#include "graindb/execution/operator/schema/physical_create_rai.hpp"
 
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/storage/rai.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/storage/rai.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void PhysicalCreateRAI::GetChunkInternal(ClientContext &context, DataChunk &chunk, PhysicalOperatorState *state,

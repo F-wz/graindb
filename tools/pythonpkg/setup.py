@@ -19,8 +19,8 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 # check if amalgamation exists
 if os.path.isfile(os.path.join('..', '..', 'scripts', 'amalgamation.py')):
     prev_wd = os.getcwd()
-    target_header = os.path.join(prev_wd, 'duckdb.hpp')
-    target_source = os.path.join(prev_wd, 'duckdb.cpp')
+    target_header = os.path.join(prev_wd, 'graindb.hpp')
+    target_source = os.path.join(prev_wd, 'graindb.cpp')
     os.chdir(os.path.join('..', '..'))
     sys.path.append('scripts')
     import amalgamation
@@ -49,9 +49,9 @@ class get_numpy_include(object):
         return numpy.get_include()
 
 
-libduckdb = Extension('duckdb',
+libgraindb = Extension('graindb',
     include_dirs=['.', get_numpy_include(), get_pybind_include(), get_pybind_include(user=True)],
-    sources=['duckdb_python.cpp', 'duckdb.cpp'],
+    sources=['graindb_python.cpp', 'graindb.cpp'],
     extra_compile_args=toolchain_args,
     extra_link_args=toolchain_args,
     language='c++')
@@ -63,16 +63,16 @@ else:
     setup_requires = []
 
 setup(
-    name = "duckdb",
-    description = 'DuckDB embedded database',
-    keywords = 'DuckDB Database SQL OLAP',
-    url="https://www.duckdb.org",
+    name = "graindb",
+    description = 'GrainDB embedded database',
+    keywords = 'GrainDB Database SQL OLAP',
+    url="https://www.graindb.org",
     long_description = '',
     install_requires=[ # these versions are still available for Python 2, newer ones aren't
          'numpy>=1.14',
          'pandas>=0.23',
     ],
-    packages=['duckdb_query_graph'],
+    packages=['graindb_query_graph'],
     include_package_data=True,
     setup_requires=setup_requires + ["setuptools_scm"] + ['pybind11>=2.4'],
     use_scm_version = {"root": "../..", "relative_to": __file__},
@@ -81,7 +81,7 @@ setup(
         'Topic :: Database :: Database Engines/Servers',
         'Intended Audience :: Developers'
     ],
-    ext_modules = [libduckdb],
+    ext_modules = [libgraindb],
     maintainer = "Hannes Muehleisen",
     maintainer_email = "hannes@cwi.nl"
 )

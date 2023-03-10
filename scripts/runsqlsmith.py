@@ -5,7 +5,7 @@ import re
 import subprocess
 
 def run_sqlsmith():
-	subprocess.call(['build/debug/third_party/sqlsmith/sqlsmith', '--duckdb=:memory:'])
+	subprocess.call(['build/debug/third_party/sqlsmith/sqlsmith', '--graindb=:memory:'])
 
 def get_file(i):
 	return 'sqlsmith-queries/sqlsmith-%s.sql' % str(i)

@@ -1,5 +1,5 @@
 add_library_unity(
-  duckdb_operator_join
+  graindb_operator_join
   OBJECT
   physical_blockwise_nl_join.cpp
   physical_comparison_join.cpp
@@ -12,5 +12,5 @@ add_library_unity(
   physical_piecewise_merge_join.cpp
   physical_sip_join.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_operator_join>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_operator_join>
     PARENT_SCOPE)

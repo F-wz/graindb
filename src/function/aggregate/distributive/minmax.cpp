@@ -1,14 +1,14 @@
-#include "duckdb/function/aggregate/distributive_functions.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/operator/comparison_operators.hpp"
-#include "duckdb/common/vector_operations/aggregate_executor.hpp"
-#include "duckdb/common/operator/aggregate_operators.hpp"
-#include "duckdb/common/types/null_value.hpp"
+#include "graindb/function/aggregate/distributive_functions.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
+#include "graindb/common/vector_operations/aggregate_executor.hpp"
+#include "graindb/common/operator/aggregate_operators.hpp"
+#include "graindb/common/types/null_value.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 template <class T> struct min_max_state_t {
 	T value;
@@ -211,4 +211,4 @@ void MaxFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(max);
 }
 
-} // namespace duckdb
+} // namespace graindb

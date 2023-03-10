@@ -1,10 +1,10 @@
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static bool like_operator(const char *s, const char *pattern, const char *escape);
 
@@ -77,7 +77,7 @@ bool like_operator(const char *s, const char *pattern, const char *escape) {
 		return true;
 	}
 	return *t == 0 && *p == 0;
-} // namespace duckdb
+} // namespace graindb
 
 // This can be moved to the scalar_function class
 template <typename Func> static void like_escape_function(DataChunk &args, ExpressionState &state, Vector &result) {
@@ -104,4 +104,4 @@ void LikeEscapeFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction({"not_like_escape"}, ScalarFunction({SQLType::VARCHAR, SQLType::VARCHAR, SQLType::VARCHAR},
 	                                                    SQLType::BOOLEAN, like_escape_function<NotLikeEscapeOperator>));
 }
-} // namespace duckdb
+} // namespace graindb

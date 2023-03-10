@@ -1,10 +1,10 @@
-#include "duckdb/execution/operator/join/physical_hash_join.hpp"
-#include "duckdb/execution/operator/set/physical_union.hpp"
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/planner/expression/bound_reference_expression.hpp"
-#include "duckdb/planner/operator/logical_set_operation.hpp"
+#include "graindb/execution/operator/join/physical_hash_join.hpp"
+#include "graindb/execution/operator/set/physical_union.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/planner/expression/bound_reference_expression.hpp"
+#include "graindb/planner/operator/logical_set_operation.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreatePlan(LogicalSetOperation &op) {

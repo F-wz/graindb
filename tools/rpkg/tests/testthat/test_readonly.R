@@ -9,16 +9,16 @@ test_that("read_only flag and shutdown works as expected", {
 
 	callr::r(function(dbdir) {
 		library("DBI")
-		con <- dbConnect(duckdb::duckdb(), dbdir, read_only=FALSE) # FALSE is the default
+		con <- dbConnect(graindb::graindb(), dbdir, read_only=FALSE) # FALSE is the default
 		print(con)
 		res <- dbWriteTable(con, "iris", iris)
 		dbDisconnect(con)
-		duckdb::duckdb_shutdown(con@driver)
+		graindb::graindb_shutdown(con@driver)
 	}, args = list(dbdir))
 
 
 	# 2nd: start two parallel read-only references
-	drv <- duckdb::duckdb(dbdir, read_only=TRUE)
+	drv <- graindb::graindb(dbdir, read_only=TRUE)
 	con <- dbConnect(drv)
 
 	res <- dbReadTable(con, "iris")
@@ -31,7 +31,7 @@ test_that("read_only flag and shutdown works as expected", {
 	# con is still alive
 	callr::r(function(dbdir) {
 		library("DBI")
-		con <- dbConnect(duckdb::duckdb(), dbdir, read_only=TRUE)
+		con <- dbConnect(graindb::graindb(), dbdir, read_only=TRUE)
 		res <- dbReadTable(con, "iris")
 		dbDisconnect(con, shutdown=TRUE)
 	}, args = list(dbdir))
@@ -41,14 +41,14 @@ test_that("read_only flag and shutdown works as expected", {
 
 	dbDisconnect(con)
 	dbDisconnect(con2, shutdown=TRUE)
-	duckdb::duckdb_shutdown(con@driver)
+	graindb::graindb_shutdown(con@driver)
 
 
 	# now we can get write access again
 	# TODO shutdown
 	callr::r(function(dbdir) {
 		library("DBI")
-		con <- dbConnect(duckdb::duckdb(), dbdir, read_only=FALSE) # FALSE is the default
+		con <- dbConnect(graindb::graindb(), dbdir, read_only=FALSE) # FALSE is the default
 		res <- dbWriteTable(con, "iris2", iris)
 		dbDisconnect(con)
 	}, args = list(dbdir))

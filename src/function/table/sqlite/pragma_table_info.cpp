@@ -1,16 +1,16 @@
-#include "duckdb/function/table/sqlite_functions.hpp"
+#include "graindb/function/table/sqlite_functions.hpp"
 
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/catalog/catalog_entry/view_catalog_entry.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/storage/data_table.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/view_catalog_entry.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/storage/data_table.hpp"
 
 #include <algorithm>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 struct PragmaTableFunctionData : public TableFunctionData {
 	PragmaTableFunctionData() : entry(nullptr), offset(0) {
@@ -167,4 +167,4 @@ void PragmaTableInfo::RegisterFunction(BuiltinFunctions &set) {
 	    TableFunction("pragma_table_info", {SQLType::VARCHAR}, pragma_table_info_bind, pragma_table_info, nullptr));
 }
 
-} // namespace duckdb
+} // namespace graindb

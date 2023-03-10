@@ -1,15 +1,15 @@
 #include "catch.hpp"
-#include "duckdb/main/appender.hpp"
+#include "graindb/main/appender.hpp"
 #include "test_helpers.hpp"
 
 #include <vector>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test the way appenders interact with transactions", "[appender]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER PRIMARY KEY)"));

@@ -1,8 +1,8 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test storage of alter table rename column", "[storage]") {
@@ -14,7 +14,7 @@ TEST_CASE("Test storage of alter table rename column", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (11, 22), (13, 22), (12, 21)"));
@@ -32,7 +32,7 @@ TEST_CASE("Test storage of alter table rename column", "[storage]") {
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT k FROM test ORDER BY k");
 		REQUIRE(CHECK_COLUMN(result, 0, {11, 12, 13}));
@@ -50,7 +50,7 @@ TEST_CASE("Test storage of alter table add column", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (11, 22), (13, 22), (12, 21)"));
@@ -61,7 +61,7 @@ TEST_CASE("Test storage of alter table add column", "[storage]") {
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT k FROM test ORDER BY k");
 		REQUIRE(CHECK_COLUMN(result, 0, {2, 2, 2}));
@@ -78,14 +78,14 @@ TEST_CASE("Add column to persistent table", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (11, 22), (13, 22), (12, 21)"));
 	}
 	// reload and alter
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 
 		REQUIRE_NO_FAIL(con.Query("ALTER TABLE test ADD COLUMN k INTEGER DEFAULT 2"));
@@ -95,7 +95,7 @@ TEST_CASE("Add column to persistent table", "[storage]") {
 	}
 	// now reload
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 
 		result = con.Query("SELECT k FROM test ORDER BY k");
@@ -113,14 +113,14 @@ TEST_CASE("Remove column from persistent table", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (11, 22), (13, 22), (12, 21)"));
 	}
 	// reload and alter
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 
 		REQUIRE_NO_FAIL(con.Query("ALTER TABLE test DROP COLUMN b"));
@@ -131,7 +131,7 @@ TEST_CASE("Remove column from persistent table", "[storage]") {
 	}
 	// now reload
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 
 		result = con.Query("SELECT * FROM test ORDER BY 1");
@@ -150,14 +150,14 @@ TEST_CASE("Alter column type of persistent table", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (11, 22), (13, 22), (12, 21)"));
 	}
 	// reload and alter
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 
 		REQUIRE_NO_FAIL(con.Query("ALTER TABLE test ALTER b TYPE VARCHAR"));
@@ -169,7 +169,7 @@ TEST_CASE("Alter column type of persistent table", "[storage]") {
 	}
 	// now reload
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 
 		result = con.Query("SELECT * FROM test ORDER BY 1");

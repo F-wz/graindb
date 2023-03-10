@@ -1,8 +1,8 @@
-#include "duckdb/common/enums/join_type.hpp"
+#include "graindb/common/enums/join_type.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 string JoinTypeToString(JoinType type) {
 	switch (type) {
@@ -28,4 +28,4 @@ string JoinTypeToString(JoinType type) {
 	}
 }
 
-} // namespace duckdb
+} // namespace graindb

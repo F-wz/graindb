@@ -1,17 +1,17 @@
-#include "duckdb/planner/subquery/flatten_dependent_join.hpp"
+#include "graindb/planner/subquery/flatten_dependent_join.hpp"
 
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression/list.hpp"
-#include "duckdb/planner/logical_operator_visitor.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/operator/list.hpp"
-#include "duckdb/planner/subquery/has_correlated_expressions.hpp"
-#include "duckdb/planner/subquery/rewrite_correlated_expressions.hpp"
-#include "duckdb/planner/expression/bound_aggregate_expression.hpp"
-#include "duckdb/catalog/catalog_entry/aggregate_function_catalog_entry.hpp"
-#include "duckdb/function/aggregate/distributive_functions.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression/list.hpp"
+#include "graindb/planner/logical_operator_visitor.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/operator/list.hpp"
+#include "graindb/planner/subquery/has_correlated_expressions.hpp"
+#include "graindb/planner/subquery/rewrite_correlated_expressions.hpp"
+#include "graindb/planner/expression/bound_aggregate_expression.hpp"
+#include "graindb/catalog/catalog_entry/aggregate_function_catalog_entry.hpp"
+#include "graindb/function/aggregate/distributive_functions.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 FlattenDependentJoins::FlattenDependentJoins(Binder &binder, const vector<CorrelatedColumnInfo> &correlated)

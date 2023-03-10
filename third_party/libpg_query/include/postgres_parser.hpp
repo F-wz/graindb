@@ -3,7 +3,7 @@
 #include <string>
 #include "nodes/pg_list.hpp"
 
-namespace duckdb {
+namespace graindb {
 class PostgresParser {
 public:
 	PostgresParser();

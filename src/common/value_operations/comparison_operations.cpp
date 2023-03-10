@@ -1,8 +1,8 @@
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/operator/comparison_operators.hpp"
-#include "duckdb/common/value_operations/value_operations.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
+#include "graindb/common/value_operations/value_operations.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 //===--------------------------------------------------------------------===//
@@ -74,7 +74,7 @@ bool ValueOperations::Equals(const Value &left, const Value &right) {
 	if (left.is_null != right.is_null) {
 		return false;
 	}
-	return templated_boolean_operation<duckdb::Equals>(left, right);
+	return templated_boolean_operation<graindb::Equals>(left, right);
 }
 
 bool ValueOperations::NotEquals(const Value &left, const Value &right) {
@@ -89,7 +89,7 @@ bool ValueOperations::GreaterThan(const Value &left, const Value &right) {
 	} else if (left.is_null) {
 		return false;
 	}
-	return templated_boolean_operation<duckdb::GreaterThan>(left, right);
+	return templated_boolean_operation<graindb::GreaterThan>(left, right);
 }
 
 bool ValueOperations::GreaterThanEquals(const Value &left, const Value &right) {
@@ -100,7 +100,7 @@ bool ValueOperations::GreaterThanEquals(const Value &left, const Value &right) {
 	} else if (left.is_null) {
 		return false;
 	}
-	return templated_boolean_operation<duckdb::GreaterThanEquals>(left, right);
+	return templated_boolean_operation<graindb::GreaterThanEquals>(left, right);
 }
 
 bool ValueOperations::LessThan(const Value &left, const Value &right) {

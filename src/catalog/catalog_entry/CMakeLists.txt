@@ -1,4 +1,4 @@
-add_library_unity(duckdb_catalog_entries
+add_library_unity(graindb_catalog_entries
                   OBJECT
                   index_catalog_entry.cpp
                   schema_catalog_entry.cpp
@@ -7,4 +7,4 @@ add_library_unity(duckdb_catalog_entries
                   table_function_catalog_entry.cpp
                   view_catalog_entry.cpp)
 set(ALL_OBJECT_FILES ${ALL_OBJECT_FILES}
-                     $<TARGET_OBJECTS:duckdb_catalog_entries> PARENT_SCOPE)
+                     $<TARGET_OBJECTS:graindb_catalog_entries> PARENT_SCOPE)

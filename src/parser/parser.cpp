@@ -1,17 +1,17 @@
-#include "duckdb/parser/parser.hpp"
+#include "graindb/parser/parser.hpp"
 
-#include "duckdb/parser/transformer.hpp"
-#include "duckdb/parser/parsed_data/create_table_info.hpp"
-#include "duckdb/parser/statement/create_statement.hpp"
-#include "duckdb/parser/statement/select_statement.hpp"
-#include "duckdb/parser/statement/update_statement.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/tableref/expressionlistref.hpp"
+#include "graindb/parser/transformer.hpp"
+#include "graindb/parser/parsed_data/create_table_info.hpp"
+#include "graindb/parser/statement/create_statement.hpp"
+#include "graindb/parser/statement/select_statement.hpp"
+#include "graindb/parser/statement/update_statement.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/tableref/expressionlistref.hpp"
 #include "postgres_parser.hpp"
 
 #include "parser/parser.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 Parser::Parser() {

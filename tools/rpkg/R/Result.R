@@ -1,23 +1,23 @@
 #' @include Connection.R
 NULL
 
-duckdb_result <- function(connection, stmt_lst) {
+graindb_result <- function(connection, stmt_lst) {
   env <- new.env(parent=emptyenv())
   env$rows_fetched <- 0
   env$open <- TRUE
   env$rows_affected <- 0
 
-  res <- new("duckdb_result", connection = connection, stmt_lst = stmt_lst, env=env)
+  res <- new("graindb_result", connection = connection, stmt_lst = stmt_lst, env=env)
 
   if (stmt_lst$n_param == 0) {
-    duckdb_execute(res)
+    graindb_execute(res)
   }
 
   return(res)
 }
 
-duckdb_execute <- function(res) {
-  res@env$resultset <- .Call(duckdb_execute_R, res@stmt_lst$ref)
+graindb_execute <- function(res) {
+  res@env$resultset <- .Call(graindb_execute_R, res@stmt_lst$ref)
   attr(res@env$resultset, "row.names") <-
           c(NA_integer_, as.integer(-1 * length(res@env$resultset[[1]])))
   class(res@env$resultset) <- "data.frame"
@@ -29,10 +29,10 @@ duckdb_execute <- function(res) {
 #' @rdname DBI
 #' @export
 setClass(
-  "duckdb_result",
+  "graindb_result",
   contains = "DBIResult",
   slots = list(
-    connection = "duckdb_connection",
+    connection = "graindb_connection",
     stmt_lst = "list",
     env = "environment"
   )
@@ -42,19 +42,19 @@ setClass(
 #' @inheritParams methods::show
 #' @export
 setMethod(
-  "show", "duckdb_result",
+  "show", "graindb_result",
   function(object) {
-    cat(sprintf("<duckdb_result %s connection=%s statement='%s'>\n", extptr_str(object@stmt_lst$ref), extptr_str(object@connection@conn_ref), object@stmt_lst$str))
+    cat(sprintf("<graindb_result %s connection=%s statement='%s'>\n", extptr_str(object@stmt_lst$ref), extptr_str(object@connection@conn_ref), object@stmt_lst$str))
   })
 
 #' @rdname DBI
 #' @inheritParams DBI::dbClearResult
 #' @export
 setMethod(
-  "dbClearResult", "duckdb_result",
+  "dbClearResult", "graindb_result",
   function(res, ...) {
     if (res@env$open) {
-      .Call(duckdb_release_R, res@stmt_lst$ref)
+      .Call(graindb_release_R, res@stmt_lst$ref)
       res@env$open <- FALSE
     } else {
       warning("Result was cleared already")
@@ -76,7 +76,7 @@ fix_rownames <- function(df) {
 #' @importFrom utils head
 #' @export
 setMethod(
-  "dbFetch", "duckdb_result",
+  "dbFetch", "graindb_result",
   function(res, n = -1, ...) {
     if (!res@env$open) {
       stop("result set was closed")
@@ -129,7 +129,7 @@ setMethod(
 #' @inheritParams DBI::dbHasCompleted
 #' @export
 setMethod(
-  "dbHasCompleted", "duckdb_result",
+  "dbHasCompleted", "graindb_result",
   function(res, ...) {
     if (!res@env$open) {
      stop("result has already been cleared")
@@ -144,7 +144,7 @@ setMethod(
 #' @inheritParams DBI::dbGetInfo
 #' @export
 setMethod(
-  "dbGetInfo", "duckdb_result",
+  "dbGetInfo", "graindb_result",
   function(dbObj, ...) {
     # Optional
     getMethod("dbGetInfo", "DBIResult", asNamespace("DBI"))(dbObj, ...)
@@ -154,7 +154,7 @@ setMethod(
 #' @inheritParams DBI::dbIsValid
 #' @export
 setMethod(
-  "dbIsValid", "duckdb_result",
+  "dbIsValid", "graindb_result",
   function(dbObj, ...) {
     return(dbObj@env$open)
   })
@@ -163,7 +163,7 @@ setMethod(
 #' @inheritParams DBI::dbGetStatement
 #' @export
 setMethod(
-  "dbGetStatement", "duckdb_result",
+  "dbGetStatement", "graindb_result",
   function(res, ...) {
     if (!res@env$open) {
       stop("result has already been cleared")
@@ -175,7 +175,7 @@ setMethod(
 #' @inheritParams DBI::dbColumnInfo
 #' @export
 setMethod(
-  "dbColumnInfo", "duckdb_result",
+  "dbColumnInfo", "graindb_result",
   function(res, ...) {
     return(data.frame(name=res@stmt_lst$names, type=res@stmt_lst$rtypes, stringsAsFactors=FALSE))
 
@@ -185,7 +185,7 @@ setMethod(
 #' @inheritParams DBI::dbGetRowCount
 #' @export
 setMethod(
-  "dbGetRowCount", "duckdb_result",
+  "dbGetRowCount", "graindb_result",
   function(res, ...) {
     if (!res@env$open) {
       stop("result has already been cleared")
@@ -197,7 +197,7 @@ setMethod(
 #' @inheritParams DBI::dbGetRowsAffected
 #' @export
 setMethod(
-  "dbGetRowsAffected", "duckdb_result",
+  "dbGetRowsAffected", "graindb_result",
   function(res, ...) {
      if (!res@env$open) {
       stop("result has already been cleared")
@@ -210,7 +210,7 @@ setMethod(
 #' @importFrom testthat skip
 #' @export
 setMethod(
-  "dbBind", "duckdb_result",
+  "dbBind", "graindb_result",
   function(res, params, ...) {
     if (!res@env$open) {
       stop("result has already been cleared")
@@ -218,6 +218,6 @@ setMethod(
     res@env$rows_fetched <- 0
     res@env$resultset <- data.frame()
 
-    invisible(.Call(duckdb_bind_R, res@stmt_lst$ref, params))
-    duckdb_execute(res)
+    invisible(.Call(graindb_bind_R, res@stmt_lst$ref, params))
+    graindb_execute(res)
   })

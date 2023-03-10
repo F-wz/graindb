@@ -3,24 +3,24 @@
 NULL
 
 
-duckdb_connection <- function(duckdb_driver, debug) {
+graindb_connection <- function(graindb_driver, debug) {
   new(
-    "duckdb_connection",
-    conn_ref = .Call(duckdb_connect_R, duckdb_driver@database_ref),
-    driver = duckdb_driver,
+    "graindb_connection",
+    conn_ref = .Call(graindb_connect_R, graindb_driver@database_ref),
+    driver = graindb_driver,
     debug = debug
   )
 }
 
-duckdb_register <- function(conn, name, df) {
+graindb_register <- function(conn, name, df) {
   stopifnot(dbIsValid(conn))
-  .Call(duckdb_register_R, conn@conn_ref, as.character(name), as.data.frame(df))
+  .Call(graindb_register_R, conn@conn_ref, as.character(name), as.data.frame(df))
   invisible(TRUE)
 }
 
-duckdb_unregister <- function(conn, name) {
+graindb_unregister <- function(conn, name) {
   stopifnot(dbIsValid(conn))
-  .Call(duckdb_unregister_R, conn@conn_ref, as.character(name))
+  .Call(graindb_unregister_R, conn@conn_ref, as.character(name))
   invisible(TRUE)
 }
 
@@ -28,23 +28,23 @@ duckdb_unregister <- function(conn, name) {
 #' @rdname DBI
 #' @export
 setClass(
-  "duckdb_connection",
+  "graindb_connection",
   contains = "DBIConnection",
-  slots = list(dbdir= "character", conn_ref = "externalptr", driver = "duckdb_driver", debug="logical")
+  slots = list(dbdir= "character", conn_ref = "externalptr", driver = "graindb_driver", debug="logical")
 )
 
 #' @rdname DBI
 #' @inheritParams methods::show
 #' @export
-setMethod("show", "duckdb_connection",
+setMethod("show", "graindb_connection",
           function(object) {
-            cat(sprintf("<duckdb_connection %s driver=%s>\n", extptr_str(object@conn_ref), drv_to_string(object@driver)))
+            cat(sprintf("<graindb_connection %s driver=%s>\n", extptr_str(object@conn_ref), drv_to_string(object@driver)))
           })
 
 #' @rdname DBI
 #' @inheritParams DBI::dbIsValid
 #' @export
-setMethod("dbIsValid", "duckdb_connection",
+setMethod("dbIsValid", "graindb_connection",
           function(dbObj, ...) {
             valid <- FALSE
             tryCatch ({
@@ -58,14 +58,14 @@ setMethod("dbIsValid", "duckdb_connection",
 #' @rdname DBI
 #' @inheritParams DBI::dbDisconnect
 #' @export
-setMethod("dbDisconnect", "duckdb_connection",
+setMethod("dbDisconnect", "graindb_connection",
           function(conn, ..., shutdown=FALSE) {
             if (!dbIsValid(conn)) {
               warning("Connection already closed.", call. = FALSE)
             }
-            .Call(duckdb_disconnect_R, conn@conn_ref)
+            .Call(graindb_disconnect_R, conn@conn_ref)
             if (shutdown) {
-              duckdb_shutdown(conn@driver)
+              graindb_shutdown(conn@driver)
             }
 
             invisible(TRUE)
@@ -74,15 +74,15 @@ setMethod("dbDisconnect", "duckdb_connection",
 #' @rdname DBI
 #' @inheritParams DBI::dbSendQuery
 #' @export
-setMethod("dbSendQuery", c("duckdb_connection", "character"),
+setMethod("dbSendQuery", c("graindb_connection", "character"),
           function(conn, statement, ..., immediate=FALSE) {
             if (conn@debug) {
               cat("Q ", statement, "\n")
             }
 		        statement <- enc2utf8(statement)
-            stmt_lst <- .Call(duckdb_prepare_R, conn@conn_ref, statement)
+            stmt_lst <- .Call(graindb_prepare_R, conn@conn_ref, statement)
 
-            res <- duckdb_result(
+            res <- graindb_result(
               connection = conn,
               stmt_lst = stmt_lst
             )
@@ -100,12 +100,12 @@ setMethod("dbSendQuery", c("duckdb_connection", "character"),
 #' @rdname DBI
 #' @inheritParams DBI::dbDataType
 #' @export
-setMethod("dbDataType", "duckdb_connection",
+setMethod("dbDataType", "graindb_connection",
           function(dbObj, obj, ...) {
             dbDataType(dbObj@driver, obj, ...)
           })
 
-duckdb_random_string <- function(x) {
+graindb_random_string <- function(x) {
 	paste(sample(letters, 10, replace = TRUE), collapse="")
 }
 
@@ -116,7 +116,7 @@ duckdb_random_string <- function(x) {
 #' @param append Allow appending to the destination table. Cannot be
 #'   `TRUE` if `overwrite` is also `TRUE`.
 #' @export
-setMethod("dbWriteTable", c("duckdb_connection", "character", "data.frame"),
+setMethod("dbWriteTable", c("graindb_connection", "character", "data.frame"),
           function(conn,
                    name,
                    value,
@@ -208,9 +208,9 @@ setMethod("dbWriteTable", c("duckdb_connection", "character", "data.frame"),
 				  levels(value[[c]]) <- enc2utf8(levels(value[[c]]))
 				}
 			}
-			view_name <- sprintf("_duckdb_append_view_%s", duckdb_random_string())
-            on.exit(duckdb_unregister(conn, view_name))
-            duckdb_register(conn, view_name, value)
+			view_name <- sprintf("_graindb_append_view_%s", graindb_random_string())
+            on.exit(graindb_unregister(conn, view_name))
+            graindb_register(conn, view_name, value)
             dbExecute(conn, sprintf("INSERT INTO %s SELECT * FROM %s", table_name, view_name))
 
             invisible(TRUE)
@@ -219,7 +219,7 @@ setMethod("dbWriteTable", c("duckdb_connection", "character", "data.frame"),
 #' @rdname DBI
 #' @inheritParams DBI::dbListTables
 #' @export
-setMethod("dbListTables", "duckdb_connection",
+setMethod("dbListTables", "graindb_connection",
           function(conn, ...) {
             dbGetQuery(conn,
                        SQL(
@@ -230,7 +230,7 @@ setMethod("dbListTables", "duckdb_connection",
 #' @rdname DBI
 #' @inheritParams DBI::dbExistsTable
 #' @export
-setMethod("dbExistsTable", c("duckdb_connection", "character"),
+setMethod("dbExistsTable", c("graindb_connection", "character"),
           function(conn, name, ...) {
             if (!dbIsValid(conn)) {
               stop("Invalid connection")
@@ -255,7 +255,7 @@ setMethod("dbExistsTable", c("duckdb_connection", "character"),
 #' @rdname DBI
 #' @inheritParams DBI::dbListFields
 #' @export
-setMethod("dbListFields", c("duckdb_connection", "character"),
+setMethod("dbListFields", c("graindb_connection", "character"),
           function(conn, name, ...) {
             names(dbGetQuery(
               conn,
@@ -270,7 +270,7 @@ setMethod("dbListFields", c("duckdb_connection", "character"),
 #' @rdname DBI
 #' @inheritParams DBI::dbRemoveTable
 #' @export
-setMethod("dbRemoveTable", c("duckdb_connection", "character"),
+setMethod("dbRemoveTable", c("graindb_connection", "character"),
           function(conn, name, ...) {
             dbExecute(conn,
                       sqlInterpolate(conn, "DROP TABLE ?", dbQuoteIdentifier(conn, name)))
@@ -280,7 +280,7 @@ setMethod("dbRemoveTable", c("duckdb_connection", "character"),
 #' @rdname DBI
 #' @inheritParams DBI::dbGetInfo
 #' @export
-setMethod("dbGetInfo", "duckdb_connection",
+setMethod("dbGetInfo", "graindb_connection",
           function(dbObj, ...) {
             list(
               dbname = dbObj@dbdir,
@@ -294,7 +294,7 @@ setMethod("dbGetInfo", "duckdb_connection",
 #' @rdname DBI
 #' @inheritParams DBI::dbBegin
 #' @export
-setMethod("dbBegin", "duckdb_connection",
+setMethod("dbBegin", "graindb_connection",
           function(conn, ...) {
             dbExecute(conn, SQL("BEGIN TRANSACTION"))
             invisible(TRUE)
@@ -303,7 +303,7 @@ setMethod("dbBegin", "duckdb_connection",
 #' @rdname DBI
 #' @inheritParams DBI::dbCommit
 #' @export
-setMethod("dbCommit", "duckdb_connection",
+setMethod("dbCommit", "graindb_connection",
           function(conn, ...) {
             dbExecute(conn, SQL("COMMIT"))
             invisible(TRUE)
@@ -312,14 +312,14 @@ setMethod("dbCommit", "duckdb_connection",
 #' @rdname DBI
 #' @inheritParams DBI::dbRollback
 #' @export
-setMethod("dbRollback", "duckdb_connection",
+setMethod("dbRollback", "graindb_connection",
           function(conn, ...) {
             dbExecute(conn, SQL("ROLLBACK"))
             invisible(TRUE)
           })
 
 
-read_csv_duckdb <- duckdb.read.csv <- function(conn, files, tablename, header=TRUE, na.strings="", nrow.check=500, 
+read_csv_graindb <- graindb.read.csv <- function(conn, files, tablename, header=TRUE, na.strings="", nrow.check=500, 
                                                delim=",", quote="\"", col.names=NULL, lower.case.names=FALSE, sep=delim, transaction=TRUE, ...){
   
   if (length(na.strings)>1) stop("na.strings must be of length 1")

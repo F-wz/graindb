@@ -1,18 +1,18 @@
-#include "duckdb/common/enums/join_type.hpp"
-#include "duckdb/parser/parsed_data/create_rai_info.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression/bound_comparison_expression.hpp"
-#include "duckdb/planner/expression_binder/rai_binder.hpp"
-#include "duckdb/planner/operator/logical_comparison_join.hpp"
-#include "duckdb/planner/operator/logical_create_rai.hpp"
-#include "duckdb/planner/operator/logical_cross_product.hpp"
-#include "duckdb/planner/operator/logical_get.hpp"
-#include "duckdb/planner/operator/logical_order.hpp"
-#include "duckdb/planner/operator/logical_projection.hpp"
-#include "duckdb/planner/parsed_data/bound_create_rai_info.hpp"
-#include "duckdb/planner/tableref/bound_basetableref.hpp"
+#include "graindb/common/enums/join_type.hpp"
+#include "graindb/parser/parsed_data/create_rai_info.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression/bound_comparison_expression.hpp"
+#include "graindb/planner/expression_binder/rai_binder.hpp"
+#include "graindb/planner/operator/logical_comparison_join.hpp"
+#include "graindb/planner/operator/logical_create_rai.hpp"
+#include "graindb/planner/operator/logical_cross_product.hpp"
+#include "graindb/planner/operator/logical_get.hpp"
+#include "graindb/planner/operator/logical_order.hpp"
+#include "graindb/planner/operator/logical_projection.hpp"
+#include "graindb/planner/parsed_data/bound_create_rai_info.hpp"
+#include "graindb/planner/tableref/bound_basetableref.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 unique_ptr<BoundCreateRAIInfo> Binder::BindCreateRAIInfo(unique_ptr<CreateInfo> info) {
 	auto &base = (CreateRAIInfo &)*info;
@@ -197,4 +197,4 @@ unique_ptr<LogicalOperator> Binder::CreatePlan(BoundCreateRAIInfo &bound_info) {
 	}
 }
 
-} // namespace duckdb
+} // namespace graindb

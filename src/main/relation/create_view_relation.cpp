@@ -1,10 +1,10 @@
-#include "duckdb/main/relation/create_view_relation.hpp"
-#include "duckdb/parser/statement/create_statement.hpp"
-#include "duckdb/parser/parsed_data/create_view_info.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/main/client_context.hpp"
+#include "graindb/main/relation/create_view_relation.hpp"
+#include "graindb/parser/statement/create_statement.hpp"
+#include "graindb/parser/parsed_data/create_view_info.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/main/client_context.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 CreateViewRelation::CreateViewRelation(shared_ptr<Relation> child_p, string view_name, bool replace)
     : Relation(child_p->context, RelationType::CREATE_VIEW_RELATION), child(move(child_p)), view_name(move(view_name)),
@@ -35,4 +35,4 @@ string CreateViewRelation::ToString(idx_t depth) {
 	return str + child->ToString(depth + 1);
 }
 
-} // namespace duckdb
+} // namespace graindb

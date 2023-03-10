@@ -1,9 +1,9 @@
-#include "duckdb/optimizer/rule/case_simplification.hpp"
+#include "graindb/optimizer/rule/case_simplification.hpp"
 
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression/bound_case_expression.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression/bound_case_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 CaseSimplificationRule::CaseSimplificationRule(ExpressionRewriter &rewriter) : Rule(rewriter) {

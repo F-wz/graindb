@@ -1,8 +1,8 @@
 #include "sqlite_transfer.hpp"
 
-#include "duckdb/common/types/date.hpp"
+#include "graindb/common/types/date.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 namespace sqlite {
@@ -27,7 +27,7 @@ bool TransferDatabase(Connection &con, sqlite3 *sqlite) {
 		}
 
 		// now transfer the actual data
-		// first get the data from DuckDB
+		// first get the data from GrainDB
 		auto result = con.Query("SELECT * FROM " + name);
 		// create the prepared statement based on the result
 		stringstream prepared;
@@ -179,7 +179,7 @@ unique_ptr<QueryResult> QueryDatabase(vector<SQLType> result_types, sqlite3 *sql
 					break;
 				}
 				default:
-					throw NotImplementedException("Unimplemented type for SQLite -> DuckDB type conversion");
+					throw NotImplementedException("Unimplemented type for SQLite -> GrainDB type conversion");
 				}
 			}
 		}

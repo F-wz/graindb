@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 //
-//                         DuckDB
+//                         GrainDB
 //
 // dbgen.hpp
 //
@@ -10,16 +10,16 @@
 
 #pragma once
 
-#include "duckdb.hpp"
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/common/types/data_chunk.hpp"
+#include "graindb.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/common/types/data_chunk.hpp"
 
 namespace tpch {
 //! Adds the TPC-H tables filled with the given SF to the catalog. Suffix adds a
 //! suffix to the table names, if given. SF=0 will only add the schema
 //! information.
-void dbgen(double sf, duckdb::DuckDB &database, std::string schema = DEFAULT_SCHEMA, std::string suffix = "");
-void dbgen(double sf, duckdb::DuckDB &database, bool create_rai, std::string schema = DEFAULT_SCHEMA,
+void dbgen(double sf, graindb::GrainDB &database, std::string schema = DEFAULT_SCHEMA, std::string suffix = "");
+void dbgen(double sf, graindb::GrainDB &database, bool create_rai, std::string schema = DEFAULT_SCHEMA,
            std::string suffix = "");
 
 //! Gets the specified TPC-H Query number as a string

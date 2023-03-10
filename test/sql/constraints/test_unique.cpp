@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Single UNIQUE constraint", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER UNIQUE, j INTEGER)"));
@@ -48,7 +48,7 @@ TEST_CASE("Single UNIQUE constraint", "[constraints]") {
 
 TEST_CASE("UNIQUE constraint on temporary tables", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TEMPORARY TABLE integers(i INTEGER, j INTEGER)"));
@@ -91,7 +91,7 @@ TEST_CASE("UNIQUE constraint on temporary tables", "[constraints]") {
 
 TEST_CASE("NULL values and a multi-column UNIQUE constraint", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TEMPORARY TABLE integers(i INTEGER, j INTEGER)"));
@@ -134,7 +134,7 @@ TEST_CASE("NULL values and a multi-column UNIQUE constraint", "[constraints]") {
 
 TEST_CASE("UNIQUE constraint on temporary tables with Strings", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TEMPORARY TABLE integers(i INTEGER, j VARCHAR)"));
@@ -171,7 +171,7 @@ TEST_CASE("UNIQUE constraint on temporary tables with Strings", "[constraints]")
 
 TEST_CASE("UNIQUE constraint on temporary tables with duplicate data", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TEMPORARY TABLE integers(i INTEGER, j VARCHAR)"));
@@ -184,7 +184,7 @@ TEST_CASE("UNIQUE constraint on temporary tables with duplicate data", "[constra
 
 TEST_CASE("Multiple constraints", "[constraints]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER PRIMARY KEY, j INTEGER UNIQUE)"));

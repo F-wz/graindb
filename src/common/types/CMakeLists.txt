@@ -1,4 +1,4 @@
-add_library_unity(duckdb_common_types
+add_library_unity(graindb_common_types
                   OBJECT
                   chunk_collection.cpp
                   data_chunk.cpp
@@ -16,5 +16,5 @@ add_library_unity(duckdb_common_types
                   vector.cpp
                   vector_constants.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_common_types>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_common_types>
     PARENT_SCOPE)

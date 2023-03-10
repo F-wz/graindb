@@ -1,14 +1,14 @@
-#include "duckdb/main/relation/table_function_relation.hpp"
-#include "duckdb/parser/tableref/basetableref.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/expression/star_expression.hpp"
-#include "duckdb/parser/tableref/table_function_ref.hpp"
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/parser/expression/function_expression.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/parser/parser.hpp"
+#include "graindb/main/relation/table_function_relation.hpp"
+#include "graindb/parser/tableref/basetableref.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/expression/star_expression.hpp"
+#include "graindb/parser/tableref/table_function_ref.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/expression/function_expression.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/parser/parser.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 TableFunctionRelation::TableFunctionRelation(ClientContext &context, string name_p, vector<Value> parameters_p)
     : Relation(context, RelationType::TABLE_FUNCTION_RELATION), name(move(name_p)), parameters(move(parameters_p)) {
@@ -54,4 +54,4 @@ string TableFunctionRelation::ToString(idx_t depth) {
 	return RenderWhitespace(depth) + function_call;
 }
 
-} // namespace duckdb
+} // namespace graindb

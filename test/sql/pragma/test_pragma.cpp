@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test PRAGMA parsing", "[pragma]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// Almost pragma but not quite
@@ -27,7 +27,7 @@ TEST_CASE("Test PRAGMA parsing", "[pragma]") {
 
 TEST_CASE("Test PRAGMA enable_profiling parsing", "[pragma]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// enable profiling cannot be called
@@ -45,7 +45,7 @@ TEST_CASE("Test PRAGMA enable_profiling parsing", "[pragma]") {
 
 TEST_CASE("Test PRAGMA memory_limit", "[pragma]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// set memory_limit

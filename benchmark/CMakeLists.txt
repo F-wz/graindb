@@ -11,7 +11,7 @@ add_subdirectory(ldbc)
 
 add_executable(benchmark_runner benchmark_runner.cpp ${BENCHMARK_OBJECT_FILES})
 target_link_libraries(benchmark_runner
-                      duckdb
+                      graindb
                       dbgen
                       imdb
                       ldbc

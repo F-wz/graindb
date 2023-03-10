@@ -1,13 +1,13 @@
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/vector_operations/ternary_executor.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/ternary_executor.hpp"
 #include "utf8proc.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static pair<idx_t, idx_t> count_chars(const idx_t len, const char *data, const idx_t size) {
 	//  Count how much of str will fit in the output
@@ -146,4 +146,4 @@ void RpadFun::RegisterFunction(BuiltinFunctions &set) {
 	                               pad_function<RpadOperator>)); // pointer to function implementation
 }
 
-} // namespace duckdb
+} // namespace graindb

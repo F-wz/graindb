@@ -1,10 +1,10 @@
-#include "duckdb/execution/index/art/node4.hpp"
-#include "duckdb/execution/index/art/node16.hpp"
-#include "duckdb/execution/index/art/node48.hpp"
+#include "graindb/execution/index/art/node4.hpp"
+#include "graindb/execution/index/art/node16.hpp"
+#include "graindb/execution/index/art/node48.hpp"
 
 #include <cstring>
 
-using namespace duckdb;
+using namespace graindb;
 
 Node16::Node16(ART &art, size_t compressionLength) : Node(art, NodeType::N16, compressionLength) {
 	memset(key, 16, sizeof(key));

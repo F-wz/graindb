@@ -28,10 +28,10 @@ for fp in [header, source]:
 """)
 
 header.write("""
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/main/appender.hpp"
-#include "duckdb/main/connection.hpp"
-#include "duckdb/main/database.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/main/appender.hpp"
+#include "graindb/main/connection.hpp"
+#include "graindb/main/database.hpp"
 
 #include "main/BaseLoader.h"
 #include "main/BaseLoaderFactory.h"
@@ -39,13 +39,13 @@ header.write("""
 #include "main/TableRows.h"
 
 namespace TPCE {
-	class DuckDBLoaderFactory : public CBaseLoaderFactory {
-		duckdb::Connection &con;
+	class GrainDBLoaderFactory : public CBaseLoaderFactory {
+		graindb::Connection &con;
 		std::string schema;
 		std::string suffix;
 
 	  public:
-		DuckDBLoaderFactory(duckdb::Connection &con, std::string schema,
+		GrainDBLoaderFactory(graindb::Connection &con, std::string schema,
 		                    std::string suffix)
 		    : con(con), schema(schema), suffix(suffix) {
 		}
@@ -96,7 +96,7 @@ namespace TPCE {
 source.write("""
 #include "tpce_generated.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 namespace TPCE {
@@ -138,12 +138,12 @@ void append_char(tpce_append_information &info, char value) {
 	append_string(info, val);
 }
 
-template <typename T> class DuckDBBaseLoader : public CBaseLoader<T> {
+template <typename T> class GrainDBBaseLoader : public CBaseLoader<T> {
   protected:
 	tpce_append_information info;
 
   public:
-	DuckDBBaseLoader(Connection &con, string schema, string table) :
+	GrainDBBaseLoader(Connection &con, string schema, string table) :
 		info(con, schema, table) {
 	}
 
@@ -204,10 +204,10 @@ def get_tablename(name):
 
 for table in tables.keys():
 	source.write("""
-class DuckDB${TABLENAME}Load : public DuckDBBaseLoader<${ROW_TYPE}> {
+class GrainDB${TABLENAME}Load : public GrainDBBaseLoader<${ROW_TYPE}> {
 public:
-	DuckDB${TABLENAME}Load(Connection &con, string schema, string table) :
-		DuckDBBaseLoader(con, schema, table) {
+	GrainDB${TABLENAME}Load(Connection &con, string schema, string table) :
+		GrainDBBaseLoader(con, schema, table) {
 
 	}
 
@@ -250,8 +250,8 @@ public:
 for table in tables.keys():
 	source.write("""
 CBaseLoader<${ROW_TYPE}> *
-DuckDBLoaderFactory::Create${TABLENAME}Loader() {
-	return new DuckDB${TABLENAME}Load(con, schema, "${TABLEINDB}" + suffix);
+GrainDBLoaderFactory::Create${TABLENAME}Loader() {
+	return new GrainDB${TABLENAME}Load(con, schema, "${TABLEINDB}" + suffix);
 }
 """.replace("${TABLENAME}", get_tablename(table)).replace("${ROW_TYPE}", table.upper().replace(' ', '_') + '_ROW').replace("${TABLEINDB}", table.replace(' ', '_')))
 
@@ -282,7 +282,7 @@ for table in tables.keys():
 	source.write(str)
 
 
-func = 'void CreateTPCESchema(duckdb::DuckDB &db, duckdb::Connection &con, std::string &schema, std::string &suffix)'
+func = 'void CreateTPCESchema(graindb::GrainDB &db, graindb::Connection &con, std::string &schema, std::string &suffix)'
 header.write(func + ';\n\n')
 source.write(func + ' {\n')
 

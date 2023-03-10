@@ -1,8 +1,8 @@
-#include "duckdb/parser/expression/cast_expression.hpp"
+#include "graindb/parser/expression/cast_expression.hpp"
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 CastExpression::CastExpression(SQLType target, unique_ptr<ParsedExpression> child)

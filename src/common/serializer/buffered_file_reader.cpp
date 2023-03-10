@@ -1,10 +1,10 @@
-#include "duckdb/common/serializer/buffered_file_reader.hpp"
-#include "duckdb/common/serializer/buffered_file_writer.hpp"
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/serializer/buffered_file_reader.hpp"
+#include "graindb/common/serializer/buffered_file_writer.hpp"
+#include "graindb/common/exception.hpp"
 
 #include <cstring>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BufferedFileReader::BufferedFileReader(FileSystem &fs, const char *path)

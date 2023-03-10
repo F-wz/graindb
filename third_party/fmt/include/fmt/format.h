@@ -33,7 +33,7 @@
 #ifndef FMT_FORMAT_H_
 #define FMT_FORMAT_H_
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 #include "fmt/core.h"
 
 #include <algorithm>
@@ -1528,7 +1528,7 @@ template <typename Range> class basic_writer {
     }
 
     FMT_NORETURN void on_error() {
-      FMT_THROW(duckdb::Exception("invalid type specifier"));
+      FMT_THROW(graindb::Exception("invalid type specifier"));
     }
   };
 
@@ -1761,7 +1761,7 @@ class arg_formatter_base {
 
   void write(const char_type* value) {
     if (!value) {
-      FMT_THROW(duckdb::Exception("string pointer is null"));
+      FMT_THROW(graindb::Exception("string pointer is null"));
     } else {
       auto length = std::char_traits<char_type>::length(value);
       basic_string_view<char_type> sv(value, length);

@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test standard update behavior", "[update]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// create a table
@@ -54,7 +54,7 @@ TEST_CASE("Test standard update behavior", "[update]") {
 
 TEST_CASE("Update the same value multiple times in one transaction", "[update]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// create a table
@@ -130,7 +130,7 @@ TEST_CASE("Update the same value multiple times in one transaction", "[update]")
 
 TEST_CASE("Test update behavior with multiple updaters", "[update]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db), con3(db), con4(db);
 	Connection u1(db), u2(db), u3(db);
 
@@ -247,7 +247,7 @@ TEST_CASE("Test update behavior with multiple updaters", "[update]") {
 
 TEST_CASE("Test update behavior with multiple updaters and NULL values", "[update]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db), con3(db), con4(db), con5(db);
 	Connection u(db);
 

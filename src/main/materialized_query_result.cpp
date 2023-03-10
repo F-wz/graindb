@@ -1,6 +1,6 @@
-#include "duckdb/main/materialized_query_result.hpp"
+#include "graindb/main/materialized_query_result.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 MaterializedQueryResult::MaterializedQueryResult(StatementType statement_type)

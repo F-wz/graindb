@@ -1,6 +1,6 @@
-#include "duckdb/planner/operator/logical_projection.hpp"
+#include "graindb/planner/operator/logical_projection.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 LogicalProjection::LogicalProjection(idx_t table_index, vector<unique_ptr<Expression>> select_list)

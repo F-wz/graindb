@@ -1,15 +1,15 @@
-#include "duckdb/optimizer/filter_combiner.hpp"
+#include "graindb/optimizer/filter_combiner.hpp"
 
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression/bound_between_expression.hpp"
-#include "duckdb/planner/expression/bound_comparison_expression.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/planner/operator/logical_empty_result.hpp"
-#include "duckdb/planner/operator/logical_filter.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression.hpp"
-using namespace duckdb;
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression/bound_between_expression.hpp"
+#include "graindb/planner/expression/bound_comparison_expression.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/planner/operator/logical_empty_result.hpp"
+#include "graindb/planner/operator/logical_filter.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression.hpp"
+using namespace graindb;
 using namespace std;
 
 using ExpressionValueInformation = FilterCombiner::ExpressionValueInformation;

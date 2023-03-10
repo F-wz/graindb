@@ -1,14 +1,14 @@
-#include "duckdb/optimizer/rule/empty_needle_removal.hpp"
+#include "graindb/optimizer/rule/empty_needle_removal.hpp"
 
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
-#include "duckdb/planner/expression/bound_operator_expression.hpp"
-#include "duckdb/planner/expression/bound_case_expression.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression/bound_operator_expression.hpp"
+#include "graindb/planner/expression/bound_case_expression.hpp"
 
 #include <regex>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 EmptyNeedleRemovalRule::EmptyNeedleRemovalRule(ExpressionRewriter &rewriter) : Rule(rewriter) {

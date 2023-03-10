@@ -1,14 +1,14 @@
-#include "duckdb/function/table/sqlite_functions.hpp"
-#include "duckdb/parser/parsed_data/create_view_info.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/expression/star_expression.hpp"
-#include "duckdb/parser/tableref/table_function_ref.hpp"
-#include "duckdb/parser/expression/function_expression.hpp"
-#include "duckdb/catalog/catalog.hpp"
+#include "graindb/function/table/sqlite_functions.hpp"
+#include "graindb/parser/parsed_data/create_view_info.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/expression/star_expression.hpp"
+#include "graindb/parser/tableref/table_function_ref.hpp"
+#include "graindb/parser/expression/function_expression.hpp"
+#include "graindb/catalog/catalog.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 void BuiltinFunctions::RegisterSQLiteFunctions() {
 	PragmaCollations::RegisterFunction(*this);
@@ -32,4 +32,4 @@ void BuiltinFunctions::RegisterSQLiteFunctions() {
 	//	catalog.CreateView(transaction, &info);
 }
 
-} // namespace duckdb
+} // namespace graindb

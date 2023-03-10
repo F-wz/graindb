@@ -1,14 +1,14 @@
-#include "duckdb/transaction/cleanup_state.hpp"
-#include "duckdb/transaction/delete_info.hpp"
-#include "duckdb/transaction/update_info.hpp"
+#include "graindb/transaction/cleanup_state.hpp"
+#include "graindb/transaction/delete_info.hpp"
+#include "graindb/transaction/update_info.hpp"
 
-#include "duckdb/storage/data_table.hpp"
-#include "duckdb/storage/uncompressed_segment.hpp"
+#include "graindb/storage/data_table.hpp"
+#include "graindb/storage/uncompressed_segment.hpp"
 
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/catalog/dependency_manager.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/catalog/dependency_manager.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 CleanupState::CleanupState() : current_table(nullptr), count(0) {

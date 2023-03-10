@@ -1,12 +1,12 @@
-#include "duckdb/optimizer/rule/distributivity.hpp"
+#include "graindb/optimizer/rule/distributivity.hpp"
 
-#include "duckdb/optimizer/matcher/expression_matcher.hpp"
-#include "duckdb/planner/expression/bound_conjunction_expression.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
-#include "duckdb/planner/operator/logical_filter.hpp"
+#include "graindb/optimizer/matcher/expression_matcher.hpp"
+#include "graindb/planner/expression/bound_conjunction_expression.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression_iterator.hpp"
+#include "graindb/planner/operator/logical_filter.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 DistributivityRule::DistributivityRule(ExpressionRewriter &rewriter) : Rule(rewriter) {

@@ -1,10 +1,10 @@
-#include "duckdb/transaction/transaction_context.hpp"
+#include "graindb/transaction/transaction_context.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/transaction/transaction.hpp"
-#include "duckdb/transaction/transaction_manager.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/transaction/transaction.hpp"
+#include "graindb/transaction/transaction_manager.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TransactionContext::~TransactionContext() {

@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test mix of updates inserts and deletes", "[update]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER);"));
@@ -52,7 +52,7 @@ TEST_CASE("Test mix of updates inserts and deletes", "[update]") {
 
 TEST_CASE("Test update and delete of the same tuple", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// on a normal table, we can update and delete the same tuple concurrently without a conflict

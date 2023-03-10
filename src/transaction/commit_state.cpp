@@ -1,14 +1,14 @@
-#include "duckdb/transaction/commit_state.hpp"
-#include "duckdb/transaction/delete_info.hpp"
-#include "duckdb/transaction/update_info.hpp"
+#include "graindb/transaction/commit_state.hpp"
+#include "graindb/transaction/delete_info.hpp"
+#include "graindb/transaction/update_info.hpp"
 
-#include "duckdb/storage/data_table.hpp"
-#include "duckdb/storage/write_ahead_log.hpp"
-#include "duckdb/storage/uncompressed_segment.hpp"
-#include "duckdb/common/serializer/buffered_deserializer.hpp"
-#include "duckdb/parser/parsed_data/alter_table_info.hpp"
+#include "graindb/storage/data_table.hpp"
+#include "graindb/storage/write_ahead_log.hpp"
+#include "graindb/storage/uncompressed_segment.hpp"
+#include "graindb/common/serializer/buffered_deserializer.hpp"
+#include "graindb/parser/parsed_data/alter_table_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 CommitState::CommitState(transaction_t commit_id, WriteAheadLog *log)

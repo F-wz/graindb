@@ -1,13 +1,13 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 #include "icu-extension.hpp"
-#include "duckdb.hpp"
+#include "graindb.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 
 TEST_CASE("Test basic ICU extension usage", "[icu]") {
-	DuckDB db;
+	GrainDB db;
 	db.LoadExtension<ICUExtension>();
 	Connection con(db);
 	unique_ptr<QueryResult> result;
@@ -69,7 +69,7 @@ static void TestCollation(Connection &con, string collation, vector<string> &cha
 
 // https://unicode.org/cldr/charts/28/collation/index.html
 TEST_CASE("Test various collations", "[icu]") {
-	DuckDB db;
+	GrainDB db;
 	db.LoadExtension<ICUExtension>();
 	Connection con(db);
 

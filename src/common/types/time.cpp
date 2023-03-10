@@ -1,8 +1,8 @@
-#include "duckdb/common/types/time.hpp"
-#include "duckdb/common/types/timestamp.hpp"
+#include "graindb/common/types/time.hpp"
+#include "graindb/common/types/timestamp.hpp"
 
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/common/exception.hpp"
 
 #include <iomanip>
 #include <cstring>
@@ -10,7 +10,7 @@
 #include <sstream>
 #include <cctype>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 // string format is hh:mm:ssZ

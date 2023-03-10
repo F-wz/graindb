@@ -1,11 +1,11 @@
-#include "duckdb/main/relation/view_relation.hpp"
-#include "duckdb/parser/tableref/basetableref.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/expression/star_expression.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/parser/parser.hpp"
+#include "graindb/main/relation/view_relation.hpp"
+#include "graindb/parser/tableref/basetableref.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/expression/star_expression.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/parser/parser.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 ViewRelation::ViewRelation(ClientContext &context, string schema_name_p, string view_name_p)
     : Relation(context, RelationType::VIEW_RELATION), schema_name(move(schema_name_p)), view_name(move(view_name_p)) {
@@ -38,4 +38,4 @@ string ViewRelation::ToString(idx_t depth) {
 	return RenderWhitespace(depth) + "View [" + view_name + "]";
 }
 
-} // namespace duckdb
+} // namespace graindb

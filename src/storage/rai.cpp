@@ -1,6 +1,6 @@
-#include "duckdb/storage/rai.hpp"
+#include "graindb/storage/rai.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void RAI::GetChunk(DataChunk &right_chunk, DataChunk &rid_chunk, DataChunk &new_chunk, idx_t &left_tuple,

@@ -1,13 +1,13 @@
-#include "duckdb/function/aggregate/distributive_functions.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/vector_operations/aggregate_executor.hpp"
-#include "duckdb/common/operator/numeric_binary_operators.hpp"
+#include "graindb/function/aggregate/distributive_functions.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/aggregate_executor.hpp"
+#include "graindb/common/operator/numeric_binary_operators.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 struct sum_state_t {
 	double value;
@@ -77,4 +77,4 @@ void SumFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(sum);
 }
 
-} // namespace duckdb
+} // namespace graindb

@@ -1,22 +1,22 @@
-#include "duckdb/storage/storage_manager.hpp"
-#include "duckdb/storage/checkpoint_manager.hpp"
-#include "duckdb/storage/in_memory_block_manager.hpp"
-#include "duckdb/storage/single_file_block_manager.hpp"
+#include "graindb/storage/storage_manager.hpp"
+#include "graindb/storage/checkpoint_manager.hpp"
+#include "graindb/storage/in_memory_block_manager.hpp"
+#include "graindb/storage/single_file_block_manager.hpp"
 
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/common/file_system.hpp"
-#include "duckdb/main/database.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/function/function.hpp"
-#include "duckdb/parser/parsed_data/create_schema_info.hpp"
-#include "duckdb/transaction/transaction_manager.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/common/serializer/buffered_file_reader.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/common/file_system.hpp"
+#include "graindb/main/database.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/function/function.hpp"
+#include "graindb/parser/parsed_data/create_schema_info.hpp"
+#include "graindb/transaction/transaction_manager.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/common/serializer/buffered_file_reader.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
-StorageManager::StorageManager(DuckDB &db, string path, bool read_only)
+StorageManager::StorageManager(GrainDB &db, string path, bool read_only)
     : database(db), path(path), wal(db), read_only(read_only) {
 }
 
@@ -85,7 +85,7 @@ void StorageManager::Checkpoint(string wal_path) {
 	// this should be fixed and turned into an incremental checkpoint
 	DBConfig config;
 	config.checkpoint_only = true;
-	DuckDB db(path, &config);
+	GrainDB db(path, &config);
 }
 
 void StorageManager::LoadDatabase() {

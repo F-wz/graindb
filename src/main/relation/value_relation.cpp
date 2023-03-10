@@ -1,12 +1,12 @@
-#include "duckdb/main/relation/value_relation.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/expression/star_expression.hpp"
-#include "duckdb/parser/tableref/expressionlistref.hpp"
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/parser/parser.hpp"
+#include "graindb/main/relation/value_relation.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/expression/star_expression.hpp"
+#include "graindb/parser/tableref/expressionlistref.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/parser/parser.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 ValueRelation::ValueRelation(ClientContext &context, vector<vector<Value>> values, vector<string> names_p,
                              string alias_p)
@@ -87,4 +87,4 @@ string ValueRelation::ToString(idx_t depth) {
 	return str;
 }
 
-} // namespace duckdb
+} // namespace graindb

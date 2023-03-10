@@ -1,11 +1,11 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/storage/storage_info.hpp"
+#include "graindb/storage/storage_info.hpp"
 
 #include <fstream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test repeated load and checkpoint of storage", "[storage][.]") {
@@ -27,7 +27,7 @@ TEST_CASE("Test repeated load and checkpoint of storage", "[storage][.]") {
 
 	DeleteDatabase(storage_database);
 	for (idx_t counter = 0; counter < 100; counter++) {
-		DuckDB db(storage_database);
+		GrainDB db(storage_database);
 		Connection con(db);
 
 		if (counter > 0) {

@@ -3,71 +3,71 @@
 \docType{class}
 \name{DBI}
 \alias{DBI}
-\alias{duckdb_driver-class}
-\alias{show,duckdb_driver-method}
-\alias{dbConnect,duckdb_driver-method}
-\alias{dbDataType,duckdb_driver-method}
-\alias{dbIsValid,duckdb_driver-method}
-\alias{dbGetInfo,duckdb_driver-method}
-\alias{duckdb_connection-class}
-\alias{show,duckdb_connection-method}
-\alias{dbIsValid,duckdb_connection-method}
-\alias{dbDisconnect,duckdb_connection-method}
-\alias{dbSendQuery,duckdb_connection,character-method}
-\alias{dbSendStatement,duckdb_connection,character-method}
-\alias{dbDataType,duckdb_connection-method}
-\alias{dbWriteTable,duckdb_connection,character,data.frame-method}
-\alias{dbListTables,duckdb_connection-method}
-\alias{dbExistsTable,duckdb_connection,character-method}
-\alias{dbListFields,duckdb_connection,character-method}
-\alias{dbRemoveTable,duckdb_connection,character-method}
-\alias{dbGetInfo,duckdb_connection-method}
-\alias{dbBegin,duckdb_connection-method}
-\alias{dbCommit,duckdb_connection-method}
-\alias{dbRollback,duckdb_connection-method}
-\alias{duckdb_result-class}
-\alias{show,duckdb_result-method}
-\alias{dbClearResult,duckdb_result-method}
-\alias{dbFetch,duckdb_result-method}
-\alias{dbHasCompleted,duckdb_result-method}
-\alias{dbGetInfo,duckdb_result-method}
-\alias{dbIsValid,duckdb_result-method}
-\alias{dbGetStatement,duckdb_result-method}
-\alias{dbColumnInfo,duckdb_result-method}
-\alias{dbGetRowCount,duckdb_result-method}
-\alias{dbGetRowsAffected,duckdb_result-method}
-\alias{dbBind,duckdb_result-method}
+\alias{graindb_driver-class}
+\alias{show,graindb_driver-method}
+\alias{dbConnect,graindb_driver-method}
+\alias{dbDataType,graindb_driver-method}
+\alias{dbIsValid,graindb_driver-method}
+\alias{dbGetInfo,graindb_driver-method}
+\alias{graindb_connection-class}
+\alias{show,graindb_connection-method}
+\alias{dbIsValid,graindb_connection-method}
+\alias{dbDisconnect,graindb_connection-method}
+\alias{dbSendQuery,graindb_connection,character-method}
+\alias{dbSendStatement,graindb_connection,character-method}
+\alias{dbDataType,graindb_connection-method}
+\alias{dbWriteTable,graindb_connection,character,data.frame-method}
+\alias{dbListTables,graindb_connection-method}
+\alias{dbExistsTable,graindb_connection,character-method}
+\alias{dbListFields,graindb_connection,character-method}
+\alias{dbRemoveTable,graindb_connection,character-method}
+\alias{dbGetInfo,graindb_connection-method}
+\alias{dbBegin,graindb_connection-method}
+\alias{dbCommit,graindb_connection-method}
+\alias{dbRollback,graindb_connection-method}
+\alias{graindb_result-class}
+\alias{show,graindb_result-method}
+\alias{dbClearResult,graindb_result-method}
+\alias{dbFetch,graindb_result-method}
+\alias{dbHasCompleted,graindb_result-method}
+\alias{dbGetInfo,graindb_result-method}
+\alias{dbIsValid,graindb_result-method}
+\alias{dbGetStatement,graindb_result-method}
+\alias{dbColumnInfo,graindb_result-method}
+\alias{dbGetRowCount,graindb_result-method}
+\alias{dbGetRowsAffected,graindb_result-method}
+\alias{dbBind,graindb_result-method}
 \title{DBI methods}
 \usage{
-\S4method{show}{duckdb_driver}(object)
+\S4method{show}{graindb_driver}(object)
 
-\S4method{dbConnect}{duckdb_driver}(
+\S4method{dbConnect}{graindb_driver}(
   drv,
   dbdir = ":memory:",
   ...,
-  debug = getOption("duckdb.debug", FALSE),
+  debug = getOption("graindb.debug", FALSE),
   dbname = NA
 )
 
-\S4method{dbDataType}{duckdb_driver}(dbObj, obj, ...)
+\S4method{dbDataType}{graindb_driver}(dbObj, obj, ...)
 
-\S4method{dbIsValid}{duckdb_driver}(dbObj, ...)
+\S4method{dbIsValid}{graindb_driver}(dbObj, ...)
 
-\S4method{dbGetInfo}{duckdb_driver}(dbObj, ...)
+\S4method{dbGetInfo}{graindb_driver}(dbObj, ...)
 
-\S4method{show}{duckdb_connection}(object)
+\S4method{show}{graindb_connection}(object)
 
-\S4method{dbIsValid}{duckdb_connection}(dbObj, ...)
+\S4method{dbIsValid}{graindb_connection}(dbObj, ...)
 
-\S4method{dbDisconnect}{duckdb_connection}(conn, ...)
+\S4method{dbDisconnect}{graindb_connection}(conn, ...)
 
-\S4method{dbSendQuery}{duckdb_connection,character}(conn, statement, ...)
+\S4method{dbSendQuery}{graindb_connection,character}(conn, statement, ...)
 
-\S4method{dbSendStatement}{duckdb_connection,character}(conn, statement, ...)
+\S4method{dbSendStatement}{graindb_connection,character}(conn, statement, ...)
 
-\S4method{dbDataType}{duckdb_connection}(dbObj, obj, ...)
+\S4method{dbDataType}{graindb_connection}(dbObj, obj, ...)
 
-\S4method{dbWriteTable}{duckdb_connection,character,data.frame}(
+\S4method{dbWriteTable}{graindb_connection,character,data.frame}(
   conn,
   name,
   value,
@@ -79,43 +79,43 @@
   ...
 )
 
-\S4method{dbListTables}{duckdb_connection}(conn, ...)
+\S4method{dbListTables}{graindb_connection}(conn, ...)
 
-\S4method{dbExistsTable}{duckdb_connection,character}(conn, name, ...)
+\S4method{dbExistsTable}{graindb_connection,character}(conn, name, ...)
 
-\S4method{dbListFields}{duckdb_connection,character}(conn, name, ...)
+\S4method{dbListFields}{graindb_connection,character}(conn, name, ...)
 
-\S4method{dbRemoveTable}{duckdb_connection,character}(conn, name, ...)
+\S4method{dbRemoveTable}{graindb_connection,character}(conn, name, ...)
 
-\S4method{dbGetInfo}{duckdb_connection}(dbObj, ...)
+\S4method{dbGetInfo}{graindb_connection}(dbObj, ...)
 
-\S4method{dbBegin}{duckdb_connection}(conn, ...)
+\S4method{dbBegin}{graindb_connection}(conn, ...)
 
-\S4method{dbCommit}{duckdb_connection}(conn, ...)
+\S4method{dbCommit}{graindb_connection}(conn, ...)
 
-\S4method{dbRollback}{duckdb_connection}(conn, ...)
+\S4method{dbRollback}{graindb_connection}(conn, ...)
 
-\S4method{show}{duckdb_result}(object)
+\S4method{show}{graindb_result}(object)
 
-\S4method{dbClearResult}{duckdb_result}(res, ...)
+\S4method{dbClearResult}{graindb_result}(res, ...)
 
-\S4method{dbFetch}{duckdb_result}(res, n = -1, ...)
+\S4method{dbFetch}{graindb_result}(res, n = -1, ...)
 
-\S4method{dbHasCompleted}{duckdb_result}(res, ...)
+\S4method{dbHasCompleted}{graindb_result}(res, ...)
 
-\S4method{dbGetInfo}{duckdb_result}(dbObj, ...)
+\S4method{dbGetInfo}{graindb_result}(dbObj, ...)
 
-\S4method{dbIsValid}{duckdb_result}(dbObj, ...)
+\S4method{dbIsValid}{graindb_result}(dbObj, ...)
 
-\S4method{dbGetStatement}{duckdb_result}(res, ...)
+\S4method{dbGetStatement}{graindb_result}(res, ...)
 
-\S4method{dbColumnInfo}{duckdb_result}(res, ...)
+\S4method{dbColumnInfo}{graindb_result}(res, ...)
 
-\S4method{dbGetRowCount}{duckdb_result}(res, ...)
+\S4method{dbGetRowCount}{graindb_result}(res, ...)
 
-\S4method{dbGetRowsAffected}{duckdb_result}(res, ...)
+\S4method{dbGetRowsAffected}{graindb_result}(res, ...)
 
-\S4method{dbBind}{duckdb_result}(res, params, ...)
+\S4method{dbBind}{graindb_result}(res, params, ...)
 }
 \arguments{
 \item{object}{Any R object}

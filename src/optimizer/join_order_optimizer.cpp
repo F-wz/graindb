@@ -1,13 +1,13 @@
-#include "duckdb/optimizer/join_order_optimizer.hpp"
+#include "graindb/optimizer/join_order_optimizer.hpp"
 
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/planner/expression/list.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
-#include "duckdb/planner/operator/list.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/planner/expression/list.hpp"
+#include "graindb/planner/expression_iterator.hpp"
+#include "graindb/planner/operator/list.hpp"
 
 #include <iostream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 using json = nlohmann::json;

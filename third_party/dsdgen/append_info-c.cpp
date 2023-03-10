@@ -5,9 +5,9 @@
 #include "nulls.h"
 #include "date.h"
 
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/storage/data_table.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/storage/data_table.hpp"
 #include <cstring>
 #include <memory>
 
@@ -38,9 +38,9 @@ void append_varchar(append_info *info, const char *value) {
 }
 
 // TODO: use direct array manipulation for speed, but not now
-static void append_value(append_info *info, duckdb::Value v) {
+static void append_value(append_info *info, graindb::Value v) {
 	auto append_info = (tpcds_append_information *)info;
-	append_info->appender.Append<duckdb::Value>(v);
+	append_info->appender.Append<graindb::Value>(v);
 }
 
 void append_key(append_info *info, int64_t value) {
@@ -63,7 +63,7 @@ void append_boolean(append_info *info, int32_t value) {
 void append_date(append_info *info, int64_t value) {
 	date_t dTemp;
 	jtodt(&dTemp, (int)value);
-	auto ddate = duckdb::Date::FromDate(dTemp.year, dTemp.month, dTemp.day);
+	auto ddate = graindb::Date::FromDate(dTemp.year, dTemp.month, dTemp.day);
 	append_integer(info, (int32_t) ddate);
 }
 

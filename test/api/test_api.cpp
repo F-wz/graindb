@@ -4,11 +4,11 @@
 #include <chrono>
 #include <thread>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test using connection after database is gone", "[api]") {
-	auto db = make_unique<DuckDB>(nullptr);
+	auto db = make_unique<GrainDB>(nullptr);
 	auto conn = make_unique<Connection>(*db);
 	// check that the connection works
 	auto result = conn->Query("SELECT 42");
@@ -19,7 +19,7 @@ TEST_CASE("Test using connection after database is gone", "[api]") {
 	REQUIRE_FAIL(conn->Query("SELECT 42"));
 
 	// now try it with an open transaction
-	db = make_unique<DuckDB>(nullptr);
+	db = make_unique<GrainDB>(nullptr);
 	conn = make_unique<Connection>(*db);
 
 	REQUIRE_NO_FAIL(conn->Query("BEGIN TRANSACTION"));
@@ -32,7 +32,7 @@ TEST_CASE("Test using connection after database is gone", "[api]") {
 }
 
 TEST_CASE("Test destroying connections with open transactions", "[api]") {
-	auto db = make_unique<DuckDB>(nullptr);
+	auto db = make_unique<GrainDB>(nullptr);
 	{
 		Connection con(*db);
 		con.Query("BEGIN TRANSACTION");
@@ -53,7 +53,7 @@ static void long_running_query(Connection *conn, bool *correct) {
 }
 
 TEST_CASE("Test closing database during long running query", "[api]") {
-	auto db = make_unique<DuckDB>(nullptr);
+	auto db = make_unique<GrainDB>(nullptr);
 	auto conn = make_unique<Connection>(*db);
 	// create the database
 	REQUIRE_NO_FAIL(conn->Query("CREATE TABLE integers(i INTEGER)"));
@@ -74,7 +74,7 @@ TEST_CASE("Test closing database during long running query", "[api]") {
 }
 
 TEST_CASE("Test closing result after database is gone", "[api]") {
-	auto db = make_unique<DuckDB>(nullptr);
+	auto db = make_unique<GrainDB>(nullptr);
 	auto conn = make_unique<Connection>(*db);
 	// check that the connection works
 	auto result = conn->Query("SELECT 42");
@@ -85,7 +85,7 @@ TEST_CASE("Test closing result after database is gone", "[api]") {
 	result.reset();
 
 	// now the streaming result
-	db = make_unique<DuckDB>(nullptr);
+	db = make_unique<GrainDB>(nullptr);
 	conn = make_unique<Connection>(*db);
 	// check that the connection works
 	auto streaming_result = conn->SendQuery("SELECT 42");
@@ -96,7 +96,7 @@ TEST_CASE("Test closing result after database is gone", "[api]") {
 }
 
 TEST_CASE("Test closing database with open prepared statements", "[api]") {
-	auto db = make_unique<DuckDB>(nullptr);
+	auto db = make_unique<GrainDB>(nullptr);
 	auto conn = make_unique<Connection>(*db);
 
 	auto p1 = conn->Prepare("CREATE TABLE a (i INTEGER)");
@@ -119,7 +119,7 @@ static void parallel_query(Connection *conn, bool *correct, size_t threadnr) {
 }
 
 TEST_CASE("Test parallel usage of single client", "[api][.]") {
-	auto db = make_unique<DuckDB>(nullptr);
+	auto db = make_unique<GrainDB>(nullptr);
 	auto conn = make_unique<Connection>(*db);
 
 	REQUIRE_NO_FAIL(conn->Query("CREATE TABLE integers(i INTEGER)"));
@@ -136,7 +136,7 @@ TEST_CASE("Test parallel usage of single client", "[api][.]") {
 	}
 }
 
-static void parallel_query_with_new_connection(DuckDB *db, bool *correct, size_t threadnr) {
+static void parallel_query_with_new_connection(GrainDB *db, bool *correct, size_t threadnr) {
 	correct[threadnr] = true;
 	for (size_t i = 0; i < 100; i++) {
 		auto conn = make_unique<Connection>(*db);
@@ -148,7 +148,7 @@ static void parallel_query_with_new_connection(DuckDB *db, bool *correct, size_t
 }
 
 TEST_CASE("Test making and dropping connections in parallel to a single database", "[api][.]") {
-	auto db = make_unique<DuckDB>(nullptr);
+	auto db = make_unique<GrainDB>(nullptr);
 	auto conn = make_unique<Connection>(*db);
 
 	REQUIRE_NO_FAIL(conn->Query("CREATE TABLE integers(i INTEGER)"));
@@ -173,7 +173,7 @@ TEST_CASE("Test making and dropping connections in parallel to a single database
 
 TEST_CASE("Test multiple result sets", "[api]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -192,7 +192,7 @@ TEST_CASE("Test multiple result sets", "[api]") {
 }
 
 TEST_CASE("Test fetch API", "[api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -219,7 +219,7 @@ TEST_CASE("Test fetch API", "[api]") {
 }
 
 TEST_CASE("Test fetch API robustness", "[api]") {
-	auto db = make_unique<DuckDB>(nullptr);
+	auto db = make_unique<GrainDB>(nullptr);
 	auto conn = make_unique<Connection>(*db);
 
 	// remove connection with active stream result
@@ -242,7 +242,7 @@ TEST_CASE("Test fetch API robustness", "[api]") {
 	REQUIRE_FAIL(conn->SendQuery("SELECT 42"));
 
 	// override fetch result
-	db = make_unique<DuckDB>(nullptr);
+	db = make_unique<GrainDB>(nullptr);
 	conn = make_unique<Connection>(*db);
 	auto result1 = conn->SendQuery("SELECT 42");
 	auto result2 = conn->SendQuery("SELECT 84");
@@ -288,7 +288,7 @@ static void VerifyStreamResult(unique_ptr<QueryResult> result) {
 }
 
 TEST_CASE("Test fetch API with big results", "[api][.]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

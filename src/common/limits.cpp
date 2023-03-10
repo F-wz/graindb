@@ -1,10 +1,10 @@
-#include "duckdb/common/limits.hpp"
+#include "graindb/common/limits.hpp"
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 // we offset the minimum value by 1 to account for the NULL value in the
 // hashtables
@@ -59,4 +59,4 @@ TypeId MinimalType(int64_t value) {
 	return TypeId::INT64;
 }
 
-} // namespace duckdb
+} // namespace graindb

@@ -1,8 +1,8 @@
-#include "duckdb/execution/operator/scan/physical_expression_scan.hpp"
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/planner/operator/logical_expression_get.hpp"
+#include "graindb/execution/operator/scan/physical_expression_scan.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/planner/operator/logical_expression_get.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreatePlan(LogicalExpressionGet &op) {

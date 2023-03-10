@@ -1,4 +1,4 @@
-add_definitions(-DDUCKDB)
+add_definitions(-DGRAINDB)
 
 if(NOT MSVC)
   set(
@@ -18,11 +18,11 @@ if(AMALGAMATION_BUILD)
     add_definitions(/bigobj)
   endif()
 
-  add_library(duckdb SHARED "${CMAKE_SOURCE_DIR}/src/amalgamation/duckdb.cpp")
-  add_library(duckdb_static STATIC
-              "${CMAKE_SOURCE_DIR}/src/amalgamation/duckdb.cpp")
+  add_library(graindb SHARED "${CMAKE_SOURCE_DIR}/src/amalgamation/graindb.cpp")
+  add_library(graindb_static STATIC
+              "${CMAKE_SOURCE_DIR}/src/amalgamation/graindb.cpp")
 
-  install(FILES "${CMAKE_SOURCE_DIR}/src/amalgamation/duckdb.hpp"
+  install(FILES "${CMAKE_SOURCE_DIR}/src/amalgamation/graindb.hpp"
           DESTINATION "${INSTALL_INCLUDE_DIR}")
 
 else()
@@ -38,7 +38,7 @@ else()
   add_subdirectory(storage)
   add_subdirectory(transaction)
 
-  set(DUCKDB_LINK_LIBS
+  set(GRAINDB_LINK_LIBS
       fmt
       pg_query
       hyperloglog
@@ -48,33 +48,33 @@ else()
       nlohmann_json
       Threads::Threads)
 
-  add_library(duckdb SHARED ${ALL_OBJECT_FILES})
-  target_link_libraries(duckdb ${DUCKDB_LINK_LIBS})
+  add_library(graindb SHARED ${ALL_OBJECT_FILES})
+  target_link_libraries(graindb ${GRAINDB_LINK_LIBS})
 
-  add_library(duckdb_static STATIC ${ALL_OBJECT_FILES})
-  target_link_libraries(duckdb_static ${DUCKDB_LINK_LIBS})
+  add_library(graindb_static STATIC ${ALL_OBJECT_FILES})
+  target_link_libraries(graindb_static ${GRAINDB_LINK_LIBS})
 
   target_include_directories(
-    duckdb
+    graindb
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
   target_include_directories(
-    duckdb_static
+    graindb_static
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
-  install(DIRECTORY "${CMAKE_SOURCE_DIR}/src/include/duckdb"
+  install(DIRECTORY "${CMAKE_SOURCE_DIR}/src/include/graindb"
           DESTINATION "${INSTALL_INCLUDE_DIR}"
           FILES_MATCHING
           PATTERN "*.hpp")
-  install(FILES "${CMAKE_SOURCE_DIR}/src/include/duckdb.hpp"
-                "${CMAKE_SOURCE_DIR}/src/include/duckdb.h"
+  install(FILES "${CMAKE_SOURCE_DIR}/src/include/graindb.hpp"
+                "${CMAKE_SOURCE_DIR}/src/include/graindb.h"
           DESTINATION "${INSTALL_INCLUDE_DIR}")
 
 endif()
 
-install(TARGETS duckdb duckdb_static
-        EXPORT "${DUCKDB_EXPORT_SET}"
+install(TARGETS graindb graindb_static
+        EXPORT "${GRAINDB_EXPORT_SET}"
         LIBRARY DESTINATION "${INSTALL_LIB_DIR}"
         ARCHIVE DESTINATION "${INSTALL_LIB_DIR}")

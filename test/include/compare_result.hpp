@@ -1,16 +1,16 @@
 #pragma once
 
-#include "duckdb/common/string_util.hpp"
-#include "duckdb.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb.hpp"
 
-namespace duckdb {
+namespace graindb {
 
-bool CHECK_COLUMN(QueryResult &result, size_t column_number, vector<duckdb::Value> values);
-bool CHECK_COLUMN(unique_ptr<duckdb::QueryResult> &result, size_t column_number, vector<duckdb::Value> values);
-bool CHECK_COLUMN(unique_ptr<duckdb::MaterializedQueryResult> &result, size_t column_number,
-                  vector<duckdb::Value> values);
+bool CHECK_COLUMN(QueryResult &result, size_t column_number, vector<graindb::Value> values);
+bool CHECK_COLUMN(unique_ptr<graindb::QueryResult> &result, size_t column_number, vector<graindb::Value> values);
+bool CHECK_COLUMN(unique_ptr<graindb::MaterializedQueryResult> &result, size_t column_number,
+                  vector<graindb::Value> values);
 
-string compare_csv(duckdb::QueryResult &result, string csv, bool header = false);
+string compare_csv(graindb::QueryResult &result, string csv, bool header = false);
 
 bool parse_datachunk(string csv, DataChunk &result, vector<SQLType> sql_types, bool has_header);
 
@@ -19,4 +19,4 @@ bool parse_datachunk(string csv, DataChunk &result, vector<SQLType> sql_types, b
 bool compare_result(string csv, ChunkCollection &collection, vector<SQLType> sql_types, bool has_header,
                     string &error_message);
 
-} // namespace duckdb
+} // namespace graindb

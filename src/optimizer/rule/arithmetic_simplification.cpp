@@ -1,10 +1,10 @@
-#include "duckdb/optimizer/rule/arithmetic_simplification.hpp"
+#include "graindb/optimizer/rule/arithmetic_simplification.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ArithmeticSimplificationRule::ArithmeticSimplificationRule(ExpressionRewriter &rewriter) : Rule(rewriter) {

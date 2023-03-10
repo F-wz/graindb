@@ -1,9 +1,9 @@
-#include "duckdb/main/relation/aggregate_relation.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/tableref/subqueryref.hpp"
+#include "graindb/main/relation/aggregate_relation.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/tableref/subqueryref.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 AggregateRelation::AggregateRelation(shared_ptr<Relation> child_p,
                                      vector<unique_ptr<ParsedExpression>> parsed_expressions)
@@ -76,4 +76,4 @@ string AggregateRelation::ToString(idx_t depth) {
 	return str + child->ToString(depth + 1);
 }
 
-} // namespace duckdb
+} // namespace graindb

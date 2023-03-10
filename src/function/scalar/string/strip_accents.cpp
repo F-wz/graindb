@@ -1,10 +1,10 @@
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
 #include "utf8proc.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static bool is_ascii(const char *input, idx_t n) {
 	for (idx_t i = 0; i < n; i++) {
@@ -43,4 +43,4 @@ void StripAccentsFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(StripAccentsFun::GetFunction());
 }
 
-} // namespace duckdb
+} // namespace graindb

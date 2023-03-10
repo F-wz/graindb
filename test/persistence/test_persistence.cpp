@@ -1,14 +1,14 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
-#include "duckdb.hpp"
-#include "duckdb/main/appender.hpp"
+#include "graindb/common/file_system.hpp"
+#include "graindb.hpp"
+#include "graindb/main/appender.hpp"
 #include "test_helpers.hpp"
 
 #include <signal.h>
 #include <sys/mman.h>
 #include <unistd.h>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test transactional integrity when facing process aborts", "[persistence][.]") {
@@ -25,7 +25,7 @@ TEST_CASE("Test transactional integrity when facing process aborts", "[persisten
 
 	string db_folder = fs.JoinPath(db_folder_parent, "dbfolder");
 	{
-		DuckDB db(db_folder);
+		GrainDB db(db_folder);
 		Connection con(db);
 		con.Query("CREATE TABLE a (i INTEGER)");
 	}
@@ -34,7 +34,7 @@ TEST_CASE("Test transactional integrity when facing process aborts", "[persisten
 	pid_t pid = fork();
 
 	if (pid == 0) { // child process
-		DuckDB db(db_folder);
+		GrainDB db(db_folder);
 		Connection con(db);
 		while (true) {
 			con.Query("INSERT INTO a VALUES(42)");
@@ -48,13 +48,13 @@ TEST_CASE("Test transactional integrity when facing process aborts", "[persisten
 		if (kill(pid, SIGKILL) != 0) {
 			FAIL();
 		}
-		unique_ptr<DuckDB> db;
+		unique_ptr<GrainDB> db;
 		// it may take some time for the OS to reclaim the lock
 		// loop and wait until the database is successfully started again
 		for (size_t i = 0; i < 1000; i++) {
 			usleep(10000);
 			try {
-				db = make_unique<DuckDB>(db_folder);
+				db = make_unique<GrainDB>(db_folder);
 			} catch (...) {
 			}
 			if (db) {

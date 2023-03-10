@@ -1,13 +1,13 @@
 #include "catch.hpp"
-#include "duckdb/common/helper.hpp"
+#include "graindb/common/helper.hpp"
 #include "expression_helper.hpp"
-#include "duckdb/optimizer/cse_optimizer.hpp"
-#include "duckdb/planner/expression/bound_comparison_expression.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/planner/expression/common_subexpression.hpp"
+#include "graindb/optimizer/cse_optimizer.hpp"
+#include "graindb/planner/expression/bound_comparison_expression.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/planner/expression/common_subexpression.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test CSE Optimizer", "[optimizer]") {
@@ -59,7 +59,7 @@ TEST_CASE("Test CSE Optimizer", "[optimizer]") {
 }
 
 TEST_CASE("CSE NULL*MIN(42) defense", "[optimizer]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

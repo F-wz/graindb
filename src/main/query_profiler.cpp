@@ -1,16 +1,16 @@
-#include "duckdb/main/query_profiler.hpp"
+#include "graindb/main/query_profiler.hpp"
 
-#include "duckdb/common/fstream.hpp"
-#include "duckdb/common/printer.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/execution/physical_operator.hpp"
-#include "duckdb/execution/operator/scan/physical_table_scan.hpp"
-#include "duckdb/parser/sql_statement.hpp"
+#include "graindb/common/fstream.hpp"
+#include "graindb/common/printer.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/execution/physical_operator.hpp"
+#include "graindb/execution/operator/scan/physical_table_scan.hpp"
+#include "graindb/parser/sql_statement.hpp"
 
 #include <iostream>
 #include <utility>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 constexpr idx_t TREE_RENDER_WIDTH = 20;

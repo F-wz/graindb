@@ -1,6 +1,6 @@
-#include "duckdb/main/query_result.hpp"
+#include "graindb/main/query_result.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 QueryResult::QueryResult(QueryResultType type, StatementType statement_type)

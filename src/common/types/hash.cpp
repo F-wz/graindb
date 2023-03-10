@@ -1,13 +1,13 @@
-#include "duckdb/common/types/hash.hpp"
-#include "duckdb/common/types/string_type.hpp"
+#include "graindb/common/types/hash.hpp"
+#include "graindb/common/types/string_type.hpp"
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 
 #include <functional>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 template <> hash_t Hash(uint64_t val) {
 	return murmurhash64(val);
@@ -62,4 +62,4 @@ hash_t Hash(uint8_t *val, size_t size) {
 	return Hash((const char *)val, size);
 }
 
-} // namespace duckdb
+} // namespace graindb

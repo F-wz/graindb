@@ -1,21 +1,21 @@
-#include "duckdb/storage/data_table.hpp"
+#include "graindb/storage/data_table.hpp"
 
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/helper.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/planner/constraints/list.hpp"
-#include "duckdb/storage/storage_manager.hpp"
-#include "duckdb/storage/string_segment.hpp"
-#include "duckdb/storage/table/transient_segment.hpp"
-#include "duckdb/transaction/transaction.hpp"
-#include "duckdb/transaction/transaction_manager.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/helper.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/planner/constraints/list.hpp"
+#include "graindb/storage/storage_manager.hpp"
+#include "graindb/storage/string_segment.hpp"
+#include "graindb/storage/table/transient_segment.hpp"
+#include "graindb/transaction/transaction.hpp"
+#include "graindb/transaction/transaction_manager.hpp"
 
 #include <iostream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 using namespace chrono;
 

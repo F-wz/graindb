@@ -1,12 +1,12 @@
-#include "duckdb/parser/tableref/joinref.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression_binder/where_binder.hpp"
-#include "duckdb/planner/tableref/bound_joinref.hpp"
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/expression/comparison_expression.hpp"
-#include "duckdb/parser/expression/conjunction_expression.hpp"
+#include "graindb/parser/tableref/joinref.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression_binder/where_binder.hpp"
+#include "graindb/planner/tableref/bound_joinref.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/expression/comparison_expression.hpp"
+#include "graindb/parser/expression/conjunction_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<BoundTableRef> Binder::Bind(JoinRef &ref) {

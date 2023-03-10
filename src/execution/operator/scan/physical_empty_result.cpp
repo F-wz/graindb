@@ -1,6 +1,6 @@
-#include "duckdb/execution/operator/scan/physical_empty_result.hpp"
+#include "graindb/execution/operator/scan/physical_empty_result.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void PhysicalEmptyResult::GetChunkInternal(ClientContext &context, DataChunk &chunk, PhysicalOperatorState *state,

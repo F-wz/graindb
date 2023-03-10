@@ -1,8 +1,8 @@
-#include "duckdb/common/serializer/buffered_serializer.hpp"
+#include "graindb/common/serializer/buffered_serializer.hpp"
 
 #include <cstring>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BufferedSerializer::BufferedSerializer(idx_t maximum_size)

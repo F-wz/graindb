@@ -1,9 +1,9 @@
-#include "duckdb/planner/expression/bound_aggregate_expression.hpp"
-#include "duckdb/catalog/catalog_entry/aggregate_function_catalog_entry.hpp"
-#include "duckdb/common/types/hash.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/planner/expression/bound_aggregate_expression.hpp"
+#include "graindb/catalog/catalog_entry/aggregate_function_catalog_entry.hpp"
+#include "graindb/common/types/hash.hpp"
+#include "graindb/common/string_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundAggregateExpression::BoundAggregateExpression(TypeId return_type, AggregateFunction function, bool distinct)
@@ -23,8 +23,8 @@ string BoundAggregateExpression::ToString() const {
 }
 hash_t BoundAggregateExpression::Hash() const {
 	hash_t result = Expression::Hash();
-	result = CombineHash(result, duckdb::Hash(function.name.c_str()));
-	result = CombineHash(result, duckdb::Hash(distinct));
+	result = CombineHash(result, graindb::Hash(function.name.c_str()));
+	result = CombineHash(result, graindb::Hash(distinct));
 	return result;
 }
 

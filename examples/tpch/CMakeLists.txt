@@ -7,4 +7,4 @@ include_directories(../../src/include)
 link_directories(../../build/release/src)
 
 add_executable(tpch main.cpp)
-target_link_libraries(tpch duckdb)
+target_link_libraries(tpch graindb)

@@ -14,6 +14,6 @@ add_subdirectory(nlohmann_json)
 set(CMAKE_BUILD_TYPE "Release")
 
 install(TARGETS nlohmann_json
-        EXPORT "${DUCKDB_EXPORT_SET}"
+        EXPORT "${GRAINDB_EXPORT_SET}"
         LIBRARY DESTINATION "${INSTALL_LIB_DIR}"
         ARCHIVE DESTINATION "${INSTALL_LIB_DIR}")

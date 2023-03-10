@@ -1,12 +1,12 @@
-#include "duckdb/main/relation/table_relation.hpp"
-#include "duckdb/parser/tableref/basetableref.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/expression/star_expression.hpp"
-#include "duckdb/main/relation/delete_relation.hpp"
-#include "duckdb/main/relation/update_relation.hpp"
-#include "duckdb/parser/parser.hpp"
+#include "graindb/main/relation/table_relation.hpp"
+#include "graindb/parser/tableref/basetableref.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/expression/star_expression.hpp"
+#include "graindb/main/relation/delete_relation.hpp"
+#include "graindb/main/relation/update_relation.hpp"
+#include "graindb/parser/parser.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 TableRelation::TableRelation(ClientContext &context, unique_ptr<TableDescription> description)
     : Relation(context, RelationType::TABLE_RELATION), description(move(description)) {
@@ -66,4 +66,4 @@ void TableRelation::Delete(string condition) {
 	del->Execute();
 }
 
-} // namespace duckdb
+} // namespace graindb

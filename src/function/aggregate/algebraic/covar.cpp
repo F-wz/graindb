@@ -1,11 +1,11 @@
-#include "duckdb/function/aggregate/algebraic_functions.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/function/function_set.hpp"
+#include "graindb/function/aggregate/algebraic_functions.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/function/function_set.hpp"
 #include <cmath>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 struct covar_state_t {

@@ -1,24 +1,24 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/main/appender.hpp"
+#include "graindb/main/appender.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test empty startup", "[storage]") {
 	auto config = GetTestConfig();
-	unique_ptr<DuckDB> db;
+	unique_ptr<GrainDB> db;
 	unique_ptr<QueryResult> result;
 	auto storage_database = TestCreatePath("storage_test");
 
 	// make sure the database does not exist
 	DeleteDatabase(storage_database);
 	// create a database and close it
-	REQUIRE_NOTHROW(db = make_unique<DuckDB>(storage_database, config.get()));
+	REQUIRE_NOTHROW(db = make_unique<GrainDB>(storage_database, config.get()));
 	db.reset();
 	// reload the database
-	REQUIRE_NOTHROW(db = make_unique<DuckDB>(storage_database, config.get()));
+	REQUIRE_NOTHROW(db = make_unique<GrainDB>(storage_database, config.get()));
 	db.reset();
 	DeleteDatabase(storage_database);
 }
@@ -34,7 +34,7 @@ TEST_CASE("Test empty table", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b VARCHAR);"));
 
@@ -42,13 +42,13 @@ TEST_CASE("Test empty table", "[storage]") {
 		REQUIRE(CHECK_COLUMN(result, 0, {0}));
 	}
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT COUNT(*) FROM test");
 		REQUIRE(CHECK_COLUMN(result, 0, {0}));
 	}
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT COUNT(*) FROM test");
 		REQUIRE(CHECK_COLUMN(result, 0, {0}));
@@ -64,7 +64,7 @@ TEST_CASE("Test simple storage", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (11, 22), (13, 22), (12, 21), (NULL, NULL)"));
@@ -73,7 +73,7 @@ TEST_CASE("Test simple storage", "[storage]") {
 	}
 	// reload the database from disk a few times
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT * FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {Value(), 11, 12, 13}));
@@ -93,7 +93,7 @@ TEST_CASE("Test storing NULLs and strings", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b STRING);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (NULL, 'hello'), "
@@ -101,7 +101,7 @@ TEST_CASE("Test storing NULLs and strings", "[storage]") {
 	}
 	// reload the database from disk a few times
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT a, b FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {Value(), 12, 13}));
@@ -119,7 +119,7 @@ TEST_CASE("Test updates/deletes and strings", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b STRING);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (NULL, 'hello'), "
@@ -135,7 +135,7 @@ TEST_CASE("Test updates/deletes and strings", "[storage]") {
 	}
 	// reload the database from disk a few times
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT a, b FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {Value(), 13, 14}));
@@ -153,7 +153,7 @@ TEST_CASE("Test deletes with storage", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("BEGIN TRANSACTION;"));
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
@@ -166,7 +166,7 @@ TEST_CASE("Test deletes with storage", "[storage]") {
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT a, b FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {11, 13}));
@@ -184,7 +184,7 @@ TEST_CASE("Test updates with storage", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("BEGIN TRANSACTION;"));
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
@@ -195,7 +195,7 @@ TEST_CASE("Test updates with storage", "[storage]") {
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT a, b FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {11, 12, 13}));
@@ -213,7 +213,7 @@ TEST_CASE("Test mix of updates and deletes with storage", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("BEGIN TRANSACTION;"));
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
@@ -227,7 +227,7 @@ TEST_CASE("Test mix of updates and deletes with storage", "[storage]") {
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT a, b FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {11, 13}));
@@ -246,7 +246,7 @@ TEST_CASE("Test large inserts in a single transaction", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("BEGIN TRANSACTION;"));
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
@@ -266,7 +266,7 @@ TEST_CASE("Test large inserts in a single transaction", "[storage]") {
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT SUM(a), SUM(b), COUNT(*) FROM test");
 		REQUIRE(CHECK_COLUMN(result, 0, {Value::BIGINT(expected_sum_a)}));
@@ -285,7 +285,7 @@ TEST_CASE("Test interleaving of insertions/updates/deletes on multiple tables", 
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("BEGIN TRANSACTION;"));
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER);"));
@@ -333,7 +333,7 @@ TEST_CASE("Test interleaving of insertions/updates/deletes on multiple tables", 
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT SUM(a) FROM test ORDER BY 1");
 		REQUIRE(CHECK_COLUMN(result, 0, {396008}));
@@ -354,7 +354,7 @@ TEST_CASE("Test update/deletes on big table", "[storage][.]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a big table
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER);"));
 		Appender appender(con, "test");
@@ -382,7 +382,7 @@ TEST_CASE("Test update/deletes on big table", "[storage][.]") {
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT SUM(a), COUNT(a) FROM test");
 		REQUIRE(CHECK_COLUMN(result, 0, {50148000}));
@@ -408,14 +408,14 @@ TEST_CASE("Test updates/deletes/insertions on persistent segments", "[storage]")
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test(a INTEGER, b INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (1, 3), (NULL, NULL)"));
 	}
 	// reload the database from disk
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (2, 2)"));
 		result = con.Query("SELECT * FROM test ORDER BY a");
@@ -425,7 +425,7 @@ TEST_CASE("Test updates/deletes/insertions on persistent segments", "[storage]")
 	// reload the database from disk, we do this again because checkpointing at startup causes this to follow a
 	// different code path
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (3, 3)"));
 
@@ -436,7 +436,7 @@ TEST_CASE("Test updates/deletes/insertions on persistent segments", "[storage]")
 		REQUIRE(CHECK_COLUMN(result, 1, {Value(), 4, 2, 3}));
 	}
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT * FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {Value(), 1, 2, 3}));
@@ -449,7 +449,7 @@ TEST_CASE("Test updates/deletes/insertions on persistent segments", "[storage]")
 		REQUIRE(CHECK_COLUMN(result, 1, {Value(), 2, 3, 4}));
 	}
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT * FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {Value(), 2, 3, 4}));
@@ -462,7 +462,7 @@ TEST_CASE("Test updates/deletes/insertions on persistent segments", "[storage]")
 		REQUIRE(CHECK_COLUMN(result, 1, {Value(), 2, 3, 5}));
 	}
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT * FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {Value(), 2, 3, 6}));

@@ -1,9 +1,9 @@
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression/bound_case_expression.hpp"
-#include "duckdb/common/types/chunk_collection.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression/bound_case_expression.hpp"
+#include "graindb/common/types/chunk_collection.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void Case(Vector &res_true, Vector &res_false, Vector &result, SelectionVector &tside, idx_t tcount,

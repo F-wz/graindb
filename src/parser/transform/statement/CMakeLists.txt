@@ -1,4 +1,4 @@
-add_library_unity(duckdb_transformer_statement
+add_library_unity(graindb_transformer_statement
                   OBJECT
                   transform_alter_table.cpp
                   transform_copy.cpp
@@ -23,5 +23,5 @@ add_library_unity(duckdb_transformer_statement
                   transform_create_sequence.cpp
                   transform_vacuum.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_transformer_statement>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_transformer_statement>
     PARENT_SCOPE)

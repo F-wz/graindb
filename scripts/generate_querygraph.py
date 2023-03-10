@@ -1,12 +1,12 @@
 # generate_querygraph.py
-# This script takes a json file as input that is the result of the QueryProfiler of duckdb
+# This script takes a json file as input that is the result of the QueryProfiler of graindb
 # and converts it into a Query Graph.
 
 import os
 import sys
 sys.path.insert(0, 'benchmark')
 
-import duckdb_query_graph
+import graindb_query_graph
 
 if len(sys.argv) <= 1:
 	print("Usage: python generate_querygraph.py [input.json] [output.html] [open={1,0}]")
@@ -34,13 +34,13 @@ if len(sys.argv) >= 4:
 		exit(1)
 
 
-duckdb_query_graph.generate(input, output)
+graindb_query_graph.generate(input, output)
 
 with open(output, 'r') as f:
 	text = f.read()
 
 #inline javascript files
-javascript_base = os.path.join('tools', 'pythonpkg', 'duckdb_query_graph')
+javascript_base = os.path.join('tools', 'pythonpkg', 'graindb_query_graph')
 with open(os.path.join(javascript_base, 'raphael.js'), 'r') as f:
 	raphael = f.read()
 

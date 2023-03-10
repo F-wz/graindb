@@ -1,7 +1,7 @@
-#include "duckdb/main/relation/subquery_relation.hpp"
-#include "duckdb/main/client_context.hpp"
+#include "graindb/main/relation/subquery_relation.hpp"
+#include "graindb/main/client_context.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 SubqueryRelation::SubqueryRelation(shared_ptr<Relation> child_p, string alias_p)
     : Relation(child_p->context, RelationType::SUBQUERY_RELATION), child(move(child_p)), alias(move(alias_p)) {
@@ -25,4 +25,4 @@ string SubqueryRelation::ToString(idx_t depth) {
 	return child->ToString(depth);
 }
 
-} // namespace duckdb
+} // namespace graindb

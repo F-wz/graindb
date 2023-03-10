@@ -1,13 +1,13 @@
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/vector_operations/ternary_executor.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/ternary_executor.hpp"
 #include "utf8proc.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 string_t SubstringFun::substring_ascii_only(Vector &result, const char *input_data, int offset, int length) {
 	auto result_string = StringVector::EmptyString(result, length);
@@ -98,4 +98,4 @@ void SubstringFun::RegisterFunction(BuiltinFunctions &set) {
 	                                                        SQLType::VARCHAR, substring_function));
 }
 
-} // namespace duckdb
+} // namespace graindb

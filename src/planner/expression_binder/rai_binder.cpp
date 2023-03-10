@@ -1,6 +1,6 @@
-#include "duckdb/planner/expression_binder/rai_binder.hpp"
+#include "graindb/planner/expression_binder/rai_binder.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 RAIBinder::RAIBinder(Binder &binder, ClientContext &context) : ExpressionBinder(binder, context) {

@@ -1,6 +1,6 @@
-#include "duckdb/planner/expression_binder/constant_binder.hpp"
+#include "graindb/planner/expression_binder/constant_binder.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ConstantBinder::ConstantBinder(Binder &binder, ClientContext &context, string clause)

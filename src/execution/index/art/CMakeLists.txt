@@ -1,5 +1,5 @@
 add_library_unity(
-  duckdb_art_index_execution
+  graindb_art_index_execution
   OBJECT
   art_key.cpp
   leaf.cpp
@@ -11,5 +11,5 @@ add_library_unity(
   art.cpp)
 
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_art_index_execution>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_art_index_execution>
     PARENT_SCOPE)

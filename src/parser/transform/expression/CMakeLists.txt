@@ -1,4 +1,4 @@
-add_library_unity(duckdb_transformer_expression
+add_library_unity(graindb_transformer_expression
                   OBJECT
                   transform_bool_expr.cpp
                   transform_case.cpp
@@ -13,5 +13,5 @@ add_library_unity(duckdb_transformer_expression
                   transform_param_ref.cpp
                   transform_subquery.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_transformer_expression>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_transformer_expression>
     PARENT_SCOPE)

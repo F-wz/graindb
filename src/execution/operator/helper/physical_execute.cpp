@@ -1,6 +1,6 @@
-#include "duckdb/execution/operator/helper/physical_execute.hpp"
+#include "graindb/execution/operator/helper/physical_execute.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void PhysicalExecute::GetChunkInternal(ClientContext &context, DataChunk &chunk, PhysicalOperatorState *state_,

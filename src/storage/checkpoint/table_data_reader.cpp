@@ -1,18 +1,18 @@
-#include "duckdb/storage/checkpoint/table_data_reader.hpp"
-#include "duckdb/storage/checkpoint/table_data_writer.hpp"
-#include "duckdb/storage/meta_block_reader.hpp"
+#include "graindb/storage/checkpoint/table_data_reader.hpp"
+#include "graindb/storage/checkpoint/table_data_writer.hpp"
+#include "graindb/storage/meta_block_reader.hpp"
 
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/types/null_value.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/types/null_value.hpp"
 
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
 
-#include "duckdb/planner/parsed_data/bound_create_table_info.hpp"
+#include "graindb/planner/parsed_data/bound_create_table_info.hpp"
 
-#include "duckdb/main/database.hpp"
-#include "duckdb/main/client_context.hpp"
+#include "graindb/main/database.hpp"
+#include "graindb/main/client_context.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TableDataReader::TableDataReader(CheckpointManager &manager, MetaBlockReader &reader, BoundCreateTableInfo &info)

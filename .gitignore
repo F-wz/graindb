@@ -306,8 +306,8 @@ third_party/imdb/small_data
 # Benchmarks
 .last_benchmarked_commit
 benchmark_results/
-duckdb_benchmark_data/
-duckdb_unittest_tempdir/
+graindb_benchmark_data/
+graindb_unittest_tempdir/
 grammar.y.tmp
 src/amalgamation/
 # single file compile

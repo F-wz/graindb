@@ -1,10 +1,10 @@
-#include "duckdb/parser/expression/comparison_expression.hpp"
+#include "graindb/parser/expression/comparison_expression.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/parser/expression/cast_expression.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/parser/expression/cast_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ComparisonExpression::ComparisonExpression(ExpressionType type, unique_ptr<ParsedExpression> left,

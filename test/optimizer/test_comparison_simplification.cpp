@@ -1,9 +1,9 @@
 #include "catch.hpp"
-#include "duckdb/common/helper.hpp"
+#include "graindb/common/helper.hpp"
 #include "expression_helper.hpp"
-#include "duckdb/optimizer/rule/comparison_simplification.hpp"
+#include "graindb/optimizer/rule/comparison_simplification.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Comparison simplification test", "[optimizer]") {

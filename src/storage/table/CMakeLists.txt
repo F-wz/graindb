@@ -1,4 +1,4 @@
-add_library_unity(duckdb_storage_table
+add_library_unity(graindb_storage_table
                   OBJECT
                   chunk_info.cpp
                   column_segment.cpp
@@ -7,5 +7,5 @@ add_library_unity(duckdb_storage_table
                   transient_segment.cpp
                   version_manager.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_storage_table>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_storage_table>
     PARENT_SCOPE)

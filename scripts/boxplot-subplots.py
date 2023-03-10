@@ -15,7 +15,7 @@ data2 = []
 data3 = []
 
 # source_file = str(sys.argv[1])
-source_file1 = "/Users/guodong/Developer/graindb-benchmark/job_113_runtime_duck_grain.csv"
+source_file1 = "/Users/guodong/Developer/graindb-benchmark/job_113_runtime_grain_grain.csv"
 source_file2 = "/Users/guodong/Developer/graindb-benchmark/ldbc_light_numbers.csv"
 source_file3 = "/Users/guodong/Developer/graindb-benchmark/tpch_sf10.csv"
 
@@ -68,16 +68,16 @@ axes1.set_ylabel('runtime in msec (log scale)', fontsize=16)
 axes1.set_title('JOB', fontsize=16)
 axes1.set_yscale('log')
 axes1.tick_params(axis='both', labelsize=14)
-axes1.boxplot(data1, patch_artist=True, labels=['DUCKDB', 'GRAINDB'], showmeans=False, widths=0.2)
+axes1.boxplot(data1, patch_artist=True, labels=['GRAINDB', 'GRAINDB'], showmeans=False, widths=0.2)
 
 axes2.set_title('SNB-M', fontsize=16)
 axes2.set_yscale('log')
 axes2.tick_params(axis='both', labelsize=14)
-axes2.boxplot(data2, patch_artist=True, labels=['DUCKDB', 'GRAINDB', 'GFDB'], showmeans=False, widths=0.3)
+axes2.boxplot(data2, patch_artist=True, labels=['GRAINDB', 'GRAINDB', 'GFDB'], showmeans=False, widths=0.3)
 
 axes3.set_title('TPC-H', fontsize=16)
 axes3.set_yscale('log')
 axes3.tick_params(axis='both', labelsize=14)
-axes3.boxplot(data3, patch_artist=True, labels=['DUCKDB', 'GRAINDB'], showmeans=False, widths=0.2)
+axes3.boxplot(data3, patch_artist=True, labels=['GRAINDB', 'GRAINDB'], showmeans=False, widths=0.2)
 plt.tight_layout()
 plt.show()

@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 //
-//                         DuckDB
+//                         GrainDB
 //
 // benchmark.hpp
 //
@@ -10,13 +10,13 @@
 
 #pragma once
 
-#include "duckdb/main/query_result.hpp"
+#include "graindb/main/query_result.hpp"
 
 #include <memory>
 #include <string>
 #include <vector>
 
-namespace duckdb {
+namespace graindb {
 
 using std::string;
 using std::unique_ptr;
@@ -90,4 +90,4 @@ public:
 	}
 };
 
-} // namespace duckdb
+} // namespace graindb

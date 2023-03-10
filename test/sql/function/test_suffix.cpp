@@ -1,7 +1,7 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 /* Test Case disclaimer
@@ -12,7 +12,7 @@ using namespace std;
  */
 TEST_CASE("Suffix test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

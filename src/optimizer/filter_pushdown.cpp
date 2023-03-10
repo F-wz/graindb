@@ -1,10 +1,10 @@
-#include "duckdb/optimizer/filter_pushdown.hpp"
+#include "graindb/optimizer/filter_pushdown.hpp"
 
-#include "duckdb/optimizer/filter_combiner.hpp"
-#include "duckdb/planner/operator/logical_filter.hpp"
-#include "duckdb/planner/operator/logical_join.hpp"
+#include "graindb/optimizer/filter_combiner.hpp"
+#include "graindb/planner/operator/logical_filter.hpp"
+#include "graindb/planner/operator/logical_join.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 using Filter = FilterPushdown::Filter;

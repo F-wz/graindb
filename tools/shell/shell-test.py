@@ -135,7 +135,7 @@ test('.limit length 42', err='sqlite3_limit')
 # ???
 test('.lint fkey-indexes')
 
-# this should probably be fixed, sqlite generates an internal query that duckdb does not like
+# this should probably be fixed, sqlite generates an internal query that graindb does not like
 test('.indexes', err='syntax error')
 
 
@@ -296,11 +296,11 @@ SELECT * FROM t1;
 ''' % (db1, db2, db1), out='42')
 
 # open file that is not a database
-duckdb_nonsense_db = 'duckdbtest_nonsensedb.db'
-with open(duckdb_nonsense_db, 'w+') as f:
+graindb_nonsense_db = 'graindbtest_nonsensedb.db'
+with open(graindb_nonsense_db, 'w+') as f:
      f.write('blablabla')
-test('', err='unable to open', extra_commands=[duckdb_nonsense_db])
-os.remove(duckdb_nonsense_db)
+test('', err='unable to open', extra_commands=[graindb_nonsense_db])
+os.remove(graindb_nonsense_db)
 
 
 

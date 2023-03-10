@@ -1,12 +1,12 @@
-#include "duckdb/execution/operator/aggregate/physical_hash_aggregate.hpp"
+#include "graindb/execution/operator/aggregate/physical_hash_aggregate.hpp"
 
-#include "duckdb/catalog/catalog_entry/aggregate_function_catalog_entry.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression/bound_aggregate_expression.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/catalog/catalog_entry/aggregate_function_catalog_entry.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression/bound_aggregate_expression.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class PhysicalHashAggregateState : public PhysicalOperatorState {

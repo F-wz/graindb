@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test insert into and updates of constant values", "[simpleinserts]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER)"));
@@ -27,7 +27,7 @@ TEST_CASE("Test insert into and updates of constant values", "[simpleinserts]") 
 
 TEST_CASE("Test insert into statements", "[simpleinserts]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// big insert
@@ -143,7 +143,7 @@ TEST_CASE("Test insert into statements", "[simpleinserts]") {
 
 TEST_CASE("Test insert into from wrong type", "[simpleinserts]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE strings(a VARCHAR)"));
@@ -163,7 +163,7 @@ TEST_CASE("Test insert into from wrong type", "[simpleinserts]") {
 
 TEST_CASE("Test insert from constant query", "[simpleinserts]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER)"));
@@ -176,7 +176,7 @@ TEST_CASE("Test insert from constant query", "[simpleinserts]") {
 
 TEST_CASE("Test insert with invalid UTF8", "[simpleinserts]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE strings(i STRING)"));
@@ -186,7 +186,7 @@ TEST_CASE("Test insert with invalid UTF8", "[simpleinserts]") {
 
 TEST_CASE("Test insert with too few or too many cols", "[simpleinserts]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE a(i integer, j integer)"));
@@ -202,7 +202,7 @@ TEST_CASE("Test insert with too few or too many cols", "[simpleinserts]") {
 
 TEST_CASE("Test insert with long string constant", "[simpleinserts]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// found by Pedro Holanda

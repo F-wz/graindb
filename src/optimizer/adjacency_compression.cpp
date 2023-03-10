@@ -1,8 +1,8 @@
-#include "duckdb/optimizer/adjacency_compression.hpp"
+#include "graindb/optimizer/adjacency_compression.hpp"
 
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 // !FIXME: merge join conditions

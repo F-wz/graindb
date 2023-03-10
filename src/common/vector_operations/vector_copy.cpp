@@ -4,13 +4,13 @@
 // functions
 //===--------------------------------------------------------------------===//
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/types/chunk_collection.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/types/chunk_collection.hpp"
 
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 template <class T>

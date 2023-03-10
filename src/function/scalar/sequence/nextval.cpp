@@ -1,18 +1,18 @@
-#include "duckdb/function/scalar/sequence_functions.hpp"
+#include "graindb/function/scalar/sequence_functions.hpp"
 
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/catalog/catalog_entry/sequence_catalog_entry.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/transaction/transaction.hpp"
-#include "duckdb/common/vector_operations/unary_executor.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/catalog/catalog_entry/sequence_catalog_entry.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/transaction/transaction.hpp"
+#include "graindb/common/vector_operations/unary_executor.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 struct NextvalBindData : public FunctionData {
 	//! The client context for the function call
@@ -117,4 +117,4 @@ void NextvalFun::RegisterFunction(BuiltinFunctions &set) {
 	                               nextval_dependency));
 }
 
-} // namespace duckdb
+} // namespace graindb

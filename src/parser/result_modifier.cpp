@@ -1,8 +1,8 @@
-#include "duckdb/parser/result_modifier.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/parser/expression_util.hpp"
+#include "graindb/parser/result_modifier.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/parser/expression_util.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 bool ResultModifier::Equals(const ResultModifier *other) const {
 	if (!other) {
@@ -148,4 +148,4 @@ unique_ptr<ResultModifier> OrderModifier::Deserialize(Deserializer &source) {
 	return move(mod);
 }
 
-} // namespace duckdb
+} // namespace graindb

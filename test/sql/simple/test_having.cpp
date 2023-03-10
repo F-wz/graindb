@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test HAVING clause", "[having]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
@@ -84,7 +84,7 @@ TEST_CASE("Test HAVING clause", "[having]") {
 
 TEST_CASE("Test HAVING clause without GROUP BY", "[having]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// CONTROVERSIAL: HAVING without GROUP BY works in PostgreSQL, but not in SQLite

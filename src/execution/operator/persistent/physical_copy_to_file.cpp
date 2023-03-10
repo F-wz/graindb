@@ -1,11 +1,11 @@
-#include "duckdb/execution/operator/persistent/physical_copy_to_file.hpp"
+#include "graindb/execution/operator/persistent/physical_copy_to_file.hpp"
 
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
 #include <algorithm>
 #include <fstream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class BufferedWriter {

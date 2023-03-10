@@ -1,10 +1,10 @@
 #include "dbgen.hpp"
 
 #include "dbgen_gunk.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/main/appender.hpp"
-#include "duckdb/parser/column_definition.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/main/appender.hpp"
+#include "graindb/parser/column_definition.hpp"
 #include "tpch_constants.hpp"
 
 #define DECLARER /* EXTERN references get defined here */
@@ -15,7 +15,7 @@
 #include <fstream>
 #include <iostream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 extern seed_t Seed[];
@@ -424,7 +424,7 @@ static string LineitemSchema(string schema, string suffix) {
 	       "l_comment VARCHAR(44) NOT NULL)";
 }
 
-void dbgen(double flt_scale, DuckDB &db, bool create_rai, string schema, string suffix) {
+void dbgen(double flt_scale, GrainDB &db, bool create_rai, string schema, string suffix) {
 	dbgen(flt_scale, db, schema, suffix);
 	if (create_rai) {
 		unique_ptr<QueryResult> result;
@@ -438,7 +438,7 @@ void dbgen(double flt_scale, DuckDB &db, bool create_rai, string schema, string 
 	}
 }
 
-void dbgen(double flt_scale, DuckDB &db, string schema, string suffix) {
+void dbgen(double flt_scale, GrainDB &db, string schema, string suffix) {
 	unique_ptr<QueryResult> result;
 	Connection con(db);
 	con.Query("BEGIN TRANSACTION");

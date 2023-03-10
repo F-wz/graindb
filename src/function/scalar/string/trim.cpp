@@ -1,15 +1,15 @@
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/vector_operations/unary_executor.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/unary_executor.hpp"
 #include "utf8proc.hpp"
 
 #include <string.h>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 struct SpaceChar {
 	static char Operation(utf8proc_int32_t codepoint) {
@@ -83,4 +83,4 @@ void RtrimFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(ScalarFunction("rtrim", {SQLType::VARCHAR}, SQLType::VARCHAR, trim_rtrim_function));
 }
 
-} // namespace duckdb
+} // namespace graindb

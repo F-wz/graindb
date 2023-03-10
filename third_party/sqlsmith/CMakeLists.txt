@@ -2,7 +2,7 @@ include_directories(../dbgen/include)
 include_directories(include)
 
 add_executable(sqlsmith
-               duckdb.cc
+               graindb.cc
                dump.cc
                expr.cc
                grammar.cc
@@ -13,7 +13,7 @@ add_executable(sqlsmith
                relmodel.cc
                schema.cc
                sqlsmith.cc)
-target_link_libraries(sqlsmith duckdb dbgen)
+target_link_libraries(sqlsmith graindb dbgen)
 TARGET_LINK_LIBRARIES(sqlsmith pthread)
 
 

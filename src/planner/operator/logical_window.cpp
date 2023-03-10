@@ -1,6 +1,6 @@
-#include "duckdb/planner/operator/logical_window.hpp"
+#include "graindb/planner/operator/logical_window.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 vector<ColumnBinding> LogicalWindow::GetColumnBindings() {

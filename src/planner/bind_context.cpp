@@ -1,15 +1,15 @@
-#include "duckdb/planner/bind_context.hpp"
+#include "graindb/planner/bind_context.hpp"
 
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/tableref/subqueryref.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/bound_query_node.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/tableref/subqueryref.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/bound_query_node.hpp"
 
-#include "duckdb/common/string_util.hpp"
+#include "graindb/common/string_util.hpp"
 
 #include <algorithm>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 string BindContext::GetMatchingBinding(const string &column_name) {

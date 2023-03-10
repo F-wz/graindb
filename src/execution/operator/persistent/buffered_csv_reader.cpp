@@ -1,14 +1,14 @@
-#include "duckdb/execution/operator/persistent/buffered_csv_reader.hpp"
+#include "graindb/execution/operator/persistent/buffered_csv_reader.hpp"
 
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/common/file_system.hpp"
-#include "duckdb/common/gzip_stream.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/operator/persistent/physical_copy_from_file.hpp"
-#include "duckdb/main/database.hpp"
-#include "duckdb/parser/column_definition.hpp"
-#include "duckdb/storage/data_table.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/common/file_system.hpp"
+#include "graindb/common/gzip_stream.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/operator/persistent/physical_copy_from_file.hpp"
+#include "graindb/main/database.hpp"
+#include "graindb/parser/column_definition.hpp"
+#include "graindb/storage/data_table.hpp"
 #include "utf8proc_wrapper.hpp"
 
 #include <algorithm>
@@ -16,7 +16,7 @@
 #include <fstream>
 #include <queue>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static char is_newline(char c) {

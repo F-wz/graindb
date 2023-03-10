@@ -1,7 +1,7 @@
-#include "duckdb/function/scalar/operators.hpp"
-#include "duckdb/common/exception.hpp"
+#include "graindb/function/scalar/operators.hpp"
+#include "graindb/common/exception.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void BuiltinFunctions::RegisterOperators() {

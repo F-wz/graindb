@@ -1,8 +1,8 @@
-#include "duckdb/parser/tableref/crossproductref.hpp"
-#include "duckdb/parser/tableref/emptytableref.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/tableref/crossproductref.hpp"
+#include "graindb/parser/tableref/emptytableref.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<TableRef> Transformer::TransformFrom(PGList *root) {

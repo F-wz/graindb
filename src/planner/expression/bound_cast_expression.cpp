@@ -1,8 +1,8 @@
-#include "duckdb/planner/expression/bound_cast_expression.hpp"
-#include "duckdb/planner/expression/bound_default_expression.hpp"
-#include "duckdb/planner/expression/bound_parameter_expression.hpp"
+#include "graindb/planner/expression/bound_cast_expression.hpp"
+#include "graindb/planner/expression/bound_default_expression.hpp"
+#include "graindb/planner/expression/bound_parameter_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundCastExpression::BoundCastExpression(TypeId target, unique_ptr<Expression> child, SQLType source_type,

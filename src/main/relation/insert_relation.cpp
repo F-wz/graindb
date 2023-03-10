@@ -1,11 +1,11 @@
-#include "duckdb/main/relation/insert_relation.hpp"
-#include "duckdb/parser/statement/insert_statement.hpp"
-#include "duckdb/parser/statement/select_statement.hpp"
-#include "duckdb/parser/parsed_data/create_table_info.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/main/client_context.hpp"
+#include "graindb/main/relation/insert_relation.hpp"
+#include "graindb/parser/statement/insert_statement.hpp"
+#include "graindb/parser/statement/select_statement.hpp"
+#include "graindb/parser/parsed_data/create_table_info.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/main/client_context.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 InsertRelation::InsertRelation(shared_ptr<Relation> child_p, string schema_name, string table_name)
     : Relation(child_p->context, RelationType::INSERT_RELATION), child(move(child_p)), schema_name(move(schema_name)),
@@ -37,4 +37,4 @@ string InsertRelation::ToString(idx_t depth) {
 	return str + child->ToString(depth + 1);
 }
 
-} // namespace duckdb
+} // namespace graindb

@@ -1,11 +1,11 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test RENAME TABLE single transaction", "[alter]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE tbl(i INTEGER)"));
 	REQUIRE_NO_FAIL(con.Query("INSERT INTO tbl VALUES (999), (100)"));
@@ -28,7 +28,7 @@ TEST_CASE("Test RENAME TABLE single transaction", "[alter]") {
 }
 
 TEST_CASE("Test RENAME TABLE two parallel transactions", "[alter]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con1(db);
 	Connection con2(db);
 	REQUIRE_NO_FAIL(con1.Query("CREATE TABLE tbl(i INTEGER)"));
@@ -58,7 +58,7 @@ TEST_CASE("Test RENAME TABLE two parallel transactions", "[alter]") {
 }
 
 TEST_CASE("Test RENAME TABLE four table rename and four parallel transactions", "[alter]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	Connection c1(db);
 	Connection c2(db);
@@ -117,7 +117,7 @@ TEST_CASE("Test RENAME TABLE four table rename and four parallel transactions", 
 }
 
 TEST_CASE("Test RENAME TABLE with a view as entry", "[alter]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE tbl(i INTEGER)"));
 	REQUIRE_NO_FAIL(con.Query("INSERT INTO tbl VALUES (999), (100)"));
@@ -129,7 +129,7 @@ TEST_CASE("Test RENAME TABLE with a view as entry", "[alter]") {
 }
 
 TEST_CASE("Test RENAME TABLE: table does not exist and rename to an already existing table", "[alter]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE tbl(i INTEGER)"));
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE tbl2(i INTEGER)"));
@@ -140,7 +140,7 @@ TEST_CASE("Test RENAME TABLE: table does not exist and rename to an already exis
 }
 
 TEST_CASE("Test RENAME TABLE with constraints", "[alter]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	// create a table with a check constraint
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE tbl(i INTEGER PRIMARY KEY, j INTEGER CHECK(j < 10))"));

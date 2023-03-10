@@ -5,7 +5,7 @@ add_subdirectory(operator)
 add_subdirectory(physical_plan)
 add_subdirectory(index/art)
 
-add_library_unity(duckdb_execution
+add_library_unity(graindb_execution
                   OBJECT
                   adaptive_filter.cpp
                   aggregate_hashtable.cpp
@@ -18,5 +18,5 @@ add_library_unity(duckdb_execution
                   sip_hashtable.cpp
                   window_segment_tree.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_execution>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_execution>
     PARENT_SCOPE)

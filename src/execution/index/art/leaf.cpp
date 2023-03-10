@@ -1,9 +1,9 @@
-#include "duckdb/execution/index/art/node.hpp"
-#include "duckdb/execution/index/art/leaf.hpp"
+#include "graindb/execution/index/art/node.hpp"
+#include "graindb/execution/index/art/leaf.hpp"
 
 #include <cstring>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 Leaf::Leaf(ART &art, unique_ptr<Key> value, row_t row_id) : Node(art, NodeType::NLeaf, 0) {

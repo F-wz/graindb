@@ -1,9 +1,9 @@
-#include "duckdb/common/serializer/buffered_file_writer.hpp"
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/serializer/buffered_file_writer.hpp"
+#include "graindb/common/exception.hpp"
 
 #include <cstring>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BufferedFileWriter::BufferedFileWriter(FileSystem &fs, const char *path, bool append)

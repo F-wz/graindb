@@ -13,7 +13,7 @@ def git_rev_hash():
 prefix = sys.argv[1].strip()
 
 # Hannes controls this web server
-# Files are served at https://download.duckdb.org/...
+# Files are served at https://download.graindb.org/...
 
 secret_key=os.getenv('DAV_PASSWORD')
 if secret_key is None:
@@ -35,7 +35,7 @@ git_hash = git_rev_hash()
 folder = 'rev/%s/%s' % (git_hash, prefix)
 
 def curlcmd(cmd, path):
-    p = subprocess.Popen(['curl','--retry', '10'] + cmd + ['http://duckdb:%s@dav10635776.mywebdav.de/duckdb-download/%s' % (secret_key, path)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(['curl','--retry', '10'] + cmd + ['http://graindb:%s@dav10635776.mywebdav.de/graindb-download/%s' % (secret_key, path)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     output, err = p.communicate()
     rc = p.returncode
 
@@ -52,5 +52,5 @@ for p in folder.split('/'):
 for f in files:
     base = os.path.basename(f)
     key = '%s/%s' % (folder, base)
-    print("%s\t->\thttps://download.duckdb.org/%s " % (f, key))
+    print("%s\t->\thttps://download.graindb.org/%s " % (f, key))
     curlcmd(['-T',f], key)

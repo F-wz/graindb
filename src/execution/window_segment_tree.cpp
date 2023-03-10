@@ -1,10 +1,10 @@
-#include "duckdb/execution/window_segment_tree.hpp"
+#include "graindb/execution/window_segment_tree.hpp"
 
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
 #include <cmath>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 WindowSegmentTree::WindowSegmentTree(AggregateFunction &aggregate, TypeId result_type, ChunkCollection *input)

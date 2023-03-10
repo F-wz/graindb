@@ -6,10 +6,10 @@
 ////////////////////////////////////////////////////////////////////
 
 
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/main/appender.hpp"
-#include "duckdb/main/connection.hpp"
-#include "duckdb/main/database.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/main/appender.hpp"
+#include "graindb/main/connection.hpp"
+#include "graindb/main/database.hpp"
 
 #include "main/BaseLoader.h"
 #include "main/BaseLoaderFactory.h"
@@ -17,13 +17,13 @@
 #include "main/TableRows.h"
 
 namespace TPCE {
-	class DuckDBLoaderFactory : public CBaseLoaderFactory {
-		duckdb::Connection &con;
+	class GrainDBLoaderFactory : public CBaseLoaderFactory {
+		graindb::Connection &con;
 		std::string schema;
 		std::string suffix;
 
 	  public:
-		DuckDBLoaderFactory(duckdb::Connection &con, std::string schema,
+		GrainDBLoaderFactory(graindb::Connection &con, std::string schema,
 		                    std::string suffix)
 		    : con(con), schema(schema), suffix(suffix) {
 		}
@@ -69,6 +69,6 @@ namespace TPCE {
 		virtual CBaseLoader<ZIP_CODE_ROW> *CreateZipCodeLoader();
 	};
 
-void CreateTPCESchema(duckdb::DuckDB &db, duckdb::Connection &con, std::string &schema, std::string &suffix);
+void CreateTPCESchema(graindb::GrainDB &db, graindb::Connection &con, std::string &schema, std::string &suffix);
 
 } /* namespace TPCE */

@@ -1,11 +1,11 @@
-#include "duckdb/execution/index/alist/alist.hpp"
+#include "graindb/execution/index/alist/alist.hpp"
 
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/common/constants.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/storage/data_table.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/common/constants.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/storage/data_table.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 AList::AList(DataTable &table, vector<column_t> column_ids, vector<unique_ptr<Expression>> unbound_expressions,

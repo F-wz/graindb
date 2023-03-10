@@ -1,7 +1,7 @@
-#include "duckdb/planner/expression/bound_parameter_expression.hpp"
-#include "duckdb/common/types/hash.hpp"
+#include "graindb/planner/expression/bound_parameter_expression.hpp"
+#include "graindb/common/types/hash.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundParameterExpression::BoundParameterExpression(idx_t parameter_nr)
@@ -33,8 +33,8 @@ bool BoundParameterExpression::Equals(const BaseExpression *other_) const {
 
 hash_t BoundParameterExpression::Hash() const {
 	hash_t result = Expression::Hash();
-	result = CombineHash(duckdb::Hash(parameter_nr), result);
-	result = CombineHash(duckdb::Hash((int)sql_type.id), result);
+	result = CombineHash(graindb::Hash(parameter_nr), result);
+	result = CombineHash(graindb::Hash((int)sql_type.id), result);
 	return result;
 }
 

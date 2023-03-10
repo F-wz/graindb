@@ -1,29 +1,29 @@
-#include "duckdb/main/relation.hpp"
-#include "duckdb/common/printer.hpp"
-#include "duckdb/parser/parser.hpp"
-#include "duckdb/main/relation/aggregate_relation.hpp"
-#include "duckdb/main/relation/distinct_relation.hpp"
-#include "duckdb/main/relation/explain_relation.hpp"
-#include "duckdb/main/relation/filter_relation.hpp"
-#include "duckdb/main/relation/insert_relation.hpp"
-#include "duckdb/main/relation/limit_relation.hpp"
-#include "duckdb/main/relation/order_relation.hpp"
-#include "duckdb/main/relation/projection_relation.hpp"
-#include "duckdb/main/relation/setop_relation.hpp"
-#include "duckdb/main/relation/subquery_relation.hpp"
-#include "duckdb/main/relation/create_table_relation.hpp"
-#include "duckdb/main/relation/create_view_relation.hpp"
-#include "duckdb/main/relation/write_csv_relation.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/parser/tableref/subqueryref.hpp"
-#include "duckdb/parser/statement/select_statement.hpp"
-#include "duckdb/parser/expression/conjunction_expression.hpp"
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/main/relation/join_relation.hpp"
-#include "duckdb/main/relation/value_relation.hpp"
+#include "graindb/main/relation.hpp"
+#include "graindb/common/printer.hpp"
+#include "graindb/parser/parser.hpp"
+#include "graindb/main/relation/aggregate_relation.hpp"
+#include "graindb/main/relation/distinct_relation.hpp"
+#include "graindb/main/relation/explain_relation.hpp"
+#include "graindb/main/relation/filter_relation.hpp"
+#include "graindb/main/relation/insert_relation.hpp"
+#include "graindb/main/relation/limit_relation.hpp"
+#include "graindb/main/relation/order_relation.hpp"
+#include "graindb/main/relation/projection_relation.hpp"
+#include "graindb/main/relation/setop_relation.hpp"
+#include "graindb/main/relation/subquery_relation.hpp"
+#include "graindb/main/relation/create_table_relation.hpp"
+#include "graindb/main/relation/create_view_relation.hpp"
+#include "graindb/main/relation/write_csv_relation.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/parser/tableref/subqueryref.hpp"
+#include "graindb/parser/statement/select_statement.hpp"
+#include "graindb/parser/expression/conjunction_expression.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/main/relation/join_relation.hpp"
+#include "graindb/main/relation/value_relation.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 shared_ptr<Relation> Relation::Project(string select_list) {
 	return Project(select_list, vector<string>());
@@ -281,4 +281,4 @@ string Relation::RenderWhitespace(idx_t depth) {
 	return string(depth * 2, ' ');
 }
 
-} // namespace duckdb
+} // namespace graindb

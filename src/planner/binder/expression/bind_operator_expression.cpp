@@ -1,9 +1,9 @@
-#include "duckdb/parser/expression/operator_expression.hpp"
-#include "duckdb/planner/expression/bound_cast_expression.hpp"
-#include "duckdb/planner/expression/bound_operator_expression.hpp"
-#include "duckdb/planner/expression_binder.hpp"
+#include "graindb/parser/expression/operator_expression.hpp"
+#include "graindb/planner/expression/bound_cast_expression.hpp"
+#include "graindb/planner/expression/bound_operator_expression.hpp"
+#include "graindb/planner/expression_binder.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static SQLType ResolveNotType(OperatorExpression &op, vector<BoundExpression *> &children) {

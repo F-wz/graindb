@@ -1,13 +1,13 @@
-#include "duckdb/function/scalar/math_functions.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/function/scalar/trigonometric_functions.hpp"
+#include "graindb/function/scalar/math_functions.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/function/scalar/trigonometric_functions.hpp"
 
 #include <algorithm>
 #include <cmath>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 template <class TR, class OP> static scalar_function_t GetScalarIntegerUnaryFunctionFixedReturn(SQLType type) {
 	switch (type.id) {
@@ -471,4 +471,4 @@ void CotFun::RegisterFunction(BuiltinFunctions &set) {
 	    ScalarFunction("cot", {SQLType::DOUBLE}, SQLType::DOUBLE, UnaryDoubleFunctionWrapper<double, CotOperator>));
 }
 
-} // namespace duckdb
+} // namespace graindb

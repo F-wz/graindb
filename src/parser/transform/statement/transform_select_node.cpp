@@ -1,12 +1,12 @@
-#include "duckdb/common/exception.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/query_node/set_operation_node.hpp"
-#include "duckdb/parser/statement/select_statement.hpp"
-#include "duckdb/parser/transformer.hpp"
-#include "duckdb/parser/expression/star_expression.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/query_node/set_operation_node.hpp"
+#include "graindb/parser/statement/select_statement.hpp"
+#include "graindb/parser/transformer.hpp"
+#include "graindb/parser/expression/star_expression.hpp"
+#include "graindb/common/string_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<QueryNode> Transformer::TransformSelectNode(PGSelectStmt *stmt) {

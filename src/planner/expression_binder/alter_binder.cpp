@@ -1,11 +1,11 @@
-#include "duckdb/planner/expression_binder/alter_binder.hpp"
+#include "graindb/planner/expression_binder/alter_binder.hpp"
 
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/planner/expression/bound_reference_expression.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/planner/expression/bound_reference_expression.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 AlterBinder::AlterBinder(Binder &binder, ClientContext &context, string table, vector<ColumnDefinition> &columns,
                          vector<column_t> &bound_columns, SQLType target_type)
@@ -47,4 +47,4 @@ BindResult AlterBinder::BindColumn(ColumnRefExpression &colref) {
 	                      colref.column_name.c_str());
 }
 
-} // namespace duckdb
+} // namespace graindb

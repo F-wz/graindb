@@ -1,9 +1,9 @@
-#include "duckdb/function/table/read_csv.hpp"
-#include "duckdb/execution/operator/persistent/buffered_csv_reader.hpp"
+#include "graindb/function/table/read_csv.hpp"
+#include "graindb/execution/operator/persistent/buffered_csv_reader.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 struct ReadCSVData : public TableFunctionData {
 	ReadCSVData() {
@@ -66,4 +66,4 @@ void BuiltinFunctions::RegisterReadFunctions() {
 	ReadCSVTableFunction::RegisterFunction(*this);
 }
 
-} // namespace duckdb
+} // namespace graindb

@@ -2,7 +2,7 @@
 #include "expression_helper.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test projection bindings for ORDER BY", "[projection-binding-order-by]") {

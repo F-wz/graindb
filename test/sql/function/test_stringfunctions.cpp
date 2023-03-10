@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("CONCAT test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -44,7 +44,7 @@ TEST_CASE("CONCAT test", "[function]") {
 
 TEST_CASE("CONCAT_WS test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -126,7 +126,7 @@ TEST_CASE("CONCAT_WS test", "[function]") {
 
 TEST_CASE("UPPER/LOWER test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -196,7 +196,7 @@ TEST_CASE("UPPER/LOWER test", "[function]") {
 
 TEST_CASE("LPAD/RPAD test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -285,7 +285,7 @@ TEST_CASE("LPAD/RPAD test", "[function]") {
 
 TEST_CASE("REPEAT test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -325,7 +325,7 @@ TEST_CASE("REPEAT test", "[function]") {
 
 TEST_CASE("REPLACE test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -371,7 +371,7 @@ TEST_CASE("REPLACE test", "[function]") {
 
 TEST_CASE("REVERSE test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -404,7 +404,7 @@ TEST_CASE("REVERSE test", "[function]") {
 
 TEST_CASE("LTRIM/RTRIM test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -465,7 +465,7 @@ TEST_CASE("LTRIM/RTRIM test", "[function]") {
 
 TEST_CASE("LEFT test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -550,7 +550,7 @@ TEST_CASE("LEFT test", "[function]") {
 
 TEST_CASE("RIGHT test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -636,7 +636,7 @@ TEST_CASE("RIGHT test", "[function]") {
 
 TEST_CASE("BIT_LENGTH test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -672,7 +672,7 @@ TEST_CASE("BIT_LENGTH test", "[function]") {
 
 TEST_CASE("UNICODE test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

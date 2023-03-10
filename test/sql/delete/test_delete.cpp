@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test deletions", "[delete]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE a(i INTEGER);"));
@@ -45,7 +45,7 @@ TEST_CASE("Test deletions", "[delete]") {
 
 TEST_CASE("Test scan with large deletions", "[delete][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("BEGIN TRANSACTION;"));
@@ -64,7 +64,7 @@ TEST_CASE("Test scan with large deletions", "[delete][.]") {
 
 TEST_CASE("Test scan with many segmented deletions", "[delete][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	idx_t n = 20;

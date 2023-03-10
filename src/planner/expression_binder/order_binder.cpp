@@ -1,13 +1,13 @@
-#include "duckdb/planner/expression_binder/order_binder.hpp"
+#include "graindb/planner/expression_binder/order_binder.hpp"
 
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/planner/expression_binder.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/planner/expression_binder.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 OrderBinder::OrderBinder(vector<Binder *> binders, idx_t projection_index, unordered_map<string, idx_t> &alias_map,
                          expression_map_t<idx_t> &projection_map, idx_t max_count)
@@ -97,4 +97,4 @@ unique_ptr<Expression> OrderBinder::Bind(unique_ptr<ParsedExpression> expr) {
 	return result;
 }
 
-} // namespace duckdb
+} // namespace graindb

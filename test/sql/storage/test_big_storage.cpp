@@ -1,9 +1,9 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/storage/storage_info.hpp"
+#include "graindb/storage/storage_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test storage that exceeds a single block", "[storage][.]") {
@@ -19,7 +19,7 @@ TEST_CASE("Test storage that exceeds a single block", "[storage][.]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (11, 22), (13, 22), (12, 21), (NULL, NULL)"));
@@ -38,7 +38,7 @@ TEST_CASE("Test storage that exceeds a single block", "[storage][.]") {
 	}
 	// reload the database from disk
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT SUM(a) + SUM(b) FROM test");
 		REQUIRE(CHECK_COLUMN(result, 0, {sum}));
@@ -46,7 +46,7 @@ TEST_CASE("Test storage that exceeds a single block", "[storage][.]") {
 	// reload the database from disk, we do this again because checkpointing at startup causes this to follow a
 	// different code path
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT SUM(a) + SUM(b) FROM test");
 		REQUIRE(CHECK_COLUMN(result, 0, {sum}));
@@ -66,7 +66,7 @@ TEST_CASE("Test storage that exceeds a single block with different types", "[sto
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b BIGINT);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (11, 22), (13, 22), (12, 21), (NULL, NULL)"));
@@ -83,7 +83,7 @@ TEST_CASE("Test storage that exceeds a single block with different types", "[sto
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT SUM(a) + SUM(b) FROM test");
 		REQUIRE(CHECK_COLUMN(result, 0, {sum}));
@@ -104,7 +104,7 @@ TEST_CASE("Test storing strings that exceed a single block", "[storage][.]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a VARCHAR);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES ('a'), ('bb'), ('ccc'), ('dddd'), ('eeeee')"));
@@ -123,7 +123,7 @@ TEST_CASE("Test storing strings that exceed a single block", "[storage][.]") {
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT a, COUNT(*) FROM test GROUP BY a ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {"a", "bb", "ccc", "dddd", "eeeee"}));
@@ -132,7 +132,7 @@ TEST_CASE("Test storing strings that exceed a single block", "[storage][.]") {
 	}
 	// now perform an update of the database
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT count(a) FROM test WHERE a='a'");
 		REQUIRE(CHECK_COLUMN(result, 0, {count_per_group}));
@@ -141,7 +141,7 @@ TEST_CASE("Test storing strings that exceed a single block", "[storage][.]") {
 	}
 	// reload the database from disk again
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 
 		result = con.Query("SELECT a, COUNT(*) FROM test GROUP BY a ORDER BY a");
@@ -163,7 +163,7 @@ TEST_CASE("Test storing big strings", "[storage][.]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert the big string
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		string big_string = string(string_length, 'a');
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a VARCHAR, j BIGINT);"));
@@ -183,7 +183,7 @@ TEST_CASE("Test storing big strings", "[storage][.]") {
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT LENGTH(a) FROM test");
 		REQUIRE(CHECK_COLUMN(result, 0, {Value::BIGINT(string_length)}));

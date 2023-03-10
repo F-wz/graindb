@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test index with transaction local commits", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// first test simple index usage
@@ -65,7 +65,7 @@ TEST_CASE("Test index with transaction local commits", "[transactions]") {
 
 TEST_CASE("Test index with transaction local updates", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER PRIMARY KEY)"));
@@ -100,7 +100,7 @@ TEST_CASE("Test index with transaction local updates", "[transactions]") {
 
 TEST_CASE("Test index with pending insertions", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// we can create an index with pending insertions
@@ -126,7 +126,7 @@ TEST_CASE("Test index with pending insertions", "[transactions]") {
 
 TEST_CASE("Test index with pending updates", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// we cannot create an index with pending updates
@@ -154,7 +154,7 @@ TEST_CASE("Test index with pending updates", "[transactions]") {
 
 TEST_CASE("Test index with pending deletes", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// we can create an index with pending deletes
@@ -179,7 +179,7 @@ TEST_CASE("Test index with pending deletes", "[transactions]") {
 
 TEST_CASE("Test index with versioned data from deletes", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER PRIMARY KEY)"));
@@ -255,7 +255,7 @@ TEST_CASE("Test index with versioned data from deletes", "[transactions]") {
 
 TEST_CASE("Test index with versioned data from updates in secondary columns", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER PRIMARY KEY, j INTEGER)"));
@@ -279,7 +279,7 @@ TEST_CASE("Test index with versioned data from updates in secondary columns", "[
 
 TEST_CASE("Test abort of update/delete", "[transactions]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 	con.EnableQueryVerification();
 

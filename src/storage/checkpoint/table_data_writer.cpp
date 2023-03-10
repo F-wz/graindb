@@ -1,16 +1,16 @@
-#include "duckdb/storage/checkpoint/table_data_writer.hpp"
+#include "graindb/storage/checkpoint/table_data_writer.hpp"
 
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/types/null_value.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/types/null_value.hpp"
 
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/common/serializer/buffered_serializer.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/common/serializer/buffered_serializer.hpp"
 
-#include "duckdb/storage/numeric_segment.hpp"
-#include "duckdb/storage/string_segment.hpp"
-#include "duckdb/storage/table/column_segment.hpp"
+#include "graindb/storage/numeric_segment.hpp"
+#include "graindb/storage/string_segment.hpp"
+#include "graindb/storage/table/column_segment.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class WriteOverflowStringsToDisk : public OverflowStringWriter {

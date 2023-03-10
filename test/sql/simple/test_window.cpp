@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Most scalar window functions", "[window]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -30,7 +30,7 @@ TEST_CASE("Most scalar window functions", "[window]") {
 
 TEST_CASE("Most basic window function", "[window]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -127,7 +127,7 @@ TEST_CASE("Most basic window function", "[window]") {
 
 TEST_CASE("Illegal window function", "[window]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -145,7 +145,7 @@ TEST_CASE("Illegal window function", "[window]") {
 
 TEST_CASE("More evil cases", "[window]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -191,7 +191,7 @@ TEST_CASE("More evil cases", "[window]") {
 
 TEST_CASE("Wisconsin-derived window test cases", "[window]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -334,7 +334,7 @@ TEST_CASE("Wisconsin-derived window test cases", "[window]") {
 
 TEST_CASE("Non-default window specs", "[window]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -394,7 +394,7 @@ TEST_CASE("Non-default window specs", "[window]") {
 
 TEST_CASE("Expressions in boundaries", "[window]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -434,7 +434,7 @@ TEST_CASE("Expressions in boundaries", "[window]") {
 
 TEST_CASE("TPC-DS inspired micro benchmarks", "[window]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -481,7 +481,7 @@ TEST_CASE("TPC-DS inspired micro benchmarks", "[window]") {
 
 TEST_CASE("TPC-DS Q49 bug fix for multi-sort window functions", "[window]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -506,7 +506,7 @@ TEST_CASE("TPC-DS Q49 bug fix for multi-sort window functions", "[window]") {
 
 TEST_CASE("Ensure dbplyr crash with ORDER BY under window stays fixed", "[window]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -539,7 +539,7 @@ TEST_CASE("Ensure dbplyr crash with ORDER BY under window stays fixed", "[window
 
 TEST_CASE("Test errors in binding window functions", "[window]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -559,7 +559,7 @@ TEST_CASE("Test errors in binding window functions", "[window]") {
 
 TEST_CASE("Test binding of named window functions in CTEs", "[window]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

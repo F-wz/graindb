@@ -1,11 +1,11 @@
-#include "duckdb/parser/parsed_expression.hpp"
+#include "graindb/parser/parsed_expression.hpp"
 
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/common/types/hash.hpp"
-#include "duckdb/parser/expression/list.hpp"
-#include "duckdb/parser/parsed_expression_iterator.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/common/types/hash.hpp"
+#include "graindb/parser/expression/list.hpp"
+#include "graindb/parser/parsed_expression_iterator.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 bool ParsedExpression::IsAggregate() const {
@@ -91,7 +91,7 @@ bool ParsedExpression::Equals(const BaseExpression *other) const {
 }
 
 hash_t ParsedExpression::Hash() const {
-	hash_t hash = duckdb::Hash<uint32_t>((uint32_t)type);
+	hash_t hash = graindb::Hash<uint32_t>((uint32_t)type);
 	ParsedExpressionIterator::EnumerateChildren(
 	    *this, [&](const ParsedExpression &child) { hash = CombineHash(child.Hash(), hash); });
 	return hash;

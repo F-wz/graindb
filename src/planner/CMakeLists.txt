@@ -4,7 +4,7 @@ add_subdirectory(expression_binder)
 add_subdirectory(operator)
 add_subdirectory(subquery)
 
-add_library_unity(duckdb_planner
+add_library_unity(graindb_planner
                   OBJECT
                   expression_iterator.cpp
                   expression.cpp
@@ -18,5 +18,5 @@ add_library_unity(duckdb_planner
                   planner.cpp
                   logical_operator_visitor.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_planner>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_planner>
     PARENT_SCOPE)

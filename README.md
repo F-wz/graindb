@@ -18,43 +18,43 @@ Run `make` in the root directory to compile the sources.
 ## End-To-End Benchmarks
 
 ### JOB: Relational Workload with Selective Many-to-Many Joins (8.2.1)
-#### Run evaluations of DuckDB and GRainDB on JOB:
+#### Run evaluations of GrainDB and GRainDB on JOB:
 ```shell
-> ./build/release/benchmark/benchmark_runner "IMDB_113_Q[0-9][0-9][0-9]" --out=evaluations/job_duckdb.out
+> ./build/release/benchmark/benchmark_runner "IMDB_113_Q[0-9][0-9][0-9]" --out=evaluations/job_graindb.out
 > ./build/release/benchmark/benchmark_runner "IMDB_113_Q[0-9][0-9][0-9]A" --out=evaluations/job_graindb.out
 ```
 
 #### Processing of query evaluation results:
 ```shell
-> python3 scripts/extract_query_latency.py evaluations/job_duckdb.out evaluations/job_duckdb_avg.out
+> python3 scripts/extract_query_latency.py evaluations/job_graindb.out evaluations/job_graindb_avg.out
 > python3 scripts/extract_query_latency.py evaluations/job_graindb.out evaluations/job_graindb_avg.out
 ```
 
 ### SNB-M: Graph Workload with Selective Many-to-Many Joins (8.2.2 & 8.2.3)
-#### Run evaluations of DuckDB, DuckDB-MV and GRainDB on SNB-M:
+#### Run evaluations of GrainDB, GrainDB-MV and GRainDB on SNB-M:
 ```shell
-> ./build/release/benchmark/benchmark_runner "LDBC_LIGHT_OPTIMIZED_Q[0-9][0-9][0-9]" --out=evaluations/snb_duckdb.out
-> ./build/release/benchmark/benchmark_runner "LDBC_LIGHT_VIEWS_.*" --out=evaluations/duckdb_mv.out
+> ./build/release/benchmark/benchmark_runner "LDBC_LIGHT_OPTIMIZED_Q[0-9][0-9][0-9]" --out=evaluations/snb_graindb.out
+> ./build/release/benchmark/benchmark_runner "LDBC_LIGHT_VIEWS_.*" --out=evaluations/graindb_mv.out
 > ./build/release/benchmark/benchmark_runner "LDBC_LIGHT_OPTIMIZED_Q[0-9][0-9][0-9]A" --out=evaluations/snb_graindb.out
 ```
 
 #### Processing of query evaluation results:
 ```shell
-> python3 scripts/extract_query_latency.py evaluations/job_duckdb.out evaluations/job_duckdb_avg.out
-> python3 scripts/extract_query_latency.py evaluations/duckdb_mv.out evaluations/duckdb_mv_avg.out
+> python3 scripts/extract_query_latency.py evaluations/job_graindb.out evaluations/job_graindb_avg.out
+> python3 scripts/extract_query_latency.py evaluations/graindb_mv.out evaluations/graindb_mv_avg.out
 > python3 scripts/extract_query_latency.py evaluations/job_graindb.out evaluations/job_graindb_avg.out
 ```
 
 ### TPC-H: Traditional OLAP Workloads (8.2.4)
-#### Run TPC-H evaluations on DuckDB and GRainDB:
+#### Run TPC-H evaluations on GrainDB and GRainDB:
 ```shell
-> ./build/release/benchmark/benchmark_runner "TPCH_OPTIMIZED_Q[0-9][0-9]" --out=evaluations/tpch_duckdb.out
+> ./build/release/benchmark/benchmark_runner "TPCH_OPTIMIZED_Q[0-9][0-9]" --out=evaluations/tpch_graindb.out
 > ./build/release/benchmark/benchmark_runner "TPCH_OPTIMIZED_Q[0-9][0-9]A" --out=evaluations/tpch_graindb.out
 ```
 
 #### Processing of query evaluation results:
 ```shell
-> python3 scripts/extract_query_latency.py evaluations/tpch_duckdb.out evaluations/tpch_duckdb_avg.out
+> python3 scripts/extract_query_latency.py evaluations/tpch_graindb.out evaluations/tpch_graindb_avg.out
 > python3 scripts/extract_query_latency.py evaluations/tpch_graindb.out evaluations/tpch_graindb_avg.out
 ```
 
@@ -71,9 +71,9 @@ Under each configuration, re-compile the codebase, and run the following command
 ```
 
 ### Performance of Predefined Joins Under Varying Entity vs Relationship Table Selectivity (8.3.2)
-- DuckDB and GRainDB
+- GrainDB and GRainDB
 ```shell
-> ./build/release/benchmark/benchmark_runner "LDBC_MICROP_Q0[0-9][0-9]" --out=evaluations/micro_p_duckdb.out
+> ./build/release/benchmark/benchmark_runner "LDBC_MICROP_Q0[0-9][0-9]" --out=evaluations/micro_p_graindb.out
 > ./build/release/benchmark/benchmark_runner "LDBC_MICROP_Q0[0-9][0-9]A" --out=evaluations/micro_p_graindb.out
 > ./build/release/benchmark/benchmark_runner "LDBC_MICROK_Q0[0-9][0-9]A" --out=evaluations/micro_k_graindb.out
 > ./build/release/benchmark/benchmark_runner "LDBC_MICROK_Q0[0-9][0-9]A" --out=evaluations/micro_k_graindb.out

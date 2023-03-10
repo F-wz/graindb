@@ -1,8 +1,8 @@
-#include "duckdb/parser/expression/case_expression.hpp"
+#include "graindb/parser/expression/case_expression.hpp"
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 CaseExpression::CaseExpression() : ParsedExpression(ExpressionType::CASE_EXPR, ExpressionClass::CASE) {

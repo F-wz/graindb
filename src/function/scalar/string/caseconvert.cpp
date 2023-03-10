@@ -1,15 +1,15 @@
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/vector_operations/unary_executor.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/unary_executor.hpp"
 #include "utf8proc.hpp"
 
 #include <string.h>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 template <bool IS_UPPER> static string_t strcase_unicode(Vector &result, const char *input_data, idx_t input_length) {
 	// first figure out the output length
@@ -88,4 +88,4 @@ void UpperFun::RegisterFunction(BuiltinFunctions &set) {
 	                ScalarFunction({SQLType::VARCHAR}, SQLType::VARCHAR, caseconvert_upper_function));
 }
 
-} // namespace duckdb
+} // namespace graindb

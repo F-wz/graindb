@@ -3,7 +3,7 @@
 #include "pg_functions.hpp"
 #include "parser/parser.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 PostgresParser::PostgresParser() : success(false), parse_tree(nullptr), error_message(""), error_location(0) {};

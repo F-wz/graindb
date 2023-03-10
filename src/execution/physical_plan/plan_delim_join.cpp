@@ -1,14 +1,14 @@
-#include "duckdb/execution/aggregate_hashtable.hpp"
-#include "duckdb/execution/operator/join/physical_delim_join.hpp"
-#include "duckdb/execution/operator/join/physical_hash_join.hpp"
-#include "duckdb/execution/operator/projection/physical_projection.hpp"
-#include "duckdb/execution/operator/scan/physical_chunk_scan.hpp"
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/function/aggregate/distributive_functions.hpp"
-#include "duckdb/planner/operator/logical_delim_join.hpp"
-#include "duckdb/planner/expression/bound_aggregate_expression.hpp"
+#include "graindb/execution/aggregate_hashtable.hpp"
+#include "graindb/execution/operator/join/physical_delim_join.hpp"
+#include "graindb/execution/operator/join/physical_hash_join.hpp"
+#include "graindb/execution/operator/projection/physical_projection.hpp"
+#include "graindb/execution/operator/scan/physical_chunk_scan.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/function/aggregate/distributive_functions.hpp"
+#include "graindb/planner/operator/logical_delim_join.hpp"
+#include "graindb/planner/expression/bound_aggregate_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static void GatherDelimScans(PhysicalOperator *op, vector<PhysicalOperator *> &delim_scans) {

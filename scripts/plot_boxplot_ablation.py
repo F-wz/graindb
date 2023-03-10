@@ -9,7 +9,7 @@ list4 = []
 data = []
 
 if len(sys.argv) != 2:
-    print("USAGE: python3 scripts/plot_boxplot_ablation.py SOURCE_FILE[DuckDB, GR-JM-RSJ, GR-JM, GR-FULL]")
+    print("USAGE: python3 scripts/plot_boxplot_ablation.py SOURCE_FILE[GrainDB, GR-JM-RSJ, GR-JM, GR-FULL]")
     sys.exit()
 
 source_file = str(sys.argv[1])
@@ -36,7 +36,7 @@ figure, axes = plt.subplots()
 axes.set_ylabel('runtime in msec (log scale)', fontsize=16)
 axes.set_yscale('log')
 axes.tick_params(axis='both', labelsize=14)
-axes.boxplot(data, patch_artist=True, labels=['DUCKDB', 'GR-JM-RSJ', 'GR-JM', 'GR-FULL'], showmeans=False)
+axes.boxplot(data, patch_artist=True, labels=['GRAINDB', 'GR-JM-RSJ', 'GR-JM', 'GR-FULL'], showmeans=False)
 
 plt.tight_layout()
 plt.show()

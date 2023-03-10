@@ -1,6 +1,6 @@
 #include "sqlite_transfer.hpp"
-#include "duckdb/common/types.hpp"
-#include "duckdb.hpp"
+#include "graindb/common/types.hpp"
+#include "graindb.hpp"
 #include "sqlite3.h"
 #include "catch.hpp"
 #include "test_helpers.hpp"
@@ -9,15 +9,15 @@
 #include <sstream>
 
 TEST_CASE("Pass nullptr to transfer function", "[dbtransfer]") {
-	duckdb::DuckDB source_db(nullptr);
-	duckdb::Connection con(source_db);
+	graindb::GrainDB source_db(nullptr);
+	graindb::Connection con(source_db);
 
 	REQUIRE_FALSE(sqlite::TransferDatabase(con, nullptr));
 }
 
-TEST_CASE("Check transfer from DuckDB to sqlite database", "[dbtransfer]") {
-	duckdb::DuckDB source_db(nullptr);
-	duckdb::Connection con(source_db);
+TEST_CASE("Check transfer from GrainDB to sqlite database", "[dbtransfer]") {
+	graindb::GrainDB source_db(nullptr);
+	graindb::Connection con(source_db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE items(field1 VARCHAR, field2 INTEGER)"));
 	REQUIRE_NO_FAIL(con.Query("INSERT INTO items VALUES ('a', 1)"));
@@ -66,7 +66,7 @@ TEST_CASE("Check transfer from DuckDB to sqlite database", "[dbtransfer]") {
 }
 
 TEST_CASE("Pass pointer to sqlite3 as nullptr to QueryDatabase", "[dbtransfer]") {
-	duckdb::vector<duckdb::SQLType> result_types = {duckdb::SQLTypeId::VARCHAR, duckdb::SQLTypeId::INTEGER};
+	graindb::vector<graindb::SQLType> result_types = {graindb::SQLTypeId::VARCHAR, graindb::SQLTypeId::INTEGER};
 	std::string query = "SELECT * from items";
 	int interrupt = 0;
 	REQUIRE_FALSE(sqlite::QueryDatabase(result_types, nullptr, std::move(query), interrupt));
@@ -105,7 +105,7 @@ TEST_CASE("Check getting query from sqlite database", "[dbtransfer]") {
 		}
 	}
 
-	duckdb::vector<duckdb::SQLType> result_types = {duckdb::SQLTypeId::VARCHAR, duckdb::SQLTypeId::INTEGER};
+	graindb::vector<graindb::SQLType> result_types = {graindb::SQLTypeId::VARCHAR, graindb::SQLTypeId::INTEGER};
 	std::string query = "SELECT * from items";
 	int interrupt = 0;
 	auto result = sqlite::QueryDatabase(result_types, source_db, std::move(query), interrupt);

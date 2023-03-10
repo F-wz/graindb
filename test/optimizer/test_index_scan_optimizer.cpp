@@ -1,13 +1,13 @@
 #include "catch.hpp"
-#include "duckdb/common/helper.hpp"
+#include "graindb/common/helper.hpp"
 #include "expression_helper.hpp"
-#include "duckdb/optimizer/index_scan.hpp"
-#include "duckdb/planner/expression/bound_comparison_expression.hpp"
-#include "duckdb/planner/expression/bound_operator_expression.hpp"
-#include "duckdb/planner/expression/common_subexpression.hpp"
+#include "graindb/optimizer/index_scan.hpp"
+#include "graindb/planner/expression/bound_comparison_expression.hpp"
+#include "graindb/planner/expression/bound_operator_expression.hpp"
+#include "graindb/planner/expression/common_subexpression.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test Index Scan Optimizer for Integers", "[index-optimizer]") {

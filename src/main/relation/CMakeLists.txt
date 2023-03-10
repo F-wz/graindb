@@ -1,4 +1,4 @@
-add_library_unity(duckdb_main_relation
+add_library_unity(graindb_main_relation
                   OBJECT
                   aggregate_relation.cpp
                   create_table_relation.cpp
@@ -22,5 +22,5 @@ add_library_unity(duckdb_main_relation
                   view_relation.cpp
                   write_csv_relation.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_main_relation>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_main_relation>
     PARENT_SCOPE)

@@ -1,11 +1,11 @@
-#include "duckdb/execution/operator/set/physical_recursive_cte.hpp"
-#include "duckdb/execution/operator/scan/physical_chunk_scan.hpp"
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/planner/expression/bound_reference_expression.hpp"
-#include "duckdb/planner/operator/logical_recursive_cte.hpp"
-#include "duckdb/planner/operator/logical_cteref.hpp"
+#include "graindb/execution/operator/set/physical_recursive_cte.hpp"
+#include "graindb/execution/operator/scan/physical_chunk_scan.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/planner/expression/bound_reference_expression.hpp"
+#include "graindb/planner/operator/logical_recursive_cte.hpp"
+#include "graindb/planner/operator/logical_cteref.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreatePlan(LogicalRecursiveCTE &op) {

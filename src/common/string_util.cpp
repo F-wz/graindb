@@ -1,4 +1,4 @@
-#include "duckdb/common/string_util.hpp"
+#include "graindb/common/string_util.hpp"
 
 #include <algorithm>
 #include <cctype>
@@ -9,7 +9,7 @@
 #include <string.h>
 #include <string>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 bool StringUtil::Contains(const string &haystack, const string &needle) {

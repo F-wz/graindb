@@ -1,12 +1,12 @@
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/parser/expression_map.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/query_node/recursive_cte_node.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/query_node/bound_recursive_cte_node.hpp"
-#include "duckdb/planner/query_node/bound_select_node.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/expression_map.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/query_node/recursive_cte_node.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/query_node/bound_recursive_cte_node.hpp"
+#include "graindb/planner/query_node/bound_select_node.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<BoundQueryNode> Binder::BindNode(RecursiveCTENode &statement) {

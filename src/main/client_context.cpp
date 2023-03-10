@@ -1,36 +1,36 @@
-#include "duckdb/main/client_context.hpp"
+#include "graindb/main/client_context.hpp"
 
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/common/serializer/buffered_deserializer.hpp"
-#include "duckdb/common/serializer/buffered_serializer.hpp"
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/main/database.hpp"
-#include "duckdb/main/materialized_query_result.hpp"
-#include "duckdb/main/query_result.hpp"
-#include "duckdb/main/stream_query_result.hpp"
-#include "duckdb/optimizer/optimizer.hpp"
-#include "duckdb/parser/parser.hpp"
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/parser/statement/drop_statement.hpp"
-#include "duckdb/parser/statement/execute_statement.hpp"
-#include "duckdb/parser/statement/explain_statement.hpp"
-#include "duckdb/parser/statement/prepare_statement.hpp"
-#include "duckdb/planner/operator/logical_execute.hpp"
-#include "duckdb/planner/planner.hpp"
-#include "duckdb/transaction/transaction_manager.hpp"
-#include "duckdb/transaction/transaction.hpp"
-#include "duckdb/storage/data_table.hpp"
-#include "duckdb/main/appender.hpp"
-#include "duckdb/main/relation.hpp"
-#include "duckdb/planner/expression_binder/where_binder.hpp"
-#include "duckdb/parser/statement/relation_statement.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/common/serializer/buffered_deserializer.hpp"
+#include "graindb/common/serializer/buffered_serializer.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/main/database.hpp"
+#include "graindb/main/materialized_query_result.hpp"
+#include "graindb/main/query_result.hpp"
+#include "graindb/main/stream_query_result.hpp"
+#include "graindb/optimizer/optimizer.hpp"
+#include "graindb/parser/parser.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/statement/drop_statement.hpp"
+#include "graindb/parser/statement/execute_statement.hpp"
+#include "graindb/parser/statement/explain_statement.hpp"
+#include "graindb/parser/statement/prepare_statement.hpp"
+#include "graindb/planner/operator/logical_execute.hpp"
+#include "graindb/planner/planner.hpp"
+#include "graindb/transaction/transaction_manager.hpp"
+#include "graindb/transaction/transaction.hpp"
+#include "graindb/storage/data_table.hpp"
+#include "graindb/main/appender.hpp"
+#include "graindb/main/relation.hpp"
+#include "graindb/planner/expression_binder/where_binder.hpp"
+#include "graindb/parser/statement/relation_statement.hpp"
 
 #include <iostream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
-ClientContext::ClientContext(DuckDB &database)
+ClientContext::ClientContext(GrainDB &database)
     : db(database), transaction(*database.transaction_manager), interrupted(false), catalog(*database.catalog),
       temporary_objects(make_unique<SchemaCatalogEntry>(db.catalog.get(), TEMP_SCHEMA)),
       prepared_statements(make_unique<CatalogSet>(*db.catalog)), open_result(nullptr) {
@@ -277,7 +277,7 @@ unique_ptr<PreparedStatement> ClientContext::Prepare(string query) {
 			throw Exception("Cannot prepare multiple statements at once!");
 		}
 		// now write the prepared statement data into the catalog
-		string prepare_name = "____duckdb_internal_prepare_" + to_string(prepare_count);
+		string prepare_name = "____graindb_internal_prepare_" + to_string(prepare_count);
 		prepare_count++;
 		// create a prepare statement out of the underlying statement
 		auto prepare = make_unique<PrepareStatement>();

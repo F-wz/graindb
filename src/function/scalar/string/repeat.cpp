@@ -1,8 +1,8 @@
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/vector_operations/unary_executor.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/unary_executor.hpp"
 
 #include <string.h>
 #include <ctype.h>
@@ -11,7 +11,7 @@
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static string_t repeat_scalar_function(const string_t& str, const int64_t cnt, vector<char> &result) {
 	// Get information about the repeated string
@@ -48,4 +48,4 @@ void RepeatFun::RegisterFunction(BuiltinFunctions &set) {
 	                               repeat_function));                   // pointer to function implementation
 }
 
-} // namespace duckdb
+} // namespace graindb

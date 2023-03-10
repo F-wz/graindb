@@ -1,13 +1,13 @@
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/types/string_type.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/types/string_type.hpp"
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 
 #include <cstring>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 bool IsNullValue(data_ptr_t ptr, TypeId type) {
 	data_t data[100];
@@ -45,4 +45,4 @@ void SetNullValue(data_ptr_t ptr, TypeId type) {
 	}
 }
 
-} // namespace duckdb
+} // namespace graindb

@@ -1,13 +1,13 @@
-#include "duckdb/planner/subquery/rewrite_correlated_expressions.hpp"
+#include "graindb/planner/subquery/rewrite_correlated_expressions.hpp"
 
-#include "duckdb/planner/expression/bound_case_expression.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
-#include "duckdb/planner/expression/bound_operator_expression.hpp"
-#include "duckdb/planner/expression/bound_subquery_expression.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
+#include "graindb/planner/expression/bound_case_expression.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression/bound_operator_expression.hpp"
+#include "graindb/planner/expression/bound_subquery_expression.hpp"
+#include "graindb/planner/expression_iterator.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 RewriteCorrelatedExpressions::RewriteCorrelatedExpressions(ColumnBinding base_binding,

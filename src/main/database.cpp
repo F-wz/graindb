@@ -1,18 +1,18 @@
-#include "duckdb/main/database.hpp"
+#include "graindb/main/database.hpp"
 
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/common/file_system.hpp"
-#include "duckdb/main/connection_manager.hpp"
-#include "duckdb/storage/storage_manager.hpp"
-#include "duckdb/transaction/transaction_manager.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/common/file_system.hpp"
+#include "graindb/main/connection_manager.hpp"
+#include "graindb/storage/storage_manager.hpp"
+#include "graindb/transaction/transaction_manager.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 DBConfig::~DBConfig() {
 }
 
-DuckDB::DuckDB(const char *path, DBConfig *config) {
+GrainDB::GrainDB(const char *path, DBConfig *config) {
 	if (config) {
 		// user-supplied configuration
 		Configure(*config);
@@ -43,13 +43,13 @@ DuckDB::DuckDB(const char *path, DBConfig *config) {
 	storage->Initialize();
 }
 
-DuckDB::DuckDB(const string &path, DBConfig *config) : DuckDB(path.c_str(), config) {
+GrainDB::GrainDB(const string &path, DBConfig *config) : GrainDB(path.c_str(), config) {
 }
 
-DuckDB::~DuckDB() {
+GrainDB::~GrainDB() {
 }
 
-void DuckDB::Configure(DBConfig &config) {
+void GrainDB::Configure(DBConfig &config) {
 	if (config.access_mode != AccessMode::UNDEFINED) {
 		access_mode = config.access_mode;
 	} else {

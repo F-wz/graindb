@@ -1,32 +1,32 @@
-This is the DuckDB Python package
+This is the GrainDB Python package
 
 ## Default installation
 
-You would normally install the DuckDB released version using `pip` as follows:
-    pip install duckdb
+You would normally install the GrainDB released version using `pip` as follows:
+    pip install graindb
 
 ## Installing locally
 
-For development, you may need a DuckDB python package that is installed from source.
+For development, you may need a GrainDB python package that is installed from source.
 Proceed as follows.
 
 Set the prefix path:
 
-    export DUCKDB_PREFIX=/path/to/install/duckdb
+    export GRAINDB_PREFIX=/path/to/install/graindb
 
 Set the `PYTHONPATH` to the `site-packages` directory under the prefix path;
 this will usually work but do check the resulting `PYTHONPATH`.
 
     export PYTHONPATH=${PYTHONPATH:+${PYTHONPATH}:}$(pip show six | \
       grep "Location:" | cut -d " " -f2 | \
-      sed -e "s|/usr|${DUCKDB_PREFIX}|")
+      sed -e "s|/usr|${GRAINDB_PREFIX}|")
 
 ### Setup for development
 
-Install the package from the root of the DuckDB reposity:
+Install the package from the root of the GrainDB reposity:
 
     cd ../..
-    pip3 install --prefix $DUCKDB_PREFIX -e tools/pythonpkg
+    pip3 install --prefix $GRAINDB_PREFIX -e tools/pythonpkg
 
 This creates a package that uses the files in `tools/pythonpkg`, the
 best option during development.
@@ -46,6 +46,6 @@ First, get the repository based version number and extract the source distributi
  
 Next, copy over the python package related files, and install the package.
 
-    mkdir -p $DUCKDB_PREFIX/src/duckdb-pythonpkg
-    tar --directory=$DUCKDB_PREFIX/src/duckdb-pythonpkg -xzpf tools/pythonpkg/dist/duckdb-${SETUPTOOLS_SCM_PRETEND_VERSION}.tar.gz
-    pip3 install --prefix $DUCKDB_PREFIX -e $DUCKDB_PREFIX/src/duckdb-pythonpkg/duckdb-${SETUPTOOLS_SCM_PRETEND_VERSION}
+    mkdir -p $GRAINDB_PREFIX/src/graindb-pythonpkg
+    tar --directory=$GRAINDB_PREFIX/src/graindb-pythonpkg -xzpf tools/pythonpkg/dist/graindb-${SETUPTOOLS_SCM_PRETEND_VERSION}.tar.gz
+    pip3 install --prefix $GRAINDB_PREFIX -e $GRAINDB_PREFIX/src/graindb-pythonpkg/graindb-${SETUPTOOLS_SCM_PRETEND_VERSION}

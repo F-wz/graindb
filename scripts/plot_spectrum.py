@@ -13,7 +13,7 @@ matplotlib.rc('font', **font)
 def parse_args():
     parser = argparse.ArgumentParser(
         description='Given input and output file absolute paths, plots the histogram chart. Input csv file contains '
-                    '[DuckDB, GRainDB] for each query.')
+                    '[GrainDB, GRainDB] for each query.')
     parser.add_argument('file', help='input file to plot')
     parser.add_argument('-o', '--output', help='output directory to save to')
     parser.add_argument('-t', '--title', help='plot title')
@@ -54,7 +54,7 @@ def plot_histogram(width, height, input_file, output_file, title):
     x = []
     for bin_x in bins[:-1]:
         x.append(bin_x + bin_width)
-    plt.plot(x, n[0], color='green', label='DuckDB', linestyle='dashed')
+    plt.plot(x, n[0], color='green', label='GrainDB', linestyle='dashed')
     plt.plot(x, n[1], color='orange', label='GRainDB')
 
     plt.plot(x[0], n[1][0], "^", color='orange')

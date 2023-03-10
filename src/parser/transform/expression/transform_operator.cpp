@@ -1,13 +1,13 @@
-#include "duckdb/parser/expression/case_expression.hpp"
-#include "duckdb/parser/expression/cast_expression.hpp"
-#include "duckdb/parser/expression/comparison_expression.hpp"
-#include "duckdb/parser/expression/conjunction_expression.hpp"
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/parser/expression/function_expression.hpp"
-#include "duckdb/parser/expression/operator_expression.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/expression/case_expression.hpp"
+#include "graindb/parser/expression/cast_expression.hpp"
+#include "graindb/parser/expression/comparison_expression.hpp"
+#include "graindb/parser/expression/conjunction_expression.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/expression/function_expression.hpp"
+#include "graindb/parser/expression/operator_expression.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ExpressionType Transformer::OperatorToExpressionType(string &op) {

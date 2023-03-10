@@ -1,6 +1,6 @@
-#include "duckdb/execution/operator/scan/physical_dummy_scan.hpp"
+#include "graindb/execution/operator/scan/physical_dummy_scan.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void PhysicalDummyScan::GetChunkInternal(ClientContext &context, DataChunk &chunk, PhysicalOperatorState *state,

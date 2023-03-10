@@ -1,6 +1,6 @@
-#include "duckdb/planner/operator/logical_empty_result.hpp"
+#include "graindb/planner/operator/logical_empty_result.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 LogicalEmptyResult::LogicalEmptyResult(unique_ptr<LogicalOperator> op)

@@ -1,18 +1,18 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "dbgen.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/execution/index/art/art_key.hpp"
+#include "graindb/execution/index/art/art_key.hpp"
 
 #include <cfloat>
 #include <iostream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test index creation statements with multiple connections", "[art][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	// create a table
@@ -64,7 +64,7 @@ TEST_CASE("Test index creation statements with multiple connections", "[art][.]"
 
 TEST_CASE("Test ART index on table with multiple columns", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i BIGINT, j INTEGER, k VARCHAR)"));
@@ -102,7 +102,7 @@ TEST_CASE("Test ART index on table with multiple columns", "[art]") {
 
 TEST_CASE("Test ART index on table with updates to other columns", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i BIGINT, j INTEGER, k VARCHAR)"));
@@ -199,7 +199,7 @@ TEST_CASE("Test ART index on table with updates to other columns", "[art]") {
 
 TEST_CASE("Test ART index that requires multiple columns for expression", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// FIXME: this should work, not a multidimensional index
@@ -241,7 +241,7 @@ TEST_CASE("Test ART index that requires multiple columns for expression", "[art]
 
 TEST_CASE("Test updates on ART index", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER, j INTEGER)"));
@@ -259,7 +259,7 @@ TEST_CASE("Test updates on ART index", "[art]") {
 
 TEST_CASE("Test ART index with single value", "[art-s]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER)"));
@@ -292,7 +292,7 @@ TEST_CASE("Test ART index with single value", "[art-s]") {
 
 TEST_CASE("Test ART index with selection vector", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE source(i INTEGER)"));
@@ -338,7 +338,7 @@ TEST_CASE("Test ART index with selection vector", "[art]") {
 
 TEST_CASE("Test ART index with multiple predicates", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER, j INTEGER)"));
@@ -353,7 +353,7 @@ TEST_CASE("Test ART index with multiple predicates", "[art]") {
 
 TEST_CASE("Test ART index with simple updates", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER)"));
@@ -378,7 +378,7 @@ TEST_CASE("Test ART index with simple updates", "[art]") {
 
 TEST_CASE("Test ART index with multiple updates on the same value", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER)"));
@@ -418,7 +418,7 @@ TEST_CASE("Test ART index with multiple updates on the same value", "[art]") {
 
 TEST_CASE("Test ART index with prefixes", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i BIGINT)"));
@@ -467,7 +467,7 @@ TEST_CASE("Test ART index with prefixes", "[art]") {
 
 TEST_CASE("Test ART index with linear insertions and deletes", "[art][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	vector<idx_t> insertion_count = {4, 16, 48, 256, 1024};
@@ -510,7 +510,7 @@ TEST_CASE("Test ART index with linear insertions and deletes", "[art][.]") {
 
 TEST_CASE("Test ART index with random insertions and deletes", "[art][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	vector<idx_t> insertion_count = {1024, 2048};
@@ -547,7 +547,7 @@ TEST_CASE("Test ART index with random insertions and deletes", "[art][.]") {
 
 TEST_CASE("Test ART index creation with many versions", "[art][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	Connection r1(db), r2(db), r3(db);
 	int64_t expected_sum_r1 = 0, expected_sum_r2 = 0, expected_sum_r3 = 0, total_sum = 0;
@@ -601,7 +601,7 @@ TEST_CASE("Test ART index creation with many versions", "[art][.]") {
 
 TEST_CASE("Test ART index with many matches", "[art][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("BEGIN TRANSACTION"));
@@ -660,7 +660,7 @@ TEST_CASE("Test ART index with many matches", "[art][.]") {
 
 TEST_CASE("Test ART index with non-linear insertion", "[art][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER)"));
@@ -682,7 +682,7 @@ TEST_CASE("Test ART index with non-linear insertion", "[art][.]") {
 
 TEST_CASE("Test ART index with rollbacks", "[art][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER)"));
@@ -708,7 +708,7 @@ TEST_CASE("Test ART index with rollbacks", "[art][.]") {
 
 TEST_CASE("Test ART index with the same value multiple times", "[art][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER)"));
@@ -739,7 +739,7 @@ TEST_CASE("Test ART index with the same value multiple times", "[art][.]") {
 
 TEST_CASE("Test ART index with negative values and big values", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i BIGINT)"));
@@ -763,7 +763,7 @@ TEST_CASE("Test ART index with negative values and big values", "[art]") {
 
 TEST_CASE("Test Drop Index", "[drop-index]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE A (A1 INTEGER,A2 VARCHAR, A3 INTEGER)"));
@@ -795,7 +795,7 @@ TEST_CASE("Test Drop Index", "[drop-index]") {
 
 TEST_CASE("Test ART with different Integer Types", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 
 	Connection con(db);
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i TINYINT, j SMALLINT, k INTEGER, l BIGINT)"));
@@ -845,7 +845,7 @@ TEST_CASE("Test ART with different Integer Types", "[art]") {
 
 TEST_CASE("ART Integer Types", "[art][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 
 	Connection con(db);
 
@@ -969,7 +969,7 @@ TEST_CASE("ART Integer Types", "[art][.]") {
 
 TEST_CASE("ART Simple Big Range", "[art][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i integer)"));
@@ -1004,7 +1004,7 @@ TEST_CASE("ART Simple Big Range", "[art][.]") {
 
 TEST_CASE("ART Big Range with deletions", "[art][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	idx_t n = 4;
@@ -1077,7 +1077,7 @@ TEST_CASE("ART Big Range with deletions", "[art][.]") {
 
 TEST_CASE("ART Negative Range", "[art-neg]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 
 	Connection con(db);
 
@@ -1133,7 +1133,7 @@ template <class T> int full_scan(T *keys, idx_t size, T low, T high) {
 
 TEST_CASE("ART Floating Point Small", "[art-float-small]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	int64_t a, b;
 	vector<int64_t> min_values, max_values;
 	Connection con(db);
@@ -1205,7 +1205,7 @@ TEST_CASE("ART Floating Point Small", "[art-float-small]") {
 
 TEST_CASE("ART Floating Point Double Small", "[art-double-small]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	int64_t a, b;
 	vector<int64_t> min_values, max_values;
 	Connection con(db);
@@ -1277,7 +1277,7 @@ TEST_CASE("ART Floating Point Double Small", "[art-double-small]") {
 
 TEST_CASE("ART Strings", "[art-string]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 
 	Connection con(db);
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE strings(i varchar)"));
@@ -1322,7 +1322,7 @@ TEST_CASE("ART Strings", "[art-string]") {
 
 TEST_CASE("ART Floating Point", "[art-float][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	int64_t a, b;
 	vector<int64_t> min_values, max_values;
 	Connection con(db);
@@ -1394,7 +1394,7 @@ TEST_CASE("ART Floating Point", "[art-float][.]") {
 
 TEST_CASE("ART Floating Point Double", "[art-double][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	int64_t a, b;
 	vector<int64_t> min_values, max_values;
 	Connection con(db);
@@ -1466,7 +1466,7 @@ TEST_CASE("ART Floating Point Double", "[art-double][.]") {
 
 TEST_CASE("ART FP Unique Constraint", "[art-float-unique]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE numbers(i REAL PRIMARY KEY, j INTEGER)"));
@@ -1500,7 +1500,7 @@ TEST_CASE("ART FP Unique Constraint", "[art-float-unique]") {
 
 TEST_CASE("ART FP Special Cases", "[art-fp-special]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE numbers(i REAL)"));
@@ -1540,7 +1540,7 @@ TEST_CASE("ART FP Special Cases", "[art-fp-special]") {
 
 TEST_CASE("ART Double Special Cases", "[art-double-special]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE numbers(i DOUBLE)"));
@@ -1578,7 +1578,7 @@ TEST_CASE("ART Double Special Cases", "[art-double-special]") {
 }
 TEST_CASE("Test updates resulting from big index scans", "[art][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	int64_t sum = 0;
@@ -1622,7 +1622,7 @@ TEST_CASE("Test updates resulting from big index scans", "[art][.]") {
 
 TEST_CASE("ART Node 4", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 
 	Connection con(db);
 
@@ -1657,7 +1657,7 @@ TEST_CASE("ART Node 4", "[art]") {
 
 TEST_CASE("ART Node 16", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 
 	Connection con(db);
 
@@ -1690,7 +1690,7 @@ TEST_CASE("ART Node 16", "[art]") {
 
 TEST_CASE("ART Node 48", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 
 	Connection con(db);
 
@@ -1739,7 +1739,7 @@ TEST_CASE("ART Node 48", "[art]") {
 
 TEST_CASE("Index Exceptions", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 
 	Connection con(db);
 
@@ -1753,7 +1753,7 @@ TEST_CASE("Index Exceptions", "[art]") {
 
 TEST_CASE("More Index Exceptions (#496)", "[art]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 
 	Connection con(db);
 

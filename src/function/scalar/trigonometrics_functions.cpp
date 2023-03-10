@@ -1,10 +1,10 @@
-#include "duckdb/function/scalar/trigonometric_functions.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/exception.hpp"
+#include "graindb/function/scalar/trigonometric_functions.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/exception.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 void BuiltinFunctions::RegisterTrigonometricsFunctions() {
 	Register<SinFun>();
@@ -17,4 +17,4 @@ void BuiltinFunctions::RegisterTrigonometricsFunctions() {
 	Register<Atan2Fun>();
 }
 
-} // namespace duckdb
+} // namespace graindb

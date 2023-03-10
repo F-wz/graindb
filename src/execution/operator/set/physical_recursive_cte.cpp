@@ -1,10 +1,10 @@
-#include "duckdb/execution/operator/set/physical_recursive_cte.hpp"
+#include "graindb/execution/operator/set/physical_recursive_cte.hpp"
 
-#include "duckdb/common/types/chunk_collection.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/aggregate_hashtable.hpp"
+#include "graindb/common/types/chunk_collection.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/aggregate_hashtable.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class PhysicalRecursiveCTEState : public PhysicalOperatorState {

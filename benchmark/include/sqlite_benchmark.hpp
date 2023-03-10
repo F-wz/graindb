@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 //
-//                         DuckDB
+//                         GrainDB
 //
 // sqlite_benchmark.hpp
 //
@@ -10,10 +10,10 @@
 
 #pragma once
 
-#include "duckdb_benchmark.hpp"
+#include "graindb_benchmark.hpp"
 #include "sqlite3.h"
 
-namespace duckdb {
+namespace graindb {
 
 struct SQLiteBenchmarkState : public BenchmarkState {
 	//! The SQLite Database Object
@@ -34,7 +34,7 @@ struct SQLiteBenchmarkState : public BenchmarkState {
 
 class SQLiteBenchmark : public Benchmark {
 public:
-	SQLiteBenchmark(unique_ptr<DuckDBBenchmark> duckdb);
+	SQLiteBenchmark(unique_ptr<GrainDBBenchmark> graindb);
 
 	unique_ptr<BenchmarkState> Initialize() override;
 	void Run(BenchmarkState *state_) override;
@@ -45,7 +45,7 @@ public:
 	string BenchmarkInfo() override;
 
 private:
-	unique_ptr<DuckDBBenchmark> duckdb_benchmark;
+	unique_ptr<GrainDBBenchmark> graindb_benchmark;
 };
 
-} // namespace duckdb
+} // namespace graindb

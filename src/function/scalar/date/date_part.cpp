@@ -1,13 +1,13 @@
-#include "duckdb/function/scalar/date_functions.hpp"
-#include "duckdb/common/enums/date_part_specifier.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/types/timestamp.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/function/scalar/date_functions.hpp"
+#include "graindb/common/enums/date_part_specifier.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/types/timestamp.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/string_util.hpp"
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 DatePartSpecifier GetDatePartSpecifier(string specifier) {
 	specifier = StringUtil::Lower(specifier);
@@ -389,4 +389,4 @@ void DatePartFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(date_part);
 }
 
-} // namespace duckdb
+} // namespace graindb

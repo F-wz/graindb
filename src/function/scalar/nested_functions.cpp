@@ -1,8 +1,8 @@
-#include "duckdb/function/scalar/nested_functions.hpp"
+#include "graindb/function/scalar/nested_functions.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 void BuiltinFunctions::RegisterNestedFunctions() {
 	Register<StructPackFun>();
@@ -10,4 +10,4 @@ void BuiltinFunctions::RegisterNestedFunctions() {
 	Register<ListValueFun>();
 }
 
-} // namespace duckdb
+} // namespace graindb

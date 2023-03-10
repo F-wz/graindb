@@ -1,10 +1,10 @@
-#include "duckdb/main/relation/join_relation.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/expression/star_expression.hpp"
-#include "duckdb/parser/tableref/joinref.hpp"
+#include "graindb/main/relation/join_relation.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/expression/star_expression.hpp"
+#include "graindb/parser/tableref/joinref.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 JoinRelation::JoinRelation(shared_ptr<Relation> left_p, shared_ptr<Relation> right_p,
                            unique_ptr<ParsedExpression> condition_p, JoinType type)
@@ -55,4 +55,4 @@ string JoinRelation::ToString(idx_t depth) {
 	return str + "\n" + left->ToString(depth + 1) + right->ToString(depth + 1);
 }
 
-} // namespace duckdb
+} // namespace graindb

@@ -1,9 +1,9 @@
-#include "duckdb/planner/expression/bound_unnest_expression.hpp"
+#include "graindb/planner/expression/bound_unnest_expression.hpp"
 
-#include "duckdb/common/types/hash.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/common/types/hash.hpp"
+#include "graindb/common/string_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundUnnestExpression::BoundUnnestExpression(SQLType sql_return_type)
@@ -21,7 +21,7 @@ string BoundUnnestExpression::ToString() const {
 
 hash_t BoundUnnestExpression::Hash() const {
 	hash_t result = Expression::Hash();
-	return CombineHash(result, duckdb::Hash("unnest"));
+	return CombineHash(result, graindb::Hash("unnest"));
 }
 
 bool BoundUnnestExpression::Equals(const BaseExpression *other_) const {

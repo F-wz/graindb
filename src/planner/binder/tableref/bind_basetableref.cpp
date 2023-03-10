@@ -1,13 +1,13 @@
-#include "duckdb/catalog/catalog_entry/view_catalog_entry.hpp"
-#include "duckdb/parser/tableref/basetableref.hpp"
-#include "duckdb/parser/tableref/subqueryref.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/tableref/bound_basetableref.hpp"
-#include "duckdb/planner/tableref/bound_subqueryref.hpp"
-#include "duckdb/planner/tableref/bound_cteref.hpp"
-#include "duckdb/planner/operator/logical_get.hpp"
+#include "graindb/catalog/catalog_entry/view_catalog_entry.hpp"
+#include "graindb/parser/tableref/basetableref.hpp"
+#include "graindb/parser/tableref/subqueryref.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/tableref/bound_basetableref.hpp"
+#include "graindb/planner/tableref/bound_subqueryref.hpp"
+#include "graindb/planner/tableref/bound_cteref.hpp"
+#include "graindb/planner/operator/logical_get.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<BoundTableRef> Binder::Bind(BaseTableRef &ref) {

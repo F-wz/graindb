@@ -1,9 +1,9 @@
-#include "duckdb/parser/constraints/unique_constraint.hpp"
+#include "graindb/parser/constraints/unique_constraint.hpp"
 
-#include "duckdb/common/serializer.hpp"
+#include "graindb/common/serializer.hpp"
 
 using namespace std;
-using namespace duckdb;
+using namespace graindb;
 
 string UniqueConstraint::ToString() const {
 	return is_primary_key ? "PRIMARY KEY constraint" : "UNIQUE Constraint";

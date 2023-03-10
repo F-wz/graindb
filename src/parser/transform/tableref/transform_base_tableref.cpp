@@ -1,7 +1,7 @@
-#include "duckdb/parser/tableref/basetableref.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/tableref/basetableref.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<TableRef> Transformer::TransformRangeVar(PGRangeVar *root) {

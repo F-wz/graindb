@@ -1,7 +1,7 @@
-#include "duckdb/catalog/catalog_entry.hpp"
-#include "duckdb/catalog/catalog.hpp"
+#include "graindb/catalog/catalog_entry.hpp"
+#include "graindb/catalog/catalog.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 CatalogEntry::~CatalogEntry() {

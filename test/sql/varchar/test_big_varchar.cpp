@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Insert big varchar strings", "[varchar]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a VARCHAR);"));
@@ -30,7 +30,7 @@ TEST_CASE("Test scanning many big varchar strings with limited memory", "[varcha
 	config->temporary_directory = temp_dir;
 
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr, config.get());
+	GrainDB db(nullptr, config.get());
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a VARCHAR);"));

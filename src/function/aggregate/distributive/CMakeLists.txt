@@ -1,4 +1,4 @@
-add_library_unity(duckdb_aggr_distr
+add_library_unity(graindb_aggr_distr
                   OBJECT
                   bitagg.cpp
                   count.cpp
@@ -7,5 +7,5 @@ add_library_unity(duckdb_aggr_distr
                   string_agg.cpp
                   sum.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_aggr_distr>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_aggr_distr>
     PARENT_SCOPE)

@@ -1,12 +1,12 @@
-#include "duckdb/optimizer/rule/move_constants.hpp"
+#include "graindb/optimizer/rule/move_constants.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/value_operations/value_operations.hpp"
-#include "duckdb/planner/expression/bound_comparison_expression.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/value_operations/value_operations.hpp"
+#include "graindb/planner/expression/bound_comparison_expression.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 MoveConstantsRule::MoveConstantsRule(ExpressionRewriter &rewriter) : Rule(rewriter) {

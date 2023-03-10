@@ -87,11 +87,11 @@ third_party/sqllogictest:
 	git clone --depth=1 https://github.com/cwida/sqllogictest.git third_party/sqllogictest
 
 third_party/imdb/data:
-	wget -i "http://download.duckdb.org/imdb/list.txt" -P third_party/imdb/data
+	wget -i "http://download.graindb.org/imdb/list.txt" -P third_party/imdb/data
 
 sqlite: release | third_party/sqllogictest
 	git --git-dir third_party/sqllogictest/.git pull
 	./build/release/test/unittest "[sqlitelogic]"
 
 sqlsmith: debug
-	./build/debug/third_party/sqlsmith/sqlsmith --duckdb=:memory:
+	./build/debug/third_party/sqlsmith/sqlsmith --graindb=:memory:

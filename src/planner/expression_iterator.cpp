@@ -1,12 +1,12 @@
-#include "duckdb/planner/expression_iterator.hpp"
+#include "graindb/planner/expression_iterator.hpp"
 
-#include "duckdb/planner/bound_query_node.hpp"
-#include "duckdb/planner/expression/list.hpp"
-#include "duckdb/planner/query_node/bound_select_node.hpp"
-#include "duckdb/planner/query_node/bound_set_operation_node.hpp"
-#include "duckdb/planner/tableref/list.hpp"
+#include "graindb/planner/bound_query_node.hpp"
+#include "graindb/planner/expression/list.hpp"
+#include "graindb/planner/query_node/bound_select_node.hpp"
+#include "graindb/planner/query_node/bound_set_operation_node.hpp"
+#include "graindb/planner/tableref/list.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void ExpressionIterator::EnumerateChildren(const Expression &expr, function<void(const Expression &child)> callback) {

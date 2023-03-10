@@ -1,5 +1,5 @@
 #include "catch.hpp"
-#include "duckdb/main/appender.hpp"
+#include "graindb/main/appender.hpp"
 #include "test_helpers.hpp"
 
 #include <atomic>
@@ -7,7 +7,7 @@
 #include <vector>
 #include <random>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 atomic<bool> is_finished;
@@ -15,7 +15,7 @@ atomic<bool> is_finished;
 #define THREAD_COUNT 20
 #define INSERT_COUNT 2000
 
-static void read_from_integers(DuckDB *db, bool *correct, idx_t threadnr) {
+static void read_from_integers(GrainDB *db, bool *correct, idx_t threadnr) {
 	Connection con(*db);
 	correct[threadnr] = true;
 	while (!is_finished) {
@@ -28,7 +28,7 @@ static void read_from_integers(DuckDB *db, bool *correct, idx_t threadnr) {
 
 TEST_CASE("Concurrent reads during index creation", "[index][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// create a single table to append to
@@ -64,7 +64,7 @@ TEST_CASE("Concurrent reads during index creation", "[index][.]") {
 	REQUIRE(CHECK_COLUMN(result, 0, {1}));
 }
 
-static void append_to_integers(DuckDB *db, idx_t threadnr) {
+static void append_to_integers(GrainDB *db, idx_t threadnr) {
 	Connection con(*db);
 	for (idx_t i = 0; i < INSERT_COUNT; i++) {
 		auto result = con.Query("INSERT INTO integers VALUES (1)");
@@ -76,7 +76,7 @@ static void append_to_integers(DuckDB *db, idx_t threadnr) {
 
 TEST_CASE("Concurrent writes during index creation", "[index][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// create a single table to append to
@@ -114,7 +114,7 @@ TEST_CASE("Concurrent writes during index creation", "[index][.]") {
 	REQUIRE(CHECK_COLUMN(result, 0, {1 + THREAD_COUNT * INSERT_COUNT}));
 }
 
-static void append_to_primary_key(DuckDB *db) {
+static void append_to_primary_key(GrainDB *db) {
 	Connection con(*db);
 	for (int32_t i = 0; i < 1000; i++) {
 		con.Query("INSERT INTO integers VALUES ($1)", i);
@@ -123,7 +123,7 @@ static void append_to_primary_key(DuckDB *db) {
 
 TEST_CASE("Concurrent inserts into PRIMARY KEY column", "[index][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// create a single table to append to
@@ -146,7 +146,7 @@ TEST_CASE("Concurrent inserts into PRIMARY KEY column", "[index][.]") {
 	REQUIRE(CHECK_COLUMN(result, 1, {1000}));
 }
 
-static void update_to_primary_key(DuckDB *db) {
+static void update_to_primary_key(GrainDB *db) {
 	Connection con(*db);
 	for (int32_t i = 0; i < 1000; i++) {
 		con.Query("UPDATE integers SET i=1000+(i % 100) WHERE i=$1", i);
@@ -155,7 +155,7 @@ static void update_to_primary_key(DuckDB *db) {
 
 TEST_CASE("Concurrent updates to PRIMARY KEY column", "[index][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// create a single table and insert the values [1...1000]
@@ -181,7 +181,7 @@ TEST_CASE("Concurrent updates to PRIMARY KEY column", "[index][.]") {
 	REQUIRE(CHECK_COLUMN(result, 1, {1000}));
 }
 
-static void mix_insert_to_primary_key(DuckDB *db, atomic<idx_t> *count, idx_t thread_nr) {
+static void mix_insert_to_primary_key(GrainDB *db, atomic<idx_t> *count, idx_t thread_nr) {
 	unique_ptr<QueryResult> result;
 	Connection con(*db);
 	for (int32_t i = 0; i < 100; i++) {
@@ -192,7 +192,7 @@ static void mix_insert_to_primary_key(DuckDB *db, atomic<idx_t> *count, idx_t th
 	}
 }
 
-static void mix_update_to_primary_key(DuckDB *db, atomic<idx_t> *count, idx_t thread_nr) {
+static void mix_update_to_primary_key(GrainDB *db, atomic<idx_t> *count, idx_t thread_nr) {
 	unique_ptr<QueryResult> result;
 	Connection con(*db);
 	std::uniform_int_distribution<> distribution(1, 100);
@@ -209,7 +209,7 @@ static void mix_update_to_primary_key(DuckDB *db, atomic<idx_t> *count, idx_t th
 
 TEST_CASE("Mix of UPDATES and INSERTS on table with PRIMARY KEY constraints", "[index][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	atomic<idx_t> atomic_count;
@@ -265,7 +265,7 @@ string append_to_primary_key(Connection &con, idx_t thread_nr) {
 	return "";
 }
 
-static void append_to_primary_key_with_transaction(DuckDB *db, idx_t thread_nr, bool success[]) {
+static void append_to_primary_key_with_transaction(GrainDB *db, idx_t thread_nr, bool success[]) {
 	Connection con(*db);
 
 	success[thread_nr] = true;
@@ -278,7 +278,7 @@ static void append_to_primary_key_with_transaction(DuckDB *db, idx_t thread_nr, 
 
 TEST_CASE("Parallel appends to table with index with transactions", "[index][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// create a single table

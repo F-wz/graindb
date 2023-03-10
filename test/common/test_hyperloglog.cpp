@@ -1,9 +1,9 @@
 #include "catch.hpp"
-#include "duckdb/common/types/hyperloglog.hpp"
+#include "graindb/common/types/hyperloglog.hpp"
 
 #include <vector>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test that hyperloglog works", "[hyperloglog]") {

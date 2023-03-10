@@ -1,8 +1,8 @@
-#include "duckdb/parser/statement/select_statement.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/bound_query_node.hpp"
+#include "graindb/parser/statement/select_statement.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/bound_query_node.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundStatement Binder::Bind(SelectStatement &stmt) {

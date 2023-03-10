@@ -1,11 +1,11 @@
-#include "duckdb/planner/expression_binder/group_binder.hpp"
+#include "graindb/planner/expression_binder/group_binder.hpp"
 
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 GroupBinder::GroupBinder(Binder &binder, ClientContext &context, SelectNode &node, idx_t group_index,

@@ -1,10 +1,10 @@
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/limits.hpp"
-#include "duckdb/common/operator/numeric_binary_operators.hpp"
-#include "duckdb/common/value_operations/value_operations.hpp"
-#include "duckdb/common/operator/aggregate_operators.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/limits.hpp"
+#include "graindb/common/operator/numeric_binary_operators.hpp"
+#include "graindb/common/value_operations/value_operations.hpp"
+#include "graindb/common/operator/aggregate_operators.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 template <class OP, bool IGNORE_NULL> static Value templated_binary_operation(const Value &left, const Value &right) {
@@ -87,15 +87,15 @@ template <class OP, bool IGNORE_NULL> static Value templated_binary_operation(co
 // Numeric Operations
 //===--------------------------------------------------------------------===//
 Value ValueOperations::Add(const Value &left, const Value &right) {
-	return templated_binary_operation<duckdb::AddOperator, false>(left, right);
+	return templated_binary_operation<graindb::AddOperator, false>(left, right);
 }
 
 Value ValueOperations::Subtract(const Value &left, const Value &right) {
-	return templated_binary_operation<duckdb::SubtractOperator, false>(left, right);
+	return templated_binary_operation<graindb::SubtractOperator, false>(left, right);
 }
 
 Value ValueOperations::Multiply(const Value &left, const Value &right) {
-	return templated_binary_operation<duckdb::MultiplyOperator, false>(left, right);
+	return templated_binary_operation<graindb::MultiplyOperator, false>(left, right);
 }
 
 Value ValueOperations::Modulo(const Value &left, const Value &right) {
@@ -143,14 +143,14 @@ Value ValueOperations::Divide(const Value &left, const Value &right) {
 		result.is_null = true;
 		return result;
 	} else {
-		return templated_binary_operation<duckdb::DivideOperator, false>(left, right);
+		return templated_binary_operation<graindb::DivideOperator, false>(left, right);
 	}
 }
 
 // Value ValueOperations::Min(const Value &left, const Value &right) {
-// 	return templated_binary_operation<duckdb::Min, true>(left, right);
+// 	return templated_binary_operation<graindb::Min, true>(left, right);
 // }
 
 // Value ValueOperations::Max(const Value &left, const Value &right) {
-// 	return templated_binary_operation<duckdb::Max, true>(left, right);
+// 	return templated_binary_operation<graindb::Max, true>(left, right);
 // }

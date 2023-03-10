@@ -1,15 +1,15 @@
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/vector_operations/unary_executor.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/unary_executor.hpp"
 #include "utf8proc.hpp"
 
 #include <cstring>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static int64_t instr(string_t haystack, string_t needle) {
 	int64_t string_position = 0;
@@ -45,4 +45,4 @@ void InstrFun::RegisterFunction(BuiltinFunctions &set) {
 	                               ScalarFunction::BinaryFunction<string_t, string_t, int64_t, InstrOperator, true>));
 }
 
-} // namespace duckdb
+} // namespace graindb

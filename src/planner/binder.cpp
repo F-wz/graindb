@@ -1,11 +1,11 @@
-#include "duckdb/planner/binder.hpp"
+#include "graindb/planner/binder.hpp"
 
-#include "duckdb/parser/statement/list.hpp"
-#include "duckdb/planner/bound_query_node.hpp"
-#include "duckdb/planner/bound_tableref.hpp"
-#include "duckdb/planner/expression.hpp"
+#include "graindb/parser/statement/list.hpp"
+#include "graindb/planner/bound_query_node.hpp"
+#include "graindb/planner/bound_tableref.hpp"
+#include "graindb/planner/expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 Binder::Binder(ClientContext &context, Binder *parent_)

@@ -1,14 +1,14 @@
-#include "duckdb/storage/uncompressed_segment.hpp"
+#include "graindb/storage/uncompressed_segment.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/operator/comparison_operators.hpp"
-#include "duckdb/common/types/vector.hpp"
-#include "duckdb/common/vector_operations/binary_executor.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/storage/data_table.hpp"
-#include "duckdb/transaction/update_info.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
+#include "graindb/common/types/vector.hpp"
+#include "graindb/common/vector_operations/binary_executor.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/storage/data_table.hpp"
+#include "graindb/transaction/update_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 UncompressedSegment::UncompressedSegment(BufferManager &manager, TypeId type, idx_t row_start)

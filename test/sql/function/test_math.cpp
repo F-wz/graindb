@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test ceil(ing)/floor function", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE numbers(n DOUBLE)"));
@@ -44,7 +44,7 @@ TEST_CASE("Test ceil(ing)/floor function", "[function]") {
 
 TEST_CASE("Rounding test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -72,7 +72,7 @@ TEST_CASE("Rounding test", "[function]") {
 
 TEST_CASE("Test random & setseed functions", "[function]") {
 	unique_ptr<QueryResult> result, result1, result2;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// random() is evaluated twice here
@@ -122,7 +122,7 @@ TEST_CASE("Test random & setseed functions", "[function]") {
 
 TEST_CASE("Function test cases from PG docs", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -183,7 +183,7 @@ TEST_CASE("Function test cases from PG docs", "[function]") {
 
 TEST_CASE("Mod test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -208,7 +208,7 @@ TEST_CASE("Mod test", "[function]") {
 }
 TEST_CASE("Power test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -233,7 +233,7 @@ TEST_CASE("Power test", "[function]") {
 
 TEST_CASE("BIT_COUNT test", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -251,7 +251,7 @@ TEST_CASE("BIT_COUNT test", "[function]") {
 
 TEST_CASE("Test invalid input for math functions", "[function]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

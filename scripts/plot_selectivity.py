@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import sys
 
 if len(sys.argv) != 2:
-    print("USAGE: python3 scripts/plot_selectivity.py SOURCE_FILE[Selectivity, DuckDB, GRainDB, GFDB, Neo4j]")
+    print("USAGE: python3 scripts/plot_selectivity.py SOURCE_FILE[Selectivity, GrainDB, GRainDB, GFDB, Neo4j]")
     sys.exit()
 
 list1_1 = []
@@ -37,7 +37,7 @@ figure, axes = plt.subplots()
 plt.yscale('log')
 plt.ylabel('runtime in msec (log scale)', fontsize=16)
 plt.xlabel('selectivity of Knows', fontsize=16)
-axes.plot(x_axis, list1_1, 'D-', label='DuckDB', alpha=0.9, markersize=5)
+axes.plot(x_axis, list1_1, 'D-', label='GrainDB', alpha=0.9, markersize=5)
 axes.plot(x_axis, list1_2, 'o-', label='GRainDB', alpha=0.6, markersize=5)
 axes.plot(x_axis, list1_3, '*-', label='GrahflowDB', alpha=0.8, markersize=5)
 axes.plot(x_axis, list1_4, 's-', label='Neo4j', alpha=0.8, markersize=5)

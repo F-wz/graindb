@@ -1,15 +1,15 @@
-#include "duckdb/main/appender.hpp"
+#include "graindb/main/appender.hpp"
 
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/main/connection.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/main/database.hpp"
-#include "duckdb/storage/data_table.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/main/connection.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/main/database.hpp"
+#include "graindb/storage/data_table.hpp"
 
-#include "duckdb/common/operator/cast_operators.hpp"
+#include "graindb/common/operator/cast_operators.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 Appender::Appender(Connection &con, string schema_name, string table_name) : con(con), column(0) {

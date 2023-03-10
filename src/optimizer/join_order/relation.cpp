@@ -1,10 +1,10 @@
-#include "duckdb/optimizer/join_order/join_relation.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/optimizer/join_order/join_relation.hpp"
+#include "graindb/common/string_util.hpp"
 
 #include <algorithm>
 #include <string>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 using JoinRelationTreeNode = JoinRelationSetManager::JoinRelationTreeNode;

@@ -1,13 +1,13 @@
-# Install the DuckDB R package like so: R CMD INSTALL tools/rpkg
-# Or with install.packages: install.packages("duckdb", 
-#                                            repos=c("http://download.duckdb.org/alias/master/rstats/", 
+# Install the GrainDB R package like so: R CMD INSTALL tools/rpkg
+# Or with install.packages: install.packages("graindb", 
+#                                            repos=c("http://download.graindb.org/alias/master/rstats/", 
 #                                                    "http://cran.rstudio.com"))
 
-# The DuckDB R interface follows the R DBI specification
+# The GrainDB R interface follows the R DBI specification
 library("DBI")
 
-# create a DuckDB connection, either as a temporary in-memory database (default) or with a file 
-con <- dbConnect(duckdb::duckdb(), ":memory:")
+# create a GrainDB connection, either as a temporary in-memory database (default) or with a file 
+con <- dbConnect(graindb::graindb(), ":memory:")
 
 # write a data.frame to the database
 dbWriteTable(con, "iris", iris)

@@ -12,7 +12,7 @@ matplotlib.rc('font', **font)
 
 
 # python3 scripts/plan_spectrum.py -o ~/Developer/graindb-benchmark/plan_spectrum/job/plan_spectrum_q4.pdf -j 0.0
-# -l Duck Grain -p spectrum ~/Developer/graindb-benchmark/plan_spectrum/job/plan_spectrum_q4_duck.csv
+# -l Grain Grain -p spectrum ~/Developer/graindb-benchmark/plan_spectrum/job/plan_spectrum_q4_grain.csv
 # ~/Developer/graindb-benchmark/plan_spectrum/job/plan_spectrum_q4_grain.csv
 
 def parse_args():

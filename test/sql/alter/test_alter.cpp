@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test ALTER TABLE RENAME COLUMN", "[alter]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// CREATE TABLE AND ALTER IT TO RENAME A COLUMN
@@ -24,7 +24,7 @@ TEST_CASE("Test ALTER TABLE RENAME COLUMN", "[alter]") {
 
 TEST_CASE("Test ALTER TABLE RENAME COLUMN and dependencies", "[alter]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// prepared statements
@@ -45,7 +45,7 @@ TEST_CASE("Test ALTER TABLE RENAME COLUMN and dependencies", "[alter]") {
 
 TEST_CASE("Test ALTER TABLE RENAME COLUMN with transactions", "[alter]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	Connection con2(db);
 
@@ -84,7 +84,7 @@ TEST_CASE("Test ALTER TABLE RENAME COLUMN with transactions", "[alter]") {
 
 TEST_CASE("Test ALTER TABLE RENAME COLUMN with rollback", "[alter]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// CREATE TABLE
@@ -110,7 +110,7 @@ TEST_CASE("Test ALTER TABLE RENAME COLUMN with rollback", "[alter]") {
 
 TEST_CASE("Test failure conditions of ALTER TABLE", "[alter]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// CREATE TABLE AND ALTER IT TO RENAME A COLUMN
@@ -128,7 +128,7 @@ TEST_CASE("Test failure conditions of ALTER TABLE", "[alter]") {
 
 TEST_CASE("Test ALTER TABLE RENAME COLUMN on a table with constraints", "[alter]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	SECTION("CHECK constraint") {
@@ -172,7 +172,7 @@ TEST_CASE("Test ALTER TABLE RENAME COLUMN on a table with constraints", "[alter]
 
 TEST_CASE("Test ALTER TABLE ADD COLUMN", "[alter]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test(i INTEGER, j INTEGER)"));
@@ -286,7 +286,7 @@ TEST_CASE("Test ALTER TABLE ADD COLUMN", "[alter]") {
 
 TEST_CASE("Test ALTER TABLE ADD COLUMN with multiple transactions", "[alter]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test(i INTEGER, j INTEGER)"));
@@ -354,7 +354,7 @@ TEST_CASE("Test ALTER TABLE ADD COLUMN with multiple transactions", "[alter]") {
 
 TEST_CASE("Test ALTER TABLE DROP COLUMN", "[alter]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test(i INTEGER, j INTEGER)"));
@@ -497,7 +497,7 @@ TEST_CASE("Test ALTER TABLE DROP COLUMN", "[alter]") {
 
 TEST_CASE("Test ALTER TABLE DROP COLUMN with multiple transactions", "[alter]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test(i INTEGER, j INTEGER)"));
@@ -567,7 +567,7 @@ TEST_CASE("Test ALTER TABLE DROP COLUMN with multiple transactions", "[alter]") 
 
 TEST_CASE("Test ALTER TABLE SET DEFAULT", "[alter]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test(i INTEGER, j INTEGER)"));
@@ -600,7 +600,7 @@ TEST_CASE("Test ALTER TABLE SET DEFAULT", "[alter]") {
 
 TEST_CASE("Test ALTER TABLE ALTER TYPE", "[alter]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test(i INTEGER, j INTEGER)"));
@@ -699,7 +699,7 @@ TEST_CASE("Test ALTER TABLE ALTER TYPE", "[alter]") {
 
 TEST_CASE("Test ALTER TABLE ALTER TYPE with multiple transactions", "[alter]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test(i INTEGER, j INTEGER)"));

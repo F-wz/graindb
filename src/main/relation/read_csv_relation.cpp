@@ -1,13 +1,13 @@
-#include "duckdb/main/relation/read_csv_relation.hpp"
-#include "duckdb/parser/tableref/table_function_ref.hpp"
-#include "duckdb/parser/tableref/basetableref.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/expression/star_expression.hpp"
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/parser/expression/function_expression.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/main/relation/read_csv_relation.hpp"
+#include "graindb/parser/tableref/table_function_ref.hpp"
+#include "graindb/parser/tableref/basetableref.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/expression/star_expression.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/expression/function_expression.hpp"
+#include "graindb/common/string_util.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 ReadCSVRelation::ReadCSVRelation(ClientContext &context, string csv_file_p, vector<ColumnDefinition> columns_p,
                                  string alias_p)
@@ -54,4 +54,4 @@ string ReadCSVRelation::ToString(idx_t depth) {
 	return RenderWhitespace(depth) + "Read CSV [" + csv_file + "]";
 }
 
-} // namespace duckdb
+} // namespace graindb

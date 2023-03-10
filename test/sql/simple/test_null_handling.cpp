@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test scalar NULL handling", "[nullhandling]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// scalar NULL
@@ -34,7 +34,7 @@ TEST_CASE("Test scalar NULL handling", "[nullhandling]") {
 
 TEST_CASE("Test simple NULL handling", "[nullhandling]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
@@ -63,7 +63,7 @@ TEST_CASE("Test simple NULL handling", "[nullhandling]") {
 
 TEST_CASE("Test NULL handling in aggregations", "[nullhandling]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));
@@ -115,7 +115,7 @@ TEST_CASE("Test NULL handling in aggregations", "[nullhandling]") {
 
 TEST_CASE("Test IS NULL", "[nullhandling]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER, b INTEGER);"));

@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test scalar SIMILAR TO statement", "[similar]") {
 	unique_ptr<QueryResult> result;
-	DuckDB database(nullptr);
+	GrainDB database(nullptr);
 	Connection connection(database);
 
 	result = connection.Query("SELECT 'aaa' SIMILAR TO 'bbb'");
@@ -69,7 +69,7 @@ TEST_CASE("Test scalar SIMILAR TO statement", "[similar]") {
 
 TEST_CASE("Test SIMILAR TO statement with expressions", "[similar]") {
 	unique_ptr<QueryResult> result;
-	DuckDB database(nullptr);
+	GrainDB database(nullptr);
 	Connection connection(database);
 
 	REQUIRE_NO_FAIL(connection.Query("CREATE TABLE strings (s STRING, p STRING);"));
@@ -92,7 +92,7 @@ TEST_CASE("Test SIMILAR TO statement with expressions", "[similar]") {
 
 TEST_CASE("Test SIMILAR TO statement exceptions", "[similar]") {
 	unique_ptr<QueryResult> result;
-	DuckDB database(nullptr);
+	GrainDB database(nullptr);
 	Connection connection(database);
 
 	REQUIRE_NO_FAIL(connection.Query("CREATE TABLE strings (s STRING, p STRING);"));

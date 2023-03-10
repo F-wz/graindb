@@ -1,11 +1,11 @@
 #pragma once
 
-#include "duckdb.hpp"
-#include "duckdb/catalog/catalog.hpp"
+#include "graindb.hpp"
+#include "graindb/catalog/catalog.hpp"
 
 namespace imdb {
 //! Adds the IMDB tables to the database
-void dbgen(duckdb::Connection &conn, bool enableRAIs, bool enableLoadData = true);
+void dbgen(graindb::Connection &conn, bool enableRAIs, bool enableLoadData = true);
 
 //! Gets the specified IMDB JOB query join order as a string
 std::string get_113_default_jo(const std::string& jo_name);

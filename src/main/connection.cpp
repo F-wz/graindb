@@ -1,20 +1,20 @@
-#include "duckdb/main/connection.hpp"
+#include "graindb/main/connection.hpp"
 
-#include "duckdb/main/appender.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/main/connection_manager.hpp"
-#include "duckdb/main/database.hpp"
-#include "duckdb/main/relation/read_csv_relation.hpp"
-#include "duckdb/main/relation/table_function_relation.hpp"
-#include "duckdb/main/relation/table_relation.hpp"
-#include "duckdb/main/relation/value_relation.hpp"
-#include "duckdb/main/relation/view_relation.hpp"
-#include "duckdb/parser/parser.hpp"
+#include "graindb/main/appender.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/main/connection_manager.hpp"
+#include "graindb/main/database.hpp"
+#include "graindb/main/relation/read_csv_relation.hpp"
+#include "graindb/main/relation/table_function_relation.hpp"
+#include "graindb/main/relation/table_relation.hpp"
+#include "graindb/main/relation/value_relation.hpp"
+#include "graindb/main/relation/view_relation.hpp"
+#include "graindb/parser/parser.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
-Connection::Connection(DuckDB &database) : db(database), context(make_unique<ClientContext>(database)) {
+Connection::Connection(GrainDB &database) : db(database), context(make_unique<ClientContext>(database)) {
 	db.connection_manager->AddConnection(this);
 #ifdef DEBUG
 	EnableProfiling();

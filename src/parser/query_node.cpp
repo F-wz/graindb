@@ -1,10 +1,10 @@
-#include "duckdb/parser/query_node.hpp"
+#include "graindb/parser/query_node.hpp"
 
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/query_node/set_operation_node.hpp"
-#include "duckdb/parser/query_node/recursive_cte_node.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/query_node/set_operation_node.hpp"
+#include "graindb/parser/query_node/recursive_cte_node.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 bool QueryNode::Equals(const QueryNode *other) const {

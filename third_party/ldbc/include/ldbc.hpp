@@ -1,14 +1,14 @@
 #pragma once
 
-#include "duckdb.hpp"
-#include "duckdb/catalog/catalog.hpp"
+#include "graindb.hpp"
+#include "graindb/catalog/catalog.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 
 namespace ldbc {
 
-void dbgen(duckdb::Connection &conn, int sf, bool enableRAIs, bool enableLoading = true);
-void dbgen_micro(duckdb::Connection &conn, int sf, int qgid, bool enableRAIs, bool enableLoading = true);
+void dbgen(graindb::Connection &conn, int sf, bool enableRAIs, bool enableLoading = true);
+void dbgen_micro(graindb::Connection &conn, int sf, int qgid, bool enableRAIs, bool enableLoading = true);
 
 std::string read_file(const std::string& file);
 

@@ -1,11 +1,11 @@
-#include "duckdb/optimizer/filter_pushdown.hpp"
-#include "duckdb/optimizer/optimizer.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
-#include "duckdb/planner/operator/logical_set_operation.hpp"
+#include "graindb/optimizer/filter_pushdown.hpp"
+#include "graindb/optimizer/optimizer.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression_iterator.hpp"
+#include "graindb/planner/operator/logical_set_operation.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 using Filter = FilterPushdown::Filter;

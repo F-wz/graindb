@@ -1,11 +1,11 @@
-#include "duckdb/execution/operator/join/physical_piecewise_merge_join.hpp"
+#include "graindb/execution/operator/join/physical_piecewise_merge_join.hpp"
 
-#include "duckdb/common/operator/comparison_operators.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/execution/merge_join.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/execution/merge_join.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static void OrderVector(Vector &vector, idx_t count, MergeOrder &order);
@@ -263,7 +263,7 @@ static void templated_quicksort(VectorData &vdata, const SelectionVector &not_nu
 	if (not_null_count == 0) {
 		return;
 	}
-	templated_quicksort<T, duckdb::LessThanEquals>((T *)vdata.data, *vdata.sel, not_null_sel, not_null_count, result);
+	templated_quicksort<T, graindb::LessThanEquals>((T *)vdata.data, *vdata.sel, not_null_sel, not_null_count, result);
 }
 
 void OrderVector(Vector &vector, idx_t count, MergeOrder &order) {

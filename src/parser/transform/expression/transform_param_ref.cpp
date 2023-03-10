@@ -1,7 +1,7 @@
-#include "duckdb/parser/expression/parameter_expression.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/expression/parameter_expression.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<ParsedExpression> Transformer::TransformParamRef(PGParamRef *node) {

@@ -1,11 +1,11 @@
-#include "duckdb/execution/operator/schema/physical_create_table.hpp"
+#include "graindb/execution/operator/schema/physical_create_table.hpp"
 
-#include "duckdb/catalog/catalog_entry/schema_catalog_entry.hpp"
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/storage/data_table.hpp"
+#include "graindb/catalog/catalog_entry/schema_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/storage/data_table.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void PhysicalCreateTable::GetChunkInternal(ClientContext &context, DataChunk &chunk, PhysicalOperatorState *state,

@@ -1,9 +1,9 @@
-#include "duckdb/parser/expression/conjunction_expression.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/parser/expression_util.hpp"
+#include "graindb/parser/expression/conjunction_expression.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/parser/expression_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ConjunctionExpression::ConjunctionExpression(ExpressionType type)

@@ -1,12 +1,12 @@
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/parser/statement/copy_statement.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/parser/statement/insert_statement.hpp"
-#include "duckdb/planner/operator/logical_copy_from_file.hpp"
-#include "duckdb/planner/operator/logical_copy_to_file.hpp"
-#include "duckdb/planner/operator/logical_insert.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/parser/statement/copy_statement.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/parser/statement/insert_statement.hpp"
+#include "graindb/planner/operator/logical_copy_from_file.hpp"
+#include "graindb/planner/operator/logical_copy_to_file.hpp"
+#include "graindb/planner/operator/logical_insert.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundStatement Binder::BindCopyTo(CopyStatement &stmt) {

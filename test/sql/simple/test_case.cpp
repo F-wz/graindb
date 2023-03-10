@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test case statement", "[case]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	con.Query("CREATE TABLE test (a INTEGER, b INTEGER);");
@@ -48,7 +48,7 @@ TEST_CASE("Test case statement", "[case]") {
 
 TEST_CASE("Test NULL IF statement", "[case]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	// NULL IF
@@ -72,7 +72,7 @@ TEST_CASE("Test NULL IF statement", "[case]") {
 
 TEST_CASE("NULL IF with strings", "[case]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

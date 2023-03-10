@@ -1,14 +1,14 @@
-#include "duckdb/common/types/date.hpp"
+#include "graindb/common/types/date.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/string_util.hpp"
 
 #include <cctype>
 #include <iomanip>
 #include <iostream>
 #include <sstream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 // Taken from MonetDB mtime.c

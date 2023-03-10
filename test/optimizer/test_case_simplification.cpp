@@ -1,8 +1,8 @@
-#include "duckdb/common/helper.hpp"
+#include "graindb/common/helper.hpp"
 #include "expression_helper.hpp"
-#include "duckdb/optimizer/rule/case_simplification.hpp"
+#include "graindb/optimizer/rule/case_simplification.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test case simplification", "[optimizer]") {

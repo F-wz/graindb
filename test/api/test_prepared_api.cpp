@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test prepared statements API", "[api]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE a (i TINYINT)"));
@@ -55,7 +55,7 @@ TEST_CASE("Test prepared statements API", "[api]") {
 
 TEST_CASE("Test prepared statements and dependencies", "[api]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db), con2(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE a(i TINYINT)"));
@@ -83,7 +83,7 @@ TEST_CASE("Test prepared statements and dependencies", "[api]") {
 
 TEST_CASE("Dropping connection with prepared statement resets dependencies", "[api]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	auto con = make_unique<Connection>(db);
 	Connection con2(db);
 
@@ -105,13 +105,13 @@ TEST_CASE("Dropping connection with prepared statement resets dependencies", "[a
 }
 
 TEST_CASE("Test destructors of prepared statements", "[api]") {
-	unique_ptr<DuckDB> db;
+	unique_ptr<GrainDB> db;
 	unique_ptr<Connection> con;
 	unique_ptr<PreparedStatement> prepare;
 	unique_ptr<QueryResult> result;
 
 	// test destruction of connection
-	db = make_unique<DuckDB>(nullptr);
+	db = make_unique<GrainDB>(nullptr);
 	con = make_unique<Connection>(*db);
 	// create a prepared statement
 	prepare = con->Prepare("SELECT $1::INTEGER+$2::INTEGER");
@@ -145,7 +145,7 @@ TEST_CASE("Test destructors of prepared statements", "[api]") {
 
 TEST_CASE("Test incorrect usage of prepared statements API", "[api]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE a (i TINYINT)"));
@@ -172,7 +172,7 @@ TEST_CASE("Test incorrect usage of prepared statements API", "[api]") {
 
 TEST_CASE("Test multiple prepared statements", "[api]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE a (i TINYINT)"));
@@ -190,7 +190,7 @@ TEST_CASE("Test multiple prepared statements", "[api]") {
 
 TEST_CASE("Test prepared statements and transactions", "[api]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	// create prepared statements in a transaction
@@ -214,7 +214,7 @@ TEST_CASE("Test prepared statements and transactions", "[api]") {
 
 TEST_CASE("Test prepared statement parameter counting", "[api]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto p0 = con.Prepare("SELECT 42");

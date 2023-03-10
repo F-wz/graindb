@@ -1,8 +1,8 @@
-#include "duckdb/parser/tableref/table_function_ref.hpp"
+#include "graindb/parser/tableref/table_function_ref.hpp"
 
-#include "duckdb/common/serializer.hpp"
+#include "graindb/common/serializer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 bool TableFunctionRef::Equals(const TableRef *other_) const {

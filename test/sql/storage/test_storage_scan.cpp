@@ -1,9 +1,9 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/main/appender.hpp"
+#include "graindb/main/appender.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test scanning of persisted storage", "[storage]") {
@@ -15,14 +15,14 @@ TEST_CASE("Test scanning of persisted storage", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER);"));
 		REQUIRE_NO_FAIL(con.Query("INSERT INTO test VALUES (11), (12), (13), (14), (15), (NULL)"));
 	}
 	// perform read-only scans a few times
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT * FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {Value(), 11, 12, 13, 14, 15}));
@@ -31,7 +31,7 @@ TEST_CASE("Test scanning of persisted storage", "[storage]") {
 	}
 	// now perform a deletion
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT * FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {Value(), 11, 12, 13, 14, 15}));
@@ -45,7 +45,7 @@ TEST_CASE("Test scanning of persisted storage", "[storage]") {
 	}
 	// reload and perform another deletion
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT * FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {Value(), 11, 13, 14, 15}));
@@ -57,7 +57,7 @@ TEST_CASE("Test scanning of persisted storage", "[storage]") {
 	}
 	// reload and read again
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT * FROM test ORDER BY a");
 		REQUIRE(CHECK_COLUMN(result, 0, {Value(), 11, 14, 15}));

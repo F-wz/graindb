@@ -6,11 +6,11 @@ add_executable(icu_test icu_test.cpp)
 if(NOT WIN32 AND NOT SUN)
   target_link_libraries(icu_test
                         icu_extension
-                        duckdb
+                        graindb
                         test_helpers)
 else()
 target_link_libraries(icu_test
                       icu_extension
-                      duckdb_static
+                      graindb_static
                       test_helpers)
 endif()

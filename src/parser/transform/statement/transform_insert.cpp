@@ -1,9 +1,9 @@
-#include "duckdb/parser/statement/insert_statement.hpp"
-#include "duckdb/parser/tableref/basetableref.hpp"
-#include "duckdb/parser/tableref/expressionlistref.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/statement/insert_statement.hpp"
+#include "graindb/parser/tableref/basetableref.hpp"
+#include "graindb/parser/tableref/expressionlistref.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<TableRef> Transformer::TransformValuesList(PGList *list) {

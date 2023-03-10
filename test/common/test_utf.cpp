@@ -1,9 +1,9 @@
 #include "catch.hpp"
-#include "duckdb/common/types/vector.hpp"
-#include "duckdb/main/appender.hpp"
+#include "graindb/common/types/vector.hpp"
+#include "graindb/main/appender.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static void test_valid_str(Vector &a, const char *str) {
@@ -18,7 +18,7 @@ TEST_CASE("UTF8 error checking", "[utf8]") {
 	test_valid_str(a, "a");
 	test_valid_str(a, "\xc3\xb1");
 	test_valid_str(a, "\xE2\x82\xA1");
-	test_valid_str(a, "\xF0\x9F\xA6\x86"); // a duck!
+	test_valid_str(a, "\xF0\x9F\xA6\x86"); // a grain!
 	test_valid_str(a, "\xf0\x90\x8c\xbc");
 
 	REQUIRE_THROWS(a.SetValue(0, Value("\xc3\x28")));
@@ -40,7 +40,7 @@ TEST_CASE("UTF8 NFC tests", "[utf8]") {
 	REQUIRE(Value("\xc3\xbc") == Value("\x75\xcc\x88"));
 
 	// also in SQL
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	unique_ptr<QueryResult> result;

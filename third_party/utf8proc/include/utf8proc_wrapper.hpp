@@ -4,7 +4,7 @@
 #include <cassert>
 #include <cstring>
 
-namespace duckdb {
+namespace graindb {
 
 enum class UnicodeType {INVALID, ASCII, UNICODE};
 

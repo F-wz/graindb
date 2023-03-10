@@ -1,35 +1,35 @@
 #include "catch.hpp"
-#include "duckdb.h"
+#include "graindb.h"
 
 using namespace std;
 
 TEST_CASE("Simple In-Memory DB Start Up and Shutdown", "[simplestartup]") {
-	duckdb_database database;
-	duckdb_connection connection;
+	graindb_database database;
+	graindb_connection connection;
 
 	// open and close a database in in-memory mode
-	REQUIRE(duckdb_open(NULL, &database) == DuckDBSuccess);
-	REQUIRE(duckdb_connect(database, &connection) == DuckDBSuccess);
-	duckdb_disconnect(&connection);
-	duckdb_close(&database);
+	REQUIRE(graindb_open(NULL, &database) == GrainDBSuccess);
+	REQUIRE(graindb_connect(database, &connection) == GrainDBSuccess);
+	graindb_disconnect(&connection);
+	graindb_close(&database);
 }
 
 TEST_CASE("Multiple In-Memory DB Start Up and Shutdown", "[multiplestartup]") {
-	duckdb_database database[10];
-	duckdb_connection connection[100];
+	graindb_database database[10];
+	graindb_connection connection[100];
 
 	// open and close 10 databases
 	// and open 10 connections per database
 	for (size_t i = 0; i < 10; i++) {
-		REQUIRE(duckdb_open(NULL, &database[i]) == DuckDBSuccess);
+		REQUIRE(graindb_open(NULL, &database[i]) == GrainDBSuccess);
 		for (size_t j = 0; j < 10; j++) {
-			REQUIRE(duckdb_connect(database[i], &connection[i * 10 + j]) == DuckDBSuccess);
+			REQUIRE(graindb_connect(database[i], &connection[i * 10 + j]) == GrainDBSuccess);
 		}
 	}
 	for (size_t i = 0; i < 10; i++) {
 		for (size_t j = 0; j < 10; j++) {
-			duckdb_disconnect(&connection[i * 10 + j]);
+			graindb_disconnect(&connection[i * 10 + j]);
 		}
-		duckdb_close(&database[i]);
+		graindb_close(&database[i]);
 	}
 }

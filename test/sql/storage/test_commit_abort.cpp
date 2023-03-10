@@ -1,9 +1,9 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/storage/storage_info.hpp"
+#include "graindb/storage/storage_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test abort of commit with persistent storage", "[storage]") {
@@ -18,7 +18,7 @@ TEST_CASE("Test abort of commit with persistent storage", "[storage]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db), con2(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER PRIMARY KEY, b INTEGER, c VARCHAR);"));
 		REQUIRE_NO_FAIL(con.Query(
@@ -59,7 +59,7 @@ TEST_CASE("Test abort of commit with persistent storage", "[storage]") {
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT COUNT(*), COUNT(a), COUNT(b), SUM(a), SUM(b), SUM(LENGTH(c)) FROM test");
 		REQUIRE(CHECK_COLUMN(result, 0, {expected_count}));
@@ -84,7 +84,7 @@ TEST_CASE("Test abort of large commit with persistent storage", "[storage][.]") 
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db), con2(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test (a INTEGER PRIMARY KEY, b INTEGER, c VARCHAR);"));
 		REQUIRE_NO_FAIL(con.Query(
@@ -130,7 +130,7 @@ TEST_CASE("Test abort of large commit with persistent storage", "[storage][.]") 
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		result = con.Query("SELECT COUNT(*), COUNT(a), COUNT(b), SUM(a), SUM(b), SUM(LENGTH(c)) FROM test");
 		REQUIRE(CHECK_COLUMN(result, 0, {expected_count}));

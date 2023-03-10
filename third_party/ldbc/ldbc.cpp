@@ -6,7 +6,7 @@
 #include <iostream>
 
 using namespace std;
-using namespace duckdb;
+using namespace graindb;
 
 string ldbc::get_table_name(int num) {
 	if (num < 0 || num >= LDBC_TABLE_COUNT) {
@@ -22,7 +22,7 @@ string ldbc::get_ddl(int num) {
 	return LDBC_TABLE_DDL[num];
 }
 
-void ldbc::dbgen(duckdb::Connection &conn, int sf, bool enableRAIs, bool enableLoading) {
+void ldbc::dbgen(graindb::Connection &conn, int sf, bool enableRAIs, bool enableLoading) {
 	if (enableLoading && sf == 0) {
 		enableLoading = false;
 	}
@@ -52,7 +52,7 @@ void ldbc::dbgen(duckdb::Connection &conn, int sf, bool enableRAIs, bool enableL
 	}
 }
 
-void ldbc::dbgen_micro(duckdb::Connection &conn, int sf, int qgid, bool enableRAIs, bool enableLoading) {
+void ldbc::dbgen_micro(graindb::Connection &conn, int sf, int qgid, bool enableRAIs, bool enableLoading) {
 	if (enableLoading && sf == 0) {
 		enableLoading = false;
 	}

@@ -1,7 +1,7 @@
-#include "duckdb/parser/statement/vacuum_statement.hpp"
-#include "duckdb/parser/transformer.hpp"
+#include "graindb/parser/statement/vacuum_statement.hpp"
+#include "graindb/parser/transformer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<VacuumStatement> Transformer::TransformVacuum(PGNode *node) {

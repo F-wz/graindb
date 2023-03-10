@@ -1,7 +1,7 @@
-#include "duckdb/catalog/catalog_entry/index_catalog_entry.hpp"
-#include "duckdb/storage/data_table.hpp"
+#include "graindb/catalog/catalog_entry/index_catalog_entry.hpp"
+#include "graindb/storage/data_table.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 IndexCatalogEntry::~IndexCatalogEntry() {
 	// remove the associated index from the info
@@ -16,4 +16,4 @@ IndexCatalogEntry::~IndexCatalogEntry() {
 	}
 }
 
-} // namespace duckdb
+} // namespace graindb

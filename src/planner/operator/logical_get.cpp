@@ -1,8 +1,8 @@
-#include "duckdb/planner/operator/logical_get.hpp"
+#include "graindb/planner/operator/logical_get.hpp"
 
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 LogicalGet::LogicalGet(idx_t table_index)

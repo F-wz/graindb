@@ -1,19 +1,19 @@
-#include "duckdb/planner/planner.hpp"
+#include "graindb/planner/planner.hpp"
 
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/main/database.hpp"
-#include "duckdb/parser/statement/pragma_statement.hpp"
-#include "duckdb/parser/statement/prepare_statement.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression/bound_parameter_expression.hpp"
-#include "duckdb/planner/operator/logical_prepare.hpp"
-#include "duckdb/planner/query_node/bound_select_node.hpp"
-#include "duckdb/planner/query_node/bound_set_operation_node.hpp"
-#include "duckdb/planner/pragma_handler.hpp"
-#include "duckdb/parser/parsed_data/drop_info.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/main/database.hpp"
+#include "graindb/parser/statement/pragma_statement.hpp"
+#include "graindb/parser/statement/prepare_statement.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression/bound_parameter_expression.hpp"
+#include "graindb/planner/operator/logical_prepare.hpp"
+#include "graindb/planner/query_node/bound_select_node.hpp"
+#include "graindb/planner/query_node/bound_set_operation_node.hpp"
+#include "graindb/planner/pragma_handler.hpp"
+#include "graindb/parser/parsed_data/drop_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 Planner::Planner(ClientContext &context) : binder(context), context(context) {

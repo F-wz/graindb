@@ -1,13 +1,13 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 // https://github.com/minimaxir/big-list-of-naughty-strings
 TEST_CASE("Test naughty strings", "[naughtystrings]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

@@ -2,11 +2,11 @@
 #include "dsdgen.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test TPC-DS SF0 Query Compilation", "[tpcds]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	con.EnableQueryVerification();
@@ -25,7 +25,7 @@ TEST_CASE("Test TPC-DS SF0 Query Compilation", "[tpcds]") {
 }
 
 TEST_CASE("Test TPC-DS SF0.1 Query Execution", "[tpcds][.]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 
@@ -43,7 +43,7 @@ TEST_CASE("Test TPC-DS SF0.1 Query Execution", "[tpcds][.]") {
 
 TEST_CASE("Test TPC-DS SF1", "[tpcds][.]") {
 	return;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 

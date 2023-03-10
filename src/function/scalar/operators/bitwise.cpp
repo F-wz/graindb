@@ -1,10 +1,10 @@
-#include "duckdb/function/scalar/operators.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/function/scalar/operators.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 //===--------------------------------------------------------------------===//
 // & [bitwise_and]
@@ -100,4 +100,4 @@ void RightShiftFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(functions);
 }
 
-} // namespace duckdb
+} // namespace graindb

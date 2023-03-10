@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test simple relation API", "[relation_api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	unique_ptr<QueryResult> result;
@@ -166,7 +166,7 @@ TEST_CASE("Test simple relation API", "[relation_api]") {
 }
 
 TEST_CASE("Test combinations of set operations", "[relation_api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	unique_ptr<QueryResult> result;
@@ -233,7 +233,7 @@ TEST_CASE("Test combinations of set operations", "[relation_api]") {
 }
 
 TEST_CASE("Test combinations of joins", "[relation_api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	unique_ptr<QueryResult> result;
@@ -319,7 +319,7 @@ TEST_CASE("Test combinations of joins", "[relation_api]") {
 }
 
 TEST_CASE("Test view creation of relations", "[relation_api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	unique_ptr<QueryResult> result;
@@ -377,7 +377,7 @@ TEST_CASE("Test view creation of relations", "[relation_api]") {
 }
 
 TEST_CASE("Test table creations using the relation API", "[relation_api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	unique_ptr<QueryResult> result;
@@ -408,7 +408,7 @@ TEST_CASE("Test table creations using the relation API", "[relation_api]") {
 }
 
 TEST_CASE("Test table deletions and updates", "[relation_api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	unique_ptr<QueryResult> result;
@@ -444,7 +444,7 @@ TEST_CASE("Test table deletions and updates", "[relation_api]") {
 }
 
 TEST_CASE("Test aggregates in relation API", "[relation_api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 
@@ -532,7 +532,7 @@ TEST_CASE("Test aggregates in relation API", "[relation_api]") {
 }
 
 TEST_CASE("Test interaction of relations with transactions", "[relation_api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con1(db), con2(db);
 	unique_ptr<QueryResult> result;
 
@@ -567,7 +567,7 @@ TEST_CASE("Test interaction of relations with transactions", "[relation_api]") {
 }
 
 TEST_CASE("Test interaction of relations with schema changes", "[relation_api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 
@@ -627,7 +627,7 @@ TEST_CASE("Test interaction of relations with schema changes", "[relation_api]")
 }
 
 TEST_CASE("Test junk SQL in expressions", "[relation_api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 
@@ -644,7 +644,7 @@ TEST_CASE("Test junk SQL in expressions", "[relation_api]") {
 }
 
 TEST_CASE("We cannot mix statements from multiple databases", "[relation_api]") {
-	DuckDB db(nullptr), db2(nullptr);
+	GrainDB db(nullptr), db2(nullptr);
 	Connection con(db), con2(db2);
 	unique_ptr<QueryResult> result;
 
@@ -667,7 +667,7 @@ TEST_CASE("We cannot mix statements from multiple databases", "[relation_api]") 
 }
 
 TEST_CASE("Test view relations", "[relation_api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 
@@ -696,7 +696,7 @@ TEST_CASE("Test view relations", "[relation_api]") {
 }
 
 TEST_CASE("Test table function relations", "[relation_api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 

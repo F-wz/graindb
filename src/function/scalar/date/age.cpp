@@ -1,13 +1,13 @@
-#include "duckdb/function/scalar/date_functions.hpp"
-#include "duckdb/common/types/time.hpp"
-#include "duckdb/common/types/timestamp.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/common/vector_operations/unary_executor.hpp"
-#include "duckdb/common/vector_operations/binary_executor.hpp"
+#include "graindb/function/scalar/date_functions.hpp"
+#include "graindb/common/types/time.hpp"
+#include "graindb/common/types/timestamp.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/unary_executor.hpp"
+#include "graindb/common/vector_operations/binary_executor.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static const char *age_scalar_function(timestamp_t input1, timestamp_t input2, string &output) {
 	auto interval = Timestamp::GetDifference(input1, input2);
@@ -68,4 +68,4 @@ void AgeFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(age);
 }
 
-} // namespace duckdb
+} // namespace graindb

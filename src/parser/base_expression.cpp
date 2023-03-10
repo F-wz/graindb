@@ -1,8 +1,8 @@
-#include "duckdb/parser/base_expression.hpp"
+#include "graindb/parser/base_expression.hpp"
 
-#include "duckdb/common/printer.hpp"
+#include "graindb/common/printer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void BaseExpression::Print() {

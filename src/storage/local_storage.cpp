@@ -1,11 +1,11 @@
-#include "duckdb/transaction/local_storage.hpp"
-#include "duckdb/execution/index/art/art.hpp"
-#include "duckdb/storage/table/append_state.hpp"
-#include "duckdb/storage/write_ahead_log.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/storage/uncompressed_segment.hpp"
+#include "graindb/transaction/local_storage.hpp"
+#include "graindb/execution/index/art/art.hpp"
+#include "graindb/storage/table/append_state.hpp"
+#include "graindb/storage/write_ahead_log.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/storage/uncompressed_segment.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 LocalTableStorage::LocalTableStorage(DataTable &table) : max_row(0) {

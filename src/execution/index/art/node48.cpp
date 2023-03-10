@@ -1,8 +1,8 @@
-#include "duckdb/execution/index/art/node16.hpp"
-#include "duckdb/execution/index/art/node48.hpp"
-#include "duckdb/execution/index/art/node256.hpp"
+#include "graindb/execution/index/art/node16.hpp"
+#include "graindb/execution/index/art/node48.hpp"
+#include "graindb/execution/index/art/node256.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 
 Node48::Node48(ART &art, size_t compressionLength) : Node(art, NodeType::N48, compressionLength) {
 	for (idx_t i = 0; i < 256; i++) {

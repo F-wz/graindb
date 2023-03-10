@@ -1,17 +1,17 @@
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/parser/expression_map.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/query_node/set_operation_node.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/query_node/bound_set_operation_node.hpp"
-#include "duckdb/planner/query_node/bound_select_node.hpp"
-#include "duckdb/planner/expression_binder/order_binder.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/expression_map.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/query_node/set_operation_node.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/query_node/bound_set_operation_node.hpp"
+#include "graindb/planner/query_node/bound_select_node.hpp"
+#include "graindb/planner/expression_binder/order_binder.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static void GatherAliases(BoundQueryNode &node, unordered_map<string, idx_t> &aliases,
                           expression_map_t<idx_t> &expressions) {
@@ -114,4 +114,4 @@ unique_ptr<BoundQueryNode> Binder::BindNode(SetOperationNode &statement) {
 	return move(result);
 }
 
-} // namespace duckdb
+} // namespace graindb

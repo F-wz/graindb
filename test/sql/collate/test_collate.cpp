@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test case insensitive collation", "[collate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE collate_test(s VARCHAR COLLATE NOCASE)"));
@@ -59,7 +59,7 @@ TEST_CASE("Test case insensitive collation", "[collate]") {
 
 TEST_CASE("Test accent insensitive collation", "[collate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE collate_test(s VARCHAR COLLATE NOACCENT)"));
@@ -114,7 +114,7 @@ TEST_CASE("Test accent insensitive collation", "[collate]") {
 
 TEST_CASE("Test combined collations", "[collate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE collate_test(s VARCHAR COLLATE NOACCENT.NOCASE)"));
@@ -131,7 +131,7 @@ TEST_CASE("Test combined collations", "[collate]") {
 
 TEST_CASE("Test COLLATE in individual expressions", "[collate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE collate_test(s VARCHAR)"));
@@ -161,7 +161,7 @@ TEST_CASE("Test default collations", "[collate]") {
 	unique_ptr<QueryResult> result;
 	DBConfig config;
 	config.collation = "NOCASE";
-	DuckDB db(nullptr, &config);
+	GrainDB db(nullptr, &config);
 	Connection con(db);
 
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE collate_test(s VARCHAR)"));
@@ -186,7 +186,7 @@ TEST_CASE("Test default collations", "[collate]") {
 
 TEST_CASE("Get list of collations", "[collate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	result = con.Query("PRAGMA collations");
@@ -197,7 +197,7 @@ TEST_CASE("Get list of collations", "[collate]") {
 
 TEST_CASE("Test unsupported collations", "[collate]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	REQUIRE_FAIL(con.Query("CREATE TABLE collate_test(s VARCHAR COLLATE blabla)"));

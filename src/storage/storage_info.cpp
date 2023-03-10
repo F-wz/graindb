@@ -1,10 +1,10 @@
-#include "duckdb/storage/storage_info.hpp"
+#include "graindb/storage/storage_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 const uint64_t VERSION_NUMBER = 1;
 
-} // namespace duckdb
+} // namespace graindb

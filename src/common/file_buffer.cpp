@@ -1,12 +1,12 @@
-#include "duckdb/common/file_buffer.hpp"
-#include "duckdb/common/file_system.hpp"
-#include "duckdb/common/helper.hpp"
-#include "duckdb/common/checksum.hpp"
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/file_buffer.hpp"
+#include "graindb/common/file_system.hpp"
+#include "graindb/common/helper.hpp"
+#include "graindb/common/checksum.hpp"
+#include "graindb/common/exception.hpp"
 
 #include <cstring>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 FileBuffer::FileBuffer(FileBufferType type, uint64_t bufsiz) : type(type) {

@@ -9,7 +9,7 @@ add_subdirectory(statement)
 add_subdirectory(tableref)
 add_subdirectory(transform)
 
-add_library_unity(duckdb_parser
+add_library_unity(graindb_parser
                   OBJECT
                   base_expression.cpp
                   column_definition.cpp
@@ -23,5 +23,5 @@ add_library_unity(duckdb_parser
                   tableref.cpp
                   transformer.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_parser>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_parser>
     PARENT_SCOPE)

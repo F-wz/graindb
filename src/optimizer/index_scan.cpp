@@ -1,18 +1,18 @@
-#include "duckdb/optimizer/index_scan.hpp"
-#include "duckdb/optimizer/matcher/expression_matcher.hpp"
+#include "graindb/optimizer/index_scan.hpp"
+#include "graindb/optimizer/matcher/expression_matcher.hpp"
 
-#include "duckdb/parser/expression/comparison_expression.hpp"
+#include "graindb/parser/expression/comparison_expression.hpp"
 
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/expression/bound_comparison_expression.hpp"
-#include "duckdb/planner/expression/bound_constant_expression.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
-#include "duckdb/planner/operator/logical_filter.hpp"
-#include "duckdb/planner/operator/logical_get.hpp"
-#include "duckdb/planner/operator/logical_index_scan.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/expression/bound_comparison_expression.hpp"
+#include "graindb/planner/expression/bound_constant_expression.hpp"
+#include "graindb/planner/expression_iterator.hpp"
+#include "graindb/planner/operator/logical_filter.hpp"
+#include "graindb/planner/operator/logical_get.hpp"
+#include "graindb/planner/operator/logical_index_scan.hpp"
 
-#include "duckdb/storage/data_table.hpp"
-using namespace duckdb;
+#include "graindb/storage/data_table.hpp"
+using namespace graindb;
 using namespace std;
 
 unique_ptr<LogicalOperator> IndexScan::Optimize(unique_ptr<LogicalOperator> op) {

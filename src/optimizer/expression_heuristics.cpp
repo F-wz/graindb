@@ -1,7 +1,7 @@
-#include "duckdb/optimizer/expression_heuristics.hpp"
-#include "duckdb/planner/expression/list.hpp"
+#include "graindb/optimizer/expression_heuristics.hpp"
+#include "graindb/planner/expression/list.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<LogicalOperator> ExpressionHeuristics::Rewrite(unique_ptr<LogicalOperator> op) {

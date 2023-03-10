@@ -1,6 +1,6 @@
-#include "duckdb/parser/query_node/set_operation_node.hpp"
+#include "graindb/parser/query_node/set_operation_node.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 bool SetOperationNode::Equals(const QueryNode *other_) const {

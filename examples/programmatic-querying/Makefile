@@ -1,13 +1,13 @@
 
 
-.PHONY: duckdb clean main
+.PHONY: graindb clean main
 
-all: duckdb main
+all: graindb main
 
 clean:
 	rm -rf build
 
-duckdb:
+graindb:
 	make  -C ../../
 
 main:

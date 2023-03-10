@@ -1,5 +1,5 @@
 add_library_unity(
-  duckdb_operator_persistent
+  graindb_operator_persistent
   OBJECT
   buffered_csv_reader.cpp
   physical_copy_from_file.cpp
@@ -8,5 +8,5 @@ add_library_unity(
   physical_insert.cpp
   physical_update.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_operator_persistent>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_operator_persistent>
     PARENT_SCOPE)

@@ -1,11 +1,11 @@
-#include "duckdb/catalog/catalog_entry/scalar_function_catalog_entry.hpp"
-#include "duckdb/execution/operator/schema/physical_create_table.hpp"
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/planner/expression_iterator.hpp"
-#include "duckdb/planner/operator/logical_create_table.hpp"
+#include "graindb/catalog/catalog_entry/scalar_function_catalog_entry.hpp"
+#include "graindb/execution/operator/schema/physical_create_table.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/planner/expression_iterator.hpp"
+#include "graindb/planner/operator/logical_create_table.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static void ExtractDependencies(Expression &expr, unordered_set<CatalogEntry *> &dependencies) {

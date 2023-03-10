@@ -1,15 +1,15 @@
-#include "duckdb/execution/operator/helper/physical_pragma.hpp"
+#include "graindb/execution/operator/helper/physical_pragma.hpp"
 
-#include "duckdb/common/operator/cast_operators.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/main/database.hpp"
-#include "duckdb/planner/expression_binder.hpp"
-#include "duckdb/storage/buffer_manager.hpp"
-#include "duckdb/storage/storage_manager.hpp"
+#include "graindb/common/operator/cast_operators.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/main/database.hpp"
+#include "graindb/planner/expression_binder.hpp"
+#include "graindb/storage/buffer_manager.hpp"
+#include "graindb/storage/storage_manager.hpp"
 
 #include <cctype>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static idx_t ParseMemoryLimit(string arg);

@@ -1,11 +1,11 @@
-#include "duckdb/common/operator/cast_operators.hpp"
+#include "graindb/common/operator/cast_operators.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/limits.hpp"
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/types/time.hpp"
-#include "duckdb/common/types/timestamp.hpp"
-#include "duckdb/common/types/vector.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/limits.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/types/time.hpp"
+#include "graindb/common/types/timestamp.hpp"
+#include "graindb/common/types/vector.hpp"
 #include "fmt/format.h"
 
 #include <cctype>
@@ -14,7 +14,7 @@
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 template <class SRC, class DST> static bool try_cast_with_overflow_check(SRC value, DST &result) {
 	if (value < MinimumValue<DST>() || value > MaximumValue<DST>()) {
@@ -820,4 +820,4 @@ template <> timestamp_t CastToTimestamp::Operation(string_t input) {
 	return Timestamp::FromString(input.GetData());
 }
 
-} // namespace duckdb
+} // namespace graindb

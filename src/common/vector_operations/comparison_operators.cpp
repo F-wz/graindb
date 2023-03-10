@@ -4,12 +4,12 @@
 // operations == != >= <= > <
 //===--------------------------------------------------------------------===//
 
-#include "duckdb/common/operator/comparison_operators.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
 
-#include "duckdb/common/vector_operations/binary_executor.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/binary_executor.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 struct ComparisonExecutor {
@@ -56,25 +56,25 @@ public:
 };
 
 void VectorOperations::Equals(Vector &left, Vector &right, Vector &result, idx_t count) {
-	ComparisonExecutor::Execute<duckdb::Equals>(left, right, result, count);
+	ComparisonExecutor::Execute<graindb::Equals>(left, right, result, count);
 }
 
 void VectorOperations::NotEquals(Vector &left, Vector &right, Vector &result, idx_t count) {
-	ComparisonExecutor::Execute<duckdb::NotEquals>(left, right, result, count);
+	ComparisonExecutor::Execute<graindb::NotEquals>(left, right, result, count);
 }
 
 void VectorOperations::GreaterThanEquals(Vector &left, Vector &right, Vector &result, idx_t count) {
-	ComparisonExecutor::Execute<duckdb::GreaterThanEquals>(left, right, result, count);
+	ComparisonExecutor::Execute<graindb::GreaterThanEquals>(left, right, result, count);
 }
 
 void VectorOperations::LessThanEquals(Vector &left, Vector &right, Vector &result, idx_t count) {
-	ComparisonExecutor::Execute<duckdb::LessThanEquals>(left, right, result, count);
+	ComparisonExecutor::Execute<graindb::LessThanEquals>(left, right, result, count);
 }
 
 void VectorOperations::GreaterThan(Vector &left, Vector &right, Vector &result, idx_t count) {
-	ComparisonExecutor::Execute<duckdb::GreaterThan>(left, right, result, count);
+	ComparisonExecutor::Execute<graindb::GreaterThan>(left, right, result, count);
 }
 
 void VectorOperations::LessThan(Vector &left, Vector &right, Vector &result, idx_t count) {
-	ComparisonExecutor::Execute<duckdb::LessThan>(left, right, result, count);
+	ComparisonExecutor::Execute<graindb::LessThan>(left, right, result, count);
 }

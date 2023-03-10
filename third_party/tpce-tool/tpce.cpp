@@ -1,6 +1,6 @@
-#include "duckdb/common/exception.hpp"
-#include "duckdb/main/connection.hpp"
-#include "duckdb/storage/data_table.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/main/connection.hpp"
+#include "graindb/storage/data_table.hpp"
 
 #include "tpce_generated.hpp"
 #include "tpce.hpp"
@@ -8,7 +8,7 @@
 #include "main/EGenLoader_stdafx.h"
 #include "input/DataFileManager.h"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace TPCE;
 using namespace std;
 
@@ -20,7 +20,7 @@ TIdent iTotalCustomerCount = iDefaultCustomerCount; // total number of customers
 UINT iLoadUnitSize = iDefaultLoadUnitSize;          // # of customers in one load unit
 UINT iDaysOfInitialTrades = 300;
 
-void dbgen(duckdb::DuckDB &db, uint32_t sf, std::string schema, std::string suffix) {
+void dbgen(graindb::GrainDB &db, uint32_t sf, std::string schema, std::string suffix) {
 	unique_ptr<CBaseLoaderFactory> pLoaderFactory; // class factory that creates table loaders
 	CGenerateAndLoadStandardOutput Output;
 	unique_ptr<CGenerateAndLoad> pGenerateAndLoad;
@@ -36,7 +36,7 @@ void dbgen(duckdb::DuckDB &db, uint32_t sf, std::string schema, std::string suff
 		return;
 	}
 
-	pLoaderFactory = make_unique<DuckDBLoaderFactory>(con, schema, suffix);
+	pLoaderFactory = make_unique<GrainDBLoaderFactory>(con, schema, suffix);
 
 	// Create log formatter and logger instance
 	CLogFormatTab fmt;

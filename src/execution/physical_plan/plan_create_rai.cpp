@@ -1,9 +1,9 @@
-#include "duckdb/execution/operator/schema/physical_create_rai.hpp"
-#include "duckdb/execution/physical_plan_generator.hpp"
+#include "graindb/execution/operator/schema/physical_create_rai.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
 
-#include <duckdb/planner/operator/logical_create_rai.hpp>
+#include <graindb/planner/operator/logical_create_rai.hpp>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreatePlan(LogicalCreateRAI &op) {

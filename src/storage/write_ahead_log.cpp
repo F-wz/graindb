@@ -1,15 +1,15 @@
-#include "duckdb/storage/write_ahead_log.hpp"
-#include "duckdb/main/database.hpp"
-#include "duckdb/catalog/catalog_entry/schema_catalog_entry.hpp"
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/catalog/catalog_entry/view_catalog_entry.hpp"
-#include "duckdb/parser/parsed_data/alter_table_info.hpp"
+#include "graindb/storage/write_ahead_log.hpp"
+#include "graindb/main/database.hpp"
+#include "graindb/catalog/catalog_entry/schema_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/view_catalog_entry.hpp"
+#include "graindb/parser/parsed_data/alter_table_info.hpp"
 #include <cstring>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
-WriteAheadLog::WriteAheadLog(DuckDB &database) : initialized(false), database(database) {
+WriteAheadLog::WriteAheadLog(GrainDB &database) : initialized(false), database(database) {
 }
 
 void WriteAheadLog::Initialize(string &path) {

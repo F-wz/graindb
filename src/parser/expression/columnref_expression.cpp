@@ -1,10 +1,10 @@
-#include "duckdb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/common/types/hash.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/common/types/hash.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 //! Specify both the column and table name
@@ -34,7 +34,7 @@ bool ColumnRefExpression::Equals(const ColumnRefExpression *a, const ColumnRefEx
 
 hash_t ColumnRefExpression::Hash() const {
 	hash_t result = ParsedExpression::Hash();
-	result = CombineHash(result, duckdb::Hash<const char *>(column_name.c_str()));
+	result = CombineHash(result, graindb::Hash<const char *>(column_name.c_str()));
 	return result;
 }
 

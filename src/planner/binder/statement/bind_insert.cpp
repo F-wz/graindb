@@ -1,16 +1,16 @@
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/parser/statement/insert_statement.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/tableref/expressionlistref.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/expression_binder/insert_binder.hpp"
-#include "duckdb/planner/operator/logical_insert.hpp"
-#include "duckdb/common/string_util.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/statement/insert_statement.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/tableref/expressionlistref.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/expression_binder/insert_binder.hpp"
+#include "graindb/planner/operator/logical_insert.hpp"
+#include "graindb/common/string_util.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static void CheckInsertColumnCountMismatch(int64_t expected_columns, int64_t result_columns, bool columns_provided,
                                            const char *tname) {
@@ -131,4 +131,4 @@ BoundStatement Binder::Bind(InsertStatement &stmt) {
 	return result;
 }
 
-} // namespace duckdb
+} // namespace graindb

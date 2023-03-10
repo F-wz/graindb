@@ -1,8 +1,8 @@
-#include "duckdb/execution/expression_executor.hpp"
+#include "graindb/execution/expression_executor.hpp"
 
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ExpressionExecutor::ExpressionExecutor() {

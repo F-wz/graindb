@@ -1,8 +1,8 @@
-#include "duckdb/execution/operator/helper/physical_vacuum.hpp"
+#include "graindb/execution/operator/helper/physical_vacuum.hpp"
 
-#include "duckdb/transaction/transaction.hpp"
+#include "graindb/transaction/transaction.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void PhysicalVacuum::GetChunkInternal(ClientContext &context, DataChunk &chunk, PhysicalOperatorState *state,

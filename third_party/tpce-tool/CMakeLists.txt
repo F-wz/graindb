@@ -13,7 +13,7 @@ add_definitions(-DCOMPILE_FLAT_FILE_LOAD)
 
 add_library(tpce STATIC
             ${TPCE_OBJECT_FILES}
-            duckdb_interface.cpp
+            graindb_interface.cpp
             tpce.cpp
             tpce_generated.cpp)
 

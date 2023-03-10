@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test view creation", "[views]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -38,7 +38,7 @@ TEST_CASE("Test view creation", "[views]") {
 
 TEST_CASE("Test views with changing schema", "[views]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -83,7 +83,7 @@ TEST_CASE("Test views with changing schema", "[views]") {
 
 TEST_CASE("Test deleting/updating views", "[views]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -101,7 +101,7 @@ TEST_CASE("Test deleting/updating views", "[views]") {
 
 TEST_CASE("Test view creation with alias", "[views]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -138,7 +138,7 @@ TEST_CASE("Test view creation with alias", "[views]") {
 
 TEST_CASE("Stacked views uh yeah", "[views]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

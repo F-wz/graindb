@@ -1,10 +1,10 @@
-#include "duckdb/common/enums/catalog_type.hpp"
+#include "graindb/common/enums/catalog_type.hpp"
 
-#include "duckdb/common/exception.hpp"
+#include "graindb/common/exception.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 string CatalogTypeToString(CatalogType type) {
 	switch (type) {
@@ -33,4 +33,4 @@ string CatalogTypeToString(CatalogType type) {
 	}
 }
 
-} // namespace duckdb
+} // namespace graindb

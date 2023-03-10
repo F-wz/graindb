@@ -1,10 +1,10 @@
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/expression_executor.hpp"
-#include "duckdb/planner/expression/bound_between_expression.hpp"
-#include "duckdb/common/operator/comparison_operators.hpp"
-#include "duckdb/common/vector_operations/ternary_executor.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/expression_executor.hpp"
+#include "graindb/planner/expression/bound_between_expression.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
+#include "graindb/common/vector_operations/ternary_executor.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 struct BothInclusiveBetweenOperator {

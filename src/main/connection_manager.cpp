@@ -1,9 +1,9 @@
-#include "duckdb/main/connection_manager.hpp"
+#include "graindb/main/connection_manager.hpp"
 
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/main/connection.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/main/connection.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ConnectionManager::~ConnectionManager() {

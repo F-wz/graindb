@@ -1,7 +1,7 @@
-#include "duckdb/planner/expression/bound_window_expression.hpp"
-#include "duckdb/function/aggregate_function.hpp"
+#include "graindb/planner/expression/bound_window_expression.hpp"
+#include "graindb/function/aggregate_function.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundWindowExpression::BoundWindowExpression(ExpressionType type, TypeId return_type,

@@ -1,11 +1,11 @@
-#include "duckdb/main/relation/filter_relation.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/query_node/set_operation_node.hpp"
-#include "duckdb/parser/expression/conjunction_expression.hpp"
-#include "duckdb/parser/expression/star_expression.hpp"
+#include "graindb/main/relation/filter_relation.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/query_node/set_operation_node.hpp"
+#include "graindb/parser/expression/conjunction_expression.hpp"
+#include "graindb/parser/expression/star_expression.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 FilterRelation::FilterRelation(shared_ptr<Relation> child_p, unique_ptr<ParsedExpression> condition_p)
     : Relation(child_p->context, RelationType::FILTER_RELATION), condition(move(condition_p)), child(move(child_p)) {
@@ -52,4 +52,4 @@ string FilterRelation::ToString(idx_t depth) {
 	return str + child->ToString(depth + 1);
 }
 
-} // namespace duckdb
+} // namespace graindb

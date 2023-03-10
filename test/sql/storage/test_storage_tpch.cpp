@@ -1,9 +1,9 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "dbgen.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test storing TPC-H", "[storage][.]") {
@@ -16,13 +16,13 @@ TEST_CASE("Test storing TPC-H", "[storage][.]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert TPC-H tables
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		// generate the TPC-H data for SF 0.1
 		tpch::dbgen(sf, db);
 	}
 	// reload the database from disk
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		// check if all the counts are correct
 		result = con.Query("SELECT COUNT(*) FROM orders");
@@ -44,7 +44,7 @@ TEST_CASE("Test storing TPC-H", "[storage][.]") {
 	}
 	// reload the database from disk again
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		// check if all the counts are correct
 		result = con.Query("SELECT COUNT(*) FROM orders");
@@ -66,7 +66,7 @@ TEST_CASE("Test storing TPC-H", "[storage][.]") {
 	}
 	// reload the database from disk again
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		// check if all the counts are correct
 		result = con.Query("SELECT COUNT(*) FROM orders");

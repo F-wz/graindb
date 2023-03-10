@@ -1,9 +1,9 @@
 #include "benchmark_runner.hpp"
 
-#include "duckdb.hpp"
-#include "duckdb/common/profiler.hpp"
-#include "duckdb/common/string_util.hpp"
-#include "duckdb_benchmark.hpp"
+#include "graindb.hpp"
+#include "graindb/common/profiler.hpp"
+#include "graindb/common/string_util.hpp"
+#include "graindb_benchmark.hpp"
 
 #define CATCH_CONFIG_RUNNER
 #include "re2/re2.h"
@@ -11,7 +11,7 @@
 #include <sstream>
 #include <thread>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void BenchmarkRunner::RegisterBenchmark(Benchmark *benchmark) {
@@ -24,18 +24,18 @@ Benchmark::Benchmark(bool register_benchmark, string name, string group) : name(
 	}
 }
 
-void BenchmarkRunner::SaveDatabase(DuckDB &db, string name) {
+void BenchmarkRunner::SaveDatabase(GrainDB &db, string name) {
 	auto &fs = *db.file_system;
 	// check if the database directory exists; if not create it
-	if (!fs.DirectoryExists(DUCKDB_BENCHMARK_DIRECTORY)) {
-		fs.CreateDirectory(DUCKDB_BENCHMARK_DIRECTORY);
+	if (!fs.DirectoryExists(GRAINDB_BENCHMARK_DIRECTORY)) {
+		fs.CreateDirectory(GRAINDB_BENCHMARK_DIRECTORY);
 	}
 	// first export the schema
 	// create two files, "[name].sql" and "[name].list"
 	// [name].sql contains the SQL used to re-create the tables
 	// [name].list contains a list of the exported tables
-	ofstream sql_file(fs.JoinPath(DUCKDB_BENCHMARK_DIRECTORY, name + ".sql"));
-	ofstream list_file(fs.JoinPath(DUCKDB_BENCHMARK_DIRECTORY, name + ".list"));
+	ofstream sql_file(fs.JoinPath(GRAINDB_BENCHMARK_DIRECTORY, name + ".sql"));
+	ofstream list_file(fs.JoinPath(GRAINDB_BENCHMARK_DIRECTORY, name + ".list"));
 
 	vector<string> table_list;
 	Connection con(db);
@@ -53,7 +53,7 @@ void BenchmarkRunner::SaveDatabase(DuckDB &db, string name) {
 
 	// now for each table, write it to a separate file "[name]_[tablename].csv"
 	for (auto &table : table_list) {
-		auto target_path = fs.JoinPath(DUCKDB_BENCHMARK_DIRECTORY, name + "_" + table + ".csv");
+		auto target_path = fs.JoinPath(GRAINDB_BENCHMARK_DIRECTORY, name + "_" + table + ".csv");
 		result = con.Query("COPY " + table + " TO '" + target_path + "' DELIMITER ',' ESCAPE '\\'");
 		if (!result->success) {
 			throw Exception("Failed to save database: " + result->error);
@@ -61,13 +61,13 @@ void BenchmarkRunner::SaveDatabase(DuckDB &db, string name) {
 	}
 }
 
-bool BenchmarkRunner::TryLoadDatabase(DuckDB &db, string name, bool enableRAIs, string rai_stmt) {
+bool BenchmarkRunner::TryLoadDatabase(GrainDB &db, string name, bool enableRAIs, string rai_stmt) {
 	auto &fs = *db.file_system;
-	if (!fs.DirectoryExists(DUCKDB_BENCHMARK_DIRECTORY)) {
+	if (!fs.DirectoryExists(GRAINDB_BENCHMARK_DIRECTORY)) {
 		return false;
 	}
-	auto sql_fname = fs.JoinPath(DUCKDB_BENCHMARK_DIRECTORY, name + ".sql");
-	auto list_fname = fs.JoinPath(DUCKDB_BENCHMARK_DIRECTORY, name + ".list");
+	auto sql_fname = fs.JoinPath(GRAINDB_BENCHMARK_DIRECTORY, name + ".sql");
+	auto list_fname = fs.JoinPath(GRAINDB_BENCHMARK_DIRECTORY, name + ".list");
 	// check if the [name].list and [name].sql files exist
 	if (!fs.FileExists(list_fname) || !fs.FileExists(sql_fname)) {
 		return false;
@@ -87,7 +87,7 @@ bool BenchmarkRunner::TryLoadDatabase(DuckDB &db, string name, bool enableRAIs, 
 	string table_name;
 	while (getline(list_file, table_name)) {
 		// for each table, copy the files
-		auto target_path = fs.JoinPath(DUCKDB_BENCHMARK_DIRECTORY, name + "_" + table_name + ".csv");
+		auto target_path = fs.JoinPath(GRAINDB_BENCHMARK_DIRECTORY, name + "_" + table_name + ".csv");
 		result = con.Query("COPY " + table_name + " FROM '" + target_path + "'");
 		if (!result->success) {
 			throw Exception("Failed to load database: " + result->error);
@@ -320,11 +320,11 @@ ConfigurationError run_benchmarks(const BenchmarkConfiguration &configuration) {
 			}
 		} else if (configuration.meta == BenchmarkMetaType::QUERY) {
 			for (const auto &benchmark_index : benchmark_indices) {
-				auto duckdb_benchmark = dynamic_cast<DuckDBBenchmark *>(benchmarks[benchmark_index]);
-				if (!duckdb_benchmark) {
+				auto graindb_benchmark = dynamic_cast<GrainDBBenchmark *>(benchmarks[benchmark_index]);
+				if (!graindb_benchmark) {
 					continue;
 				}
-				fprintf(stdout, "%s\n", duckdb_benchmark->GetQuery().c_str());
+				fprintf(stdout, "%s\n", graindb_benchmark->GetQuery().c_str());
 			}
 		} else {
 			for (const auto &benchmark_index : benchmark_indices) {

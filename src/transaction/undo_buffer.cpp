@@ -1,20 +1,20 @@
-#include "duckdb/transaction/undo_buffer.hpp"
+#include "graindb/transaction/undo_buffer.hpp"
 
-#include "duckdb/catalog/catalog_entry.hpp"
-#include "duckdb/catalog/catalog_entry/list.hpp"
-#include "duckdb/catalog/catalog_set.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/storage/data_table.hpp"
-#include "duckdb/storage/write_ahead_log.hpp"
-#include "duckdb/transaction/cleanup_state.hpp"
-#include "duckdb/transaction/commit_state.hpp"
-#include "duckdb/transaction/rollback_state.hpp"
+#include "graindb/catalog/catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/list.hpp"
+#include "graindb/catalog/catalog_set.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/storage/data_table.hpp"
+#include "graindb/storage/write_ahead_log.hpp"
+#include "graindb/transaction/cleanup_state.hpp"
+#include "graindb/transaction/commit_state.hpp"
+#include "graindb/transaction/rollback_state.hpp"
 
 #include <unordered_map>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 constexpr uint32_t DEFAULT_UNDO_CHUNK_SIZE = 4096 * 3;
 constexpr uint32_t UNDO_ENTRY_HEADER_SIZE = sizeof(UndoFlags) + sizeof(uint32_t);
 
@@ -167,4 +167,4 @@ void UndoBuffer::Rollback() noexcept {
 	RollbackState state;
 	ReverseIterateEntries([&](UndoFlags type, data_ptr_t data) { state.RollbackEntry(type, data); });
 }
-} // namespace duckdb
+} // namespace graindb

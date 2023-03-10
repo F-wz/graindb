@@ -1,7 +1,7 @@
-#include "duckdb/optimizer/filter_pushdown.hpp"
-#include "duckdb/planner/operator/logical_comparison_join.hpp"
+#include "graindb/optimizer/filter_pushdown.hpp"
+#include "graindb/planner/operator/logical_comparison_join.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 using Filter = FilterPushdown::Filter;

@@ -1,7 +1,7 @@
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/expression_util.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/expression_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 bool SelectNode::Equals(const QueryNode *other_) const {

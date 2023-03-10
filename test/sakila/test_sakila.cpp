@@ -1,24 +1,24 @@
 #include "catch.hpp"
-#include "duckdb/common/fstream_util.hpp"
-#include "duckdb/common/gzip_stream.hpp"
+#include "graindb/common/fstream_util.hpp"
+#include "graindb/common/gzip_stream.hpp"
 #include "test_helpers.hpp"
 
 #include <fstream>
 #include <sstream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Run Sakila test queries", "[sakila][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	string token;
 
 	// read schema
 	fstream schema_file;
-	FstreamUtil::OpenFile("test/sakila/duckdb-sakila-schema.sql", schema_file);
+	FstreamUtil::OpenFile("test/sakila/graindb-sakila-schema.sql", schema_file);
 
 	// woo hacks, use getline to separate queries
 	while (getline(schema_file, token, ';')) {
@@ -26,7 +26,7 @@ TEST_CASE("Run Sakila test queries", "[sakila][.]") {
 	}
 
 	// read data
-	GzipStream data_file("test/sakila/duckdb-sakila-insert-data.sql.gz");
+	GzipStream data_file("test/sakila/graindb-sakila-insert-data.sql.gz");
 	while (getline(data_file, token, ';')) {
 		REQUIRE_NO_FAIL(con.Query(token));
 	}
@@ -147,7 +147,7 @@ TEST_CASE("Run Sakila test queries", "[sakila][.]") {
 	REQUIRE(
 	    CHECK_COLUMN(result, 0,
 	                 {"BUCKET BROTHERHOOD", "ROCKETEER MOTHER", "FORWARD TEMPLE", "GRIT CLOCKWORK", "JUGGLER HARDLY",
-	                  "RIDGEMONT SUBMARINE", "SCALAWAG DUCK", "APACHE DIVINE", "GOODFELLAS SALUTE", "HOBBIT ALIEN"}));
+	                  "RIDGEMONT SUBMARINE", "SCALAWAG GRAIN", "APACHE DIVINE", "GOODFELLAS SALUTE", "HOBBIT ALIEN"}));
 	REQUIRE(CHECK_COLUMN(result, 1, {34, 33, 32, 32, 32, 32, 32, 31, 31, 31}));
 
 	result = con.Query("SELECT store.store_id, SUM(amount) as sum_amount FROM store INNER JOIN staff ON store.store_id "

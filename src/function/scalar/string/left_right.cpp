@@ -1,12 +1,12 @@
-#include "duckdb/function/scalar/string_functions.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
 #include <ctype.h>
 #include <algorithm>
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 static string_t left_scalar_function(Vector &result, const string_t str, int64_t pos, unique_ptr<char[]> &output,
                                      idx_t &current_len) {
@@ -65,4 +65,4 @@ void RightFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(ScalarFunction("right", {SQLType::VARCHAR, SQLType::BIGINT}, SQLType::VARCHAR, right_function));
 }
 
-} // namespace duckdb
+} // namespace graindb

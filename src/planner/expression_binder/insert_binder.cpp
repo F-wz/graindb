@@ -1,8 +1,8 @@
-#include "duckdb/planner/expression_binder/insert_binder.hpp"
+#include "graindb/planner/expression_binder/insert_binder.hpp"
 
-#include "duckdb/planner/expression/bound_default_expression.hpp"
+#include "graindb/planner/expression/bound_default_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 InsertBinder::InsertBinder(Binder &binder, ClientContext &context) : ExpressionBinder(binder, context) {

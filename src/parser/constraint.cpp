@@ -1,10 +1,10 @@
-#include "duckdb/parser/constraint.hpp"
+#include "graindb/parser/constraint.hpp"
 
-#include "duckdb/common/printer.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/parser/constraints/list.hpp"
+#include "graindb/common/printer.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/parser/constraints/list.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void Constraint::Serialize(Serializer &serializer) {

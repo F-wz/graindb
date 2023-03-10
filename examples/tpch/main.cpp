@@ -1,4 +1,4 @@
-#include "duckdb.hpp"
+#include "graindb.hpp"
 
 #include <algorithm>
 #include <cctype>
@@ -11,7 +11,7 @@
 #include <string>
 
 using namespace std;
-using namespace duckdb;
+using namespace graindb;
 
 #define QUERY_REPETITION 4
 #define DATA_DIR "/data/data_100g/"
@@ -34,7 +34,7 @@ static inline void trim(std::string &s) {
 }
 
 int main() {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	string data_dir = DATA_DIR;

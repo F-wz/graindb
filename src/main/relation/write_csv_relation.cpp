@@ -1,10 +1,10 @@
-#include "duckdb/main/relation/write_csv_relation.hpp"
-#include "duckdb/parser/statement/copy_statement.hpp"
-#include "duckdb/parser/parsed_data/create_table_info.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/main/client_context.hpp"
+#include "graindb/main/relation/write_csv_relation.hpp"
+#include "graindb/parser/statement/copy_statement.hpp"
+#include "graindb/parser/parsed_data/create_table_info.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/main/client_context.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 WriteCSVRelation::WriteCSVRelation(shared_ptr<Relation> child_p, string csv_file_p)
     : Relation(child_p->context, RelationType::WRITE_CSV_RELATION), child(move(child_p)), csv_file(move(csv_file_p)) {
@@ -34,4 +34,4 @@ string WriteCSVRelation::ToString(idx_t depth) {
 	return str + child->ToString(depth + 1);
 }
 
-} // namespace duckdb
+} // namespace graindb

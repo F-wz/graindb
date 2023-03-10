@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/main/appender.hpp"
+#include "graindb/main/appender.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test using appender after connection is gone", "[api]") {
-	auto db = make_unique<DuckDB>(nullptr);
+	auto db = make_unique<GrainDB>(nullptr);
 	auto conn = make_unique<Connection>(*db);
 	unique_ptr<Appender> appender;
 	unique_ptr<QueryResult> result;
@@ -44,7 +44,7 @@ TEST_CASE("Test using appender after connection is gone", "[api]") {
 
 TEST_CASE("Test appender and connection destruction order", "[api]") {
 	for (idx_t i = 0; i < 6; i++) {
-		auto db = make_unique<DuckDB>(nullptr);
+		auto db = make_unique<GrainDB>(nullptr);
 		auto con = make_unique<Connection>(*db);
 		REQUIRE_NO_FAIL(con->Query("CREATE TABLE integers(i INTEGER)"));
 		auto appender = make_unique<Appender>(*con, "integers");
@@ -91,7 +91,7 @@ TEST_CASE("Test appender and connection destruction order", "[api]") {
 }
 
 TEST_CASE("Test using appender after table is dropped", "[api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	// create the table
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER)"));
@@ -114,7 +114,7 @@ TEST_CASE("Test using appender after table is dropped", "[api]") {
 }
 
 TEST_CASE("Test using appender after table is altered", "[api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	// create the table
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE integers(i INTEGER)"));
@@ -138,7 +138,7 @@ TEST_CASE("Test using appender after table is altered", "[api]") {
 }
 
 TEST_CASE("Test appenders and transactions", "[api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	// create the table
@@ -170,7 +170,7 @@ TEST_CASE("Test appenders and transactions", "[api]") {
 }
 
 TEST_CASE("Test using multiple appenders", "[api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	// create the table
@@ -205,7 +205,7 @@ TEST_CASE("Test using multiple appenders", "[api]") {
 }
 
 TEST_CASE("Test usage of appender interleaved with connection usage", "[api]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	unique_ptr<QueryResult> result;
 	// create the table

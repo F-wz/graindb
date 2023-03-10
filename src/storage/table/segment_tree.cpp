@@ -1,8 +1,8 @@
-#include "duckdb/storage/table/segment_tree.hpp"
+#include "graindb/storage/table/segment_tree.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/string_util.hpp"
-using namespace duckdb;
+#include "graindb/common/exception.hpp"
+#include "graindb/common/string_util.hpp"
+using namespace graindb;
 using namespace std;
 
 SegmentBase *SegmentTree::GetRootSegment() {

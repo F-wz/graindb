@@ -1,9 +1,9 @@
-#include "duckdb/parser/expression/subquery_expression.hpp"
+#include "graindb/parser/expression/subquery_expression.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/serializer.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/serializer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 SubqueryExpression::SubqueryExpression()

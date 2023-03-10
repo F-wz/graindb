@@ -1,9 +1,9 @@
-#include "duckdb.hpp"
-#include "duckdb/parser/parser.hpp"
-#include "duckdb/common/enums/statement_type.hpp"
+#include "graindb.hpp"
+#include "graindb/parser/parser.hpp"
+#include "graindb/common/enums/statement_type.hpp"
 #include "catch.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 
 TEST_CASE("Test parser", "[parser]") {
 	Parser parser;

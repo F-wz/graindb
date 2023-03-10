@@ -1,22 +1,22 @@
 // #define CATCH_CONFIG_RUNNER
 #include "catch.hpp"
 
-#include "duckdb/execution/operator/persistent/buffered_csv_reader.hpp"
-#include "duckdb/common/file_system.hpp"
-#include "duckdb/common/value_operations/value_operations.hpp"
+#include "graindb/execution/operator/persistent/buffered_csv_reader.hpp"
+#include "graindb/common/file_system.hpp"
+#include "graindb/common/value_operations/value_operations.hpp"
 #include "compare_result.hpp"
-#include "duckdb/main/query_result.hpp"
+#include "graindb/main/query_result.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/parser/parsed_data/copy_info.hpp"
+#include "graindb/parser/parsed_data/copy_info.hpp"
 
 #include <cmath>
 #include <fstream>
 
 using namespace std;
 
-#define TESTING_DIRECTORY_NAME "duckdb_unittest_tempdir"
+#define TESTING_DIRECTORY_NAME "graindb_unittest_tempdir"
 
-namespace duckdb {
+namespace graindb {
 
 bool NO_FAIL(QueryResult &result) {
 	if (!result.success) {
@@ -89,7 +89,7 @@ void WriteBinary(string path, const uint8_t *data, uint64_t length) {
 	binary_writer.close();
 }
 
-bool CHECK_COLUMN(QueryResult &result_, size_t column_number, vector<duckdb::Value> values) {
+bool CHECK_COLUMN(QueryResult &result_, size_t column_number, vector<graindb::Value> values) {
 	unique_ptr<MaterializedQueryResult> materialized;
 	if (result_.type == QueryResultType::STREAM_RESULT) {
 		materialized = ((StreamQueryResult &)result_).Materialize();
@@ -155,16 +155,16 @@ bool CHECK_COLUMN(QueryResult &result_, size_t column_number, vector<duckdb::Val
 	return true;
 }
 
-bool CHECK_COLUMN(unique_ptr<duckdb::QueryResult> &result, size_t column_number, vector<duckdb::Value> values) {
+bool CHECK_COLUMN(unique_ptr<graindb::QueryResult> &result, size_t column_number, vector<graindb::Value> values) {
 	return CHECK_COLUMN(*result, column_number, values);
 }
 
-bool CHECK_COLUMN(unique_ptr<duckdb::MaterializedQueryResult> &result, size_t column_number,
-                  vector<duckdb::Value> values) {
+bool CHECK_COLUMN(unique_ptr<graindb::MaterializedQueryResult> &result, size_t column_number,
+                  vector<graindb::Value> values) {
 	return CHECK_COLUMN((QueryResult &)*result, column_number, values);
 }
 
-string compare_csv(duckdb::QueryResult &result, string csv, bool header) {
+string compare_csv(graindb::QueryResult &result, string csv, bool header) {
 	assert(result.type == QueryResultType::MATERIALIZED_RESULT);
 	auto &materialized = (MaterializedQueryResult &)result;
 	if (!materialized.success) {
@@ -308,4 +308,4 @@ bool compare_result(string csv, ChunkCollection &collection, vector<SQLType> sql
 		tuple_count += parsed_result.size();
 	}
 }
-} // namespace duckdb
+} // namespace graindb

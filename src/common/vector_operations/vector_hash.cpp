@@ -3,16 +3,16 @@
 // Description: This file contains the vectorized hash implementations
 //===--------------------------------------------------------------------===//
 
-#include "duckdb/common/types/hash.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/types/hash.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 struct HashOp {
 	template <class T> static inline hash_t Operation(T input, bool is_null) {
-		return duckdb::Hash<T>(is_null ? duckdb::NullValue<T>() : input);
+		return graindb::Hash<T>(is_null ? graindb::NullValue<T>() : input);
 	}
 };
 
@@ -29,7 +29,7 @@ static inline void tight_loop_hash(T *__restrict ldata, hash_t *__restrict resul
 		for (idx_t i = 0; i < count; i++) {
 			auto ridx = HAS_RSEL ? rsel->get_index(i) : i;
 			auto idx = sel_vector->get_index(ridx);
-			result_data[ridx] = duckdb::Hash<T>(ldata[idx]);
+			result_data[ridx] = graindb::Hash<T>(ldata[idx]);
 		}
 	}
 }
@@ -112,7 +112,7 @@ static inline void tight_loop_combine_hash_constant(T *__restrict ldata, hash_t 
 		for (idx_t i = 0; i < count; i++) {
 			auto ridx = HAS_RSEL ? rsel->get_index(i) : i;
 			auto idx = sel_vector->get_index(ridx);
-			auto other_hash = duckdb::Hash<T>(ldata[idx]);
+			auto other_hash = graindb::Hash<T>(ldata[idx]);
 			hash_data[ridx] = combine_hash(constant_hash, other_hash);
 		}
 	}
@@ -133,7 +133,7 @@ static inline void tight_loop_combine_hash(T *__restrict ldata, hash_t *__restri
 		for (idx_t i = 0; i < count; i++) {
 			auto ridx = HAS_RSEL ? rsel->get_index(i) : i;
 			auto idx = sel_vector->get_index(ridx);
-			auto other_hash = duckdb::Hash<T>(ldata[idx]);
+			auto other_hash = graindb::Hash<T>(ldata[idx]);
 			hash_data[ridx] = combine_hash(hash_data[ridx], other_hash);
 		}
 	}

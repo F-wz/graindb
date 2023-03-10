@@ -1,9 +1,9 @@
-#include "duckdb/parser/expression/collate_expression.hpp"
+#include "graindb/parser/expression/collate_expression.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/serializer.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/serializer.hpp"
 
-namespace duckdb {
+namespace graindb {
 
 CollateExpression::CollateExpression(string collation, unique_ptr<ParsedExpression> child)
     : ParsedExpression(ExpressionType::COLLATE, ExpressionClass::COLLATE), collation(collation) {
@@ -43,4 +43,4 @@ unique_ptr<ParsedExpression> CollateExpression::Deserialize(ExpressionType type,
 	return make_unique_base<ParsedExpression, CollateExpression>(collation, move(child));
 }
 
-} // namespace duckdb
+} // namespace graindb

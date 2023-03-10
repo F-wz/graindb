@@ -1,13 +1,13 @@
-#include "duckdb/execution/operator/scan/physical_table_scan.hpp"
+#include "graindb/execution/operator/scan/physical_table_scan.hpp"
 
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/planner/expression/bound_conjunction_expression.hpp"
-#include "duckdb/transaction/transaction.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/planner/expression/bound_conjunction_expression.hpp"
+#include "graindb/transaction/transaction.hpp"
 
 #include <iostream>
 #include <utility>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class PhysicalTableScanOperatorState : public PhysicalOperatorState {

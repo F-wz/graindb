@@ -1,7 +1,7 @@
-#include "duckdb/planner/expression/bound_conjunction_expression.hpp"
-#include "duckdb/parser/expression_util.hpp"
+#include "graindb/planner/expression/bound_conjunction_expression.hpp"
+#include "graindb/parser/expression_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 BoundConjunctionExpression::BoundConjunctionExpression(ExpressionType type)

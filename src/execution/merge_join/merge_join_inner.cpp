@@ -1,9 +1,9 @@
-#include "duckdb/common/operator/comparison_operators.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/execution/merge_join.hpp"
-#include "duckdb/parser/expression/comparison_expression.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/execution/merge_join.hpp"
+#include "graindb/parser/expression/comparison_expression.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 template <class T> idx_t MergeJoinInner::Equality::Operation(ScalarMergeInfo &l, ScalarMergeInfo &r) {
@@ -16,7 +16,7 @@ template <class T> idx_t MergeJoinInner::Equality::Operation(ScalarMergeInfo &l,
 	// auto rdata = (T *)r.v.data;
 	// idx_t result_count = 0;
 	// while (true) {
-	// 	if (r.pos == r.count || duckdb::LessThan::Operation(ldata[l.sel_vector[l.pos]], rdata[r.sel_vector[r.pos]])) {
+	// 	if (r.pos == r.count || graindb::LessThan::Operation(ldata[l.sel_vector[l.pos]], rdata[r.sel_vector[r.pos]])) {
 	// 		// left side smaller: move left pointer forward
 	// 		l.pos++;
 	// 		if (l.pos >= l.count) {
@@ -26,10 +26,10 @@ template <class T> idx_t MergeJoinInner::Equality::Operation(ScalarMergeInfo &l,
 	// 		// we might need to go back on the right-side after going
 	// 		// forward on the left side because the new tuple might have
 	// 		// matches with the right side
-	// 		while (r.pos > 0 && duckdb::Equals::Operation(ldata[l.sel_vector[l.pos]], rdata[r.sel_vector[r.pos - 1]])) {
+	// 		while (r.pos > 0 && graindb::Equals::Operation(ldata[l.sel_vector[l.pos]], rdata[r.sel_vector[r.pos - 1]])) {
 	// 			r.pos--;
 	// 		}
-	// 	} else if (duckdb::GreaterThan::Operation(ldata[l.sel_vector[l.pos]], rdata[r.sel_vector[r.pos]])) {
+	// 	} else if (graindb::GreaterThan::Operation(ldata[l.sel_vector[l.pos]], rdata[r.sel_vector[r.pos]])) {
 	// 		// right side smaller: move right pointer forward
 	// 		r.pos++;
 	// 	} else {
@@ -64,7 +64,7 @@ template <class T> idx_t MergeJoinInner::LessThan::Operation(ScalarMergeInfo &l,
 			auto ridx = rorder.get_index(r.pos);
 			auto dlidx = l.order.vdata.sel->get_index(lidx);
 			auto dridx = r.order.vdata.sel->get_index(ridx);
-			if (duckdb::LessThan::Operation(ldata[dlidx], rdata[dridx])) {
+			if (graindb::LessThan::Operation(ldata[dlidx], rdata[dridx])) {
 				// left side smaller: found match
 				l.result.set_index(result_count, lidx);
 				r.result.set_index(result_count, ridx);
@@ -104,7 +104,7 @@ template <class T> idx_t MergeJoinInner::LessThanEquals::Operation(ScalarMergeIn
 			auto ridx = rorder.get_index(r.pos);
 			auto dlidx = l.order.vdata.sel->get_index(lidx);
 			auto dridx = r.order.vdata.sel->get_index(ridx);
-			if (duckdb::LessThanEquals::Operation(ldata[dlidx], rdata[dridx])) {
+			if (graindb::LessThanEquals::Operation(ldata[dlidx], rdata[dridx])) {
 				// left side smaller: found match
 				l.result.set_index(result_count, lidx);
 				r.result.set_index(result_count, ridx);

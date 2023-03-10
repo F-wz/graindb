@@ -5,7 +5,7 @@ add_subdirectory(sequence)
 add_subdirectory(string)
 add_subdirectory(nested)
 
-add_library_unity(duckdb_func_scalar
+add_library_unity(graindb_func_scalar
                   OBJECT
                   date_functions.cpp
                   string_functions.cpp
@@ -15,5 +15,5 @@ add_library_unity(duckdb_func_scalar
                   sequence_functions.cpp
                   trigonometrics_functions.cpp)
 set(ALL_OBJECT_FILES
-    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:duckdb_func_scalar>
+    ${ALL_OBJECT_FILES} $<TARGET_OBJECTS:graindb_func_scalar>
     PARENT_SCOPE)

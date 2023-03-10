@@ -1,9 +1,9 @@
-#include "duckdb/parser/constraints/check_constraint.hpp"
+#include "graindb/parser/constraints/check_constraint.hpp"
 
-#include "duckdb/common/serializer.hpp"
+#include "graindb/common/serializer.hpp"
 
 using namespace std;
-using namespace duckdb;
+using namespace graindb;
 
 string CheckConstraint::ToString() const {
 	return "CHECK(" + expression->ToString() + ")";

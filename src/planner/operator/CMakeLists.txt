@@ -1,4 +1,4 @@
-add_library_unity(duckdb_planner_operator
+add_library_unity(graindb_planner_operator
                   OBJECT
                   logical_aggregate.cpp
                   logical_empty_result.cpp
@@ -14,4 +14,4 @@ add_library_unity(duckdb_planner_operator
                   logical_window.cpp
                   logical_distinct.cpp)
 set(ALL_OBJECT_FILES ${ALL_OBJECT_FILES}
-                     $<TARGET_OBJECTS:duckdb_planner_operator> PARENT_SCOPE)
+                     $<TARGET_OBJECTS:graindb_planner_operator> PARENT_SCOPE)

@@ -1,13 +1,13 @@
-#include "duckdb/catalog/catalog_entry/view_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/view_catalog_entry.hpp"
 
-#include "duckdb/catalog/catalog_entry/schema_catalog_entry.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/parser/parsed_data/create_view_info.hpp"
+#include "graindb/catalog/catalog_entry/schema_catalog_entry.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/parser/parsed_data/create_view_info.hpp"
 
 #include <algorithm>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void ViewCatalogEntry::Initialize(CreateViewInfo *info) {

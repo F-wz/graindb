@@ -1,13 +1,13 @@
-#include "duckdb/storage/string_segment.hpp"
+#include "graindb/storage/string_segment.hpp"
 
-#include "duckdb/common/operator/comparison_operators.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/storage/buffer_manager.hpp"
-#include "duckdb/storage/data_table.hpp"
-#include "duckdb/storage/numeric_segment.hpp"
-#include "duckdb/transaction/update_info.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/storage/buffer_manager.hpp"
+#include "graindb/storage/data_table.hpp"
+#include "graindb/storage/numeric_segment.hpp"
+#include "graindb/transaction/update_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 StringSegment::StringSegment(BufferManager &manager, idx_t row_start, block_id_t block)

@@ -14,7 +14,7 @@ cmake_format_command = 'cmake-format -i "${FILE}"'
 extensions = ['.cpp', '.c', '.hpp', '.h', '.cc', '.hh', '.sql', '.txt']
 formatted_directories = ['src', 'benchmark', 'test', 'tools', 'examples']
 ignored_files = ['tpch_constants.hpp', 'tpcds_constants.hpp', '_generated', 'tpce_flat_input.hpp',
-                 'test_csv_header.hpp', 'duckdb.cpp', 'duckdb.hpp', 'json.hpp', 'sqlite3.h']
+                 'test_csv_header.hpp', 'graindb.cpp', 'graindb.hpp', 'json.hpp', 'sqlite3.h']
 confirm = True
 format_all = False
 
@@ -121,7 +121,7 @@ format_commands = {
 }
 
 header_top = "//===----------------------------------------------------------------------===//\n"
-header_top += "//                         DuckDB\n" + "//\n"
+header_top += "//                         GrainDB\n" + "//\n"
 header_bottom = "//\n" + "//\n"
 header_bottom += "//===----------------------------------------------------------------------===//\n\n"
 base_dir = os.path.join(os.getcwd(), 'src/include')

@@ -1,16 +1,16 @@
-#include "duckdb/parser/expression/comparison_expression.hpp"
-#include "duckdb/planner/expression/bound_cast_expression.hpp"
-#include "duckdb/planner/expression/bound_comparison_expression.hpp"
-#include "duckdb/planner/expression/bound_function_expression.hpp"
-#include "duckdb/planner/expression_binder.hpp"
-#include "duckdb/catalog/catalog_entry/collate_catalog_entry.hpp"
+#include "graindb/parser/expression/comparison_expression.hpp"
+#include "graindb/planner/expression/bound_cast_expression.hpp"
+#include "graindb/planner/expression/bound_comparison_expression.hpp"
+#include "graindb/planner/expression/bound_function_expression.hpp"
+#include "graindb/planner/expression_binder.hpp"
+#include "graindb/catalog/catalog_entry/collate_catalog_entry.hpp"
 
-#include "duckdb/function/scalar/string_functions.hpp"
+#include "graindb/function/scalar/string_functions.hpp"
 
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/main/database.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/main/database.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<Expression> ExpressionBinder::PushCollation(ClientContext &context, unique_ptr<Expression> source,

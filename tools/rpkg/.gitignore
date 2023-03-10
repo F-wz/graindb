@@ -1,4 +1,4 @@
-src/duckdb
+src/graindb
 *.tar.gz
 *.tgz
 src/Makevars

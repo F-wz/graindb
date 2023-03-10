@@ -1,13 +1,13 @@
-#include "duckdb/catalog/catalog_entry/sequence_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/sequence_catalog_entry.hpp"
 
-#include "duckdb/catalog/catalog_entry/schema_catalog_entry.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/serializer.hpp"
-#include "duckdb/parser/parsed_data/create_sequence_info.hpp"
+#include "graindb/catalog/catalog_entry/schema_catalog_entry.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/serializer.hpp"
+#include "graindb/parser/parsed_data/create_sequence_info.hpp"
 
 #include <algorithm>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 SequenceCatalogEntry::SequenceCatalogEntry(Catalog *catalog, SchemaCatalogEntry *schema, CreateSequenceInfo *info)

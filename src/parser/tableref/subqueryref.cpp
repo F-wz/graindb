@@ -1,8 +1,8 @@
-#include "duckdb/parser/tableref/subqueryref.hpp"
+#include "graindb/parser/tableref/subqueryref.hpp"
 
-#include "duckdb/common/serializer.hpp"
+#include "graindb/common/serializer.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 SubqueryRef::SubqueryRef(unique_ptr<QueryNode> subquery_p, string alias_p)

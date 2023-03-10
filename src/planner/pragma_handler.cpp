@@ -1,18 +1,18 @@
-#include "duckdb/planner/pragma_handler.hpp"
+#include "graindb/planner/pragma_handler.hpp"
 
-#include "duckdb/parser/statement/select_statement.hpp"
-#include "duckdb/parser/query_node/select_node.hpp"
-#include "duckdb/parser/expression/constant_expression.hpp"
-#include "duckdb/parser/expression/star_expression.hpp"
-#include "duckdb/parser/tableref/table_function_ref.hpp"
-#include "duckdb/parser/expression/columnref_expression.hpp"
-#include "duckdb/parser/expression/function_expression.hpp"
-#include "duckdb/parser/parsed_data/pragma_info.hpp"
-#include "duckdb/parser/parser.hpp"
+#include "graindb/parser/statement/select_statement.hpp"
+#include "graindb/parser/query_node/select_node.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/expression/star_expression.hpp"
+#include "graindb/parser/tableref/table_function_ref.hpp"
+#include "graindb/parser/expression/columnref_expression.hpp"
+#include "graindb/parser/expression/function_expression.hpp"
+#include "graindb/parser/parsed_data/pragma_info.hpp"
+#include "graindb/parser/parser.hpp"
 
-#include "duckdb/common/string_util.hpp"
+#include "graindb/common/string_util.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 PragmaHandler::PragmaHandler(ClientContext &context) : context(context) {

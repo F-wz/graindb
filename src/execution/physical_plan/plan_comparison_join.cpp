@@ -1,14 +1,14 @@
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/execution/operator/join/physical_cross_product.hpp"
-#include "duckdb/execution/operator/join/physical_hash_join.hpp"
-#include "duckdb/execution/operator/join/physical_merge_sip_join.hpp"
-#include "duckdb/execution/operator/join/physical_nested_loop_join.hpp"
-#include "duckdb/execution/operator/join/physical_piecewise_merge_join.hpp"
-#include "duckdb/execution/operator/join/physical_sip_join.hpp"
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/planner/operator/logical_comparison_join.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/execution/operator/join/physical_cross_product.hpp"
+#include "graindb/execution/operator/join/physical_hash_join.hpp"
+#include "graindb/execution/operator/join/physical_merge_sip_join.hpp"
+#include "graindb/execution/operator/join/physical_nested_loop_join.hpp"
+#include "graindb/execution/operator/join/physical_piecewise_merge_join.hpp"
+#include "graindb/execution/operator/join/physical_sip_join.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/planner/operator/logical_comparison_join.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 static inline unique_ptr<PhysicalOperator> CreateDefaultJoinPlan(ClientContext &context, LogicalComparisonJoin &op,

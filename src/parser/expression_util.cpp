@@ -1,9 +1,9 @@
-#include "duckdb/parser/expression_util.hpp"
-#include "duckdb/planner/expression.hpp"
-#include "duckdb/parser/parsed_expression.hpp"
-#include "duckdb/parser/expression_map.hpp"
+#include "graindb/parser/expression_util.hpp"
+#include "graindb/planner/expression.hpp"
+#include "graindb/parser/parsed_expression.hpp"
+#include "graindb/parser/expression_map.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 template <class T>

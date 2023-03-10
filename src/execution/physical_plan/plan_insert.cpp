@@ -1,9 +1,9 @@
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/execution/operator/persistent/physical_insert.hpp"
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/planner/operator/logical_insert.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/execution/operator/persistent/physical_insert.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/planner/operator/logical_insert.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreatePlan(LogicalInsert &op) {

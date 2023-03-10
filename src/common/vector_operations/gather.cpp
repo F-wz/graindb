@@ -3,12 +3,12 @@
 // Description: This file contains the implementation of the gather operators
 //===--------------------------------------------------------------------===//
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/operator/constant_operators.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/operator/constant_operators.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 template <class T> static void templated_gather_loop(Vector &source, Vector &dest, idx_t count) {

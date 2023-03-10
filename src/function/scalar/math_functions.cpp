@@ -1,7 +1,7 @@
-#include "duckdb/function/scalar/math_functions.hpp"
-#include "duckdb/common/exception.hpp"
+#include "graindb/function/scalar/math_functions.hpp"
+#include "graindb/common/exception.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void BuiltinFunctions::RegisterMathFunctions() {

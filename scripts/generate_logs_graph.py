@@ -1,7 +1,7 @@
 import os
 import sys
 
-import duckdb_query_graph
+import graindb_query_graph
 
 if len(sys.argv) <= 1:
     print("Usage: python generate_logs_graph.py <input.log> <output_dir>")
@@ -13,11 +13,11 @@ output_dir = sys.argv[2]
 def generate_query_graph(output_dir_, last_benchmark_):
     html_input = os.path.join(output_dir_, last_benchmark_ + ".json")
     html_output = os.path.join(output_dir_, last_benchmark_ + ".html")
-    duckdb_query_graph.generate(html_input, html_output)
+    graindb_query_graph.generate(html_input, html_output)
     with open(html_output, 'r') as html:
         text = html.read()
     # inline javascript files
-    javascript_base = os.path.join('tools', 'pythonpkg', 'duckdb_query_graph')
+    javascript_base = os.path.join('tools', 'pythonpkg', 'graindb_query_graph')
     with open(os.path.join(javascript_base, 'raphael.js'), 'r') as f:
         raphael = f.read()
     with open(os.path.join(javascript_base, 'treant.js'), 'r') as f:

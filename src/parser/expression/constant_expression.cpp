@@ -1,10 +1,10 @@
-#include "duckdb/parser/expression/constant_expression.hpp"
+#include "graindb/parser/expression/constant_expression.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/types/hash.hpp"
-#include "duckdb/common/value_operations/value_operations.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/types/hash.hpp"
+#include "graindb/common/value_operations/value_operations.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 ConstantExpression::ConstantExpression(SQLType sql_type, Value val)

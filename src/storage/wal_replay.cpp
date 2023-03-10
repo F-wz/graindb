@@ -1,29 +1,29 @@
-#include "duckdb/storage/write_ahead_log.hpp"
-#include "duckdb/storage/data_table.hpp"
-#include "duckdb/common/serializer/buffered_file_reader.hpp"
-#include "duckdb/catalog/catalog_entry/schema_catalog_entry.hpp"
-#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "duckdb/catalog/catalog_entry/view_catalog_entry.hpp"
-#include "duckdb/main/client_context.hpp"
-#include "duckdb/main/database.hpp"
-#include "duckdb/parser/parsed_data/alter_table_info.hpp"
-#include "duckdb/parser/parsed_data/drop_info.hpp"
-#include "duckdb/parser/parsed_data/create_schema_info.hpp"
-#include "duckdb/parser/parsed_data/create_table_info.hpp"
-#include "duckdb/parser/parsed_data/create_view_info.hpp"
-#include "duckdb/planner/binder.hpp"
-#include "duckdb/planner/parsed_data/bound_create_table_info.hpp"
+#include "graindb/storage/write_ahead_log.hpp"
+#include "graindb/storage/data_table.hpp"
+#include "graindb/common/serializer/buffered_file_reader.hpp"
+#include "graindb/catalog/catalog_entry/schema_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "graindb/catalog/catalog_entry/view_catalog_entry.hpp"
+#include "graindb/main/client_context.hpp"
+#include "graindb/main/database.hpp"
+#include "graindb/parser/parsed_data/alter_table_info.hpp"
+#include "graindb/parser/parsed_data/drop_info.hpp"
+#include "graindb/parser/parsed_data/create_schema_info.hpp"
+#include "graindb/parser/parsed_data/create_table_info.hpp"
+#include "graindb/parser/parsed_data/create_view_info.hpp"
+#include "graindb/planner/binder.hpp"
+#include "graindb/planner/parsed_data/bound_create_table_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class ReplayState {
 public:
-	ReplayState(DuckDB &db, ClientContext &context, Deserializer &source)
+	ReplayState(GrainDB &db, ClientContext &context, Deserializer &source)
 	    : db(db), context(context), source(source), current_table(nullptr) {
 	}
 
-	DuckDB &db;
+	GrainDB &db;
 	ClientContext &context;
 	Deserializer &source;
 	TableCatalogEntry *current_table;
@@ -52,7 +52,7 @@ private:
 	void ReplayUpdate();
 };
 
-void WriteAheadLog::Replay(DuckDB &database, string &path) {
+void WriteAheadLog::Replay(GrainDB &database, string &path) {
 	BufferedFileReader reader(*database.file_system, path.c_str());
 
 	if (reader.Finished()) {

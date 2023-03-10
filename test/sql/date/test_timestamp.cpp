@@ -1,15 +1,15 @@
 #include "catch.hpp"
-#include "duckdb/common/types/timestamp.hpp"
+#include "graindb/common/types/timestamp.hpp"
 #include "test_helpers.hpp"
-#include "duckdb/common/types/date.hpp"
-#include "duckdb/common/types/time.hpp"
+#include "graindb/common/types/date.hpp"
+#include "graindb/common/types/time.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test TIMESTAMP type", "[timestamp]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -85,7 +85,7 @@ TEST_CASE("Test TIMESTAMP type", "[timestamp]") {
 
 TEST_CASE("Test out of range/incorrect timestamp formats", "[timestamp]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -126,7 +126,7 @@ TEST_CASE("Test storage for timestamp type", "[timestamp]") {
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database);
+		GrainDB db(storage_database);
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE timestamp (t TIMESTAMP);"));
 		REQUIRE_NO_FAIL(con.Query(
@@ -136,7 +136,7 @@ TEST_CASE("Test storage for timestamp type", "[timestamp]") {
 	}
 	// reload the database from disk
 	for (idx_t i = 0; i < 2; i++) {
-		DuckDB db(storage_database);
+		GrainDB db(storage_database);
 		Connection con(db);
 		result = con.Query("SELECT t FROM timestamp ORDER BY t;");
 		REQUIRE(CHECK_COLUMN(result, 0,
@@ -153,7 +153,7 @@ TEST_CASE("Test storage for timestamp type", "[timestamp]") {
 
 TEST_CASE("Test timestamp functions", "[timestamp]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	result = con.Query("SELECT AGE(TIMESTAMP '1957-06-13');");
@@ -249,7 +249,7 @@ TEST_CASE("Test timestamp functions", "[timestamp]") {
 
 TEST_CASE("Test milliseconds with timestamps", "[timestamp]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	result = con.Query(
@@ -260,7 +260,7 @@ TEST_CASE("Test milliseconds with timestamps", "[timestamp]") {
 
 TEST_CASE("Test more timestamp functions", "[timestamp]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	result = con.Query("SELECT CAST(CURRENT_TIME AS STRING), CAST(CURRENT_DATE AS STRING), CAST(CURRENT_TIMESTAMP AS "

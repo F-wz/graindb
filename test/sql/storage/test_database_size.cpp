@@ -1,8 +1,8 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
+#include "graindb/common/file_system.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test that database size does not grow after many checkpoints", "[storage][.]") {
@@ -11,7 +11,7 @@ TEST_CASE("Test that database size does not grow after many checkpoints", "[stor
 
 	FileSystem fs;
 	auto config = GetTestConfig();
-	unique_ptr<DuckDB> database;
+	unique_ptr<GrainDB> database;
 	unique_ptr<QueryResult> result;
 	auto storage_database = TestCreatePath("dbsize_test");
 
@@ -19,7 +19,7 @@ TEST_CASE("Test that database size does not grow after many checkpoints", "[stor
 	DeleteDatabase(storage_database);
 	{
 		// create a database and insert values
-		DuckDB db(storage_database);
+		GrainDB db(storage_database);
 		Connection con(db);
 		REQUIRE_NO_FAIL(con.Query("BEGIN TRANSACTION;"));
 		REQUIRE_NO_FAIL(con.Query("CREATE TABLE test(a INTEGER);"));
@@ -33,7 +33,7 @@ TEST_CASE("Test that database size does not grow after many checkpoints", "[stor
 	}
 	// force a checkpoint by reloading
 	{
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 	}
 
@@ -46,7 +46,7 @@ TEST_CASE("Test that database size does not grow after many checkpoints", "[stor
 	}
 	// now reload the database a bunch of times, and everytime we reload update all the values
 	for (idx_t i = 0; i < 20; i++) {
-		DuckDB db(storage_database, config.get());
+		GrainDB db(storage_database, config.get());
 		Connection con(db);
 		// verify the current count
 		result = con.Query("SELECT SUM(a) FROM test");

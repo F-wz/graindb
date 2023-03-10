@@ -1,10 +1,10 @@
-#include "duckdb/execution/operator/join/physical_merge_sip_join.hpp"
+#include "graindb/execution/operator/join/physical_merge_sip_join.hpp"
 
-#include "duckdb/execution/operator/scan/physical_table_scan.hpp"
+#include "graindb/execution/operator/scan/physical_table_scan.hpp"
 
 #include <iostream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class PhysicalMergeSIPJoinState : public PhysicalComparisonJoinState {

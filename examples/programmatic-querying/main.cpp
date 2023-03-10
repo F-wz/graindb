@@ -1,12 +1,12 @@
-#include "duckdb.hpp"
-#include "duckdb/parser/parsed_data/create_table_function_info.hpp"
-#include "duckdb/function/table_function.hpp"
-#include "duckdb/execution/operator/list.hpp"
-#include "duckdb/catalog/catalog_entry/list.hpp"
-#include "duckdb/function/function.hpp"
-#include "duckdb/planner/expression/list.hpp"
-#include "duckdb/parser/expression/function_expression.hpp"
-#include "duckdb/main/client_context.hpp"
+#include "graindb.hpp"
+#include "graindb/parser/parsed_data/create_table_function_info.hpp"
+#include "graindb/function/table_function.hpp"
+#include "graindb/execution/operator/list.hpp"
+#include "graindb/catalog/catalog_entry/list.hpp"
+#include "graindb/function/function.hpp"
+#include "graindb/planner/expression/list.hpp"
+#include "graindb/parser/expression/function_expression.hpp"
+#include "graindb/main/client_context.hpp"
 
 /**
 This file contains an example on how a query tree can be programmatically constructed. This is essentially hand-rolling
@@ -16,7 +16,7 @@ Note that this API is currently very unstable, and is subject to change at any m
 be used currently outside of internal use cases.
 **/
 
-using namespace duckdb;
+using namespace graindb;
 
 struct MyScanFunctionData : public TableFunctionData {
 	MyScanFunctionData() : nrow(10000) {
@@ -88,7 +88,7 @@ unique_ptr<BoundAggregateExpression> resolve_aggregate(Connection &con, string n
 }
 
 int main() {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.DisableProfiling();
 

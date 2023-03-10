@@ -1,9 +1,9 @@
-#include "duckdb/common/checksum.hpp"
-#include "duckdb/common/types/hash.hpp"
+#include "graindb/common/checksum.hpp"
+#include "graindb/common/types/hash.hpp"
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 uint64_t Checksum(uint8_t *buffer, size_t size) {
 	uint64_t result = 5381;
@@ -20,4 +20,4 @@ uint64_t Checksum(uint8_t *buffer, size_t size) {
 	return result;
 }
 
-} // namespace duckdb
+} // namespace graindb

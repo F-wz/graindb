@@ -1,12 +1,12 @@
 #include "catch.hpp"
-#include "duckdb/common/file_system.hpp"
-#include "duckdb/common/types/date.hpp"
+#include "graindb/common/file_system.hpp"
+#include "graindb/common/types/date.hpp"
 #include "test_csv_header.hpp"
 #include "test_helpers.hpp"
 
 #include <fstream>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 #if STANDARD_VECTOR_SIZE >= 16
@@ -14,7 +14,7 @@ using namespace std;
 TEST_CASE("Test copy into auto from lineitem csv", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -43,7 +43,7 @@ TEST_CASE("Test copy into auto from lineitem csv", "[copy]") {
 TEST_CASE("Test read_csv_auto from on-time dataset", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -95,7 +95,7 @@ TEST_CASE("Test read_csv_auto from on-time dataset", "[copy]") {
 TEST_CASE("Test read_csv_auto from web_page csv", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -127,7 +127,7 @@ TEST_CASE("Test read_csv_auto from web_page csv", "[copy]") {
 TEST_CASE("Test read_csv_auto from greek-utf8 csv", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -152,7 +152,7 @@ TEST_CASE("Test read_csv_auto from greek-utf8 csv", "[copy]") {
 TEST_CASE("Test read_csv_auto from ncvoter csv", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -196,7 +196,7 @@ TEST_CASE("Test read_csv_auto from ncvoter csv", "[copy]") {
 TEST_CASE("Test read_csv_auto from imdb csv", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -212,7 +212,7 @@ TEST_CASE("Test read_csv_auto from imdb csv", "[copy]") {
 TEST_CASE("Test read_csv_auto from cranlogs broken gzip", "[copy][.]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -228,7 +228,7 @@ TEST_CASE("Test read_csv_auto from cranlogs broken gzip", "[copy][.]") {
 TEST_CASE("Test csv dialect detection", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -447,7 +447,7 @@ TEST_CASE("Test csv dialect detection", "[copy]") {
 TEST_CASE("Test csv header detection", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -575,7 +575,7 @@ TEST_CASE("Test csv header detection", "[copy]") {
 TEST_CASE("Test csv header completion", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();
@@ -662,7 +662,7 @@ TEST_CASE("Test csv header completion", "[copy]") {
 TEST_CASE("Test csv type detection with sampling", "[copy]") {
 	FileSystem fs;
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 
 	auto csv_path = GetCSVPath();

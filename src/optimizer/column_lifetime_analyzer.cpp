@@ -1,10 +1,10 @@
-#include "duckdb/optimizer/column_lifetime_optimizer.hpp"
-#include "duckdb/planner/expression/bound_columnref_expression.hpp"
-#include "duckdb/planner/operator/logical_comparison_join.hpp"
-#include "duckdb/planner/operator/logical_delim_join.hpp"
-#include "duckdb/planner/operator/logical_filter.hpp"
+#include "graindb/optimizer/column_lifetime_optimizer.hpp"
+#include "graindb/planner/expression/bound_columnref_expression.hpp"
+#include "graindb/planner/operator/logical_comparison_join.hpp"
+#include "graindb/planner/operator/logical_delim_join.hpp"
+#include "graindb/planner/operator/logical_filter.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 void ColumnLifetimeAnalyzer::ExtractUnusedColumnBindings(vector<ColumnBinding> bindings,

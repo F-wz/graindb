@@ -1,11 +1,11 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test joins under setops", "[setops][.]") {
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	REQUIRE_NO_FAIL(con.Query("CREATE TABLE test(a INTEGER);"));
@@ -22,7 +22,7 @@ TEST_CASE("Test joins under setops", "[setops][.]") {
 
 TEST_CASE("Test joins under setops with CTEs", "[setops][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	con.EnableProfiling();
@@ -39,7 +39,7 @@ TEST_CASE("Test joins under setops with CTEs", "[setops][.]") {
 
 TEST_CASE("Test joins under setops with CTEs and aggregations", "[setops][.]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 	con.EnableProfiling();

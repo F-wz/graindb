@@ -11,4 +11,4 @@ include_directories(../../third_party/imdb/include)
 link_directories(../../build/release/src)
 
 add_executable(example-c++ main.cpp)
-target_link_libraries(example-c++ duckdb dbgen dsdgen ldbc imdb nlohmann_json)
+target_link_libraries(example-c++ graindb dbgen dsdgen ldbc imdb nlohmann_json)

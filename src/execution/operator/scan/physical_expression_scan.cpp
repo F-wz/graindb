@@ -1,8 +1,8 @@
-#include "duckdb/execution/operator/scan/physical_expression_scan.hpp"
+#include "graindb/execution/operator/scan/physical_expression_scan.hpp"
 
-#include "duckdb/execution/expression_executor.hpp"
+#include "graindb/execution/expression_executor.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 class PhysicalExpressionScanState : public PhysicalOperatorState {

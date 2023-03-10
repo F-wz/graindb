@@ -1,16 +1,16 @@
-#include "duckdb/execution/join_hashtable.hpp"
+#include "graindb/execution/join_hashtable.hpp"
 
-#include "duckdb/common/exception.hpp"
-#include "duckdb/common/operator/comparison_operators.hpp"
-#include "duckdb/common/types/null_value.hpp"
-#include "duckdb/common/vector_operations/vector_operations.hpp"
-#include "duckdb/storage/buffer_manager.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/common/operator/comparison_operators.hpp"
+#include "graindb/common/types/null_value.hpp"
+#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "graindb/storage/buffer_manager.hpp"
 
 //#define MICRO_METRICS
 
 using namespace std;
 
-namespace duckdb {
+namespace graindb {
 
 using ScanStructure = JoinHashTable::ScanStructure;
 
@@ -1005,4 +1005,4 @@ void ScanStructure::NextSingleJoin(DataChunk &keys, DataChunk &input, DataChunk 
 	finished = true;
 }
 
-} // namespace duckdb
+} // namespace graindb

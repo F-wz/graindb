@@ -1,9 +1,9 @@
 #include "catch.hpp"
-#include "duckdb/common/checksum.hpp"
+#include "graindb/common/checksum.hpp"
 
 #include <vector>
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 #define NUM_INTS 10

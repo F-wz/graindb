@@ -1,8 +1,8 @@
-#include "duckdb/execution/operator/join/physical_blockwise_nl_join.hpp"
-#include "duckdb/execution/physical_plan_generator.hpp"
-#include "duckdb/planner/operator/logical_any_join.hpp"
+#include "graindb/execution/operator/join/physical_blockwise_nl_join.hpp"
+#include "graindb/execution/physical_plan_generator.hpp"
+#include "graindb/planner/operator/logical_any_join.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 unique_ptr<PhysicalOperator> PhysicalPlanGenerator::CreatePlan(LogicalAnyJoin &op) {

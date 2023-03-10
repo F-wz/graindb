@@ -1,12 +1,12 @@
 #include "catch.hpp"
 #include "test_helpers.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 TEST_CASE("Test scalar bitwise ops", "[bitop]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -75,7 +75,7 @@ TEST_CASE("Test scalar bitwise ops", "[bitop]") {
 
 TEST_CASE("Test bitwise ops with tables and different types", "[bitop]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 
@@ -99,7 +99,7 @@ TEST_CASE("Test bitwise ops with tables and different types", "[bitop]") {
 
 TEST_CASE("Test invalid ops for bitwise operations", "[bitop]") {
 	unique_ptr<QueryResult> result;
-	DuckDB db(nullptr);
+	GrainDB db(nullptr);
 	Connection con(db);
 	con.EnableQueryVerification();
 

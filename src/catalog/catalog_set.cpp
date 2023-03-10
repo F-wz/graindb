@@ -1,13 +1,13 @@
-#include "duckdb/catalog/catalog_set.hpp"
+#include "graindb/catalog/catalog_set.hpp"
 
-#include "duckdb/catalog/catalog.hpp"
-#include "duckdb/common/exception.hpp"
-#include "duckdb/transaction/transaction_manager.hpp"
-#include "duckdb/transaction/transaction.hpp"
-#include "duckdb/common/serializer/buffered_serializer.hpp"
-#include "duckdb/parser/parsed_data/alter_table_info.hpp"
+#include "graindb/catalog/catalog.hpp"
+#include "graindb/common/exception.hpp"
+#include "graindb/transaction/transaction_manager.hpp"
+#include "graindb/transaction/transaction.hpp"
+#include "graindb/common/serializer/buffered_serializer.hpp"
+#include "graindb/parser/parsed_data/alter_table_info.hpp"
 
-using namespace duckdb;
+using namespace graindb;
 using namespace std;
 
 CatalogSet::CatalogSet(Catalog &catalog) : catalog(catalog) {
