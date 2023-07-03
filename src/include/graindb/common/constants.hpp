@@ -46,8 +46,8 @@ using std::vector;
 #define ENABLE_PROFILING false
 
 //! Params for experiment evaluation
-#define ENABLE_ALISTS false
-#define ENABLE_RAI_JOIN_MERGE false
+#define ENABLE_ALISTS true
+#define ENABLE_RAI_JOIN_MERGE true
 #define ENABLE_ADAPTIVE_FILTER false
 
 //! a saner size_t for loop indices etc
