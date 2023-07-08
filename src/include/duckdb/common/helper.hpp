@@ -1,14 +1,14 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/helper.hpp
+// duckdb/common/helper.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
 #include <algorithm>
 #include <string.h>
@@ -19,7 +19,7 @@
 #define suint64_t int64_t
 #endif
 
-namespace graindb {
+namespace duckdb {
 #if !defined(_MSC_VER) && (__cplusplus < 201402L)
 template <typename T, typename... Args> unique_ptr<T> make_unique(Args &&... args) {
 	return unique_ptr<T>(new T(std::forward<Args>(args)...));
@@ -57,4 +57,4 @@ template <typename T> void Store(const T val, data_ptr_t ptr) {
 	memcpy(ptr, (void *)&val, sizeof(val));
 }
 
-} // namespace graindb
+} // namespace duckdb

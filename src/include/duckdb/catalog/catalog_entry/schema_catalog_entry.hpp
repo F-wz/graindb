@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/catalog/catalog_entry/schema_catalog_entry.hpp
+// duckdb/catalog/catalog_entry/schema_catalog_entry.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_entry.hpp"
-#include "graindb/catalog/catalog_set.hpp"
+#include "duckdb/catalog/catalog_entry.hpp"
+#include "duckdb/catalog/catalog_set.hpp"
 
-#include <graindb/catalog/catalog_set.hpp>
+#include <duckdb/catalog/catalog_set.hpp>
 
-namespace graindb {
+namespace duckdb {
 class ClientContext;
 
 class StandardEntry;
@@ -93,4 +93,4 @@ private:
 	//! Get the catalog set for the specified type
 	CatalogSet &GetCatalogSet(CatalogType type);
 };
-} // namespace graindb
+} // namespace duckdb

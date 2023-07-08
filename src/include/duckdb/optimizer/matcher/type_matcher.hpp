@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/matcher/type_matcher.hpp
+// duckdb/optimizer/matcher/type_matcher.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types.hpp"
+#include "duckdb/common/types.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The TypeMatcher class contains a set of matchers that can be used to pattern match TypeIds for Rules
 class TypeMatcher {
@@ -51,4 +51,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

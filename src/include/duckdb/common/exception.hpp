@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/exception.hpp
+// duckdb/common/exception.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types.hpp"
+#include "duckdb/common/types.hpp"
 
 #include <stdarg.h>
 #include <stdexcept>
 
-namespace graindb {
+namespace duckdb {
 
 inline void assert_restrict_function(void *left_start, void *left_end, void *right_start, void *right_end,
                                      const char *fname, int linenr) {
@@ -196,4 +196,4 @@ public:
 	InternalException(string msg, ...);
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,7 +1,7 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/constants.hpp
+// duckdb/common/constants.hpp
 //
 //
 //===----------------------------------------------------------------------===//
@@ -14,7 +14,7 @@
 #include <string>
 #include <vector>
 
-namespace graindb {
+namespace duckdb {
 
 //! inline std directives that we use frequently
 using std::move;
@@ -122,4 +122,4 @@ extern const double PI;
 
 // uint64_t NextPowerOfTwo(uint64_t v);
 
-} // namespace graindb
+} // namespace duckdb

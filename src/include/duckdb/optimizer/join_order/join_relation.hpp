@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/join_order/join_relation.hpp
+// duckdb/optimizer/join_order/join_relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/common/unordered_set.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/common/unordered_set.hpp"
 
-namespace graindb {
+namespace duckdb {
 class LogicalOperator;
 
 //! Represents a single relation and any metadata accompanying that relation
@@ -93,4 +93,4 @@ private:
 	JoinRelationTreeNode root;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_copy_from_file.hpp
+// duckdb/planner/operator/logical_copy_from_file.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/copy_info.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/parser/parsed_data/copy_info.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class LogicalCopyFromFile : public LogicalOperator {
 public:
@@ -36,4 +36,4 @@ protected:
 		}
 	}
 };
-} // namespace graindb
+} // namespace duckdb

@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/storage_manager.hpp
+// duckdb/storage/storage_manager.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/helper.hpp"
-#include "graindb/storage/buffer_manager.hpp"
-#include "graindb/storage/data_table.hpp"
-#include "graindb/storage/write_ahead_log.hpp"
+#include "duckdb/common/helper.hpp"
+#include "duckdb/storage/buffer_manager.hpp"
+#include "duckdb/storage/data_table.hpp"
+#include "duckdb/storage/write_ahead_log.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BlockManager;
 class Catalog;
 class GrainDB;
@@ -59,4 +59,4 @@ private:
 	bool read_only;
 };
 
-} // namespace graindb
+} // namespace duckdb

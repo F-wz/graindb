@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/statement/prepare_statement.hpp
+// duckdb/parser/statement/prepare_statement.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/sql_statement.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/sql_statement.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class PrepareStatement : public SQLStatement {
 public:
@@ -21,4 +21,4 @@ public:
 	unique_ptr<SQLStatement> statement;
 	string name;
 };
-} // namespace graindb
+} // namespace duckdb

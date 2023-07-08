@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/table/chunk_info.hpp
+// duckdb/storage/table/chunk_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
+#include "duckdb/common/common.hpp"
 
-namespace graindb {
+namespace duckdb {
 struct SelectionVector;
 class Transaction;
 class VersionManager;
@@ -71,4 +71,4 @@ public:
 	bool Fetch(Transaction &transaction, row_t row) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

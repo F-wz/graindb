@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/table/segment_tree.hpp
+// duckdb/storage/table/segment_tree.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
-#include "graindb/storage/storage_lock.hpp"
-#include "graindb/storage/table/segment_base.hpp"
+#include "duckdb/common/constants.hpp"
+#include "duckdb/storage/storage_lock.hpp"
+#include "duckdb/storage/table/segment_base.hpp"
 
 #include <mutex>
 
-namespace graindb {
+namespace duckdb {
 
 struct SegmentNode {
 	idx_t row_start;
@@ -46,4 +46,4 @@ public:
 	idx_t GetSegmentIndex(idx_t row_number);
 };
 
-} // namespace graindb
+} // namespace duckdb

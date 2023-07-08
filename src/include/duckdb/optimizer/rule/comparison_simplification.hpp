@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/rule/comparison_simplification.hpp
+// duckdb/optimizer/rule/comparison_simplification.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/optimizer/rule.hpp"
+#include "duckdb/optimizer/rule.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 // The Comparison Simplification rule rewrites comparisons with a constant NULL (i.e. [x = NULL] => [NULL])
 class ComparisonSimplificationRule : public Rule {
@@ -20,4 +20,4 @@ public:
 	unique_ptr<Expression> Apply(LogicalOperator &op, vector<Expression *> &bindings, bool &changes_made) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/relation/aggregate_relation.hpp
+// duckdb/main/relation/aggregate_relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/relation.hpp"
-#include "graindb/parser/parsed_expression.hpp"
+#include "duckdb/main/relation.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class AggregateRelation : public Relation {
 public:
@@ -32,4 +32,4 @@ public:
 	string GetAlias() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

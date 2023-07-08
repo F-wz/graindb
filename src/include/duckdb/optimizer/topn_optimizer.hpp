@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/topn_optimizer.hpp
+// duckdb/optimizer/topn_optimizer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 class LogicalOperator;
 class Optimizer;
 
@@ -20,4 +20,4 @@ public:
 	unique_ptr<LogicalOperator> Optimize(unique_ptr<LogicalOperator> node);
 };
 
-} // namespace graindb
+} // namespace duckdb

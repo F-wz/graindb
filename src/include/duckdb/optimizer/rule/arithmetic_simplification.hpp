@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/rule/arithmetic_simplification.hpp
+// duckdb/optimizer/rule/arithmetic_simplification.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/optimizer/rule.hpp"
+#include "duckdb/optimizer/rule.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 // The Arithmetic Simplification rule applies arithmetic expressions to which the answer is known (e.g. X + 0 => X, X *
 // 0 => 0)
@@ -21,4 +21,4 @@ public:
 	unique_ptr<Expression> Apply(LogicalOperator &op, vector<Expression *> &bindings, bool &changes_made) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

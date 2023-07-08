@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/join/physical_hash_join.hpp
+// duckdb/execution/operator/join/physical_hash_join.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/execution/join_hashtable.hpp"
-#include "graindb/execution/operator/join/physical_comparison_join.hpp"
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/planner/operator/logical_join.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/execution/join_hashtable.hpp"
+#include "duckdb/execution/operator/join/physical_comparison_join.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/planner/operator/logical_join.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalHashJoin represents a hash loop join between two tables
 class PhysicalHashJoin : public PhysicalComparisonJoin {
@@ -46,4 +46,4 @@ private:
 	void ProbeHashTable(ClientContext &context, DataChunk &chunk, PhysicalOperatorState *state_);
 };
 
-} // namespace graindb
+} // namespace duckdb

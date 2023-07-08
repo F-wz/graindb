@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/constraint.hpp
+// duckdb/parser/constraint.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
+#include "duckdb/common/common.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class Serializer;
 class Deserializer;
@@ -46,4 +46,4 @@ public:
 	//! deserialization is not possible
 	static unique_ptr<Constraint> Deserialize(Deserializer &source);
 };
-} // namespace graindb
+} // namespace duckdb

@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/table/persistent_segment.hpp
+// duckdb/storage/table/persistent_segment.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/storage/block.hpp"
-#include "graindb/storage/buffer_manager.hpp"
-#include "graindb/storage/table/column_segment.hpp"
-#include "graindb/storage/uncompressed_segment.hpp"
+#include "duckdb/storage/block.hpp"
+#include "duckdb/storage/buffer_manager.hpp"
+#include "duckdb/storage/table/column_segment.hpp"
+#include "duckdb/storage/uncompressed_segment.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class PersistentSegment : public ColumnSegment {
 public:
@@ -53,4 +53,4 @@ public:
 	void Update(ColumnData &column_data, Transaction &transaction, Vector &updates, row_t *ids, idx_t count) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

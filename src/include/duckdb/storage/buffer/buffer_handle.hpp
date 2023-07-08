@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/buffer/buffer_handle.hpp
+// duckdb/storage/buffer/buffer_handle.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/storage/storage_info.hpp"
+#include "duckdb/storage/storage_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BufferManager;
 class FileBuffer;
 
@@ -26,4 +26,4 @@ public:
 	FileBuffer *node;
 };
 
-} // namespace graindb
+} // namespace duckdb

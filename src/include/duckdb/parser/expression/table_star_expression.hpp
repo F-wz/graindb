@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/expression/table_star_expression.hpp
+// duckdb/parser/expression/table_star_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_expression.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Represents a table.* expression in the SELECT clause
 class TableStarExpression : public ParsedExpression {
@@ -29,4 +29,4 @@ public:
 
 	string relation_name;
 };
-} // namespace graindb
+} // namespace duckdb

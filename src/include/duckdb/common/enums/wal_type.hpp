@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/wal_type.hpp
+// duckdb/common/enums/wal_type.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 enum class WALType : uint8_t {
 	INVALID = 0,

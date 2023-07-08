@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/persistent/physical_delete.hpp
+// duckdb/execution/operator/persistent/physical_delete.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
+#include "duckdb/execution/physical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 class DataTable;
 
 //! Physically delete data from a table
@@ -31,4 +31,4 @@ public:
 	                      DataChunk *rai_chunk = nullptr) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/create_function_info.hpp
+// duckdb/parser/parsed_data/create_function_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/create_info.hpp"
-#include "graindb/function/function.hpp"
+#include "duckdb/parser/parsed_data/create_info.hpp"
+#include "duckdb/function/function.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct CreateFunctionInfo : public CreateInfo {
 	CreateFunctionInfo(CatalogType type) : CreateInfo(type) {
@@ -22,4 +22,4 @@ struct CreateFunctionInfo : public CreateInfo {
 	string name;
 };
 
-} // namespace graindb
+} // namespace duckdb

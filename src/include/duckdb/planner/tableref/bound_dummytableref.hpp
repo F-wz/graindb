@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/tableref/bound_dummytableref.hpp
+// duckdb/planner/tableref/bound_dummytableref.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/bound_tableref.hpp"
+#include "duckdb/planner/bound_tableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Represents a cross product
 class BoundEmptyTableRef : public BoundTableRef {
@@ -19,4 +19,4 @@ public:
 	}
 	idx_t bind_index;
 };
-} // namespace graindb
+} // namespace duckdb

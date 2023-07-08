@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/buffer/buffer_list.hpp
+// duckdb/storage/buffer/buffer_list.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/file_buffer.hpp"
+#include "duckdb/common/file_buffer.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct BufferEntry {
 	BufferEntry(unique_ptr<FileBuffer> buffer) : buffer(move(buffer)), ref_count(1), prev(nullptr) {
@@ -53,4 +53,4 @@ private:
 	idx_t count;
 };
 
-} // namespace graindb
+} // namespace duckdb

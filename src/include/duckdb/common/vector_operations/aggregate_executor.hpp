@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/vector_operations/aggregate_executor.hpp
+// duckdb/common/vector_operations/aggregate_executor.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/exception.hpp"
-#include "graindb/common/types/vector.hpp"
-#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "duckdb/common/exception.hpp"
+#include "duckdb/common/types/vector.hpp"
+#include "duckdb/common/vector_operations/vector_operations.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class AggregateExecutor {
 private:
@@ -246,4 +246,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

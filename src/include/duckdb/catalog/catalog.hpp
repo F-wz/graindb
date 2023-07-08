@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/catalog/catalog.hpp
+// duckdb/catalog/catalog.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_entry.hpp"
-#include "graindb/catalog/catalog_set.hpp"
-#include "graindb/catalog/dependency_manager.hpp"
+#include "duckdb/catalog/catalog_entry.hpp"
+#include "duckdb/catalog/catalog_set.hpp"
+#include "duckdb/catalog/dependency_manager.hpp"
 
 #include <mutex>
 
-namespace graindb {
+namespace duckdb {
 struct CreateSchemaInfo;
 struct DropInfo;
 struct BoundCreateTableInfo;
@@ -105,4 +105,4 @@ AggregateFunctionCatalogEntry *Catalog::GetEntry(ClientContext &context, string 
 template <>
 CollateCatalogEntry *Catalog::GetEntry(ClientContext &context, string schema_name, const string &name, bool if_exists);
 
-} // namespace graindb
+} // namespace duckdb

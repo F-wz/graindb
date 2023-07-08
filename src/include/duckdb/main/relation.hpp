@@ -1,22 +1,22 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/relation.hpp
+// duckdb/main/relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/enums/relation_type.hpp"
-#include "graindb/parser/column_definition.hpp"
-#include "graindb/main/query_result.hpp"
-#include "graindb/common/enums/join_type.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/enums/relation_type.hpp"
+#include "duckdb/parser/column_definition.hpp"
+#include "duckdb/main/query_result.hpp"
+#include "duckdb/common/enums/join_type.hpp"
 
 #include <memory>
 
-namespace graindb {
+namespace duckdb {
 struct BoundStatement;
 
 class ClientContext;
@@ -129,4 +129,4 @@ protected:
 	string RenderWhitespace(idx_t depth);
 };
 
-} // namespace graindb
+} // namespace duckdb

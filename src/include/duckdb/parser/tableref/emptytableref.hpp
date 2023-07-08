@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/tableref/emptytableref.hpp
+// duckdb/parser/tableref/emptytableref.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/tableref.hpp"
+#include "duckdb/parser/tableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! Represents a cross product
 class EmptyTableRef : public TableRef {
 public:
@@ -27,4 +27,4 @@ public:
 	//! Deserializes a blob back into a DummyTableRef
 	static unique_ptr<TableRef> Deserialize(Deserializer &source);
 };
-} // namespace graindb
+} // namespace duckdb

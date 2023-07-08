@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/function/scalar/operators.hpp
+// duckdb/function/scalar/operators.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/function/scalar_function.hpp"
-#include "graindb/function/function_set.hpp"
+#include "duckdb/function/scalar_function.hpp"
+#include "duckdb/function/function_set.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct AddFun {
 	static void RegisterFunction(BuiltinFunctions &set);
@@ -53,4 +53,4 @@ struct BitwiseXorFun {
 	static void RegisterFunction(BuiltinFunctions &set);
 };
 
-} // namespace graindb
+} // namespace duckdb

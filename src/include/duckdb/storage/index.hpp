@@ -1,22 +1,22 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/index.hpp
+// duckdb/storage/index.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/common/enums/index_type.hpp"
-#include "graindb/common/types/data_chunk.hpp"
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/planner/expression.hpp"
-#include "graindb/storage/table/scan_state.hpp"
-#include "graindb/execution/expression_executor.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/common/enums/index_type.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/planner/expression.hpp"
+#include "duckdb/storage/table/scan_state.hpp"
+#include "duckdb/execution/expression_executor.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class ClientContext;
 class Transaction;
@@ -89,4 +89,4 @@ private:
 	unique_ptr<Expression> BindExpression(unique_ptr<Expression> expr);
 };
 
-} // namespace graindb
+} // namespace duckdb

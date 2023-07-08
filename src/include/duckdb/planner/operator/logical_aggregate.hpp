@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_aggregate.hpp
+// duckdb/planner/operator/logical_aggregate.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
-#include "graindb/planner/column_binding.hpp"
+#include "duckdb/planner/logical_operator.hpp"
+#include "duckdb/planner/column_binding.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalAggregate represents an aggregate operation with (optional) GROUP BY
 //! operator.
@@ -34,4 +34,4 @@ public:
 protected:
 	void ResolveTypes() override;
 };
-} // namespace graindb
+} // namespace duckdb

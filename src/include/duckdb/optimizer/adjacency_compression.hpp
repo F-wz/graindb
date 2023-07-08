@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/adjacency_compression.hpp
+// duckdb/optimizer/adjacency_compression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
-#include "graindb/planner/operator/logical_comparison_join.hpp"
-#include "graindb/planner/operator/logical_get.hpp"
+#include "duckdb/planner/logical_operator.hpp"
+#include "duckdb/planner/operator/logical_comparison_join.hpp"
+#include "duckdb/planner/operator/logical_get.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class Optimizer;
 
@@ -24,4 +24,4 @@ private:
 	unique_ptr<LogicalOperator> Compress(unique_ptr<LogicalOperator> op);
 };
 
-} // namespace graindb
+} // namespace duckdb

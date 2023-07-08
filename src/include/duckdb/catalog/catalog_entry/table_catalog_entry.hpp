@@ -1,21 +1,21 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/catalog/catalog_entry/table_catalog_entry.hpp
+// duckdb/catalog/catalog_entry/table_catalog_entry.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/standard_entry.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/parser/column_definition.hpp"
-#include "graindb/parser/constraint.hpp"
-#include "graindb/planner/bound_constraint.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/catalog/standard_entry.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/parser/column_definition.hpp"
+#include "duckdb/parser/constraint.hpp"
+#include "duckdb/planner/bound_constraint.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class ColumnStatistics;
 class DataTable;
@@ -77,4 +77,4 @@ private:
 	unique_ptr<CatalogEntry> SetDefault(ClientContext &context, SetDefaultInfo &info);
 	unique_ptr<CatalogEntry> ChangeColumnType(ClientContext &context, ChangeColumnTypeInfo &info);
 };
-} // namespace graindb
+} // namespace duckdb

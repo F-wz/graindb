@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/vector_operations/binary_executor.hpp
+// duckdb/common/vector_operations/binary_executor.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/exception.hpp"
-#include "graindb/common/types/vector.hpp"
-#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "duckdb/common/exception.hpp"
+#include "duckdb/common/types/vector.hpp"
+#include "duckdb/common/vector_operations/vector_operations.hpp"
 #include <functional>
 
-namespace graindb {
+namespace duckdb {
 
 struct DefaultNullCheckOperator {
 	template <class LEFT_TYPE, class RIGHT_TYPE> static inline bool Operation(LEFT_TYPE left, RIGHT_TYPE right) {
@@ -406,4 +406,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

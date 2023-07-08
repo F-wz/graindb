@@ -1,7 +1,7 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/operator/aggregate_operators.hpp
+// duckdb/common/operator/aggregate_operators.hpp
 //
 //
 //===----------------------------------------------------------------------===//
@@ -11,9 +11,9 @@
 #include <algorithm>
 #include <cstdint>
 #include <cstring>
-#include "graindb/common/operator/comparison_operators.hpp"
+#include "duckdb/common/operator/comparison_operators.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct Min {
 	template <class T> static inline T Operation(T left, T right) {
@@ -27,4 +27,4 @@ struct Max {
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

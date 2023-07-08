@@ -1,25 +1,25 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/client_context.hpp
+// duckdb/main/client_context.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_set.hpp"
-#include "graindb/catalog/catalog_entry/schema_catalog_entry.hpp"
-#include "graindb/execution/execution_context.hpp"
-#include "graindb/main/query_profiler.hpp"
-#include "graindb/main/stream_query_result.hpp"
-#include "graindb/main/prepared_statement.hpp"
-#include "graindb/main/table_description.hpp"
-#include "graindb/transaction/transaction_context.hpp"
-#include "graindb/common/unordered_set.hpp"
+#include "duckdb/catalog/catalog_set.hpp"
+#include "duckdb/catalog/catalog_entry/schema_catalog_entry.hpp"
+#include "duckdb/execution/execution_context.hpp"
+#include "duckdb/main/query_profiler.hpp"
+#include "duckdb/main/stream_query_result.hpp"
+#include "duckdb/main/prepared_statement.hpp"
+#include "duckdb/main/table_description.hpp"
+#include "duckdb/transaction/transaction_context.hpp"
+#include "duckdb/common/unordered_set.hpp"
 #include <random>
 
-namespace graindb {
+namespace duckdb {
 class Appender;
 class Catalog;
 class GrainDB;
@@ -148,4 +148,4 @@ private:
 	//! Appenders that were attached to this client context
 	unordered_set<Appender *> appenders;
 };
-} // namespace graindb
+} // namespace duckdb

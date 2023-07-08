@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/operator/comparison_operators.hpp
+// duckdb/common/operator/comparison_operators.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/string_type.hpp"
+#include "duckdb/common/types/string_type.hpp"
 
 #include <cstring>
 
-namespace graindb {
+namespace duckdb {
 
 //===--------------------------------------------------------------------===//
 // Comparison Operations
@@ -100,4 +100,4 @@ template <> inline bool LessThanEquals::Operation(string_t left, string_t right)
 	return strcmp(left.GetData(), right.GetData()) <= 0;
 }
 
-} // namespace graindb
+} // namespace duckdb

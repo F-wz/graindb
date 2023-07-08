@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/meta_block_reader.hpp
+// duckdb/storage/meta_block_reader.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/serializer.hpp"
-#include "graindb/storage/block.hpp"
-#include "graindb/storage/buffer_manager.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/serializer.hpp"
+#include "duckdb/storage/block.hpp"
+#include "duckdb/storage/buffer_manager.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! This struct is responsible for reading meta data from disk
 class MetaBlockReader : public Deserializer {
 public:
@@ -31,4 +31,4 @@ public:
 private:
 	void ReadNewBlock(block_id_t id);
 };
-} // namespace graindb
+} // namespace duckdb

@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/constraints/bound_unique_constraint.hpp
+// duckdb/planner/constraints/bound_unique_constraint.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/planner/bound_constraint.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/planner/bound_constraint.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class BoundUniqueConstraint : public BoundConstraint {
 public:
@@ -25,4 +25,4 @@ public:
 	bool is_primary_key;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/expression/default_expression.hpp
+// duckdb/parser/expression/default_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_expression.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! Represents the default value of a column
 class DefaultExpression : public ParsedExpression {
 public:
@@ -27,4 +27,4 @@ public:
 
 	static unique_ptr<ParsedExpression> Deserialize(ExpressionType type, Deserializer &source);
 };
-} // namespace graindb
+} // namespace duckdb

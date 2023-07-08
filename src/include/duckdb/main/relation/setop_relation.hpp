@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/relation/setop_relation.hpp
+// duckdb/main/relation/setop_relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/relation.hpp"
-#include "graindb/common/enums/set_operation_type.hpp"
+#include "duckdb/main/relation.hpp"
+#include "duckdb/common/enums/set_operation_type.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class SetOpRelation : public Relation {
 public:
@@ -29,4 +29,4 @@ public:
 	string GetAlias() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

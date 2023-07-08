@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression_binder/alter_binder.hpp
+// duckdb/planner/expression_binder/alter_binder.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/column_definition.hpp"
-#include "graindb/planner/expression_binder.hpp"
+#include "duckdb/parser/column_definition.hpp"
+#include "duckdb/planner/expression_binder.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! The ALTER binder is responsible for binding an expression within alter statements
 class AlterBinder : public ExpressionBinder {
 public:
@@ -30,4 +30,4 @@ protected:
 	string UnsupportedAggregateMessage() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

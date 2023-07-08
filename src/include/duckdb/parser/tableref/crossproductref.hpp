@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/tableref/crossproductref.hpp
+// duckdb/parser/tableref/crossproductref.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/tableref.hpp"
+#include "duckdb/parser/tableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! Represents a cross product
 class CrossProductRef : public TableRef {
 public:
@@ -32,4 +32,4 @@ public:
 	//! Deserializes a blob back into a CrossProductRef
 	static unique_ptr<TableRef> Deserialize(Deserializer &source);
 };
-} // namespace graindb
+} // namespace duckdb

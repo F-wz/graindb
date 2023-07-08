@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/subquery_type.hpp
+// duckdb/common/enums/subquery_type.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //===--------------------------------------------------------------------===//
 // Subquery Types
@@ -23,4 +23,4 @@ enum class SubqueryType : uint8_t {
 	ANY = 4,        // x = ANY(SELECT...) OR x IN (SELECT...)
 };
 
-} // namespace graindb
+} // namespace duckdb

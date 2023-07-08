@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/table_statistics.hpp
+// duckdb/storage/table_statistics.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/types/data_chunk.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct TableStatistics {
 	idx_t estimated_cardinality;
 };
 
-} // namespace graindb
+} // namespace duckdb

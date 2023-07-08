@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_top_n.hpp
+// duckdb/planner/operator/logical_top_n.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/bound_query_node.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/bound_query_node.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalTopN represents a comibination of ORDER BY and LIMIT clause, using Min/Max Heap
 class LogicalTopN : public LogicalOperator {
@@ -36,4 +36,4 @@ protected:
 		types = children[0]->types;
 	}
 };
-} // namespace graindb
+} // namespace duckdb

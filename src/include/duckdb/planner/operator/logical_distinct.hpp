@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_distinct.hpp
+// duckdb/planner/operator/logical_distinct.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalDistinct filters duplicate entries from its child operator
 class LogicalDistinct : public LogicalOperator {
@@ -35,4 +35,4 @@ protected:
 		types = children[0]->types;
 	}
 };
-} // namespace graindb
+} // namespace duckdb

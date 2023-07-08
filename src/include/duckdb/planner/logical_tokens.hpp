@@ -1,14 +1,14 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/logical_tokens.hpp
+// duckdb/planner/logical_tokens.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-namespace graindb {
+namespace duckdb {
 
 class LogicalOperator;
 
@@ -51,4 +51,4 @@ class LogicalUnnest;
 class LogicalUpdate;
 class LogicalWindow;
 
-} // namespace graindb
+} // namespace duckdb

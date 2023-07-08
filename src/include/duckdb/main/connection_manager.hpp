@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/connection_manager.hpp
+// duckdb/main/connection_manager.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/unordered_set.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/unordered_set.hpp"
 
 #include <mutex>
 
-namespace graindb {
+namespace duckdb {
 
 class GrainDB;
 class Connection;
@@ -38,4 +38,4 @@ private:
 	unordered_set<Connection *> connections;
 };
 
-} // namespace graindb
+} // namespace duckdb

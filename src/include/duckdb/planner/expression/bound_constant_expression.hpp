@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression/bound_constant_expression.hpp
+// duckdb/planner/expression/bound_constant_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/value.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/common/types/value.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class BoundConstantExpression : public Expression {
 public:
@@ -27,4 +27,4 @@ public:
 
 	unique_ptr<Expression> Copy() override;
 };
-} // namespace graindb
+} // namespace duckdb

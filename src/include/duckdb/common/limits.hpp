@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/limits.hpp
+// duckdb/common/limits.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types.hpp"
+#include "duckdb/common/types.hpp"
 
 #include <limits>
 
-namespace graindb {
+namespace duckdb {
 
 //! Returns the minimum value that can be stored in a given type
 template <class T> int64_t MinimumValue() {
@@ -64,4 +64,4 @@ uint64_t MaximumValue(TypeId type);
 //! overflowing
 TypeId MinimalType(int64_t value);
 
-} // namespace graindb
+} // namespace duckdb

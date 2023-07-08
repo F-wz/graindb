@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/set_operation_type.hpp
+// duckdb/common/enums/set_operation_type.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 enum class SetOperationType : uint8_t { NONE = 0, UNION = 1, EXCEPT = 2, INTERSECT = 3 };
 }

@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/table/scan_state.hpp
+// duckdb/storage/table/scan_state.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/execution/adaptive_filter.hpp"
-#include "graindb/storage/buffer/buffer_handle.hpp"
-#include "graindb/storage/storage_lock.hpp"
-#include "graindb/storage/table/column_segment.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/execution/adaptive_filter.hpp"
+#include "duckdb/storage/buffer/buffer_handle.hpp"
+#include "duckdb/storage/storage_lock.hpp"
+#include "duckdb/storage/table/column_segment.hpp"
 
-namespace graindb {
+namespace duckdb {
 class LocalTableStorage;
 class Index;
 class PersistentSegment;
@@ -98,4 +98,4 @@ struct TableIndexScanState {
 	vector<column_t> column_ids;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression_binder/rai_binder.hpp
+// duckdb/planner/expression_binder/rai_binder.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/expression_binder.hpp"
+#include "duckdb/planner/expression_binder.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BoundColumnRefExpression;
 
 class RAIBinder : public ExpressionBinder {
@@ -22,4 +22,4 @@ protected:
 
 	string UnsupportedAggregateMessage() override;
 };
-} // namespace graindb
+} // namespace duckdb

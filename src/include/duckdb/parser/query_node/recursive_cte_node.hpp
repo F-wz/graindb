@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/query_node/recursive_cte_node.hpp
+// duckdb/parser/query_node/recursive_cte_node.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/query_node.hpp"
-#include "graindb/parser/sql_statement.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/query_node.hpp"
+#include "duckdb/parser/sql_statement.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class RecursiveCTENode : public QueryNode {
 public:
@@ -41,4 +41,4 @@ public:
 	static unique_ptr<QueryNode> Deserialize(Deserializer &source);
 };
 
-}; // namespace graindb
+}; // namespace duckdb

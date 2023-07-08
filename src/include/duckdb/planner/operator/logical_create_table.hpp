@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_create_table.hpp
+// duckdb/planner/operator/logical_create_table.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/parsed_data/bound_create_table_info.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/parsed_data/bound_create_table_info.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class LogicalCreateTable : public LogicalOperator {
 public:
@@ -29,4 +29,4 @@ protected:
 		types.push_back(TypeId::INT64);
 	}
 };
-} // namespace graindb
+} // namespace duckdb

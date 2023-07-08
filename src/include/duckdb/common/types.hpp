@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types.hpp
+// duckdb/common/types.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/assert.hpp"
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/assert.hpp"
+#include "duckdb/common/constants.hpp"
 
 #include <type_traits>
 
-namespace graindb {
+namespace duckdb {
 
 class Serializer;
 class Deserializer;
@@ -308,4 +308,4 @@ template <class T> bool IsIntegerType() {
 bool ApproxEqual(float l, float r);
 bool ApproxEqual(double l, double r);
 
-}; // namespace graindb
+}; // namespace duckdb

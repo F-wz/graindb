@@ -1,23 +1,23 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/catalog/catalog_set.hpp
+// duckdb/catalog/catalog_set.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_entry.hpp"
-#include "graindb/common/common.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/common/unordered_set.hpp"
+#include "duckdb/catalog/catalog_entry.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/common/unordered_set.hpp"
 
 #include <functional>
 #include <memory>
 #include <mutex>
 
-namespace graindb {
+namespace duckdb {
 struct AlterInfo;
 
 class Transaction;
@@ -77,4 +77,4 @@ private:
 	unordered_map<string, unique_ptr<CatalogEntry>> data;
 };
 
-} // namespace graindb
+} // namespace duckdb

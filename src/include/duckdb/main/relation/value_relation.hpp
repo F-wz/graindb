@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/relation/value_relation.hpp
+// duckdb/main/relation/value_relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/relation.hpp"
-#include "graindb/parser/parsed_expression.hpp"
+#include "duckdb/main/relation.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class ValueRelation : public Relation {
 public:
@@ -33,4 +33,4 @@ public:
 	unique_ptr<TableRef> GetTableRef() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

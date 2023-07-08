@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types/chunk_collection.hpp
+// duckdb/common/types/chunk_collection.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/order_type.hpp"
-#include "graindb/common/types/data_chunk.hpp"
+#include "duckdb/common/enums/order_type.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //!  A ChunkCollection represents a set of DataChunks that all have the same
 //!  types
@@ -83,4 +83,4 @@ public:
 	void Heap(vector<OrderType> &desc, idx_t heap[], idx_t heap_size);
 	idx_t MaterializeHeapChunk(DataChunk &target, idx_t order[], idx_t start_offset, idx_t heap_size);
 };
-} // namespace graindb
+} // namespace duckdb

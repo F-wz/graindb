@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/tableref/bound_crossproductref.hpp
+// duckdb/planner/tableref/bound_crossproductref.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/bound_tableref.hpp"
+#include "duckdb/planner/bound_tableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Represents a cross product
 class BoundCrossProductRef : public BoundTableRef {
@@ -23,4 +23,4 @@ public:
 	//! The right hand side of the cross product
 	unique_ptr<BoundTableRef> right;
 };
-} // namespace graindb
+} // namespace duckdb

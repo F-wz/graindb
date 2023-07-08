@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression_binder/where_binder.hpp
+// duckdb/planner/expression_binder/where_binder.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/expression_binder.hpp"
+#include "duckdb/planner/expression_binder.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The WHERE binder is responsible for binding an expression within the WHERE clause of a SQL statement
 class WhereBinder : public ExpressionBinder {
@@ -23,4 +23,4 @@ protected:
 	string UnsupportedAggregateMessage() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,14 +1,14 @@
 #pragma once
 
-#include "graindb/common/constants.hpp"
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/execution/operator/join/physical_comparison_join.hpp"
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/execution/sip_hashtable.hpp"
-#include "graindb/planner/operator/logical_join.hpp"
-#include "graindb/storage/rai.hpp"
+#include "duckdb/common/constants.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/execution/operator/join/physical_comparison_join.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/execution/sip_hashtable.hpp"
+#include "duckdb/planner/operator/logical_join.hpp"
+#include "duckdb/storage/rai.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class PhysicalSIPJoin : public PhysicalComparisonJoin {
 public:
@@ -35,4 +35,4 @@ private:
 	void PerformSHJoin(ClientContext &context, DataChunk &chunk, PhysicalOperatorState *state_);
 };
 
-} // namespace graindb
+} // namespace duckdb

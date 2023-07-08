@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/logical_operator_type.hpp
+// duckdb/common/enums/logical_operator_type.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //===--------------------------------------------------------------------===//
 // Logical Operator Types
@@ -91,4 +91,4 @@ enum class LogicalOperatorType : uint8_t {
 
 string LogicalOperatorToString(LogicalOperatorType type);
 
-} // namespace graindb
+} // namespace duckdb

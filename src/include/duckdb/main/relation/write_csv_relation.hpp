@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/relation/write_csv_relation.hpp
+// duckdb/main/relation/write_csv_relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/relation.hpp"
+#include "duckdb/main/relation.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class WriteCSVRelation : public Relation {
 public:
@@ -30,4 +30,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

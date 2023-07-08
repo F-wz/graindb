@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/tableref_type.hpp
+// duckdb/common/enums/tableref_type.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //===--------------------------------------------------------------------===//
 // Table Reference Types
@@ -27,4 +27,4 @@ enum class TableReferenceType : uint8_t {
 	EMPTY = 8            // placeholder for empty FROM
 };
 
-} // namespace graindb
+} // namespace duckdb

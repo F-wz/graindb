@@ -1,22 +1,22 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/transformer.hpp
+// duckdb/parser/transformer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
-#include "graindb/common/enums/expression_type.hpp"
-#include "graindb/common/types.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/parser/tokens.hpp"
+#include "duckdb/common/constants.hpp"
+#include "duckdb/common/enums/expression_type.hpp"
+#include "duckdb/common/types.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/parser/tokens.hpp"
 #include "nodes/parsenodes.hpp"
 #include "pg_definitions.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class ColumnDefinition;
 struct OrderByNode;
@@ -197,4 +197,4 @@ private:
 	void TransformWindowDef(PGWindowDef *window_spec, WindowExpression *expr);
 };
 
-} // namespace graindb
+} // namespace duckdb

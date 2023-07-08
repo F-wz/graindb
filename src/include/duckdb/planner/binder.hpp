@@ -1,24 +1,24 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/binder.hpp
+// duckdb/planner/binder.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/parser/column_definition.hpp"
-#include "graindb/parser/tokens.hpp"
-#include "graindb/planner/bind_context.hpp"
-#include "graindb/planner/bound_statement.hpp"
-#include "graindb/planner/bound_tokens.hpp"
-#include "graindb/planner/expression/bound_columnref_expression.hpp"
-#include "graindb/planner/logical_operator.hpp"
-#include "graindb/planner/parsed_data/bound_create_rai_info.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/parser/column_definition.hpp"
+#include "duckdb/parser/tokens.hpp"
+#include "duckdb/planner/bind_context.hpp"
+#include "duckdb/planner/bound_statement.hpp"
+#include "duckdb/planner/bound_tokens.hpp"
+#include "duckdb/planner/expression/bound_columnref_expression.hpp"
+#include "duckdb/planner/logical_operator.hpp"
+#include "duckdb/planner/parsed_data/bound_create_rai_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BoundResultModifier;
 class ClientContext;
 class ExpressionBinder;
@@ -192,4 +192,4 @@ private:
 	                                                       unique_ptr<LogicalOperator> op);
 };
 
-} // namespace graindb
+} // namespace duckdb

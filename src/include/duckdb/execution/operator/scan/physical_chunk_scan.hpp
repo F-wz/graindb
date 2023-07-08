@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/scan/physical_chunk_scan.hpp
+// duckdb/execution/operator/scan/physical_chunk_scan.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/execution/physical_operator.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/execution/physical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The PhysicalChunkCollectionScan scans a Chunk Collection
 class PhysicalChunkScan : public PhysicalOperator {
@@ -32,4 +32,4 @@ public:
 	unique_ptr<ChunkCollection> owned_collection;
 };
 
-} // namespace graindb
+} // namespace duckdb

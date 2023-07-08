@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/function/function_set.hpp
+// duckdb/function/function_set.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/function/aggregate_function.hpp"
-#include "graindb/function/scalar_function.hpp"
+#include "duckdb/function/aggregate_function.hpp"
+#include "duckdb/function/scalar_function.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 template <class T> class FunctionSet {
 public:
@@ -42,4 +42,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/vector_type.hpp
+// duckdb/common/enums/vector_type.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 enum class VectorType : uint8_t {
 	FLAT_VECTOR,       // Flat vectors represent a standard uncompressed vector
@@ -21,4 +21,4 @@ enum class VectorType : uint8_t {
 
 string VectorTypeToString(VectorType type);
 
-} // namespace graindb
+} // namespace duckdb

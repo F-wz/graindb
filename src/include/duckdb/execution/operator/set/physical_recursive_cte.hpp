@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/set/physical_recursive_cte.hpp
+// duckdb/execution/operator/set/physical_recursive_cte.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/execution/physical_operator.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/execution/physical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 class PhysicalRecursiveCTE : public PhysicalOperator {
 public:
 	PhysicalRecursiveCTE(LogicalOperator &op, bool union_all, unique_ptr<PhysicalOperator> top,
@@ -32,4 +32,4 @@ private:
 	idx_t ProbeHT(DataChunk &chunk, PhysicalOperatorState *state);
 };
 
-}; // namespace graindb
+}; // namespace duckdb

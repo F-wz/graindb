@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/regex_range_filter.hpp
+// duckdb/optimizer/regex_range_filter.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/optimizer/rule.hpp"
+#include "duckdb/optimizer/rule.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class Optimizer;
 
@@ -22,4 +22,4 @@ public:
 	unique_ptr<LogicalOperator> Rewrite(unique_ptr<LogicalOperator> node);
 };
 
-} // namespace graindb
+} // namespace duckdb

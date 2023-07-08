@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/schema/physical_create_edge.hpp
+// duckdb/execution/operator/schema/physical_create_edge.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/parser/parsed_data/create_rai_info.hpp"
-#include "graindb/storage/data_table.hpp"
+#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/parser/parsed_data/create_rai_info.hpp"
+#include "duckdb/storage/data_table.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class PhysicalCreateRAI : public PhysicalOperator {
 public:
@@ -37,4 +37,4 @@ public:
 	                      SelectionVector *sel = nullptr, Vector *rid_vector = nullptr,
 	                      DataChunk *rai_chunk = nullptr) override;
 };
-} // namespace graindb
+} // namespace duckdb

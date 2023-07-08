@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/index/art/node.hpp
+// duckdb/execution/index/art/node.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/index/art/art_key.hpp"
-#include "graindb/common/common.hpp"
+#include "duckdb/execution/index/art/art_key.hpp"
+#include "duckdb/common/common.hpp"
 
-namespace graindb {
+namespace duckdb {
 enum class NodeType : uint8_t { N4 = 0, N16 = 1, N48 = 2, N256 = 3, NLeaf = 4 };
 
 class ART;
@@ -67,4 +67,4 @@ protected:
 	static void CopyPrefix(ART &art, Node *src, Node *dst);
 };
 
-} // namespace graindb
+} // namespace duckdb

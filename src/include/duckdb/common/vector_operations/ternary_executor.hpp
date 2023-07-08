@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/vector_operations/ternary_executor.hpp
+// duckdb/common/vector_operations/ternary_executor.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/exception.hpp"
-#include "graindb/common/types/vector.hpp"
-#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "duckdb/common/exception.hpp"
+#include "duckdb/common/types/vector.hpp"
+#include "duckdb/common/vector_operations/vector_operations.hpp"
 
 #include <functional>
 
-namespace graindb {
+namespace duckdb {
 
 struct TernaryExecutor {
 private:
@@ -155,4 +155,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

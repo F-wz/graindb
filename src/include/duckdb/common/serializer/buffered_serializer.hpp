@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/serializer/buffered_serializer.hpp
+// duckdb/common/serializer/buffered_serializer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/serializer.hpp"
+#include "duckdb/common/serializer.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 #define SERIALIZER_DEFAULT_SIZE 1024
 
@@ -41,4 +41,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/transaction/transaction_context.hpp
+// duckdb/transaction/transaction_context.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
+#include "duckdb/common/common.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class Transaction;
 class TransactionManager;
@@ -60,4 +60,4 @@ private:
 	TransactionContext(const TransactionContext &) = delete;
 };
 
-} // namespace graindb
+} // namespace duckdb

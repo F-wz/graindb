@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/create_scalar_function_info.hpp
+// duckdb/parser/parsed_data/create_scalar_function_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/create_function_info.hpp"
-#include "graindb/function/scalar_function.hpp"
-#include "graindb/function/function_set.hpp"
+#include "duckdb/parser/parsed_data/create_function_info.hpp"
+#include "duckdb/function/scalar_function.hpp"
+#include "duckdb/function/function_set.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct CreateScalarFunctionInfo : public CreateFunctionInfo {
 	CreateScalarFunctionInfo(ScalarFunction function) : CreateFunctionInfo(CatalogType::SCALAR_FUNCTION) {
@@ -27,4 +27,4 @@ struct CreateScalarFunctionInfo : public CreateFunctionInfo {
 	vector<ScalarFunction> functions;
 };
 
-} // namespace graindb
+} // namespace duckdb

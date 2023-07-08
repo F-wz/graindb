@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/adaptive_filter.hpp
+// duckdb/execution/adaptive_filter.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/expression/list.hpp"
+#include "duckdb/planner/expression/list.hpp"
 
 #include <random>
-namespace graindb {
+namespace duckdb {
 class TableFilter;
 
 class AdaptiveFilter {
@@ -35,4 +35,4 @@ private:
 	vector<idx_t> swap_likeliness;
 	std::default_random_engine generator;
 };
-} // namespace graindb
+} // namespace duckdb

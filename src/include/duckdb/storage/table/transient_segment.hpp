@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/table/transient_segment.hpp
+// duckdb/storage/table/transient_segment.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/storage/block.hpp"
-#include "graindb/storage/buffer_manager.hpp"
-#include "graindb/storage/table/column_segment.hpp"
-#include "graindb/storage/uncompressed_segment.hpp"
+#include "duckdb/storage/block.hpp"
+#include "duckdb/storage/buffer_manager.hpp"
+#include "duckdb/storage/table/column_segment.hpp"
+#include "duckdb/storage/uncompressed_segment.hpp"
 
-namespace graindb {
+namespace duckdb {
 struct ColumnAppendState;
 
 class TransientSegment : public ColumnSegment {
@@ -56,4 +56,4 @@ public:
 	void RevertAppend(idx_t start_row);
 };
 
-} // namespace graindb
+} // namespace duckdb

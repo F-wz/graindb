@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/persistent/physical_copy_from_file.hpp
+// duckdb/execution/operator/persistent/physical_copy_from_file.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/parser/parsed_data/copy_info.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/parser/parsed_data/copy_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BufferedCSVReader;
 
 //! Parse a CSV file and return the set of chunks retrieved from the file
@@ -33,4 +33,4 @@ public:
 	unique_ptr<PhysicalOperatorState> GetOperatorState() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

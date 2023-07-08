@@ -1,22 +1,22 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/filter_combiner.hpp
+// duckdb/optimizer/filter_combiner.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/value.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/parser/expression_map.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/common/types/value.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/parser/expression_map.hpp"
+#include "duckdb/planner/expression.hpp"
 
-#include "graindb/storage/data_table.hpp"
+#include "duckdb/storage/data_table.hpp"
 #include <functional>
 
-namespace graindb {
+namespace duckdb {
 
 enum class ValueComparisonResult { PRUNE_LEFT, PRUNE_RIGHT, UNSATISFIABLE_CONDITION, PRUNE_NOTHING };
 enum class FilterResult { UNSATISFIABLE, SUCCESS, UNSUPPORTED };
@@ -56,4 +56,4 @@ private:
 	idx_t set_index = 0;
 };
 
-} // namespace graindb
+} // namespace duckdb

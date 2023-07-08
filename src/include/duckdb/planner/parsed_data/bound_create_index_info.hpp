@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/parsed_data/bound_create_index_info.hpp
+// duckdb/planner/parsed_data/bound_create_index_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/parsed_data/bound_create_info.hpp"
-#include "graindb/planner/bound_tableref.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/planner/parsed_data/bound_create_info.hpp"
+#include "duckdb/planner/bound_tableref.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct BoundCreateIndexInfo : public BoundCreateInfo {
 	BoundCreateIndexInfo(unique_ptr<CreateInfo> base) : BoundCreateInfo(move(base)) {
@@ -24,4 +24,4 @@ struct BoundCreateIndexInfo : public BoundCreateInfo {
 	vector<unique_ptr<Expression>> expressions;
 };
 
-} // namespace graindb
+} // namespace duckdb

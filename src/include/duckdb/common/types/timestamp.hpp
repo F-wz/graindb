@@ -1,14 +1,14 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types/timestamp.hpp
+// duckdb/common/types/timestamp.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
+#include "duckdb/common/common.hpp"
 
 #include <chrono>  // chrono::system_clock
 #include <ctime>   // localtime
@@ -16,7 +16,7 @@
 #include <sstream> // stringstream
 #include <string>  // string
 
-namespace graindb {
+namespace duckdb {
 
 struct Interval {
 	int64_t time;
@@ -64,4 +64,4 @@ public:
 	static int64_t GetMinutes(timestamp_t timestamp);
 	static int64_t GetHours(timestamp_t timestamp);
 };
-} // namespace graindb
+} // namespace duckdb

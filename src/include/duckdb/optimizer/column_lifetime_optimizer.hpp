@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/column_lifetime_optimizer.hpp
+// duckdb/optimizer/column_lifetime_optimizer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator_visitor.hpp"
-#include "graindb/planner/column_binding_map.hpp"
+#include "duckdb/planner/logical_operator_visitor.hpp"
+#include "duckdb/planner/column_binding_map.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BoundColumnRefExpression;
 
 //! The ColumnLifetimeAnalyzer optimizer traverses the logical operator tree and ensures that columns are removed from
@@ -41,4 +41,4 @@ private:
 	void GenerateProjectionMap(vector<ColumnBinding> bindings, column_binding_set_t &unused_bindings,
 	                           vector<idx_t> &map);
 };
-} // namespace graindb
+} // namespace duckdb

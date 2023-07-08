@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/expression_type.hpp
+// duckdb/common/enums/expression_type.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //===--------------------------------------------------------------------===//
 // Predicate Expression Operation Types
@@ -194,4 +194,4 @@ ExpressionType NegateComparisionExpression(ExpressionType type);
 //! Flip a comparison expression, turning e.g. < into >, or = into =
 ExpressionType FlipComparisionExpression(ExpressionType type);
 
-} // namespace graindb
+} // namespace duckdb

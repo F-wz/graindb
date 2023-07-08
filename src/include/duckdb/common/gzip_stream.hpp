@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/gzip_stream.hpp
+// duckdb/common/gzip_stream.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
 #include <fstream>
 #include <sstream>
 
-namespace graindb {
+namespace duckdb {
 
 class GzipStreamBuf : public std::streambuf {
 public:
@@ -51,4 +51,4 @@ public:
 	}
 }; // class istream
 
-} // namespace graindb
+} // namespace duckdb

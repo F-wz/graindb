@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/index_scan.hpp
+// duckdb/optimizer/index_scan.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/optimizer/filter_combiner.hpp"
-#include "graindb/optimizer/rule.hpp"
+#include "duckdb/optimizer/filter_combiner.hpp"
+#include "duckdb/optimizer/rule.hpp"
 
-namespace graindb {
+namespace duckdb {
 class Optimizer;
 
 class IndexScan {
@@ -24,4 +24,4 @@ private:
 	unique_ptr<LogicalOperator> TransformFilterToIndexScan(unique_ptr<LogicalOperator> op);
 };
 
-} // namespace graindb
+} // namespace duckdb

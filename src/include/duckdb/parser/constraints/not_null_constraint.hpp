@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/constraints/not_null_constraint.hpp
+// duckdb/parser/constraints/not_null_constraint.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/constraint.hpp"
+#include "duckdb/parser/constraint.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class NotNullConstraint : public Constraint {
 public:
@@ -32,4 +32,4 @@ public:
 	static unique_ptr<Constraint> Deserialize(Deserializer &source);
 };
 
-} // namespace graindb
+} // namespace duckdb

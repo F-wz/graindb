@@ -1,23 +1,23 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/buffer_manager.hpp
+// duckdb/storage/buffer_manager.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/storage/buffer/buffer_handle.hpp"
-#include "graindb/storage/buffer/buffer_list.hpp"
-#include "graindb/storage/buffer/managed_buffer.hpp"
-#include "graindb/storage/block_manager.hpp"
-#include "graindb/common/file_system.hpp"
-#include "graindb/common/unordered_map.hpp"
+#include "duckdb/storage/buffer/buffer_handle.hpp"
+#include "duckdb/storage/buffer/buffer_list.hpp"
+#include "duckdb/storage/buffer/managed_buffer.hpp"
+#include "duckdb/storage/block_manager.hpp"
+#include "duckdb/common/file_system.hpp"
+#include "duckdb/common/unordered_map.hpp"
 
 #include <mutex>
 
-namespace graindb {
+namespace duckdb {
 
 //! The buffer manager is in charge of handling memory management for the database. It hands out memory buffers that can
 //! be used by the database internally.
@@ -88,4 +88,4 @@ public:
 	//! The temporary id used for managed buffers
 	block_id_t temporary_id;
 };
-} // namespace graindb
+} // namespace duckdb

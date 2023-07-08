@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_insert.hpp
+// duckdb/planner/operator/logical_insert.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalInsert represents an insertion of data into a base table
 class LogicalInsert : public LogicalOperator {
@@ -33,4 +33,4 @@ protected:
 		types.push_back(TypeId::INT64);
 	}
 };
-} // namespace graindb
+} // namespace duckdb

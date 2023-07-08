@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/join/physical_join.hpp
+// duckdb/execution/operator/join/physical_join.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/planner/operator/logical_comparison_join.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/planner/operator/logical_comparison_join.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalJoin represents the base class of the join operators
 class PhysicalJoin : public PhysicalOperator {
@@ -27,4 +27,4 @@ public:
 	                                    bool has_null);
 };
 
-} // namespace graindb
+} // namespace duckdb

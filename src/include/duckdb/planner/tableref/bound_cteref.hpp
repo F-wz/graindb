@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/tableref/bound_cteref.hpp
+// duckdb/planner/tableref/bound_cteref.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/bound_tableref.hpp"
+#include "duckdb/planner/bound_tableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class BoundCTERef : public BoundTableRef {
 public:
@@ -27,4 +27,4 @@ public:
 	//! The index of the cte
 	idx_t cte_index;
 };
-} // namespace graindb
+} // namespace duckdb

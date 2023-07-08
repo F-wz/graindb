@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/transaction/undo_buffer.hpp
+// duckdb/transaction/undo_buffer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/enums/undo_flags.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/enums/undo_flags.hpp"
 
 #include <memory>
 #include <vector>
 
-namespace graindb {
+namespace duckdb {
 
 class WriteAheadLog;
 
@@ -72,4 +72,4 @@ private:
 	template <class T> void ReverseIterateEntries(T &&callback);
 };
 
-} // namespace graindb
+} // namespace duckdb

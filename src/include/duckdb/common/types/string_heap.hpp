@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types/string_heap.hpp
+// duckdb/common/types/string_heap.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/types/value.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/types/value.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! A string heap is the owner of a set of strings, strings can be inserted into
 //! it On every insert, a pointer to the inserted string is returned The
 //! returned pointer will remain valid until the StringHeap is destroyed
@@ -69,4 +69,4 @@ private:
 	unique_ptr<StringChunk> chunk;
 };
 
-} // namespace graindb
+} // namespace duckdb

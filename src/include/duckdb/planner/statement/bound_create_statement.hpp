@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/statement/bound_create_statement.hpp
+// duckdb/planner/statement/bound_create_statement.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/parsed_data/bound_create_info.hpp"
-#include "graindb/planner/bound_sql_statement.hpp"
+#include "duckdb/planner/parsed_data/bound_create_info.hpp"
+#include "duckdb/planner/bound_sql_statement.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! Bound equivalent to CreateStatement
 class BoundCreateStatement : public BoundSQLStatement {
 public:
@@ -29,4 +29,4 @@ public:
 		return {SQLType::BIGINT};
 	}
 };
-} // namespace graindb
+} // namespace duckdb

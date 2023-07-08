@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types/vector_buffer.hpp
+// duckdb/common/types/vector_buffer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/types/string_heap.hpp"
-#include "graindb/common/types/string_type.hpp"
-#include "graindb/common/types/selection_vector.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/types/string_heap.hpp"
+#include "duckdb/common/types/string_type.hpp"
+#include "duckdb/common/types/selection_vector.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class VectorBuffer;
 class Vector;
@@ -136,4 +136,4 @@ private:
 	unique_ptr<ChunkCollection> child;
 };
 
-} // namespace graindb
+} // namespace duckdb

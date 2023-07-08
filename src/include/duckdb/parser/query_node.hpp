@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/query_node.hpp
+// duckdb/parser/query_node.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/serializer.hpp"
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/result_modifier.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/serializer.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/result_modifier.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 enum QueryNodeType : uint8_t {
 	SELECT_NODE = 1,
@@ -51,4 +51,4 @@ protected:
 	void CopyProperties(QueryNode &other);
 };
 
-}; // namespace graindb
+}; // namespace duckdb

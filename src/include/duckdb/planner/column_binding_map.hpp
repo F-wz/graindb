@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/column_binding_map.hpp
+// duckdb/planner/column_binding_map.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/hash.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/planner/column_binding.hpp"
+#include "duckdb/common/types/hash.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/planner/column_binding.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct ColumnBindingHashFunction {
 	uint64_t operator()(const ColumnBinding &a) const {
@@ -32,4 +32,4 @@ using column_binding_map_t = unordered_map<ColumnBinding, T, ColumnBindingHashFu
 
 using column_binding_set_t = unordered_set<ColumnBinding, ColumnBindingHashFunction, ColumnBindingEquality>;
 
-} // namespace graindb
+} // namespace duckdb

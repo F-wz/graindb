@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/create_index_info.hpp
+// duckdb/parser/parsed_data/create_index_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/create_info.hpp"
-#include "graindb/common/enums/index_type.hpp"
-#include "graindb/parser/tableref/basetableref.hpp"
-#include "graindb/parser/parsed_expression.hpp"
+#include "duckdb/parser/parsed_data/create_info.hpp"
+#include "duckdb/common/enums/index_type.hpp"
+#include "duckdb/parser/tableref/basetableref.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct CreateIndexInfo : public CreateInfo {
 	CreateIndexInfo() : CreateInfo(CatalogType::INDEX) {
@@ -31,4 +31,4 @@ struct CreateIndexInfo : public CreateInfo {
 	vector<unique_ptr<ParsedExpression>> expressions;
 };
 
-} // namespace graindb
+} // namespace duckdb

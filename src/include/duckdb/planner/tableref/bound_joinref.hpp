@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/tableref/bound_joinref.hpp
+// duckdb/planner/tableref/bound_joinref.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/join_type.hpp"
-#include "graindb/planner/bound_tableref.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/common/enums/join_type.hpp"
+#include "duckdb/planner/bound_tableref.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Represents a join
 class BoundJoinRef : public BoundTableRef {
@@ -29,4 +29,4 @@ public:
 	//! The join type
 	JoinType type;
 };
-} // namespace graindb
+} // namespace duckdb

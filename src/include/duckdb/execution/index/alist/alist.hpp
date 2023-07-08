@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/index/alist/alist.hpp
+// duckdb/execution/index/alist/alist.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
-#include "graindb/storage/index.hpp"
-#include "graindb/common/types/chunk_collection.hpp"
+#include "duckdb/common/constants.hpp"
+#include "duckdb/storage/index.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
 #include <stack>
 
-namespace graindb {
+namespace duckdb {
 
 struct AListIndexScanState : public IndexScanState {
 	AListIndexScanState(vector<column_t> column_ids) : IndexScanState(column_ids), finished(false) {
@@ -70,4 +70,4 @@ public:
 private:
 	DataChunk expression_result;
 };
-} // namespace graindb
+} // namespace duckdb

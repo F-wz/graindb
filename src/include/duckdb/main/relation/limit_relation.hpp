@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/relation/limit_relation.hpp
+// duckdb/main/relation/limit_relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/relation.hpp"
+#include "duckdb/main/relation.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class LimitRelation : public Relation {
 public:
@@ -36,4 +36,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/expression_map.hpp
+// duckdb/parser/expression_map.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/parser/base_expression.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/parser/base_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 class Expression;
 
 struct ExpressionHashFunction {
@@ -32,4 +32,4 @@ using expression_map_t = unordered_map<BaseExpression *, T, ExpressionHashFuncti
 
 using expression_set_t = unordered_set<BaseExpression *, ExpressionHashFunction, ExpressionEquality>;
 
-} // namespace graindb
+} // namespace duckdb

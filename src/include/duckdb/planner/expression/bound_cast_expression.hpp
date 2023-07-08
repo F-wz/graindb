@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression/bound_cast_expression.hpp
+// duckdb/planner/expression/bound_cast_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/expression.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class BoundCastExpression : public Expression {
 public:
@@ -36,4 +36,4 @@ public:
 
 	unique_ptr<Expression> Copy() override;
 };
-} // namespace graindb
+} // namespace duckdb

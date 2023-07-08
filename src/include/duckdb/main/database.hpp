@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/database.hpp
+// duckdb/main/database.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/file_system.hpp"
-#include "graindb/main/extension.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/file_system.hpp"
+#include "duckdb/main/extension.hpp"
 
-namespace graindb {
+namespace duckdb {
 class StorageManager;
 class Catalog;
 class TransactionManager;
@@ -86,4 +86,4 @@ private:
 	void Configure(DBConfig &config);
 };
 
-} // namespace graindb
+} // namespace duckdb

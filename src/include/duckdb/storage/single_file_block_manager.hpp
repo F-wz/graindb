@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/single_file_block_manager.hpp
+// duckdb/storage/single_file_block_manager.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/storage/block_manager.hpp"
-#include "graindb/storage/block.hpp"
-#include "graindb/common/file_system.hpp"
-#include "graindb/common/unordered_set.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/storage/block_manager.hpp"
+#include "duckdb/storage/block.hpp"
+#include "duckdb/common/file_system.hpp"
+#include "duckdb/common/unordered_set.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BufferManager;
 class FileBuffer;
 
@@ -72,4 +72,4 @@ private:
 	//! Whether or not to use Direct IO to read the blocks
 	bool use_direct_io;
 };
-} // namespace graindb
+} // namespace duckdb

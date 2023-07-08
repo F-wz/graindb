@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/parsed_data/bound_create_info.hpp
+// duckdb/planner/parsed_data/bound_create_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/create_info.hpp"
+#include "duckdb/parser/parsed_data/create_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class SchemaCatalogEntry;
 
@@ -28,4 +28,4 @@ struct BoundCreateInfo {
 	unique_ptr<CreateInfo> base;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/constraints/unique_constraint.hpp
+// duckdb/parser/constraints/unique_constraint.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/constraint.hpp"
+#include "duckdb/parser/constraint.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class UniqueConstraint : public Constraint {
 public:
@@ -40,4 +40,4 @@ public:
 	static unique_ptr<Constraint> Deserialize(Deserializer &source);
 };
 
-} // namespace graindb
+} // namespace duckdb

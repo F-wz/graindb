@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/parsed_data/bound_create_rai_info.hpp
+// duckdb/planner/parsed_data/bound_create_rai_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/rai_direction.hpp"
-#include "graindb/planner/bound_tableref.hpp"
-#include "graindb/planner/expression.hpp"
-#include "graindb/planner/parsed_data/bound_create_info.hpp"
+#include "duckdb/common/enums/rai_direction.hpp"
+#include "duckdb/planner/bound_tableref.hpp"
+#include "duckdb/planner/expression.hpp"
+#include "duckdb/planner/parsed_data/bound_create_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct BoundCreateRAIInfo : public BoundCreateInfo {
 	BoundCreateRAIInfo(unique_ptr<CreateInfo> base) : BoundCreateInfo(move(base)) {
@@ -29,4 +29,4 @@ struct BoundCreateRAIInfo : public BoundCreateInfo {
 	vector<column_t> referenced_column_ids;
 	unique_ptr<LogicalOperator> plan;
 };
-} // namespace graindb
+} // namespace duckdb

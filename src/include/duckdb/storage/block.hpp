@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/block.hpp
+// duckdb/storage/block.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/storage/storage_info.hpp"
-#include "graindb/common/file_buffer.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/storage/storage_info.hpp"
+#include "duckdb/common/file_buffer.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class Block : public FileBuffer {
 public:
@@ -21,4 +21,4 @@ public:
 	block_id_t id;
 };
 
-} // namespace graindb
+} // namespace duckdb

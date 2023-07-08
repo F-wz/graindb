@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_limit.hpp
+// duckdb/planner/operator/logical_limit.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalLimit represents a LIMIT clause
 class LogicalLimit : public LogicalOperator {
@@ -34,4 +34,4 @@ protected:
 		types = children[0]->types;
 	}
 };
-} // namespace graindb
+} // namespace duckdb

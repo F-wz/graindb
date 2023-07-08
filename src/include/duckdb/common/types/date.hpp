@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types/date.hpp
+// duckdb/common/types/date.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
+#include "duckdb/common/common.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The Date class is a static class that holds helper functions for the Date
 //! type.
@@ -58,4 +58,4 @@ public:
 	//! Returns the date of the monday of the current week.
 	static date_t GetMondayOfCurrentWeek(date_t date);
 };
-} // namespace graindb
+} // namespace duckdb

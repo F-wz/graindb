@@ -1,13 +1,13 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/common.hpp
+// duckdb/common/common.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
-#include "graindb/common/helper.hpp"
-#include "graindb/common/types.hpp"
+#include "duckdb/common/constants.hpp"
+#include "duckdb/common/helper.hpp"
+#include "duckdb/common/types.hpp"

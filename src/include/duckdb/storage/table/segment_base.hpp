@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/table/segment_base.hpp
+// duckdb/storage/table/segment_base.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class SegmentBase {
 public:
@@ -27,4 +27,4 @@ public:
 	unique_ptr<SegmentBase> next;
 };
 
-} // namespace graindb
+} // namespace duckdb

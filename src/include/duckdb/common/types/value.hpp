@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types/value.hpp
+// duckdb/common/types/value.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/exception.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/exception.hpp"
 
 #include <iosfwd>
 #include <memory.h>
 
-namespace graindb {
+namespace duckdb {
 
 class Deserializer;
 class Serializer;
@@ -230,4 +230,4 @@ template <> string Value::GetValue();
 template <> float Value::GetValue();
 template <> double Value::GetValue();
 
-} // namespace graindb
+} // namespace duckdb

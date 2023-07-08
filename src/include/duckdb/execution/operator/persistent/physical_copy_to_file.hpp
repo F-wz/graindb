@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/persistent/physical_copy_to_file.hpp
+// duckdb/execution/operator/persistent/physical_copy_to_file.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/parser/parsed_data/copy_info.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/parser/parsed_data/copy_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Copy the contents of a query into a table
 class PhysicalCopyToFile : public PhysicalOperator {
@@ -32,4 +32,4 @@ public:
 	                      SelectionVector *sel = nullptr, Vector *rid_vector = nullptr,
 	                      DataChunk *rai_chunk = nullptr) override;
 };
-} // namespace graindb
+} // namespace duckdb

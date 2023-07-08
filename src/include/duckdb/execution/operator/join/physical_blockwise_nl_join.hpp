@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/join/physical_blockwise_nl_join.hpp
+// duckdb/execution/operator/join/physical_blockwise_nl_join.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/execution/operator/join/physical_join.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/execution/operator/join/physical_join.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalBlockwiseNLJoin represents a nested loop join between two tables on arbitrary expressions. This is different
 //! from the PhysicalNestedLoopJoin in that it does not require expressions to be comparisons between the LHS and the
@@ -33,4 +33,4 @@ public:
 	string ExtraRenderInformation() const override;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/function/function.hpp
+// duckdb/function/function.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/data_chunk.hpp"
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/parser/column_definition.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/parser/column_definition.hpp"
 
-namespace graindb {
+namespace duckdb {
 class CatalogEntry;
 class Catalog;
 class ClientContext;
@@ -141,4 +141,4 @@ private:
 	void RegisterTrigonometricsFunctions();
 };
 
-} // namespace graindb
+} // namespace duckdb

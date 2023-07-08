@@ -1,22 +1,22 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/join_order_optimizer.hpp
+// duckdb/optimizer/join_order_optimizer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/optimizer/join_order/join_relation.hpp"
-#include "graindb/optimizer/join_order/query_graph.hpp"
-#include "graindb/parser/expression_map.hpp"
-#include "graindb/planner/logical_operator.hpp"
-#include "graindb/planner/logical_operator_visitor.hpp"
-#include "graindb/planner/operator/logical_get.hpp"
+#include "duckdb/common/constants.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/optimizer/join_order/join_relation.hpp"
+#include "duckdb/optimizer/join_order/query_graph.hpp"
+#include "duckdb/parser/expression_map.hpp"
+#include "duckdb/planner/logical_operator.hpp"
+#include "duckdb/planner/logical_operator_visitor.hpp"
+#include "duckdb/planner/operator/logical_get.hpp"
 #include "nlohmann_json/single_include/nlohmann/json.hpp"
 
 #include <functional>
@@ -25,7 +25,7 @@
 //#define LOG_ENUMERATION
 //#define PRINT_JOIN_NODE
 
-namespace graindb {
+namespace duckdb {
 using json = nlohmann::json;
 
 struct JoinOrderNode {
@@ -185,4 +185,4 @@ private:
 	GenerateJoins(vector<unique_ptr<LogicalOperator>> &extracted_relations, JoinNode *node);
 };
 
-} // namespace graindb
+} // namespace duckdb

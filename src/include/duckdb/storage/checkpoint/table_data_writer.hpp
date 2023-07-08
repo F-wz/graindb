@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/checkpoint/table_data_writer.hpp
+// duckdb/storage/checkpoint/table_data_writer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/storage/checkpoint_manager.hpp"
-#include "graindb/common/unordered_map.hpp"
+#include "duckdb/storage/checkpoint_manager.hpp"
+#include "duckdb/common/unordered_map.hpp"
 
-namespace graindb {
+namespace duckdb {
 class UncompressedSegment;
 class SegmentStatistics;
 
@@ -42,4 +42,4 @@ private:
 	vector<vector<DataPointer>> data_pointers;
 };
 
-} // namespace graindb
+} // namespace duckdb

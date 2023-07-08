@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/checkpoint_manager.hpp
+// duckdb/storage/checkpoint_manager.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/storage/storage_manager.hpp"
-#include "graindb/storage/meta_block_writer.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/storage/storage_manager.hpp"
+#include "duckdb/storage/meta_block_writer.hpp"
 
-namespace graindb {
+namespace duckdb {
 class ClientContext;
 class MetaBlockReader;
 class SchemaCatalogEntry;
@@ -70,4 +70,4 @@ private:
 	void ReadSequence(ClientContext &context, MetaBlockReader &reader);
 };
 
-} // namespace graindb
+} // namespace duckdb

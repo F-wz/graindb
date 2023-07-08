@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_expression_iterator.hpp
+// duckdb/parser/parsed_expression_iterator.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_expression.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
 
 #include <functional>
 
-namespace graindb {
+namespace duckdb {
 
 class ParsedExpressionIterator {
 public:
@@ -20,4 +20,4 @@ public:
 	                              std::function<void(const ParsedExpression &child)> callback);
 };
 
-} // namespace graindb
+} // namespace duckdb

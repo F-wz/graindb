@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/function/aggregate/distributive_functions.hpp
+// duckdb/function/aggregate/distributive_functions.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/function/aggregate_function.hpp"
-#include "graindb/function/function_set.hpp"
-#include "graindb/common/types/null_value.hpp"
+#include "duckdb/function/aggregate_function.hpp"
+#include "duckdb/function/function_set.hpp"
+#include "duckdb/common/types/null_value.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct BitAndFun {
 	static void RegisterFunction(BuiltinFunctions &set);
@@ -60,4 +60,4 @@ struct StringAggFun {
 	static void RegisterFunction(BuiltinFunctions &set);
 };
 
-} // namespace graindb
+} // namespace duckdb

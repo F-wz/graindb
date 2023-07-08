@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/transaction/update_info.hpp
+// duckdb/transaction/update_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
-#include "graindb/transaction/transaction.hpp"
+#include "duckdb/common/constants.hpp"
+#include "duckdb/transaction/transaction.hpp"
 
-namespace graindb {
+namespace duckdb {
 class ColumnData;
 class UncompressedSegment;
 
@@ -54,4 +54,4 @@ struct UpdateInfo {
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

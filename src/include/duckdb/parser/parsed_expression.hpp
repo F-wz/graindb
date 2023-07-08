@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_expression.hpp
+// duckdb/parser/parsed_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/base_expression.hpp"
+#include "duckdb/parser/base_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 class Serializer;
 class Deserializer;
 
@@ -58,4 +58,4 @@ protected:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

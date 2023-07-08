@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_set_operation.hpp
+// duckdb/planner/operator/logical_set_operation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class LogicalSetOperation : public LogicalOperator {
 public:
@@ -36,4 +36,4 @@ protected:
 		types = children[0]->types;
 	}
 };
-} // namespace graindb
+} // namespace duckdb

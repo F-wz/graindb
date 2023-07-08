@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_table_function.hpp
+// duckdb/planner/operator/logical_table_function.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
-#include "graindb/function/function.hpp"
-#include "graindb/common/types/value.hpp"
+#include "duckdb/planner/logical_operator.hpp"
+#include "duckdb/function/function.hpp"
+#include "duckdb/common/types/value.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalTableFunction represents a call to a table-producing function
 class LogicalTableFunction : public LogicalOperator {
@@ -44,4 +44,4 @@ public:
 protected:
 	void ResolveTypes() override;
 };
-} // namespace graindb
+} // namespace duckdb

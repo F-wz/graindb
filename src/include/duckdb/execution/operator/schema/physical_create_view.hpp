@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/schema/physical_create_view.hpp
+// duckdb/execution/operator/schema/physical_create_view.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/parser/parsed_data/create_view_info.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/parser/parsed_data/create_view_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalCreateView represents a CREATE VIEW command
 class PhysicalCreateView : public PhysicalOperator {
@@ -28,4 +28,4 @@ public:
 	                      DataChunk *rai_chunk = nullptr) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

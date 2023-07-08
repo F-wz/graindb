@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/file_buffer.hpp
+// duckdb/common/file_buffer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 struct FileHandle;
 
 enum class FileBufferType : uint8_t { BLOCK = 1, MANAGED_BUFFER = 2 };
@@ -56,4 +56,4 @@ private:
 	data_ptr_t malloced_buffer;
 };
 
-} // namespace graindb
+} // namespace duckdb

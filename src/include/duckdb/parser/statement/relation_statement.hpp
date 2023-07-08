@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/statement/relation_statement.hpp
+// duckdb/parser/statement/relation_statement.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/sql_statement.hpp"
-#include "graindb/main/relation.hpp"
+#include "duckdb/parser/sql_statement.hpp"
+#include "duckdb/main/relation.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class RelationStatement : public SQLStatement {
 public:
@@ -21,4 +21,4 @@ public:
 	shared_ptr<Relation> relation;
 };
 
-} // namespace graindb
+} // namespace duckdb

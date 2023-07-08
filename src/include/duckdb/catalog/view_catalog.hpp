@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/catalog/view_catalog.hpp
+// duckdb/catalog/view_catalog.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_entry.hpp"
-#include "graindb/parser/query_node.hpp"
+#include "duckdb/catalog/catalog_entry.hpp"
+#include "duckdb/parser/query_node.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class DataTable;
 class SchemaCatalogEntry;
@@ -31,4 +31,4 @@ public:
 	//! Returns a list of types of the view
 	vector<TypeId> GetTypes();
 };
-} // namespace graindb
+} // namespace duckdb

@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/storage_lock.hpp
+// duckdb/storage/storage_lock.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 #include <atomic>
 #include <mutex>
 
-namespace graindb {
+namespace duckdb {
 class StorageLock;
 
 enum class StorageLockType { SHARED = 0, EXCLUSIVE = 1 };
@@ -49,4 +49,4 @@ private:
 	void ReleaseSharedLock();
 };
 
-} // namespace graindb
+} // namespace duckdb

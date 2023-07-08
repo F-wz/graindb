@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/serializer/buffered_file_reader.hpp
+// duckdb/common/serializer/buffered_file_reader.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/serializer/buffered_file_writer.hpp"
+#include "duckdb/common/serializer/buffered_file_writer.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class BufferedFileReader : public Deserializer {
 public:
@@ -36,4 +36,4 @@ private:
 	idx_t total_read;
 };
 
-} // namespace graindb
+} // namespace duckdb

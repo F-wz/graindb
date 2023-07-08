@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/catalog/standard_entry.hpp
+// duckdb/catalog/standard_entry.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_entry.hpp"
+#include "duckdb/catalog/catalog_entry.hpp"
 
-namespace graindb {
+namespace duckdb {
 class SchemaCatalogEntry;
 
 //! A StandardEntry is a catalog entry that is a member of a schema
@@ -25,4 +25,4 @@ public:
 	//! The schema the entry belongs to
 	SchemaCatalogEntry *schema;
 };
-} // namespace graindb
+} // namespace duckdb

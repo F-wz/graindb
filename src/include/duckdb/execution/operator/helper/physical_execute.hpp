@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/helper/physical_execute.hpp
+// duckdb/execution/operator/helper/physical_execute.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
+#include "duckdb/execution/physical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class PhysicalExecute : public PhysicalOperator {
 public:
@@ -27,4 +27,4 @@ public:
 	unique_ptr<PhysicalOperatorState> GetOperatorState() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

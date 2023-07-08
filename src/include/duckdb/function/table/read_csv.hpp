@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/function/table/read_csv.hpp
+// duckdb/function/table/read_csv.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/function/table_function.hpp"
+#include "duckdb/function/table_function.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct ReadCSVTableFunction {
 	static void RegisterFunction(BuiltinFunctions &set);
 };
 
-} // namespace graindb
+} // namespace duckdb

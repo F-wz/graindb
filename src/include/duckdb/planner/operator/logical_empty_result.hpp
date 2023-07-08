@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_empty_result.hpp
+// duckdb/planner/operator/logical_empty_result.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalEmptyResult returns an empty result. This is created by the optimizer if it can reason that ceratin parts of
 //! the tree will always return an empty result.
@@ -33,4 +33,4 @@ protected:
 		this->types = return_types;
 	}
 };
-} // namespace graindb
+} // namespace duckdb

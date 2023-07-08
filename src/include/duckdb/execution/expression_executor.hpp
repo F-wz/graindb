@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/expression_executor.hpp
+// duckdb/execution/expression_executor.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/expression_executor_state.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/planner/bound_tokens.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/execution/expression_executor_state.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/planner/bound_tokens.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! ExpressionExecutor is responsible for executing a set of expressions and storing the result in a data chunk
 class ExpressionExecutor {
@@ -125,4 +125,4 @@ private:
 	//! The states of the expression executor; this holds any intermediates and temporary states of expressions
 	vector<unique_ptr<ExpressionExecutorState>> states;
 };
-} // namespace graindb
+} // namespace duckdb

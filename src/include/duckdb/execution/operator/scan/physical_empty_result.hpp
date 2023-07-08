@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/scan/physical_empty_result.hpp
+// duckdb/execution/operator/scan/physical_empty_result.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
+#include "duckdb/execution/physical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class PhysicalEmptyResult : public PhysicalOperator {
 public:
@@ -22,4 +22,4 @@ public:
 	                      SelectionVector *sel = nullptr, Vector *rid_vector = nullptr,
 	                      DataChunk *rai_chunk = nullptr) override;
 };
-} // namespace graindb
+} // namespace duckdb

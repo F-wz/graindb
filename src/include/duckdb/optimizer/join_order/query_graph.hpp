@@ -1,23 +1,23 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/join_order/query_graph.hpp
+// duckdb/optimizer/join_order/query_graph.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/optimizer/join_order/join_relation.hpp"
-#include "graindb/planner/column_binding.hpp"
-#include "graindb/storage/rai.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/optimizer/join_order/join_relation.hpp"
+#include "duckdb/planner/column_binding.hpp"
+#include "duckdb/storage/rai.hpp"
 
 #include <functional>
 
-namespace graindb {
+namespace duckdb {
 class Expression;
 class LogicalOperator;
 
@@ -68,4 +68,4 @@ private:
 	QueryEdge root;
 };
 
-} // namespace graindb
+} // namespace duckdb

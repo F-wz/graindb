@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_explain.hpp
+// duckdb/planner/operator/logical_explain.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class LogicalExplain : public LogicalOperator {
 public:
@@ -27,4 +27,4 @@ protected:
 		types = {TypeId::VARCHAR, TypeId::VARCHAR};
 	}
 };
-} // namespace graindb
+} // namespace duckdb

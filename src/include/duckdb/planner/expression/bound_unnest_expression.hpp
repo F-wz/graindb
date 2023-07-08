@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression/bound_unnest_expression.hpp
+// duckdb/planner/expression/bound_unnest_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/expression.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Represents a function call that has been bound to a base function
 class BoundUnnestExpression : public Expression {
@@ -30,4 +30,4 @@ public:
 
 	unique_ptr<Expression> Copy() override;
 };
-} // namespace graindb
+} // namespace duckdb

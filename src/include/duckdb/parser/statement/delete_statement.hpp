@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/statement/delete_statement.hpp
+// duckdb/parser/statement/delete_statement.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/sql_statement.hpp"
-#include "graindb/parser/tableref.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/sql_statement.hpp"
+#include "duckdb/parser/tableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class DeleteStatement : public SQLStatement {
 public:
@@ -22,4 +22,4 @@ public:
 	unique_ptr<ParsedExpression> condition;
 	unique_ptr<TableRef> table;
 };
-} // namespace graindb
+} // namespace duckdb

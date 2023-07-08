@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/parsed_data/bound_create_table_info.hpp
+// duckdb/planner/parsed_data/bound_create_table_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/create_table_info.hpp"
-#include "graindb/planner/bound_constraint.hpp"
-#include "graindb/planner/expression.hpp"
-#include "graindb/storage/table/persistent_segment.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/parser/parsed_data/create_table_info.hpp"
+#include "duckdb/planner/bound_constraint.hpp"
+#include "duckdb/planner/expression.hpp"
+#include "duckdb/storage/table/persistent_segment.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 class CatalogEntry;
 
 struct BoundCreateTableInfo {
@@ -45,4 +45,4 @@ struct BoundCreateTableInfo {
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

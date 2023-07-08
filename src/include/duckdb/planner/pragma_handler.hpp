@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/pragma_handler.hpp
+// duckdb/planner/pragma_handler.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
+#include "duckdb/common/common.hpp"
 
-namespace graindb {
+namespace duckdb {
 class ClientContext;
 class SQLStatement;
 struct PragmaInfo;
@@ -30,4 +30,4 @@ private:
 private:
 	void ParseMemoryLimit(string limit);
 };
-} // namespace graindb
+} // namespace duckdb

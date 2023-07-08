@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/bound_query_node.hpp
+// duckdb/planner/bound_query_node.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/expression.hpp"
-#include "graindb/planner/bound_result_modifier.hpp"
-#include "graindb/parser/query_node.hpp"
+#include "duckdb/planner/expression.hpp"
+#include "duckdb/planner/bound_result_modifier.hpp"
+#include "duckdb/parser/query_node.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Bound equivalent of QueryNode
 class BoundQueryNode {
@@ -36,4 +36,4 @@ public:
 	virtual idx_t GetRootIndex() = 0;
 };
 
-}; // namespace graindb
+}; // namespace duckdb

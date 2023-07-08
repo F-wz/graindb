@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/rai.hpp
+// duckdb/storage/rai.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "graindb/common/enums/rai_direction.hpp"
-#include "graindb/storage/alist.hpp"
+#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "duckdb/common/enums/rai_direction.hpp"
+#include "duckdb/storage/alist.hpp"
 
 #include <mutex>
 
-namespace graindb {
+namespace duckdb {
 
 enum class RAIType : uint8_t {
 	INVALID = 0,
@@ -147,4 +147,4 @@ struct RAIInfo {
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

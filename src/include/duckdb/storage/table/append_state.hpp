@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/table/append_state.hpp
+// duckdb/storage/table/append_state.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/storage/storage_lock.hpp"
-#include "graindb/storage/buffer/buffer_handle.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/storage/storage_lock.hpp"
+#include "duckdb/storage/buffer/buffer_handle.hpp"
 
-namespace graindb {
+namespace duckdb {
 class TransientSegment;
 
 struct ColumnAppendState {
@@ -34,4 +34,4 @@ struct TableAppendState {
 	row_t current_row;
 };
 
-} // namespace graindb
+} // namespace duckdb

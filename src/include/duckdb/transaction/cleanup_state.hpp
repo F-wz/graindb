@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/transaction/cleanup_state.hpp
+// duckdb/transaction/cleanup_state.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/transaction/undo_buffer.hpp"
-#include "graindb/common/types/data_chunk.hpp"
+#include "duckdb/transaction/undo_buffer.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
 
-namespace graindb {
+namespace duckdb {
 class DataTable;
 
 struct DeleteInfo;
@@ -39,4 +39,4 @@ private:
 	void Flush();
 };
 
-} // namespace graindb
+} // namespace duckdb

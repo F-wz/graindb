@@ -1,21 +1,21 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/function/scalar_function.hpp
+// duckdb/function/scalar_function.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/vector_operations/binary_executor.hpp"
-#include "graindb/common/vector_operations/ternary_executor.hpp"
-#include "graindb/common/vector_operations/unary_executor.hpp"
-#include "graindb/common/vector_operations/vector_operations.hpp"
-#include "graindb/execution/expression_executor_state.hpp"
-#include "graindb/function/function.hpp"
+#include "duckdb/common/vector_operations/binary_executor.hpp"
+#include "duckdb/common/vector_operations/ternary_executor.hpp"
+#include "duckdb/common/vector_operations/unary_executor.hpp"
+#include "duckdb/common/vector_operations/vector_operations.hpp"
+#include "duckdb/execution/expression_executor_state.hpp"
+#include "duckdb/function/function.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BoundFunctionExpression;
 class ScalarFunctionCatalogEntry;
 
@@ -141,4 +141,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

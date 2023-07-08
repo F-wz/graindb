@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types/string_type.hpp
+// duckdb/common/types/string_type.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 #include <cstring>
 #include <cassert>
 
-namespace graindb {
+namespace duckdb {
 
 struct string_t {
 	friend struct StringComparisonOperators;
@@ -100,4 +100,4 @@ private:
 	} value_;
 };
 
-}; // namespace graindb
+}; // namespace duckdb

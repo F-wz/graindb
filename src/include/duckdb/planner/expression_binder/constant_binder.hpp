@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression_binder/constant_binder.hpp
+// duckdb/planner/expression_binder/constant_binder.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/expression_binder.hpp"
+#include "duckdb/planner/expression_binder.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The Constant binder can bind ONLY constant foldable expressions (i.e. no subqueries, column refs, etc)
 class ConstantBinder : public ExpressionBinder {
@@ -26,4 +26,4 @@ protected:
 	string UnsupportedAggregateMessage() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

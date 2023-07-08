@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/rule/empty_needle_removal.hpp
+// duckdb/optimizer/rule/empty_needle_removal.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/optimizer/rule.hpp"
+#include "duckdb/optimizer/rule.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 // The Like Optimization rule rewrites LIKE to optimized scalar functions (e.g.: prefix, suffix, and contains)
 class EmptyNeedleRemovalRule : public Rule {
@@ -20,4 +20,4 @@ public:
 	unique_ptr<Expression> Apply(LogicalOperator &op, vector<Expression *> &bindings, bool &changes_made) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

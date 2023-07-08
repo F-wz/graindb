@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_index_scan.hpp
+// duckdb/planner/operator/logical_index_scan.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "graindb/common/string_util.hpp"
-#include "graindb/planner/logical_operator.hpp"
-#include "graindb/storage/index.hpp"
+#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "duckdb/common/string_util.hpp"
+#include "duckdb/planner/logical_operator.hpp"
+#include "duckdb/storage/index.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalIndex represents an Index Scan operation
 class LogicalIndexScan : public LogicalOperator {
@@ -91,4 +91,4 @@ protected:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

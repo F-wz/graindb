@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_filter.hpp
+// duckdb/planner/operator/logical_filter.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalFilter represents a filter operation (e.g. WHERE or HAVING clause)
 class LogicalFilter : public LogicalOperator {
@@ -35,4 +35,4 @@ protected:
 	void ResolveTypes() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

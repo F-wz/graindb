@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/column_definition.hpp
+// duckdb/parser/column_definition.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/types/value.hpp"
-#include "graindb/parser/parsed_expression.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/types/value.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! A column of a table.
 class ColumnDefinition {
@@ -41,4 +41,4 @@ public:
 	static ColumnDefinition Deserialize(Deserializer &source);
 };
 
-} // namespace graindb
+} // namespace duckdb

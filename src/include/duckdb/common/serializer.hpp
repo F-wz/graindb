@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/serializer.hpp
+// duckdb/common/serializer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/exception.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/exception.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The Serialize class is a base class that can be used to serializing objects into a binary buffer
 class Serializer {
@@ -84,4 +84,4 @@ public:
 
 template <> string Deserializer::Read();
 
-} // namespace graindb
+} // namespace duckdb

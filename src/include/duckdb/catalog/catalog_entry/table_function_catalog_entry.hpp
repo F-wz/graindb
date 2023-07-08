@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/catalog/catalog_entry/table_function_catalog_entry.hpp
+// duckdb/catalog/catalog_entry/table_function_catalog_entry.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/standard_entry.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/function/table_function.hpp"
+#include "duckdb/catalog/standard_entry.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/function/table_function.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class Catalog;
 class Constraint;
@@ -27,4 +27,4 @@ public:
 	//! The table function
 	TableFunction function;
 };
-} // namespace graindb
+} // namespace duckdb

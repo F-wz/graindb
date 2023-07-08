@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression/bound_columnref_expression.hpp
+// duckdb/planner/expression/bound_columnref_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/column_binding.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/planner/column_binding.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! A BoundColumnRef expression represents a ColumnRef expression that was bound to an actual table and column index (or
 //! rai and rai column). It is not yet executable, however. The ColumnBindingResolver transforms the
@@ -43,4 +43,4 @@ public:
 
 	unique_ptr<Expression> Copy() override;
 };
-} // namespace graindb
+} // namespace duckdb

@@ -1,21 +1,21 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types/vector.hpp
+// duckdb/common/types/vector.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/bitset.hpp"
-#include "graindb/common/common.hpp"
-#include "graindb/common/enums/vector_type.hpp"
-#include "graindb/common/types/selection_vector.hpp"
-#include "graindb/common/types/value.hpp"
-#include "graindb/common/types/vector_buffer.hpp"
+#include "duckdb/common/bitset.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/enums/vector_type.hpp"
+#include "duckdb/common/types/selection_vector.hpp"
+#include "duckdb/common/types/value.hpp"
+#include "duckdb/common/types/vector_buffer.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! Type used for nullmasks
 typedef bitset<STANDARD_VECTOR_SIZE> nullmask_t;
 
@@ -312,4 +312,4 @@ protected:
 	idx_t count;
 };
 
-} // namespace graindb
+} // namespace duckdb

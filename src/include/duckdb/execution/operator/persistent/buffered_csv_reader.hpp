@@ -1,15 +1,15 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/persistent/buffered_csv_reader.hpp
+// duckdb/execution/operator/persistent/buffered_csv_reader.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/parser/parsed_data/copy_info.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/parser/parsed_data/copy_info.hpp"
 
 #define SAMPLE_CHUNK_SIZE 100
 #if STANDARD_VECTOR_SIZE < SAMPLE_CHUNK_SIZE
@@ -17,7 +17,7 @@
 #define SAMPLE_CHUNK_SIZE STANDARD_VECTOR_SIZE
 #endif
 
-namespace graindb {
+namespace duckdb {
 struct CopyInfo;
 
 //! The shifts array allows for linear searching of multi-byte values. For each position, it determines the next
@@ -133,4 +133,4 @@ private:
 	unique_ptr<std::istream> OpenCSV(ClientContext &context, CopyInfo &info);
 };
 
-} // namespace graindb
+} // namespace duckdb

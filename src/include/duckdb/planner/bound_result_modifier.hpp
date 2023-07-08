@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/bound_result_modifier.hpp
+// duckdb/planner/bound_result_modifier.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/result_modifier.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/parser/result_modifier.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! A ResultModifier
 class BoundResultModifier {
@@ -63,4 +63,4 @@ public:
 	vector<unique_ptr<Expression>> target_distincts;
 };
 
-} // namespace graindb
+} // namespace duckdb

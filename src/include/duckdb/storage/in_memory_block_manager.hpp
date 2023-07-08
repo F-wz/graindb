@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/in_memory_block_manager.hpp
+// duckdb/storage/in_memory_block_manager.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/exception.hpp"
-#include "graindb/storage/block_manager.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/exception.hpp"
+#include "duckdb/storage/block_manager.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! InMemoryBlockManager is an implementation for a BlockManager
 class InMemoryBlockManager : public BlockManager {
@@ -39,4 +39,4 @@ public:
 		throw Exception("Cannot perform IO in in-memory database!");
 	}
 };
-} // namespace graindb
+} // namespace duckdb

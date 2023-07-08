@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/vector_operations/unary_executor.hpp
+// duckdb/common/vector_operations/unary_executor.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/exception.hpp"
-#include "graindb/common/types/vector.hpp"
-#include "graindb/common/vector_operations/vector_operations.hpp"
+#include "duckdb/common/exception.hpp"
+#include "duckdb/common/types/vector.hpp"
+#include "duckdb/common/vector_operations/vector_operations.hpp"
 
 #include <functional>
 
-namespace graindb {
+namespace duckdb {
 
 struct UnaryOperatorWrapper {
 	template <class FUNC, class OP, class INPUT_TYPE, class RESULT_TYPE>
@@ -136,4 +136,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,7 +1,7 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/unordered_map.hpp
+// duckdb/common/unordered_map.hpp
 //
 //
 //===----------------------------------------------------------------------===//
@@ -10,6 +10,6 @@
 
 #include <unordered_map>
 
-namespace graindb {
+namespace duckdb {
 using std::unordered_map;
 }

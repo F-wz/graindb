@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/create_info.hpp
+// duckdb/parser/parsed_data/create_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/parse_info.hpp"
-#include "graindb/common/enums/catalog_type.hpp"
+#include "duckdb/parser/parsed_data/parse_info.hpp"
+#include "duckdb/common/enums/catalog_type.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 enum class OnCreateConflict : uint8_t {
 	// Standard: throw error
@@ -39,4 +39,4 @@ struct CreateInfo : public ParseInfo {
 	bool temporary;
 };
 
-} // namespace graindb
+} // namespace duckdb

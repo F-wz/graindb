@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/aggregate/physical_window.hpp
+// duckdb/execution/operator/aggregate/physical_window.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/execution/physical_operator.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/execution/physical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalWindow implements window functions
 class PhysicalWindow : public PhysicalOperator {
@@ -30,4 +30,4 @@ public:
 	unique_ptr<PhysicalOperatorState> GetOperatorState() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/operator/cast_operators.hpp
+// duckdb/common/operator/cast_operators.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
-#include "graindb/common/exception.hpp"
-#include "graindb/common/types/string_type.hpp"
+#include "duckdb/common/constants.hpp"
+#include "duckdb/common/exception.hpp"
+#include "duckdb/common/types/string_type.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct Cast {
 	template <class SRC, class DST> static inline DST Operation(SRC input) {
@@ -133,76 +133,76 @@ struct StringCast {
 	}
 };
 
-template <> graindb::string_t StringCast::Operation(bool input, Vector &result);
-template <> graindb::string_t StringCast::Operation(int8_t input, Vector &result);
-template <> graindb::string_t StringCast::Operation(int16_t input, Vector &result);
-template <> graindb::string_t StringCast::Operation(int32_t input, Vector &result);
-template <> graindb::string_t StringCast::Operation(int64_t input, Vector &result);
-template <> graindb::string_t StringCast::Operation(uint64_t input, Vector &result);
-template <> graindb::string_t StringCast::Operation(float input, Vector &result);
-template <> graindb::string_t StringCast::Operation(double input, Vector &result);
+template <> duckdb::string_t StringCast::Operation(bool input, Vector &result);
+template <> duckdb::string_t StringCast::Operation(int8_t input, Vector &result);
+template <> duckdb::string_t StringCast::Operation(int16_t input, Vector &result);
+template <> duckdb::string_t StringCast::Operation(int32_t input, Vector &result);
+template <> duckdb::string_t StringCast::Operation(int64_t input, Vector &result);
+template <> duckdb::string_t StringCast::Operation(uint64_t input, Vector &result);
+template <> duckdb::string_t StringCast::Operation(float input, Vector &result);
+template <> duckdb::string_t StringCast::Operation(double input, Vector &result);
 
 struct CastFromDate {
 	template <class SRC> static inline string_t Operation(SRC input, Vector &result) {
-		throw graindb::NotImplementedException("Cast from date could not be performed!");
+		throw duckdb::NotImplementedException("Cast from date could not be performed!");
 	}
 };
 
 struct CastToDate {
 	template <class SRC, class DST> static inline DST Operation(SRC input) {
-		throw graindb::NotImplementedException("Cast to date could not be performed!");
+		throw duckdb::NotImplementedException("Cast to date could not be performed!");
 	}
 };
 
 struct CastDateToTimestamp {
 	template <class SRC, class DST> static inline DST Operation(SRC input) {
-		throw graindb::NotImplementedException("Cast to timestamp could not be performed!");
+		throw duckdb::NotImplementedException("Cast to timestamp could not be performed!");
 	}
 };
-template <> graindb::string_t CastFromDate::Operation(graindb::date_t input, Vector &result);
-template <> graindb::date_t CastToDate::Operation(string_t input);
-template <> graindb::timestamp_t CastDateToTimestamp::Operation(graindb::date_t input);
+template <> duckdb::string_t CastFromDate::Operation(duckdb::date_t input, Vector &result);
+template <> duckdb::date_t CastToDate::Operation(string_t input);
+template <> duckdb::timestamp_t CastDateToTimestamp::Operation(duckdb::date_t input);
 
 struct CastFromTime {
 	template <class SRC> static inline string_t Operation(SRC input, Vector &result) {
-		throw graindb::NotImplementedException("Cast from time could not be performed!");
+		throw duckdb::NotImplementedException("Cast from time could not be performed!");
 	}
 };
 struct CastToTime {
 	template <class SRC, class DST> static inline DST Operation(SRC input) {
-		throw graindb::NotImplementedException("Cast to time could not be performed!");
+		throw duckdb::NotImplementedException("Cast to time could not be performed!");
 	}
 };
-template <> graindb::string_t CastFromTime::Operation(graindb::dtime_t input, Vector &result);
-template <> graindb::dtime_t CastToTime::Operation(string_t input);
+template <> duckdb::string_t CastFromTime::Operation(duckdb::dtime_t input, Vector &result);
+template <> duckdb::dtime_t CastToTime::Operation(string_t input);
 
 struct CastToTimestamp {
 	template <class SRC, class DST> static inline DST Operation(SRC input) {
-		throw graindb::NotImplementedException("Cast to timestamp could not be performed!");
+		throw duckdb::NotImplementedException("Cast to timestamp could not be performed!");
 	}
 };
 
 struct CastFromTimestamp {
 	template <class SRC> static inline string_t Operation(SRC input, Vector &result) {
-		throw graindb::NotImplementedException("Cast to timestamp could not be performed!");
+		throw duckdb::NotImplementedException("Cast to timestamp could not be performed!");
 	}
 };
 
 struct CastTimestampToDate {
 	template <class SRC, class DST> static inline DST Operation(SRC input) {
-		throw graindb::NotImplementedException("Cast to timestamp could not be performed!");
+		throw duckdb::NotImplementedException("Cast to timestamp could not be performed!");
 	}
 };
 
 struct CastTimestampToTime {
 	template <class SRC, class DST> static inline DST Operation(SRC input) {
-		throw graindb::NotImplementedException("Cast to timestamp could not be performed!");
+		throw duckdb::NotImplementedException("Cast to timestamp could not be performed!");
 	}
 };
 
-template <> graindb::date_t CastTimestampToDate::Operation(graindb::timestamp_t input);
-template <> graindb::dtime_t CastTimestampToTime::Operation(graindb::timestamp_t input);
-template <> graindb::string_t CastFromTimestamp::Operation(graindb::timestamp_t input, Vector &result);
-template <> graindb::timestamp_t CastToTimestamp::Operation(string_t input);
+template <> duckdb::date_t CastTimestampToDate::Operation(duckdb::timestamp_t input);
+template <> duckdb::dtime_t CastTimestampToTime::Operation(duckdb::timestamp_t input);
+template <> duckdb::string_t CastFromTimestamp::Operation(duckdb::timestamp_t input, Vector &result);
+template <> duckdb::timestamp_t CastToTimestamp::Operation(string_t input);
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/helper/physical_pragma.hpp
+// duckdb/execution/operator/helper/physical_pragma.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/parser/parsed_data/pragma_info.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/parser/parsed_data/pragma_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalPragma represents the PRAGMA operator
 class PhysicalPragma : public PhysicalOperator {
@@ -28,4 +28,4 @@ public:
 	                      DataChunk *rai_chunk = nullptr) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

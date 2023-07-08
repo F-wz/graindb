@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/relation/projection_relation.hpp
+// duckdb/main/relation/projection_relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/relation.hpp"
-#include "graindb/parser/parsed_expression.hpp"
+#include "duckdb/main/relation.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class ProjectionRelation : public Relation {
 public:
@@ -30,4 +30,4 @@ public:
 	string GetAlias() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

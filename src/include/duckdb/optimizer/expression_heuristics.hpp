@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/expression_heuristics.hpp
+// duckdb/optimizer/expression_heuristics.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/optimizer/optimizer.hpp"
+#include "duckdb/optimizer/optimizer.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class ExpressionHeuristics : public LogicalOperatorVisitor {
 public:
@@ -49,4 +49,4 @@ private:
 	idx_t ExpressionCost(BoundOperatorExpression &expr, ExpressionType &expr_type);
 	idx_t ExpressionCost(TypeId &return_type, idx_t multiplier);
 };
-} // namespace graindb
+} // namespace duckdb

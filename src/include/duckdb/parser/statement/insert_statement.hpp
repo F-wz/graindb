@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/statement/insert_statement.hpp
+// duckdb/parser/statement/insert_statement.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/statement/select_statement.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/statement/select_statement.hpp"
 
 #include <vector>
 
-namespace graindb {
+namespace duckdb {
 
 class InsertStatement : public SQLStatement {
 public:
@@ -30,4 +30,4 @@ public:
 	string schema;
 };
 
-} // namespace graindb
+} // namespace duckdb

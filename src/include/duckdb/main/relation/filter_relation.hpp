@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/relation/filter_relation.hpp
+// duckdb/main/relation/filter_relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/relation.hpp"
-#include "graindb/parser/parsed_expression.hpp"
+#include "duckdb/main/relation.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class FilterRelation : public Relation {
 public:
@@ -36,4 +36,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

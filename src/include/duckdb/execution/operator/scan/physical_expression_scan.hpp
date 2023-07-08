@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/scan/physical_expression_scan.hpp
+// duckdb/execution/operator/scan/physical_expression_scan.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/execution/physical_operator.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/execution/physical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The PhysicalExpressionScan scans a set of expressions
 class PhysicalExpressionScan : public PhysicalOperator {
@@ -30,4 +30,4 @@ public:
 	unique_ptr<PhysicalOperatorState> GetOperatorState() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

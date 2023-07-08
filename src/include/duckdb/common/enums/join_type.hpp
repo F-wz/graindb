@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/join_type.hpp
+// duckdb/common/enums/join_type.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //===--------------------------------------------------------------------===//
 // Join Types
@@ -31,4 +31,4 @@ enum class JoinType : uint8_t {
 
 string JoinTypeToString(JoinType type);
 
-} // namespace graindb
+} // namespace duckdb

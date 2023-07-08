@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/bound_constraint.hpp
+// duckdb/planner/bound_constraint.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/parser/constraint.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/parser/constraint.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! Bound equivalent of Constraint
 class BoundConstraint {
 public:
@@ -21,4 +21,4 @@ public:
 
 	ConstraintType type;
 };
-} // namespace graindb
+} // namespace duckdb

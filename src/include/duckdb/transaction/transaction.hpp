@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/transaction/transaction.hpp
+// duckdb/transaction/transaction.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_entry/sequence_catalog_entry.hpp"
-#include "graindb/common/types/data_chunk.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/transaction/undo_buffer.hpp"
-#include "graindb/transaction/local_storage.hpp"
+#include "duckdb/catalog/catalog_entry/sequence_catalog_entry.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/transaction/undo_buffer.hpp"
+#include "duckdb/transaction/local_storage.hpp"
 
-namespace graindb {
+namespace duckdb {
 class SequenceCatalogEntry;
 
 class ClientContext;
@@ -90,4 +90,4 @@ private:
 	Transaction(const Transaction &) = delete;
 };
 
-} // namespace graindb
+} // namespace duckdb

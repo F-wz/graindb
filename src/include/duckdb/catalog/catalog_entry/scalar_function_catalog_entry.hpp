@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/catalog/catalog_entry/scalar_function_catalog_entry.hpp
+// duckdb/catalog/catalog_entry/scalar_function_catalog_entry.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/standard_entry.hpp"
-#include "graindb/catalog/catalog_set.hpp"
-#include "graindb/function/function.hpp"
-#include "graindb/parser/parsed_data/create_scalar_function_info.hpp"
+#include "duckdb/catalog/standard_entry.hpp"
+#include "duckdb/catalog/catalog_set.hpp"
+#include "duckdb/function/function.hpp"
+#include "duckdb/parser/parsed_data/create_scalar_function_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! A table function in the catalog
 class ScalarFunctionCatalogEntry : public StandardEntry {
@@ -25,4 +25,4 @@ public:
 	//! The scalar functions
 	vector<ScalarFunction> functions;
 };
-} // namespace graindb
+} // namespace duckdb

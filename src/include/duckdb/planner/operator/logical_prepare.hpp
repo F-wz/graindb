@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_prepare.hpp
+// duckdb/planner/operator/logical_prepare.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/main/prepared_statement_data.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/main/prepared_statement_data.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class TableCatalogEntry;
 
@@ -32,4 +32,4 @@ protected:
 		types.push_back(TypeId::BOOL);
 	}
 };
-} // namespace graindb
+} // namespace duckdb

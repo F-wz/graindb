@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/scan/physical_index_scan.hpp
+// duckdb/execution/operator/scan/physical_index_scan.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/storage/data_table.hpp"
-#include "graindb/storage/index.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/storage/data_table.hpp"
+#include "duckdb/storage/index.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Represents a scan of an index
 class PhysicalIndexScan : public PhysicalOperator {
@@ -55,4 +55,4 @@ public:
 	unique_ptr<PhysicalOperatorState> GetOperatorState() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

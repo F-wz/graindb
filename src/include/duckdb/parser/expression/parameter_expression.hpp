@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/expression/parameter_expression.hpp
+// duckdb/parser/expression/parameter_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_expression.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 class ParameterExpression : public ParsedExpression {
 public:
 	ParameterExpression();
@@ -33,4 +33,4 @@ public:
 	void Serialize(Serializer &serializer) override;
 	static unique_ptr<ParsedExpression> Deserialize(ExpressionType type, Deserializer &source);
 };
-} // namespace graindb
+} // namespace duckdb

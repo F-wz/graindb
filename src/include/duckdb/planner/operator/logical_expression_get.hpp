@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_expression_get.hpp
+// duckdb/planner/operator/logical_expression_get.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalExpressionGet represents a scan operation over a set of to-be-executed expressions
 class LogicalExpressionGet : public LogicalOperator {
@@ -38,4 +38,4 @@ protected:
 		this->types = expr_types;
 	}
 };
-} // namespace graindb
+} // namespace duckdb

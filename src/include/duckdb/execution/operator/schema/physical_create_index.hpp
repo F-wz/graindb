@@ -1,21 +1,21 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/schema/physical_create_index.hpp
+// duckdb/execution/operator/schema/physical_create_index.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/index/art/art.hpp"
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/parser/parsed_data/create_index_info.hpp"
-#include "graindb/storage/data_table.hpp"
+#include "duckdb/execution/index/art/art.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/parser/parsed_data/create_index_info.hpp"
+#include "duckdb/storage/data_table.hpp"
 
 #include <fstream>
 
-namespace graindb {
+namespace duckdb {
 
 //! Physically CREATE INDEX statement
 class PhysicalCreateIndex : public PhysicalOperator {
@@ -43,4 +43,4 @@ public:
 	                      SelectionVector *sel = nullptr, Vector *rid_vector = nullptr,
 	                      DataChunk *rai_chunk = nullptr) override;
 };
-} // namespace graindb
+} // namespace duckdb

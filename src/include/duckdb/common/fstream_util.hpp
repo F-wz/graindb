@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/fstream_util.hpp
+// duckdb/common/fstream_util.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
-#include "graindb/common/exception.hpp"
-#include "graindb/common/fstream.hpp"
+#include "duckdb/common/constants.hpp"
+#include "duckdb/common/exception.hpp"
+#include "duckdb/common/fstream.hpp"
 
-namespace graindb {
+namespace duckdb {
 /**
  * Fstream Utility Functions
  */
@@ -39,4 +39,4 @@ public:
 	 */
 	static data_ptr ReadBinary(fstream &);
 };
-} // namespace graindb
+} // namespace duckdb

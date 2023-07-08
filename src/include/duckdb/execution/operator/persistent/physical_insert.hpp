@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/persistent/physical_insert.hpp
+// duckdb/execution/operator/persistent/physical_insert.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
+#include "duckdb/execution/physical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Physically insert a set of data into a table
 class PhysicalInsert : public PhysicalOperator {
@@ -31,4 +31,4 @@ public:
 	                      DataChunk *rai_chunk = nullptr) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

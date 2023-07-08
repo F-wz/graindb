@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/result_modifier.hpp
+// duckdb/parser/result_modifier.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/enums/order_type.hpp"
-#include "graindb/parser/parsed_expression.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/enums/order_type.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 enum ResultModifierType : uint8_t { LIMIT_MODIFIER = 1, ORDER_MODIFIER = 2, DISTINCT_MODIFIER = 3 };
 
@@ -98,4 +98,4 @@ public:
 	static unique_ptr<ResultModifier> Deserialize(Deserializer &source);
 };
 
-} // namespace graindb
+} // namespace duckdb

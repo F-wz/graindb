@@ -1,23 +1,23 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/logical_operator.hpp
+// duckdb/planner/logical_operator.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog.hpp"
-#include "graindb/common/common.hpp"
-#include "graindb/common/enums/logical_operator_type.hpp"
-#include "graindb/planner/column_binding.hpp"
-#include "graindb/planner/expression.hpp"
-#include "graindb/planner/logical_operator_visitor.hpp"
+#include "duckdb/catalog/catalog.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/enums/logical_operator_type.hpp"
+#include "duckdb/planner/column_binding.hpp"
+#include "duckdb/planner/expression.hpp"
+#include "duckdb/planner/logical_operator_visitor.hpp"
 
 #include <functional>
 
-namespace graindb {
+namespace duckdb {
 
 // nested loop join, hash join, adjacency join, default join, scan, lookup
 enum class OpMark : int8_t {
@@ -92,4 +92,4 @@ protected:
 	//! Resolve types for this specific operator
 	virtual void ResolveTypes() = 0;
 };
-} // namespace graindb
+} // namespace duckdb

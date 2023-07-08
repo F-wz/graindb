@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/catalog/catalog_entry/index_catalog_entry.hpp
+// duckdb/catalog/catalog_entry/index_catalog_entry.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/standard_entry.hpp"
-#include "graindb/parser/parsed_data/create_index_info.hpp"
+#include "duckdb/catalog/standard_entry.hpp"
+#include "duckdb/parser/parsed_data/create_index_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct DataTableInfo;
 class Index;
@@ -29,4 +29,4 @@ public:
 	shared_ptr<DataTableInfo> info;
 };
 
-} // namespace graindb
+} // namespace duckdb

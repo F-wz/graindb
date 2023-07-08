@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/filter_pushdown.hpp
+// duckdb/optimizer/filter_pushdown.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/optimizer/filter_combiner.hpp"
-#include "graindb/optimizer/rule.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/optimizer/filter_combiner.hpp"
+#include "duckdb/optimizer/rule.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class Optimizer;
 
@@ -80,4 +80,4 @@ private:
 	FilterCombiner combiner;
 };
 
-} // namespace graindb
+} // namespace duckdb

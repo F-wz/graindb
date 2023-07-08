@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/catalog/catalog_entry/view_catalog_entry.hpp
+// duckdb/catalog/catalog_entry/view_catalog_entry.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/standard_entry.hpp"
-#include "graindb/parser/query_node.hpp"
+#include "duckdb/catalog/standard_entry.hpp"
+#include "duckdb/parser/query_node.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class ColumnStatistics;
 class DataTable;
@@ -39,4 +39,4 @@ public:
 private:
 	void Initialize(CreateViewInfo *info);
 };
-} // namespace graindb
+} // namespace duckdb

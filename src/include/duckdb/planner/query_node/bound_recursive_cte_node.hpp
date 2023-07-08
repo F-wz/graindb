@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/query_node/bound_recursive_cte_node.hpp
+// duckdb/planner/query_node/bound_recursive_cte_node.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/binder.hpp"
-#include "graindb/planner/bound_query_node.hpp"
+#include "duckdb/planner/binder.hpp"
+#include "duckdb/planner/bound_query_node.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Bound equivalent of SetOperationNode
 class BoundRecursiveCTENode : public BoundQueryNode {
@@ -41,4 +41,4 @@ public:
 	}
 };
 
-}; // namespace graindb
+}; // namespace duckdb

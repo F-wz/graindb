@@ -1,15 +1,15 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/index/art/node4.hpp
+// duckdb/execution/index/art/node4.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
-#include "graindb/execution/index/art/node.hpp"
+#include "duckdb/execution/index/art/node.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class Node4 : public Node {
 public:
@@ -36,4 +36,4 @@ public:
 	//! Remove Leaf from Node4
 	static void erase(ART &art, unique_ptr<Node> &node, int pos);
 };
-} // namespace graindb
+} // namespace duckdb

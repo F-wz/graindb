@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/subquery/has_correlated_expressions.hpp
+// duckdb/planner/subquery/has_correlated_expressions.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/binder.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/binder.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Helper class to recursively detect correlated expressions inside a single LogicalOperator
 class HasCorrelatedExpressions : public LogicalOperatorVisitor {
@@ -29,4 +29,4 @@ protected:
 	const vector<CorrelatedColumnInfo> &correlated_columns;
 };
 
-} // namespace graindb
+} // namespace duckdb

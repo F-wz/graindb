@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_get.hpp
+// duckdb/planner/operator/logical_get.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "graindb/planner/logical_operator.hpp"
-#include "graindb/storage/data_table.hpp"
-#include "graindb/storage/rai.hpp"
+#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "duckdb/planner/logical_operator.hpp"
+#include "duckdb/storage/data_table.hpp"
+#include "duckdb/storage/rai.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalGet represents a scan operation from a data source
 class LogicalGet : public LogicalOperator {
@@ -43,4 +43,4 @@ public:
 protected:
 	void ResolveTypes() override;
 };
-} // namespace graindb
+} // namespace duckdb

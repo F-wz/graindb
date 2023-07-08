@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/query_node/bound_select_node.hpp
+// duckdb/planner/query_node/bound_select_node.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/bound_query_node.hpp"
-#include "graindb/planner/logical_operator.hpp"
-#include "graindb/parser/expression_map.hpp"
-#include "graindb/planner/bound_tableref.hpp"
+#include "duckdb/planner/bound_query_node.hpp"
+#include "duckdb/planner/logical_operator.hpp"
+#include "duckdb/parser/expression_map.hpp"
+#include "duckdb/planner/bound_tableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Bound equivalent of SelectNode
 class BoundSelectNode : public BoundQueryNode {
@@ -70,4 +70,4 @@ public:
 		return need_prune ? prune_index : projection_index;
 	}
 };
-}; // namespace graindb
+}; // namespace duckdb

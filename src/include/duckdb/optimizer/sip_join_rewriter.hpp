@@ -1,8 +1,8 @@
 #pragma once
 
-#include "graindb/optimizer/optimizer.hpp"
+#include "duckdb/optimizer/optimizer.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class SIPJoinRewriter : public LogicalOperatorVisitor {
 
@@ -19,4 +19,4 @@ private:
 	void DoRewrite(LogicalComparisonJoin &join);
 	bool BindRAIInfo(LogicalComparisonJoin &join, vector<unique_ptr<RAI>> &rais, JoinCondition &condition);
 };
-} // namespace graindb
+} // namespace duckdb

@@ -1,14 +1,14 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/bound_tokens.hpp
+// duckdb/planner/bound_tokens.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-namespace graindb {
+namespace duckdb {
 
 //===--------------------------------------------------------------------===//
 // Query Node
@@ -55,4 +55,4 @@ class BoundEmptyTableRef;
 class BoundExpressionListRef;
 class BoundCTERef;
 
-} // namespace graindb
+} // namespace duckdb

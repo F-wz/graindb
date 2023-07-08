@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression/bound_window_expression.hpp
+// duckdb/planner/expression/bound_window_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/expression/window_expression.hpp"
-#include "graindb/planner/bound_query_node.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/parser/expression/window_expression.hpp"
+#include "duckdb/planner/bound_query_node.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 class AggregateFunction;
 
 class BoundWindowExpression : public Expression {
@@ -51,4 +51,4 @@ public:
 
 	unique_ptr<Expression> Copy() override;
 };
-} // namespace graindb
+} // namespace duckdb

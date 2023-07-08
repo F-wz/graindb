@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types/selection_vector.hpp
+// duckdb/common/types/selection_vector.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/unordered_map.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/unordered_map.hpp"
 
-namespace graindb {
+namespace duckdb {
 class VectorBuffer;
 
 struct SelectionData {
@@ -96,4 +96,4 @@ private:
 
 typedef unordered_map<sel_t *, buffer_ptr<VectorBuffer>> sel_cache_t;
 
-} // namespace graindb
+} // namespace duckdb

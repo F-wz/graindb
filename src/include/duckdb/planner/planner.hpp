@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/planner.hpp
+// duckdb/planner/planner.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/sql_statement.hpp"
-#include "graindb/planner/binder.hpp"
-#include "graindb/planner/logical_operator.hpp"
-#include "graindb/catalog/catalog_entry/prepared_statement_catalog_entry.hpp"
+#include "duckdb/parser/sql_statement.hpp"
+#include "duckdb/planner/binder.hpp"
+#include "duckdb/planner/logical_operator.hpp"
+#include "duckdb/catalog/catalog_entry/prepared_statement_catalog_entry.hpp"
 
-namespace graindb {
+namespace duckdb {
 class ClientContext;
 
 //! The planner creates a logical query plan from the parsed SQL statements
@@ -44,4 +44,4 @@ private:
 
 	// bool StatementRequiresValidTransaction(BoundSQLStatement &statement);
 };
-} // namespace graindb
+} // namespace duckdb

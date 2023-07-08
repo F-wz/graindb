@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/checkpoint/table_data_reader.hpp
+// duckdb/storage/checkpoint/table_data_reader.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/storage/checkpoint_manager.hpp"
+#include "duckdb/storage/checkpoint_manager.hpp"
 
-namespace graindb {
+namespace duckdb {
 struct BoundCreateTableInfo;
 
 //! The table data reader is responsible for reading the data of a table from the block manager
@@ -26,4 +26,4 @@ private:
 	BoundCreateTableInfo &info;
 };
 
-} // namespace graindb
+} // namespace duckdb

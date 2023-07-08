@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/constraints/bound_check_constraint.hpp
+// duckdb/planner/constraints/bound_check_constraint.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/planner/bound_constraint.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/planner/bound_constraint.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The CheckConstraint contains an expression that must evaluate to TRUE for
 //! every row in a table
@@ -27,4 +27,4 @@ public:
 	unordered_set<column_t> bound_columns;
 };
 
-} // namespace graindb
+} // namespace duckdb

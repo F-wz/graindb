@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/numeric_segment.hpp
+// duckdb/storage/numeric_segment.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/storage/uncompressed_segment.hpp"
+#include "duckdb/storage/uncompressed_segment.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class NumericSegment : public UncompressedSegment {
 public:
@@ -99,4 +99,4 @@ static idx_t merge_loop(row_t a[], sel_t b[], idx_t acount, idx_t bcount, idx_t 
 	return count;
 }
 
-} // namespace graindb
+} // namespace duckdb

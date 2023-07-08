@@ -1,21 +1,21 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_comparison_join.hpp
+// duckdb/planner/operator/logical_comparison_join.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/optimizer/join_order/query_graph.hpp"
-#include "graindb/planner/joinside.hpp"
-#include "graindb/planner/operator/logical_join.hpp"
-#include "graindb/storage/rai.hpp"
+#include "duckdb/common/constants.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/optimizer/join_order/query_graph.hpp"
+#include "duckdb/planner/joinside.hpp"
+#include "duckdb/planner/operator/logical_join.hpp"
+#include "duckdb/storage/rai.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalComparisonJoin represents a join that involves comparisons between the LHS and RHS
 class LogicalComparisonJoin : public LogicalJoin {
@@ -37,4 +37,4 @@ public:
 	                                              vector<unique_ptr<Expression>> &expressions);
 };
 
-} // namespace graindb
+} // namespace duckdb

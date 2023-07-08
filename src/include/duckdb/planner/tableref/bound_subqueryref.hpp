@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/tableref/bound_subqueryref.hpp
+// duckdb/planner/tableref/bound_subqueryref.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/binder.hpp"
-#include "graindb/planner/bound_query_node.hpp"
-#include "graindb/planner/bound_tableref.hpp"
+#include "duckdb/planner/binder.hpp"
+#include "duckdb/planner/bound_query_node.hpp"
+#include "duckdb/planner/bound_tableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Represents a cross product
 class BoundSubqueryRef : public BoundTableRef {
@@ -26,4 +26,4 @@ public:
 	//! The bound subquery node
 	unique_ptr<BoundQueryNode> subquery;
 };
-} // namespace graindb
+} // namespace duckdb

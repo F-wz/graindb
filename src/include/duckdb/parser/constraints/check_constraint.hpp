@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/constraints/check_constraint.hpp
+// duckdb/parser/constraints/check_constraint.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/string_util.hpp"
-#include "graindb/parser/constraint.hpp"
-#include "graindb/parser/parsed_expression.hpp"
+#include "duckdb/common/string_util.hpp"
+#include "duckdb/parser/constraint.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The CheckConstraint contains an expression that must evaluate to TRUE for
 //! every row in a table
@@ -34,4 +34,4 @@ public:
 	static unique_ptr<Constraint> Deserialize(Deserializer &source);
 };
 
-} // namespace graindb
+} // namespace duckdb

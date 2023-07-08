@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/serializer/buffered_deserializer.hpp
+// duckdb/common/serializer/buffered_deserializer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/serializer/buffered_serializer.hpp"
-#include "graindb/common/serializer.hpp"
+#include "duckdb/common/serializer/buffered_serializer.hpp"
+#include "duckdb/common/serializer.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class BufferedDeserializer : public Deserializer {
 public:
@@ -25,4 +25,4 @@ public:
 	void ReadData(data_ptr_t buffer, uint64_t read_size) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

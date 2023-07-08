@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/column_data.hpp
+// duckdb/storage/column_data.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/data_chunk.hpp"
-#include "graindb/storage/table/append_state.hpp"
-#include "graindb/storage/table/persistent_segment.hpp"
-#include "graindb/storage/table/scan_state.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
+#include "duckdb/storage/table/append_state.hpp"
+#include "duckdb/storage/table/persistent_segment.hpp"
+#include "duckdb/storage/table/scan_state.hpp"
 
-namespace graindb {
+namespace duckdb {
 class PersistentSegment;
 class Transaction;
 
@@ -72,4 +72,4 @@ private:
 	void AppendTransientSegment(idx_t start_row);
 };
 
-} // namespace graindb
+} // namespace duckdb

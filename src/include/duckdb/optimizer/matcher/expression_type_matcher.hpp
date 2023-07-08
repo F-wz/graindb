@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/matcher/expression_type_matcher.hpp
+// duckdb/optimizer/matcher/expression_type_matcher.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/enums/expression_type.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/enums/expression_type.hpp"
 
 #include <algorithm>
 
-namespace graindb {
+namespace duckdb {
 
 //! The ExpressionTypeMatcher class contains a set of matchers that can be used to pattern match ExpressionTypes
 class ExpressionTypeMatcher {
@@ -61,4 +61,4 @@ public:
 		       type == ExpressionType::COMPARE_GREATERTHAN;
 	}
 };
-} // namespace graindb
+} // namespace duckdb

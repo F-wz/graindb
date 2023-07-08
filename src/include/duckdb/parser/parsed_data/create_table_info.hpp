@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/create_table_info.hpp
+// duckdb/parser/parsed_data/create_table_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/create_info.hpp"
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/parser/column_definition.hpp"
-#include "graindb/parser/constraint.hpp"
-#include "graindb/parser/statement/select_statement.hpp"
+#include "duckdb/parser/parsed_data/create_info.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/parser/column_definition.hpp"
+#include "duckdb/parser/constraint.hpp"
+#include "duckdb/parser/statement/select_statement.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct CreateTableInfo : public CreateInfo {
 	CreateTableInfo() : CreateInfo(CatalogType::TABLE, INVALID_SCHEMA) {
@@ -32,4 +32,4 @@ struct CreateTableInfo : public CreateInfo {
 	unique_ptr<SelectStatement> query;
 };
 
-} // namespace graindb
+} // namespace duckdb

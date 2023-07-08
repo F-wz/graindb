@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/operator/numeric_binary_operators.hpp
+// duckdb/common/operator/numeric_binary_operators.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/assert.hpp"
+#include "duckdb/common/assert.hpp"
 #include <cmath>
 
-namespace graindb {
+namespace duckdb {
 
 struct AddOperator {
 	template <class TA, class TB, class TR> static inline TR Operation(TA left, TB right) {
@@ -62,4 +62,4 @@ template <> double DivideOperator::Operation(double left, double right);
 template <> float ModuloOperator::Operation(float left, float right);
 template <> double ModuloOperator::Operation(double left, double right);
 
-} // namespace graindb
+} // namespace duckdb

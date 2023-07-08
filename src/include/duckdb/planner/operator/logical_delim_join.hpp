@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_delim_join.hpp
+// duckdb/planner/operator/logical_delim_join.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/operator/logical_comparison_join.hpp"
+#include "duckdb/planner/operator/logical_comparison_join.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalDelimJoin represents a special "duplicate eliminated" join. This join type is only used for subquery
 //! flattening, and involves performing duplicate elimination on the LEFT side which is then pushed into the RIGHT side.
@@ -23,4 +23,4 @@ public:
 	vector<unique_ptr<Expression>> duplicate_eliminated_columns;
 };
 
-} // namespace graindb
+} // namespace duckdb

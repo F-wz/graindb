@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/transaction/delete_info.hpp
+// duckdb/transaction/delete_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 class ChunkInfo;
 class DataTable;
 
@@ -22,4 +22,4 @@ struct DeleteInfo {
 	row_t rows[1];
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/tableref/bound_expressionlistref.hpp
+// duckdb/planner/tableref/bound_expressionlistref.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/bound_tableref.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/planner/bound_tableref.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! Represents a TableReference to a base table in the schema
 class BoundExpressionListRef : public BoundTableRef {
 public:
@@ -27,4 +27,4 @@ public:
 	//! The index in the bind context
 	idx_t bind_index;
 };
-} // namespace graindb
+} // namespace duckdb

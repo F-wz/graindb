@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression_binder/select_binder.hpp
+// duckdb/planner/expression_binder/select_binder.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/parser/expression_map.hpp"
-#include "graindb/planner/expression_binder.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/parser/expression_map.hpp"
+#include "duckdb/planner/expression_binder.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BoundColumnRefExpression;
 class WindowExpression;
 
@@ -57,4 +57,4 @@ protected:
 	BindResult BindGroup(ParsedExpression &expr, idx_t depth, idx_t group_index);
 };
 
-} // namespace graindb
+} // namespace duckdb

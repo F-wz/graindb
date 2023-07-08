@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/subquery/rewrite_correlated_expressions.hpp
+// duckdb/planner/subquery/rewrite_correlated_expressions.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/binder.hpp"
-#include "graindb/planner/column_binding_map.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/binder.hpp"
+#include "duckdb/planner/column_binding_map.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Helper class to rewrite correlated expressions within a single LogicalOperator
 class RewriteCorrelatedExpressions : public LogicalOperatorVisitor {
@@ -55,4 +55,4 @@ public:
 	column_binding_map_t<idx_t> &replacement_map;
 };
 
-} // namespace graindb
+} // namespace duckdb

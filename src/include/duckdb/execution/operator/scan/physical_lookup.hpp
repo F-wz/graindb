@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/scan/physical_fetch_scan.hpp
+// duckdb/execution/operator/scan/physical_fetch_scan.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/storage/data_table.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/storage/data_table.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class PhysicalLookupOperatorState : public PhysicalOperatorState {
 public:
@@ -61,4 +61,4 @@ public:
 	unique_ptr<PhysicalOperatorState> GetOperatorState() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

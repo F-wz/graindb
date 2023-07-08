@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/create_sequence_info.hpp
+// duckdb/parser/parsed_data/create_sequence_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/create_info.hpp"
+#include "duckdb/parser/parsed_data/create_info.hpp"
 
 #include <limits>
 
-namespace graindb {
+namespace duckdb {
 
 struct CreateSequenceInfo : public CreateInfo {
 	CreateSequenceInfo()
@@ -36,4 +36,4 @@ struct CreateSequenceInfo : public CreateInfo {
 	bool cycle;
 };
 
-} // namespace graindb
+} // namespace duckdb

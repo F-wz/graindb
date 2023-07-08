@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/expression_executor_state.hpp
+// duckdb/execution/expression_executor_state.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/types/data_chunk.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
 
-namespace graindb {
+namespace duckdb {
 class Expression;
 class ExpressionExecutor;
 struct ExpressionExecutorState;
@@ -35,4 +35,4 @@ struct ExpressionExecutorState {
 	ExpressionExecutor *executor;
 };
 
-} // namespace graindb
+} // namespace duckdb

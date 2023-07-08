@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/write_ahead_log.hpp
+// duckdb/storage/write_ahead_log.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/helper.hpp"
-#include "graindb/common/types/data_chunk.hpp"
-#include "graindb/common/enums/wal_type.hpp"
-#include "graindb/common/serializer/buffered_file_writer.hpp"
-#include "graindb/catalog/catalog_entry/sequence_catalog_entry.hpp"
+#include "duckdb/common/helper.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
+#include "duckdb/common/enums/wal_type.hpp"
+#include "duckdb/common/serializer/buffered_file_writer.hpp"
+#include "duckdb/catalog/catalog_entry/sequence_catalog_entry.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct AlterInfo;
 
@@ -79,4 +79,4 @@ private:
 	unique_ptr<BufferedFileWriter> writer;
 };
 
-} // namespace graindb
+} // namespace duckdb

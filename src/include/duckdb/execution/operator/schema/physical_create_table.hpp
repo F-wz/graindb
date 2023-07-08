@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/schema/physical_create_table.hpp
+// duckdb/execution/operator/schema/physical_create_table.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/planner/parsed_data/bound_create_table_info.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/planner/parsed_data/bound_create_table_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Physically CREATE TABLE statement
 class PhysicalCreateTable : public PhysicalOperator {
@@ -30,4 +30,4 @@ public:
 	                      SelectionVector *sel = nullptr, Vector *rid_vector = nullptr,
 	                      DataChunk *rai_chunk = nullptr) override;
 };
-} // namespace graindb
+} // namespace duckdb

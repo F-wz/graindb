@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/index/art/leaf.hpp
+// duckdb/execution/index/art/leaf.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/index/art/node.hpp"
+#include "duckdb/execution/index/art/node.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class Leaf : public Node {
 public:
@@ -32,4 +32,4 @@ private:
 	unique_ptr<row_t[]> row_ids;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/join/physical_delim_join.hpp
+// duckdb/execution/operator/join/physical_delim_join.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/execution/physical_operator.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/execution/physical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! PhysicalDelimJoin represents a join where the LHS will be duplicate eliminated and pushed into a
 //! PhysicalChunkCollectionScan in the RHS.
 class PhysicalDelimJoin : public PhysicalOperator {
@@ -32,4 +32,4 @@ public:
 	string ExtraRenderInformation() const override;
 };
 
-} // namespace graindb
+} // namespace duckdb

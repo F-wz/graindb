@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression.hpp
+// duckdb/planner/expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/base_expression.hpp"
+#include "duckdb/parser/base_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 //!  The Expression class represents a bound Expression with a return type
 class Expression : public BaseExpression {
 public:
@@ -46,4 +46,4 @@ protected:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

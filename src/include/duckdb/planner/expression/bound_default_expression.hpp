@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression/bound_default_expression.hpp
+// duckdb/planner/expression/bound_default_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/expression.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class BoundDefaultExpression : public Expression {
 public:
@@ -36,4 +36,4 @@ public:
 		return make_unique<BoundDefaultExpression>(return_type, sql_type);
 	}
 };
-} // namespace graindb
+} // namespace duckdb

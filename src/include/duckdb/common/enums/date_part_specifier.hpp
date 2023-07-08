@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/date_part_specifier.hpp
+// duckdb/common/enums/date_part_specifier.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 enum class DatePartSpecifier : uint8_t {
 	YEAR,
@@ -34,4 +34,4 @@ enum class DatePartSpecifier : uint8_t {
 
 DatePartSpecifier GetDatePartSpecifier(string specifier);
 
-} // namespace graindb
+} // namespace duckdb

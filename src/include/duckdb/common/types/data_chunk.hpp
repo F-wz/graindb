@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types/data_chunk.hpp
+// duckdb/common/types/data_chunk.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/types/vector.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/types/vector.hpp"
 
 #include <vector>
 
-namespace graindb {
+namespace duckdb {
 
 //!  A Data Chunk represents a set of vectors.
 /*!
@@ -122,4 +122,4 @@ public:
 private:
 	idx_t count;
 };
-} // namespace graindb
+} // namespace duckdb

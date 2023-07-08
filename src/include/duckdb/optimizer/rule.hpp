@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/rule.hpp
+// duckdb/optimizer/rule.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/optimizer/matcher/expression_matcher.hpp"
-#include "graindb/optimizer/matcher/logical_operator_matcher.hpp"
+#include "duckdb/optimizer/matcher/expression_matcher.hpp"
+#include "duckdb/optimizer/matcher/logical_operator_matcher.hpp"
 
-namespace graindb {
+namespace duckdb {
 class ExpressionRewriter;
 
 class Rule {
@@ -31,4 +31,4 @@ public:
 	virtual unique_ptr<Expression> Apply(LogicalOperator &op, vector<Expression *> &bindings, bool &fixed_point) = 0;
 };
 
-} // namespace graindb
+} // namespace duckdb

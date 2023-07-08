@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/schema/physical_drop.hpp
+// duckdb/execution/operator/schema/physical_drop.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/parser/parsed_data/drop_info.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/parser/parsed_data/drop_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalDrop represents a DROP [...] command
 class PhysicalDrop : public PhysicalOperator {
@@ -28,4 +28,4 @@ public:
 	                      DataChunk *rai_chunk = nullptr) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

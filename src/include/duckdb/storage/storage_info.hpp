@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/storage_info.hpp
+// duckdb/storage/storage_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The version number of the database storage format
 extern const uint64_t VERSION_NUMBER;
@@ -47,4 +47,4 @@ struct DatabaseHeader {
 	uint64_t block_count;
 };
 
-} // namespace graindb
+} // namespace duckdb

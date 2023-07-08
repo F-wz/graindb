@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/physical_plan_generator.hpp
+// duckdb/execution/physical_plan_generator.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/planner/logical_operator.hpp"
-#include "graindb/planner/logical_tokens.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/planner/logical_operator.hpp"
+#include "duckdb/planner/logical_tokens.hpp"
 
-namespace graindb {
+namespace duckdb {
 class ClientContext;
 
 //! The physical plan generator generates a physical execution plan from a
@@ -81,4 +81,4 @@ protected:
 private:
 	ClientContext &context;
 };
-} // namespace graindb
+} // namespace duckdb

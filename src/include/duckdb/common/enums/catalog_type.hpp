@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/catalog_type.hpp
+// duckdb/common/enums/catalog_type.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //===--------------------------------------------------------------------===//
 // Catalog Types
@@ -35,4 +35,4 @@ enum class CatalogType : uint8_t {
 
 string CatalogTypeToString(CatalogType type);
 
-} // namespace graindb
+} // namespace duckdb

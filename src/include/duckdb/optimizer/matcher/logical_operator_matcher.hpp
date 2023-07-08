@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/matcher/logical_operator_matcher.hpp
+// duckdb/optimizer/matcher/logical_operator_matcher.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/logical_operator_type.hpp"
+#include "duckdb/common/enums/logical_operator_type.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The LogicalOperatorMatcher class contains a set of matchers that can be used to match LogicalOperators
 class LogicalOperatorMatcher {
@@ -35,4 +35,4 @@ private:
 	LogicalOperatorType type;
 };
 
-} // namespace graindb
+} // namespace duckdb

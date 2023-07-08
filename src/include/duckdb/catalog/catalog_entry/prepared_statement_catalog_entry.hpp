@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/catalog/catalog_entry/prepared_statement_catalog_entry.hpp
+// duckdb/catalog/catalog_entry/prepared_statement_catalog_entry.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_entry.hpp"
-#include "graindb/main/prepared_statement_data.hpp"
+#include "duckdb/catalog/catalog_entry.hpp"
+#include "duckdb/main/prepared_statement_data.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! A view catalog entry
 class PreparedStatementCatalogEntry : public CatalogEntry {
@@ -22,4 +22,4 @@ public:
 
 	unique_ptr<PreparedStatementData> prepared;
 };
-} // namespace graindb
+} // namespace duckdb

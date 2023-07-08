@@ -1,8 +1,8 @@
 #pragma once
 
-#include "graindb/optimizer/optimizer.hpp"
+#include "duckdb/optimizer/optimizer.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class SIPJoinMerger : public LogicalOperatorVisitor {
 public:

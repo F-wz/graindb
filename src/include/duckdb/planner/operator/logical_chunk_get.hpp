@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_chunk_get.hpp
+// duckdb/planner/operator/logical_chunk_get.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalChunkGet represents a scan operation from a ChunkCollection
 class LogicalChunkGet : public LogicalOperator {
@@ -40,4 +40,4 @@ protected:
 		this->types = chunk_types;
 	}
 };
-} // namespace graindb
+} // namespace duckdb

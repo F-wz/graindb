@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression_binder/index_binder.hpp
+// duckdb/planner/expression_binder/index_binder.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/expression_binder.hpp"
-#include "graindb/common/unordered_map.hpp"
+#include "duckdb/planner/expression_binder.hpp"
+#include "duckdb/common/unordered_map.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BoundColumnRefExpression;
 
 //! The INDEX binder is responsible for binding an expression within an Index statement
@@ -25,4 +25,4 @@ protected:
 	string UnsupportedAggregateMessage() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

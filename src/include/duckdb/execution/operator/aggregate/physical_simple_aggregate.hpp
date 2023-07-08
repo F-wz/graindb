@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/aggregate/physical_simple_aggregate.hpp
+// duckdb/execution/operator/aggregate/physical_simple_aggregate.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
+#include "duckdb/execution/physical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalSimpleAggregate is an aggregate operator that can only perform aggregates (1) without any groups, and (2)
 //! without any DISTINCT aggregates
@@ -29,4 +29,4 @@ public:
 	unique_ptr<PhysicalOperatorState> GetOperatorState() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

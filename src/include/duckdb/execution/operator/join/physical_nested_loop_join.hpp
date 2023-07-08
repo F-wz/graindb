@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/join/physical_nested_loop_join.hpp
+// duckdb/execution/operator/join/physical_nested_loop_join.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/execution/operator/join/physical_comparison_join.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/execution/operator/join/physical_comparison_join.hpp"
 
-namespace graindb {
+namespace duckdb {
 idx_t nested_loop_join(ExpressionType op, Vector &left, Vector &right, idx_t &lpos, idx_t &rpos, sel_t lvector[],
                        sel_t rvector[]);
 idx_t nested_loop_comparison(ExpressionType op, Vector &left, Vector &right, sel_t lvector[], sel_t rvector[],
@@ -30,4 +30,4 @@ public:
 	unique_ptr<PhysicalOperatorState> GetOperatorState() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

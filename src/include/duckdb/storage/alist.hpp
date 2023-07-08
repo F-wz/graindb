@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/alist.hpp
+// duckdb/storage/alist.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/rai_direction.hpp"
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/common/types/data_chunk.hpp"
+#include "duckdb/common/enums/rai_direction.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 typedef vector<bool> bitmask_vector;
 typedef vector<row_t> rows_vector;
@@ -81,4 +81,4 @@ public:
 	CompactList compact_forward_list;
 	CompactList compact_backward_list;
 };
-} // namespace graindb
+} // namespace duckdb

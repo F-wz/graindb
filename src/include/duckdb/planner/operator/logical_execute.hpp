@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_execute.hpp
+// duckdb/planner/operator/logical_execute.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/prepared_statement_data.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/main/prepared_statement_data.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class LogicalExecute : public LogicalOperator {
 public:
@@ -28,4 +28,4 @@ protected:
 		// already resolved
 	}
 };
-} // namespace graindb
+} // namespace duckdb

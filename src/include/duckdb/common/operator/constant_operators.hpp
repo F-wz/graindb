@@ -1,14 +1,14 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/operator/constant_operators.hpp
+// duckdb/common/operator/constant_operators.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-namespace graindb {
+namespace duckdb {
 
 struct PickLeft {
 	template <class T> static inline T Operation(T left, T right) {
@@ -46,4 +46,4 @@ struct AddOne {
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

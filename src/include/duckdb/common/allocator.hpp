@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/allocator.hpp
+// duckdb/common/allocator.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/helper.hpp"
+#include "duckdb/common/helper.hpp"
 
 #include <limits>
 #include <memory>
 
-namespace graindb {
+namespace duckdb {
 
 #define MINIMUM_ALLOCATOR_BLOCK_SIZE 4096
 
@@ -79,4 +79,4 @@ private:
 	};
 	unique_ptr<AllocatorRegion> chunk;
 };
-} // namespace graindb
+} // namespace duckdb

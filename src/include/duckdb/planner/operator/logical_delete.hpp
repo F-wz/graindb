@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_delete.hpp
+// duckdb/planner/operator/logical_delete.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class LogicalDelete : public LogicalOperator {
 public:
@@ -24,4 +24,4 @@ protected:
 		types.push_back(TypeId::INT64);
 	}
 };
-} // namespace graindb
+} // namespace duckdb

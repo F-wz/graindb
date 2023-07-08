@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression_binder/group_binder.hpp
+// duckdb/planner/expression_binder/group_binder.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/planner/expression_binder.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/planner/expression_binder.hpp"
 
-namespace graindb {
+namespace duckdb {
 class ConstantExpression;
 class ColumnRefExpression;
 
@@ -44,4 +44,4 @@ protected:
 	idx_t group_index;
 };
 
-} // namespace graindb
+} // namespace duckdb

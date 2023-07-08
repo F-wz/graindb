@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/scan/physical_table_function.hpp
+// duckdb/execution/operator/scan/physical_table_function.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/function/function.hpp"
-#include "graindb/storage/data_table.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/function/function.hpp"
+#include "duckdb/storage/data_table.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Represents a scan of a base table
 class PhysicalTableFunction : public PhysicalOperator {
@@ -36,4 +36,4 @@ public:
 	                      DataChunk *rai_chunk = nullptr) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/expression/comparison_expression.hpp
+// duckdb/parser/expression/comparison_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_expression.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! ComparisonExpression represents a boolean comparison (e.g. =, >=, <>). Always returns a boolean
 //! and has two children.
 class ComparisonExpression : public ParsedExpression {
@@ -30,4 +30,4 @@ public:
 	void Serialize(Serializer &serializer) override;
 	static unique_ptr<ParsedExpression> Deserialize(ExpressionType type, Deserializer &source);
 };
-} // namespace graindb
+} // namespace duckdb

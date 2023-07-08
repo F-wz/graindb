@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/physical_operator_type.hpp
+// duckdb/common/enums/physical_operator_type.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //===--------------------------------------------------------------------===//
 // Physical Operator Types
@@ -103,4 +103,4 @@ enum class PhysicalOperatorType : uint8_t {
 
 string PhysicalOperatorToString(PhysicalOperatorType type);
 
-} // namespace graindb
+} // namespace duckdb

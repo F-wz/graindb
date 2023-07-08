@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/helper/physical_prepare.hpp
+// duckdb/execution/operator/helper/physical_prepare.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/physical_operator_type.hpp"
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/main/prepared_statement_data.hpp"
+#include "duckdb/common/enums/physical_operator_type.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/main/prepared_statement_data.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class PhysicalPrepare : public PhysicalOperator {
 public:
@@ -29,4 +29,4 @@ public:
 	                      DataChunk *rai_chunk = nullptr) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

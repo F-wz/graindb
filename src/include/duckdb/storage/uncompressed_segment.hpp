@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/uncompressed_segment.hpp
+// duckdb/storage/uncompressed_segment.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/storage/block.hpp"
-#include "graindb/storage/storage_lock.hpp"
-#include "graindb/storage/table/column_segment.hpp"
-#include "graindb/storage/table/scan_state.hpp"
+#include "duckdb/storage/block.hpp"
+#include "duckdb/storage/storage_lock.hpp"
+#include "duckdb/storage/table/column_segment.hpp"
+#include "duckdb/storage/table/scan_state.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BufferManager;
 class ColumnData;
 class Transaction;
@@ -121,4 +121,4 @@ protected:
 	                             idx_t vector_index, idx_t vector_offset, idx_t type_size);
 };
 
-} // namespace graindb
+} // namespace duckdb

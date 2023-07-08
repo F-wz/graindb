@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/value_operations/value_operations.hpp
+// duckdb/common/value_operations/value_operations.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/value.hpp"
+#include "duckdb/common/types/value.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct ValueOperations {
 	//===--------------------------------------------------------------------===//
@@ -51,4 +51,4 @@ struct ValueOperations {
 	// result = HASH(A)
 	static hash_t Hash(const Value &left);
 };
-} // namespace graindb
+} // namespace duckdb

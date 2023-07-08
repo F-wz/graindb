@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/tableref.hpp
+// duckdb/parser/tableref.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/enums/tableref_type.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/enums/tableref_type.hpp"
 
-namespace graindb {
+namespace duckdb {
 class Deserializer;
 class Serializer;
 
@@ -44,4 +44,4 @@ public:
 	//! Deserializes a blob back into a TableRef
 	static unique_ptr<TableRef> Deserialize(Deserializer &source);
 };
-} // namespace graindb
+} // namespace duckdb

@@ -1,14 +1,14 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/tokens.hpp
+// duckdb/parser/tokens.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-namespace graindb {
+namespace duckdb {
 
 //===--------------------------------------------------------------------===//
 // Statements
@@ -81,4 +81,4 @@ class TableFunctionRef;
 class EmptyTableRef;
 class ExpressionListRef;
 
-} // namespace graindb
+} // namespace duckdb

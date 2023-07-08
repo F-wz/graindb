@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/optimizer.hpp
+// duckdb/optimizer/optimizer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/optimizer/expression_rewriter.hpp"
-#include "graindb/planner/logical_operator.hpp"
-#include "graindb/planner/logical_operator_visitor.hpp"
+#include "duckdb/optimizer/expression_rewriter.hpp"
+#include "duckdb/planner/logical_operator.hpp"
+#include "duckdb/planner/logical_operator_visitor.hpp"
 
-namespace graindb {
+namespace duckdb {
 class Binder;
 
 class Optimizer {
@@ -26,4 +26,4 @@ public:
 	ExpressionRewriter rewriter;
 };
 
-} // namespace graindb
+} // namespace duckdb

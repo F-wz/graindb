@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/expression_util.hpp
+// duckdb/parser/expression_util.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/base_expression.hpp"
+#include "duckdb/parser/base_expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 class ParsedExpression;
 class Expression;
 
@@ -29,4 +29,4 @@ private:
 	template <class T> static bool ExpressionSetEquals(const vector<unique_ptr<T>> &a, const vector<unique_ptr<T>> &b);
 };
 
-} // namespace graindb
+} // namespace duckdb

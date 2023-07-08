@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/relation/order_relation.hpp
+// duckdb/main/relation/order_relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/relation.hpp"
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/result_modifier.hpp"
+#include "duckdb/main/relation.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/result_modifier.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class OrderRelation : public Relation {
 public:
@@ -37,4 +37,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,31 +1,31 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/data_table.hpp
+// duckdb/storage/data_table.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/index_type.hpp"
-#include "graindb/common/types/data_chunk.hpp"
-#include "graindb/common/types/hyperloglog.hpp"
-#include "graindb/storage/block.hpp"
-#include "graindb/storage/column_data.hpp"
-#include "graindb/storage/index.hpp"
-#include "graindb/storage/rai.hpp"
-#include "graindb/storage/table/column_segment.hpp"
-#include "graindb/storage/table/persistent_segment.hpp"
-#include "graindb/storage/table/version_manager.hpp"
-#include "graindb/storage/table_statistics.hpp"
-#include "graindb/transaction/local_storage.hpp"
+#include "duckdb/common/enums/index_type.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
+#include "duckdb/common/types/hyperloglog.hpp"
+#include "duckdb/storage/block.hpp"
+#include "duckdb/storage/column_data.hpp"
+#include "duckdb/storage/index.hpp"
+#include "duckdb/storage/rai.hpp"
+#include "duckdb/storage/table/column_segment.hpp"
+#include "duckdb/storage/table/persistent_segment.hpp"
+#include "duckdb/storage/table/version_manager.hpp"
+#include "duckdb/storage/table_statistics.hpp"
+#include "duckdb/transaction/local_storage.hpp"
 
 #include <atomic>
 #include <mutex>
 #include <vector>
 
-namespace graindb {
+namespace duckdb {
 class ClientContext;
 class ColumnDefinition;
 class DataTable;
@@ -210,4 +210,4 @@ private:
 	//! that can be appended to
 	bool is_root;
 };
-} // namespace graindb
+} // namespace duckdb

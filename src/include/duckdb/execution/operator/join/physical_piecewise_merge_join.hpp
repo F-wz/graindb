@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/join/physical_piecewise_merge_join.hpp
+// duckdb/execution/operator/join/physical_piecewise_merge_join.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/merge_join.hpp"
-#include "graindb/execution/operator/join/physical_comparison_join.hpp"
+#include "duckdb/execution/merge_join.hpp"
+#include "duckdb/execution/operator/join/physical_comparison_join.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalPiecewiseMergeJoin represents a piecewise merge loop join between
 //! two tables
@@ -29,4 +29,4 @@ public:
 	unique_ptr<PhysicalOperatorState> GetOperatorState() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

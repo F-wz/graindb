@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/order/physical_top_n.hpp
+// duckdb/execution/operator/order/physical_top_n.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/planner/bound_query_node.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/planner/bound_query_node.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Represents a physical ordering of the data. Note that this will not change
 //! the data but only add a selection vector.
@@ -36,4 +36,4 @@ public:
 	void CalculateHeapSize(idx_t rows);
 };
 
-} // namespace graindb
+} // namespace duckdb

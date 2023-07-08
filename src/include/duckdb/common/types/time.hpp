@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types/time.hpp
+// duckdb/common/types/time.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
+#include "duckdb/common/common.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The Date class is a static class that holds helper functions for the Time
 //! type.
@@ -31,4 +31,4 @@ public:
 	//! Extract the time from a given timestamp object
 	static void Convert(dtime_t time, int32_t &out_hour, int32_t &out_min, int32_t &out_sec, int32_t &out_msec);
 };
-} // namespace graindb
+} // namespace duckdb

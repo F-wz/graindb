@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression_binder/check_binder.hpp
+// duckdb/planner/expression_binder/check_binder.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/column_definition.hpp"
-#include "graindb/planner/expression_binder.hpp"
-#include "graindb/common/unordered_set.hpp"
+#include "duckdb/parser/column_definition.hpp"
+#include "duckdb/planner/expression_binder.hpp"
+#include "duckdb/common/unordered_set.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! The CHECK binder is responsible for binding an expression within a CHECK constraint
 class CheckBinder : public ExpressionBinder {
 public:
@@ -31,4 +31,4 @@ protected:
 	string UnsupportedAggregateMessage() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

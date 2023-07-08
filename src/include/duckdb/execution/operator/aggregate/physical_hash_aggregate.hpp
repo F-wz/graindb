@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/aggregate/physical_hash_aggregate.hpp
+// duckdb/execution/operator/aggregate/physical_hash_aggregate.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/aggregate_hashtable.hpp"
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/storage/data_table.hpp"
+#include "duckdb/execution/aggregate_hashtable.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/storage/data_table.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalHashAggregate is an group-by and aggregate implementation that uses
 //! a hash table to perform the grouping
@@ -38,4 +38,4 @@ public:
 	unique_ptr<PhysicalOperatorState> GetOperatorState() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

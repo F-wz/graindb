@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/join/physical_comparison_join.hpp
+// duckdb/execution/operator/join/physical_comparison_join.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/operator/join/physical_join.hpp"
-#include "graindb/execution/expression_executor.hpp"
+#include "duckdb/execution/operator/join/physical_join.hpp"
+#include "duckdb/execution/expression_executor.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalJoin represents the base class of the join operators
 class PhysicalComparisonJoin : public PhysicalJoin {
@@ -40,4 +40,4 @@ public:
 	ExpressionExecutor rhs_executor;
 };
 
-} // namespace graindb
+} // namespace duckdb

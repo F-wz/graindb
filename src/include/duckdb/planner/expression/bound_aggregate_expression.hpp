@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression/bound_aggregate_expression.hpp
+// duckdb/planner/expression/bound_aggregate_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/expression.hpp"
-#include "graindb/function/aggregate_function.hpp"
+#include "duckdb/planner/expression.hpp"
+#include "duckdb/function/aggregate_function.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BoundAggregateExpression : public Expression {
 public:
 	BoundAggregateExpression(TypeId return_type, AggregateFunction function, bool distinct);
@@ -42,4 +42,4 @@ public:
 
 	unique_ptr<Expression> Copy() override;
 };
-} // namespace graindb
+} // namespace duckdb

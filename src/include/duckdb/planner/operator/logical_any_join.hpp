@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_any_join.hpp
+// duckdb/planner/operator/logical_any_join.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/planner/operator/logical_join.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/planner/operator/logical_join.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalAnyJoin represents a join with an arbitrary expression as JoinCondition
 class LogicalAnyJoin : public LogicalJoin {
@@ -25,4 +25,4 @@ public:
 	string ParamsToString() const override;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/filter/physical_filter.hpp
+// duckdb/execution/operator/filter/physical_filter.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
+#include "duckdb/execution/physical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalFilter represents a filter operator. It removes non-matching tuples
 //! from the result. Note that it does not physically change the data, it only
@@ -30,4 +30,4 @@ public:
 	unique_ptr<PhysicalOperatorState> GetOperatorState() override;
 	string ExtraRenderInformation() const override;
 };
-} // namespace graindb
+} // namespace duckdb

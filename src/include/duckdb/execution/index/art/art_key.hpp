@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/index/art/art_key.hpp
+// duckdb/execution/index/art/art_key.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/exception.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/exception.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class Key {
 public:
@@ -60,4 +60,4 @@ template <> unique_ptr<data_t[]> Key::CreateData(float value, bool is_little_end
 template <> unique_ptr<Key> Key::CreateKey(string_t value, bool is_little_endian);
 template <> unique_ptr<Key> Key::CreateKey(const char *value, bool is_little_endian);
 
-} // namespace graindb
+} // namespace duckdb

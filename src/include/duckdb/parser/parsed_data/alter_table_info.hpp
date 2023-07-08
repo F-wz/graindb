@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/alter_table_info.hpp
+// duckdb/parser/parsed_data/alter_table_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/parse_info.hpp"
-#include "graindb/parser/column_definition.hpp"
+#include "duckdb/parser/parsed_data/parse_info.hpp"
+#include "duckdb/parser/column_definition.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 enum class AlterType : uint8_t { INVALID = 0, ALTER_TABLE = 1 };
 
@@ -177,4 +177,4 @@ public:
 	static unique_ptr<AlterInfo> Deserialize(Deserializer &source, string schema, string table);
 };
 
-} // namespace graindb
+} // namespace duckdb

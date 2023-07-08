@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/tableref/basetableref.hpp
+// duckdb/parser/tableref/basetableref.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/tableref.hpp"
+#include "duckdb/parser/tableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! Represents a TableReference to a base table in the schema
 class BaseTableRef : public TableRef {
 public:
@@ -36,4 +36,4 @@ public:
 	//! Deserializes a blob back into a BaseTableRef
 	static unique_ptr<TableRef> Deserialize(Deserializer &source);
 };
-} // namespace graindb
+} // namespace duckdb

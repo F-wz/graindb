@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_delim_get.hpp
+// duckdb/planner/operator/logical_delim_get.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalDelimGet represents a duplicate eliminated scan belonging to a DelimJoin
 class LogicalDelimGet : public LogicalOperator {
@@ -37,4 +37,4 @@ protected:
 		this->types = chunk_types;
 	}
 };
-} // namespace graindb
+} // namespace duckdb

@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/catalog/catalog_entry/sequence_catalog_entry.hpp
+// duckdb/catalog/catalog_entry/sequence_catalog_entry.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/standard_entry.hpp"
-#include "graindb/parser/parsed_data/create_sequence_info.hpp"
+#include "duckdb/catalog/standard_entry.hpp"
+#include "duckdb/parser/parsed_data/create_sequence_info.hpp"
 
 #include <atomic>
 #include <mutex>
 
-namespace graindb {
+namespace duckdb {
 
 struct SequenceValue {
 	SequenceValue() : usage_count(0), counter(-1) {
@@ -55,4 +55,4 @@ public:
 	//! Deserializes to a CreateTableInfo
 	static unique_ptr<CreateSequenceInfo> Deserialize(Deserializer &source);
 };
-} // namespace graindb
+} // namespace duckdb

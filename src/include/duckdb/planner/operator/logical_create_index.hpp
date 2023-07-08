@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_create_index.hpp
+// duckdb/planner/operator/logical_create_index.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/create_index_info.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/parser/parsed_data/create_index_info.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class LogicalCreateIndex : public LogicalOperator {
 public:
@@ -39,4 +39,4 @@ protected:
 		types.push_back(TypeId::INT64);
 	}
 };
-} // namespace graindb
+} // namespace duckdb

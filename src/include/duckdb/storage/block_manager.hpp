@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/block_manager.hpp
+// duckdb/storage/block_manager.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/storage/block.hpp"
-#include "graindb/storage/storage_info.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/storage/block.hpp"
+#include "duckdb/storage/storage_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! BlockManager is an abstract representation to manage blocks on GrainDB. When writing or reading blocks, the
 //! BlockManager creates and accesses blocks. The concrete types implements how blocks are stored.
 class BlockManager {
@@ -37,4 +37,4 @@ public:
 	//! Write the header; should be the final step of a checkpoint
 	virtual void WriteHeader(DatabaseHeader header) = 0;
 };
-} // namespace graindb
+} // namespace duckdb

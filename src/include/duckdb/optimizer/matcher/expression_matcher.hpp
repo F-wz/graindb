@@ -1,21 +1,21 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/matcher/expression_matcher.hpp
+// duckdb/optimizer/matcher/expression_matcher.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/exception.hpp"
-#include "graindb/optimizer/matcher/expression_type_matcher.hpp"
-#include "graindb/optimizer/matcher/set_matcher.hpp"
-#include "graindb/optimizer/matcher/type_matcher.hpp"
-#include "graindb/optimizer/matcher/function_matcher.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/common/exception.hpp"
+#include "duckdb/optimizer/matcher/expression_type_matcher.hpp"
+#include "duckdb/optimizer/matcher/set_matcher.hpp"
+#include "duckdb/optimizer/matcher/type_matcher.hpp"
+#include "duckdb/optimizer/matcher/function_matcher.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The ExpressionMatcher class contains a set of matchers that can be used to pattern match Expressions
 class ExpressionMatcher {
@@ -139,4 +139,4 @@ public:
 	bool Match(Expression *expr, vector<Expression *> &bindings) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

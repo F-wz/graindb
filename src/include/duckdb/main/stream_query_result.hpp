@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/stream_query_result.hpp
+// duckdb/main/stream_query_result.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/query_result.hpp"
+#include "duckdb/main/query_result.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class ClientContext;
 class MaterializedQueryResult;
@@ -41,4 +41,4 @@ private:
 	ClientContext &context;
 };
 
-} // namespace graindb
+} // namespace duckdb

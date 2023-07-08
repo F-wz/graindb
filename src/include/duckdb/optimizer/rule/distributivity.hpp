@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/rule/distributivity.hpp
+// duckdb/optimizer/rule/distributivity.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/optimizer/rule.hpp"
-#include "graindb/parser/expression_map.hpp"
+#include "duckdb/optimizer/rule.hpp"
+#include "duckdb/parser/expression_map.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 // (X AND B) OR (X AND C) OR (X AND D) = X AND (B OR C OR D)
 class DistributivityRule : public Rule {
@@ -25,4 +25,4 @@ private:
 	unique_ptr<Expression> ExtractExpression(BoundConjunctionExpression &conj, idx_t idx, Expression &expr);
 };
 
-} // namespace graindb
+} // namespace duckdb

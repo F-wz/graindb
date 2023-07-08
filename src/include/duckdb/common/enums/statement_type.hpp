@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/statement_type.hpp
+// duckdb/common/enums/statement_type.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //===--------------------------------------------------------------------===//
 // Statement Types
@@ -39,4 +39,4 @@ enum class StatementType : uint8_t {
 
 string StatementTypeToString(StatementType type);
 
-} // namespace graindb
+} // namespace duckdb

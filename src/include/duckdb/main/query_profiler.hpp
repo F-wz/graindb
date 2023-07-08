@@ -1,24 +1,24 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/query_profiler.hpp
+// duckdb/main/query_profiler.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/profiler.hpp"
-#include "graindb/common/string_util.hpp"
-#include "graindb/common/types/data_chunk.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/common/enums/profiler_format.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/profiler.hpp"
+#include "duckdb/common/string_util.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/common/enums/profiler_format.hpp"
 
 #include <stack>
 #include <unordered_map>
 
-namespace graindb {
+namespace duckdb {
 class PhysicalOperator;
 class SQLStatement;
 
@@ -123,4 +123,4 @@ private:
 private:
 	vector<PhaseTimingItem> GetOrderedPhaseTimings() const;
 };
-} // namespace graindb
+} // namespace duckdb

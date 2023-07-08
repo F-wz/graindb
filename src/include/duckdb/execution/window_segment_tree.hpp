@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/window_segment_tree.hpp
+// duckdb/execution/window_segment_tree.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/function/aggregate_function.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/function/aggregate_function.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class WindowSegmentTree {
 public:
@@ -43,4 +43,4 @@ private:
 #endif
 };
 
-} // namespace graindb
+} // namespace duckdb

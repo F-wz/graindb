@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression_binder/having_binder.hpp
+// duckdb/planner/expression_binder/having_binder.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/expression_binder/select_binder.hpp"
+#include "duckdb/planner/expression_binder/select_binder.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The HAVING binder is responsible for binding an expression within the HAVING clause of a SQL statement
 class HavingBinder : public SelectBinder {
@@ -21,4 +21,4 @@ protected:
 	BindResult BindExpression(ParsedExpression &expr, idx_t depth, bool root_expression = false) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

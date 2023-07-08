@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/relation/insert_relation.hpp
+// duckdb/main/relation/insert_relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/relation.hpp"
+#include "duckdb/main/relation.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class InsertRelation : public Relation {
 public:
@@ -31,4 +31,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/expression/subquery_expression.hpp
+// duckdb/parser/expression/subquery_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/subquery_type.hpp"
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/query_node.hpp"
+#include "duckdb/common/enums/subquery_type.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/query_node.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Represents a subquery
 class SubqueryExpression : public ParsedExpression {
@@ -46,4 +46,4 @@ public:
 	void Serialize(Serializer &serializer) override;
 	static unique_ptr<ParsedExpression> Deserialize(ExpressionType type, Deserializer &source);
 };
-} // namespace graindb
+} // namespace duckdb

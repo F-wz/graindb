@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/scan/physical_table_scan.hpp
+// duckdb/execution/operator/scan/physical_table_scan.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/storage/data_table.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/storage/data_table.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Represents a scan of a base table
 class PhysicalTableScan : public PhysicalOperator {
@@ -59,4 +59,4 @@ private:
 	row_t rows_count;
 };
 
-} // namespace graindb
+} // namespace duckdb

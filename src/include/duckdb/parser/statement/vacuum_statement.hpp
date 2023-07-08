@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/statement/vacuum_statement.hpp
+// duckdb/parser/statement/vacuum_statement.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/sql_statement.hpp"
-#include "graindb/parser/parsed_data/vacuum_info.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/sql_statement.hpp"
+#include "duckdb/parser/parsed_data/vacuum_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class VacuumStatement : public SQLStatement {
 public:
@@ -20,4 +20,4 @@ public:
 	unique_ptr<VacuumInfo> info;
 };
 
-} // namespace graindb
+} // namespace duckdb

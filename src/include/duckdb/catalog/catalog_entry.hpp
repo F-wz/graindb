@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/catalog/catalog_entry.hpp
+// duckdb/catalog/catalog_entry.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/enums/catalog_type.hpp"
-#include "graindb/common/exception.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/enums/catalog_type.hpp"
+#include "duckdb/common/exception.hpp"
 #include <memory>
 
-namespace graindb {
+namespace duckdb {
 struct AlterInfo;
 class Catalog;
 class CatalogSet;
@@ -61,4 +61,4 @@ public:
 	//! Parent entry (the node that owns this node)
 	CatalogEntry *parent;
 };
-} // namespace graindb
+} // namespace duckdb

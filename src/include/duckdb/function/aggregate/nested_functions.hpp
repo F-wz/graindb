@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/function/aggregate/nested_functions.hpp
+// duckdb/function/aggregate/nested_functions.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/function/aggregate_function.hpp"
-#include "graindb/function/function_set.hpp"
+#include "duckdb/function/aggregate_function.hpp"
+#include "duckdb/function/function_set.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct ListBindData : public FunctionData {
 	ListBindData() {
@@ -26,4 +26,4 @@ struct ListFun {
 	static void RegisterFunction(BuiltinFunctions &set);
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/query_node/set_operation_node.hpp
+// duckdb/parser/query_node/set_operation_node.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/set_operation_type.hpp"
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/query_node.hpp"
-#include "graindb/parser/sql_statement.hpp"
+#include "duckdb/common/enums/set_operation_type.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/query_node.hpp"
+#include "duckdb/parser/sql_statement.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class SetOperationNode : public QueryNode {
 public:
@@ -42,4 +42,4 @@ public:
 	static unique_ptr<QueryNode> Deserialize(Deserializer &source);
 };
 
-}; // namespace graindb
+}; // namespace duckdb

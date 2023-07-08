@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/function/aggregate/algebraic_functions.hpp
+// duckdb/function/aggregate/algebraic_functions.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/function/aggregate_function.hpp"
+#include "duckdb/function/aggregate_function.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct AvgFun {
 	static void RegisterFunction(BuiltinFunctions &set);
@@ -40,4 +40,4 @@ struct VarSampFun {
 	static void RegisterFunction(BuiltinFunctions &set);
 };
 
-} // namespace graindb
+} // namespace duckdb

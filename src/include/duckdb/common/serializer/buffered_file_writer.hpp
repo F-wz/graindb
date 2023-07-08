@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/serializer/buffered_file_writer.hpp
+// duckdb/common/serializer/buffered_file_writer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/serializer.hpp"
-#include "graindb/common/file_system.hpp"
+#include "duckdb/common/serializer.hpp"
+#include "duckdb/common/file_system.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 #define FILE_BUFFER_SIZE 4096
 
@@ -40,4 +40,4 @@ private:
 	void Flush();
 };
 
-} // namespace graindb
+} // namespace duckdb

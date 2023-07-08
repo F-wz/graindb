@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/matcher/set_matcher.hpp
+// duckdb/optimizer/matcher/set_matcher.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/unordered_set.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/unordered_set.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class SetMatcher {
 public:
@@ -110,4 +110,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

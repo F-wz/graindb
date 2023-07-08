@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/tableref/bound_table_function.hpp
+// duckdb/planner/tableref/bound_table_function.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/value.hpp"
-#include "graindb/planner/expression.hpp"
-#include "graindb/planner/bound_tableref.hpp"
-#include "graindb/function/function.hpp"
+#include "duckdb/common/types/value.hpp"
+#include "duckdb/planner/expression.hpp"
+#include "duckdb/planner/bound_tableref.hpp"
+#include "duckdb/function/function.hpp"
 
-namespace graindb {
+namespace duckdb {
 class TableFunctionCatalogEntry;
 
 //! Represents a reference to a table-producing function call
@@ -36,4 +36,4 @@ public:
 	//! The index in the bind context
 	idx_t bind_index;
 };
-} // namespace graindb
+} // namespace duckdb

@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/subquery/flatten_dependent_join.hpp
+// duckdb/planner/subquery/flatten_dependent_join.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/planner/binder.hpp"
-#include "graindb/planner/column_binding_map.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/planner/binder.hpp"
+#include "duckdb/planner/column_binding_map.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The FlattenDependentJoins class is responsible for pushing the dependent join down into the plan to create a
 //! flattened subquery
@@ -41,4 +41,4 @@ private:
 	unique_ptr<LogicalOperator> PushDownDependentJoinInternal(unique_ptr<LogicalOperator> plan);
 };
 
-} // namespace graindb
+} // namespace duckdb

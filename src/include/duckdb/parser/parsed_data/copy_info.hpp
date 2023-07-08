@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/copy_info.hpp
+// duckdb/parser/parsed_data/copy_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/parse_info.hpp"
+#include "duckdb/parser/parsed_data/parse_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //===--------------------------------------------------------------------===//
 // External File Format Types
@@ -63,4 +63,4 @@ struct CopyInfo : public ParseInfo {
 	vector<bool> force_not_null;
 };
 
-} // namespace graindb
+} // namespace duckdb

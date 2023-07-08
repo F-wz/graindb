@@ -1,8 +1,8 @@
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 enum class RAIDirection : uint8_t { DIRECTED, UNDIRECTED, SELF, PKFK };
 }

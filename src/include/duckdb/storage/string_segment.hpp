@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/string_segment.hpp
+// duckdb/storage/string_segment.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/storage/uncompressed_segment.hpp"
+#include "duckdb/storage/uncompressed_segment.hpp"
 
-namespace graindb {
+namespace duckdb {
 class OverflowStringWriter {
 public:
 	virtual ~OverflowStringWriter() {
@@ -211,4 +211,4 @@ private:
 	static constexpr idx_t BIG_STRING_MARKER_SIZE = BIG_STRING_MARKER_BASE_SIZE + sizeof(uint16_t);
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/transaction/local_storage.hpp
+// duckdb/transaction/local_storage.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/storage/table/scan_state.hpp"
-#include "graindb/storage/index.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/storage/table/scan_state.hpp"
+#include "duckdb/storage/index.hpp"
 
-namespace graindb {
+namespace duckdb {
 class DataTable;
 class WriteAheadLog;
 struct TableAppendState;
@@ -81,4 +81,4 @@ private:
 	unordered_map<DataTable *, unique_ptr<LocalTableStorage>> table_storage;
 };
 
-} // namespace graindb
+} // namespace duckdb

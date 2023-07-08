@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/relation/table_relation.hpp
+// duckdb/main/relation/table_relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/relation.hpp"
-#include "graindb/main/table_description.hpp"
+#include "duckdb/main/relation.hpp"
+#include "duckdb/main/table_description.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class TableRelation : public Relation {
 public:
@@ -32,4 +32,4 @@ public:
 	void Delete(string condition = string()) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

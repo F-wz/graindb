@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/matcher/function_matcher.hpp
+// duckdb/optimizer/matcher/function_matcher.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/unordered_set.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/unordered_set.hpp"
 #include <algorithm>
 
-namespace graindb {
+namespace duckdb {
 
 //! The FunctionMatcher class contains a set of matchers that can be used to pattern match specific functions
 class FunctionMatcher {
@@ -58,4 +58,4 @@ private:
 	unordered_set<string> names;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/relation/read_csv_relation.hpp
+// duckdb/main/relation/read_csv_relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/relation.hpp"
+#include "duckdb/main/relation.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class ReadCSVRelation : public Relation {
 public:
@@ -28,4 +28,4 @@ public:
 	unique_ptr<TableRef> GetTableRef() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

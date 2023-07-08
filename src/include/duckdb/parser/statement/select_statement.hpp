@@ -1,21 +1,21 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/statement/select_statement.hpp
+// duckdb/parser/statement/select_statement.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/query_node.hpp"
-#include "graindb/parser/query_node/select_node.hpp"
-#include "graindb/parser/sql_statement.hpp"
-#include "graindb/parser/tableref.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/query_node.hpp"
+#include "duckdb/parser/query_node/select_node.hpp"
+#include "duckdb/parser/sql_statement.hpp"
+#include "duckdb/parser/tableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! SelectStatement is a typical SELECT clause
 class SelectStatement : public SQLStatement {
@@ -38,4 +38,4 @@ public:
 	//! deserialization is not possible
 	static unique_ptr<SelectStatement> Deserialize(Deserializer &source);
 };
-} // namespace graindb
+} // namespace duckdb

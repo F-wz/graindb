@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/profiler.hpp
+// duckdb/common/profiler.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/helper.hpp"
+#include "duckdb/common/helper.hpp"
 
 #include <chrono>
 
 typedef std::chrono::milliseconds ms_type;
 
-namespace graindb {
+namespace duckdb {
 
 //! The profiler can be used to measure elapsed time
 class Profiler {
@@ -46,4 +46,4 @@ private:
 	std::chrono::time_point<std::chrono::system_clock, ms_type> end;
 	bool finished = false;
 };
-} // namespace graindb
+} // namespace duckdb

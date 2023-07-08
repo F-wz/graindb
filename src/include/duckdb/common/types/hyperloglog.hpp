@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types/hyperloglog.hpp
+// duckdb/common/types/hyperloglog.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/vector.hpp"
+#include "duckdb/common/types/vector.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! The HyperLogLog class holds a HyperLogLog counter for approximate cardinality counting
 class HyperLogLog {
@@ -34,4 +34,4 @@ private:
 
 	void *hll;
 };
-} // namespace graindb
+} // namespace duckdb

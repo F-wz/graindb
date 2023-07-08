@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/statement/drop_statement.hpp
+// duckdb/parser/statement/drop_statement.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/drop_info.hpp"
-#include "graindb/parser/sql_statement.hpp"
+#include "duckdb/parser/parsed_data/drop_info.hpp"
+#include "duckdb/parser/sql_statement.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class DropStatement : public SQLStatement {
 public:
@@ -20,4 +20,4 @@ public:
 	unique_ptr<DropInfo> info;
 };
 
-} // namespace graindb
+} // namespace duckdb

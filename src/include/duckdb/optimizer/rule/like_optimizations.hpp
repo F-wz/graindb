@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/rule/like_optimizations.hpp
+// duckdb/optimizer/rule/like_optimizations.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/optimizer/rule.hpp"
-#include "graindb/function/scalar/string_functions.hpp"
+#include "duckdb/optimizer/rule.hpp"
+#include "duckdb/function/scalar/string_functions.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 // The Like Optimization rule rewrites LIKE to optimized scalar functions (e.g.: prefix, suffix, and contains)
 class LikeOptimizationRule : public Rule {
@@ -23,4 +23,4 @@ public:
 	unique_ptr<Expression> ApplyRule(BoundFunctionExpression *expr, ScalarFunction function, string pattern);
 };
 
-} // namespace graindb
+} // namespace duckdb

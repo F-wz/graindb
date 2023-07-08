@@ -1,7 +1,7 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/unordered_set.hpp
+// duckdb/common/unordered_set.hpp
 //
 //
 //===----------------------------------------------------------------------===//
@@ -10,6 +10,6 @@
 
 #include <unordered_set>
 
-namespace graindb {
+namespace duckdb {
 using std::unordered_set;
 }

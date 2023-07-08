@@ -1,21 +1,21 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/transaction/transaction_manager.hpp
+// duckdb/transaction/transaction_manager.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_set.hpp"
-#include "graindb/common/common.hpp"
+#include "duckdb/catalog/catalog_set.hpp"
+#include "duckdb/common/common.hpp"
 
 #include <atomic>
 #include <memory>
 #include <mutex>
 
-namespace graindb {
+namespace duckdb {
 
 class ClientContext;
 class StorageManager;
@@ -72,4 +72,4 @@ private:
 	StorageManager &storage;
 };
 
-} // namespace graindb
+} // namespace duckdb

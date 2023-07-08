@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/catalog/dependency_manager.hpp
+// duckdb/catalog/dependency_manager.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_entry.hpp"
-#include "graindb/catalog/catalog_set.hpp"
+#include "duckdb/catalog/catalog_entry.hpp"
+#include "duckdb/catalog/catalog_set.hpp"
 
 #include <mutex>
 
-namespace graindb {
+namespace duckdb {
 class Catalog;
 class Transaction;
 
@@ -44,4 +44,4 @@ private:
 	void AlterObject(Transaction &transaction, CatalogEntry *old_obj, CatalogEntry *new_obj);
 	void EraseObjectInternal(CatalogEntry *object);
 };
-} // namespace graindb
+} // namespace duckdb

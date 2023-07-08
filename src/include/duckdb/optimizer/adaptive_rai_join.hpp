@@ -1,9 +1,9 @@
 #pragma once
 
-#include "graindb/optimizer/optimizer.hpp"
-#include "graindb/storage/rai.hpp"
+#include "duckdb/optimizer/optimizer.hpp"
+#include "duckdb/storage/rai.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct RAIReference {
 	RAI *rai;
@@ -37,4 +37,4 @@ public:
 	//! Override this function to search for join operators
 	void VisitOperator(LogicalOperator &op) override;
 };
-} // namespace graindb
+} // namespace duckdb

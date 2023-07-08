@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/function/scalar/trigonometric_functions.hpp
+// duckdb/function/scalar/trigonometric_functions.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/function/scalar_function.hpp"
-#include "graindb/function/function_set.hpp"
+#include "duckdb/function/scalar_function.hpp"
+#include "duckdb/function/function_set.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct SinFun {
 	static void RegisterFunction(BuiltinFunctions &set);
@@ -45,4 +45,4 @@ struct Atan2Fun {
 	static void RegisterFunction(BuiltinFunctions &set);
 };
 
-} // namespace graindb
+} // namespace duckdb

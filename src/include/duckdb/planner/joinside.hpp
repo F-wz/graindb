@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/joinside.hpp
+// duckdb/planner/joinside.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/planner/expression.hpp"
-#include "graindb/storage/rai.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/planner/expression.hpp"
+#include "duckdb/storage/rai.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! JoinCondition represents a left-right comparison join condition
 struct JoinCondition {
@@ -79,4 +79,4 @@ private:
 	join_value value;
 };
 
-}; // namespace graindb
+}; // namespace duckdb

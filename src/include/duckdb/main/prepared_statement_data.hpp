@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/prepared_statement_data.hpp
+// duckdb/main/prepared_statement_data.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/value.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/common/enums/statement_type.hpp"
+#include "duckdb/common/types/value.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/common/enums/statement_type.hpp"
 
-namespace graindb {
+namespace duckdb {
 class CatalogEntry;
 class PhysicalOperator;
 
@@ -55,4 +55,4 @@ public:
 	SQLType GetType(idx_t param_index);
 };
 
-} // namespace graindb
+} // namespace duckdb

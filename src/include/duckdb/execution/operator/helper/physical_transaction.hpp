@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/helper/physical_transaction.hpp
+// duckdb/execution/operator/helper/physical_transaction.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/parser/parsed_data/transaction_info.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/parser/parsed_data/transaction_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalTransaction represents a transaction operator (e.g. BEGIN or COMMIT)
 class PhysicalTransaction : public PhysicalOperator {
@@ -28,4 +28,4 @@ public:
 	                      DataChunk *rai_chunk = nullptr) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

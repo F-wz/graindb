@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/logical_operator_visitor.hpp
+// duckdb/planner/logical_operator_visitor.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/planner/bound_tokens.hpp"
-#include "graindb/planner/logical_tokens.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/planner/bound_tokens.hpp"
+#include "duckdb/planner/logical_tokens.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! The LogicalOperatorVisitor is an abstract base class that implements the
 //! Visitor pattern on LogicalOperator.
 class LogicalOperatorVisitor {
@@ -53,4 +53,4 @@ protected:
 	virtual unique_ptr<Expression> VisitReplace(BoundUnnestExpression &expr, unique_ptr<Expression> *expr_ptr);
 	virtual unique_ptr<Expression> VisitReplace(CommonSubExpression &expr, unique_ptr<Expression> *expr_ptr);
 };
-} // namespace graindb
+} // namespace duckdb

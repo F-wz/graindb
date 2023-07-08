@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/bound_statement.hpp
+// duckdb/planner/bound_statement.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct BoundStatement {
 	unique_ptr<LogicalOperator> plan;
@@ -18,4 +18,4 @@ struct BoundStatement {
 	vector<string> names;
 };
 
-} // namespace graindb
+} // namespace duckdb

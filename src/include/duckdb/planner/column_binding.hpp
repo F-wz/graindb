@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/column_binding.hpp
+// duckdb/planner/column_binding.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "graindb/common/common.hpp"
-#include "graindb/storage/rai.hpp"
+#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/storage/rai.hpp"
 
 using std::hash;
 
-namespace graindb {
+namespace duckdb {
 
 struct ColumnBinding {
 	idx_t table_index;
@@ -54,4 +54,4 @@ struct ColumnBindingHasher {
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

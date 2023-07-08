@@ -1,23 +1,23 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/connection.hpp
+// duckdb/main/connection.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/profiler_format.hpp"
-#include "graindb/main/materialized_query_result.hpp"
-#include "graindb/main/prepared_statement.hpp"
-#include "graindb/main/query_result.hpp"
-#include "graindb/main/relation.hpp"
-#include "graindb/main/stream_query_result.hpp"
-#include "graindb/main/table_description.hpp"
-#include "graindb/parser/sql_statement.hpp"
+#include "duckdb/common/enums/profiler_format.hpp"
+#include "duckdb/main/materialized_query_result.hpp"
+#include "duckdb/main/prepared_statement.hpp"
+#include "duckdb/main/query_result.hpp"
+#include "duckdb/main/relation.hpp"
+#include "duckdb/main/stream_query_result.hpp"
+#include "duckdb/main/table_description.hpp"
+#include "duckdb/parser/sql_statement.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class ClientContext;
 class GrainDB;
@@ -118,4 +118,4 @@ private:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

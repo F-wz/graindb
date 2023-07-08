@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/statement/update_statement.hpp
+// duckdb/parser/statement/update_statement.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/sql_statement.hpp"
-#include "graindb/parser/tableref.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/sql_statement.hpp"
+#include "duckdb/parser/tableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class UpdateStatement : public SQLStatement {
 public:
@@ -25,4 +25,4 @@ public:
 	vector<string> columns;
 	vector<unique_ptr<ParsedExpression>> expressions;
 };
-} // namespace graindb
+} // namespace duckdb

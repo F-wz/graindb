@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/vector_operations/vector_operations.hpp
+// duckdb/common/vector_operations/vector_operations.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/data_chunk.hpp"
-#include "graindb/common/types/vector.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
+#include "duckdb/common/types/vector.hpp"
 
 #include <functional>
 
-namespace graindb {
+namespace duckdb {
 
 // VectorOperations contains a set of operations that operate on sets of
 // vectors. In general, the operators must all have the same type, otherwise an
@@ -113,4 +113,4 @@ struct VectorOperations {
 	// for any NullValue<T> of source. Used to go back from storage to a proper vector
 	static void ReadFromStorage(data_ptr_t source, idx_t count, Vector &result);
 };
-} // namespace graindb
+} // namespace duckdb

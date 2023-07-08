@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/relation/explain_relation.hpp
+// duckdb/main/relation/explain_relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/relation.hpp"
+#include "duckdb/main/relation.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class ExplainRelation : public Relation {
 public:
@@ -29,4 +29,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

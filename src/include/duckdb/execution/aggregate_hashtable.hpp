@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/aggregate_hashtable.hpp
+// duckdb/execution/aggregate_hashtable.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/planner/expression.hpp"
-#include "graindb/common/types/data_chunk.hpp"
-#include "graindb/common/types/vector.hpp"
-#include "graindb/function/aggregate_function.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/planner/expression.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
+#include "duckdb/common/types/vector.hpp"
+#include "duckdb/function/aggregate_function.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BoundAggregateExpression;
 
 struct AggregateObject {
@@ -125,4 +125,4 @@ private:
 	                   const SelectionVector &sel, idx_t count);
 };
 
-} // namespace graindb
+} // namespace duckdb

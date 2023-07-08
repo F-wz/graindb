@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/function/table_function.hpp
+// duckdb/function/table_function.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/function/function.hpp"
+#include "duckdb/function/function.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Function used for determining the return type of a table producing function
 typedef unique_ptr<FunctionData> (*table_function_bind_t)(ClientContext &context, vector<Value> inputs,
@@ -38,4 +38,4 @@ public:
 	table_function_final_t final;
 };
 
-} // namespace graindb
+} // namespace duckdb

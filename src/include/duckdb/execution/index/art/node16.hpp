@@ -1,15 +1,15 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/index/art/node16.hpp
+// duckdb/execution/index/art/node16.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
-#include "graindb/execution/index/art/node.hpp"
+#include "duckdb/execution/index/art/node.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class Node16 : public Node {
 public:
@@ -36,4 +36,4 @@ public:
 	//! Shrink to node 4
 	static void erase(ART &art, unique_ptr<Node> &node, int pos);
 };
-} // namespace graindb
+} // namespace duckdb

@@ -1,21 +1,21 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/table/version_manager.hpp
+// duckdb/storage/table/version_manager.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/common/types/vector.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/common/types/vector.hpp"
 
-#include "graindb/storage/table/chunk_info.hpp"
-#include "graindb/storage/storage_lock.hpp"
+#include "duckdb/storage/table/chunk_info.hpp"
+#include "duckdb/storage/storage_lock.hpp"
 
-namespace graindb {
+namespace duckdb {
 class DataTable;
 class Transaction;
 class VersionManager;
@@ -58,4 +58,4 @@ private:
 	ChunkInsertInfo *GetInsertInfo(idx_t chunk_idx);
 };
 
-} // namespace graindb
+} // namespace duckdb

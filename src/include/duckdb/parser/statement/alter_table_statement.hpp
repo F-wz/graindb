@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/statement/alter_table_statement.hpp
+// duckdb/parser/statement/alter_table_statement.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/column_definition.hpp"
-#include "graindb/parser/parsed_data/alter_table_info.hpp"
-#include "graindb/parser/sql_statement.hpp"
+#include "duckdb/parser/column_definition.hpp"
+#include "duckdb/parser/parsed_data/alter_table_info.hpp"
+#include "duckdb/parser/sql_statement.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class AlterTableStatement : public SQLStatement {
 public:
@@ -25,4 +25,4 @@ public:
 	unique_ptr<AlterTableInfo> info;
 };
 
-} // namespace graindb
+} // namespace duckdb

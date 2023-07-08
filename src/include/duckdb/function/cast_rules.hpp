@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/function/cast_rules.hpp
+// duckdb/function/cast_rules.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types.hpp"
+#include "duckdb/common/types.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! Contains a list of rules for casting
 class CastRules {
 public:
@@ -18,4 +18,4 @@ public:
 	static int64_t ImplicitCast(SQLType from, SQLType to);
 };
 
-} // namespace graindb
+} // namespace duckdb

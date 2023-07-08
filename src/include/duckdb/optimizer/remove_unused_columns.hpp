@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/remove_unused_columns.hpp
+// duckdb/optimizer/remove_unused_columns.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator_visitor.hpp"
-#include "graindb/planner/column_binding_map.hpp"
+#include "duckdb/planner/logical_operator_visitor.hpp"
+#include "duckdb/planner/column_binding_map.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BoundColumnRefExpression;
 
 //! The RemoveUnusedColumns optimizer traverses the logical operator tree and removes any columns that are not required
@@ -40,4 +40,4 @@ private:
 	//! replacing the bindings
 	void ReplaceBinding(ColumnBinding current_binding, ColumnBinding new_binding);
 };
-} // namespace graindb
+} // namespace duckdb

@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/table_description.hpp
+// duckdb/main/table_description.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/column_definition.hpp"
+#include "duckdb/parser/column_definition.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct TableDescription {
 	//! The schema of the table
@@ -21,4 +21,4 @@ struct TableDescription {
 	vector<ColumnDefinition> columns;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/create_view_info.hpp
+// duckdb/parser/parsed_data/create_view_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/create_info.hpp"
-#include "graindb/parser/query_node.hpp"
+#include "duckdb/parser/parsed_data/create_info.hpp"
+#include "duckdb/parser/query_node.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct CreateViewInfo : public CreateInfo {
 	CreateViewInfo() : CreateInfo(CatalogType::VIEW) {
@@ -29,4 +29,4 @@ struct CreateViewInfo : public CreateInfo {
 	unique_ptr<QueryNode> query;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types/null_value.hpp
+// duckdb/common/types/null_value.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/types/string_type.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/types/string_type.hpp"
 
 #include <cstring>
 
-namespace graindb {
+namespace duckdb {
 
 //! This is no longer used in regular vectors, however, hash tables use this
 //! value to store a NULL
@@ -58,4 +58,4 @@ bool IsNullValue(data_ptr_t ptr, TypeId type);
 //! Writes NullValue<T> value of a specific type to a memory address
 void SetNullValue(data_ptr_t ptr, TypeId type);
 
-} // namespace graindb
+} // namespace duckdb

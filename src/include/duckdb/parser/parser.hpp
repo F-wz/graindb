@@ -1,22 +1,22 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parser.hpp
+// duckdb/parser/parser.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/sql_statement.hpp"
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/query_node.hpp"
-#include "graindb/parser/column_definition.hpp"
+#include "duckdb/parser/sql_statement.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/query_node.hpp"
+#include "duckdb/parser/column_definition.hpp"
 
 struct PGNode;
 struct PGList;
 
-namespace graindb {
+namespace duckdb {
 //! The parser is responsible for parsing the query and converting it into a set
 //! of parsed statements. The parsed statements can then be converted into a
 //! plan and executed.
@@ -53,4 +53,4 @@ private:
 	//! Transform a single Postgres parse node into a SQL Statement.
 	unique_ptr<SQLStatement> TransformNode(PGNode *stmt);
 };
-} // namespace graindb
+} // namespace duckdb

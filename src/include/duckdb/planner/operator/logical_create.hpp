@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_create.hpp
+// duckdb/planner/operator/logical_create.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator.hpp"
-#include "graindb/parser/parsed_data/create_info.hpp"
+#include "duckdb/planner/logical_operator.hpp"
+#include "duckdb/parser/parsed_data/create_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalCreate represents a CREATE operator
 class LogicalCreate : public LogicalOperator {
@@ -28,4 +28,4 @@ protected:
 		types.push_back(TypeId::BOOL);
 	}
 };
-} // namespace graindb
+} // namespace duckdb

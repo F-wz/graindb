@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/execution_context.hpp
+// duckdb/execution/execution_context.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/data_chunk.hpp"
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/main/query_result.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/main/query_result.hpp"
 
-namespace graindb {
+namespace duckdb {
 class GrainDB;
 
 class ExecutionContext {
@@ -26,4 +26,4 @@ public:
 		physical_state = nullptr;
 	}
 };
-} // namespace graindb
+} // namespace duckdb

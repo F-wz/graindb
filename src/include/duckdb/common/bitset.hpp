@@ -1,7 +1,7 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/bitset.hpp
+// duckdb/common/bitset.hpp
 //
 //
 //===----------------------------------------------------------------------===//
@@ -10,6 +10,6 @@
 
 #include <bitset>
 
-namespace graindb {
+namespace duckdb {
 using std::bitset;
 }

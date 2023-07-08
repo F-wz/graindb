@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/tableref/joinref.hpp
+// duckdb/parser/tableref/joinref.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/join_type.hpp"
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/tableref.hpp"
+#include "duckdb/common/enums/join_type.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/tableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! Represents a JOIN between two expressions
 class JoinRef : public TableRef {
 public:
@@ -43,4 +43,4 @@ public:
 	//! Deserializes a blob back into a JoinRef
 	static unique_ptr<TableRef> Deserialize(Deserializer &source);
 };
-} // namespace graindb
+} // namespace duckdb

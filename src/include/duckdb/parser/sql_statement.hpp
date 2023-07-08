@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/sql_statement.hpp
+// duckdb/parser/sql_statement.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/enums/statement_type.hpp"
-#include "graindb/common/exception.hpp"
-#include "graindb/common/printer.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/enums/statement_type.hpp"
+#include "duckdb/common/exception.hpp"
+#include "duckdb/common/printer.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! SQLStatement is the base class of any type of SQL statement.
 class SQLStatement {
 public:
@@ -25,4 +25,4 @@ public:
 	idx_t stmt_location;
 	idx_t stmt_length;
 };
-} // namespace graindb
+} // namespace duckdb

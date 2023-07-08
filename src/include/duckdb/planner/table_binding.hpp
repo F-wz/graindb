@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/table_binding.hpp
+// duckdb/planner/table_binding.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/parser/column_definition.hpp"
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/planner/expression_binder.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/parser/column_definition.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/planner/expression_binder.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BindContext;
 class BoundQueryNode;
 class ColumnRefExpression;
@@ -72,4 +72,4 @@ public:
 	void GenerateAllColumnExpressions(BindContext &context, vector<unique_ptr<ParsedExpression>> &select_list) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

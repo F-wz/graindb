@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/pragma_info.hpp
+// duckdb/parser/parsed_data/pragma_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/parse_info.hpp"
-#include "graindb/common/types/value.hpp"
+#include "duckdb/parser/parsed_data/parse_info.hpp"
+#include "duckdb/common/types/value.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 enum class PragmaType : uint8_t { NOTHING, ASSIGNMENT, CALL };
 
@@ -24,4 +24,4 @@ struct PragmaInfo : public ParseInfo {
 	vector<Value> parameters;
 };
 
-} // namespace graindb
+} // namespace duckdb

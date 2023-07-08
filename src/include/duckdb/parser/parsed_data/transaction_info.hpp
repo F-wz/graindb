@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/transaction_info.hpp
+// duckdb/parser/parsed_data/transaction_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/parse_info.hpp"
+#include "duckdb/parser/parsed_data/parse_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 enum class TransactionType : uint8_t { INVALID, BEGIN_TRANSACTION, COMMIT, ROLLBACK };
 
@@ -22,4 +22,4 @@ struct TransactionInfo : public ParseInfo {
 	TransactionType type;
 };
 
-} // namespace graindb
+} // namespace duckdb

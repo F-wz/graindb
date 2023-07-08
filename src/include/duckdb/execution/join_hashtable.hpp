@@ -1,23 +1,23 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/join_hashtable.hpp
+// duckdb/execution/join_hashtable.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/types/data_chunk.hpp"
-#include "graindb/common/types/vector.hpp"
-#include "graindb/execution/aggregate_hashtable.hpp"
-#include "graindb/planner/operator/logical_comparison_join.hpp"
-#include "graindb/storage/storage_info.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
+#include "duckdb/common/types/vector.hpp"
+#include "duckdb/execution/aggregate_hashtable.hpp"
+#include "duckdb/planner/operator/logical_comparison_join.hpp"
+#include "duckdb/storage/storage_info.hpp"
 
 #include <mutex>
 
-namespace graindb {
+namespace duckdb {
 class BufferManager;
 class BufferHandle;
 
@@ -216,4 +216,4 @@ private:
 	vector<bool> null_values_are_equal;
 };
 
-} // namespace graindb
+} // namespace duckdb

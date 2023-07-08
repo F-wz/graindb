@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/projection/physical_projection.hpp
+// duckdb/execution/operator/projection/physical_projection.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
+#include "duckdb/execution/physical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class PhysicalProjection : public PhysicalOperator {
 public:
@@ -32,4 +32,4 @@ public:
 	string ExtraRenderInformation() const override;
 };
 
-} // namespace graindb
+} // namespace duckdb

@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/create_collation_info.hpp
+// duckdb/parser/parsed_data/create_collation_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/create_info.hpp"
-#include "graindb/function/scalar_function.hpp"
+#include "duckdb/parser/parsed_data/create_info.hpp"
+#include "duckdb/function/scalar_function.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct CreateCollationInfo : public CreateInfo {
 	CreateCollationInfo(string name_p, ScalarFunction function_p, bool combinable_p, bool not_required_for_equality_p)
@@ -29,4 +29,4 @@ struct CreateCollationInfo : public CreateInfo {
 	bool not_required_for_equality;
 };
 
-} // namespace graindb
+} // namespace duckdb

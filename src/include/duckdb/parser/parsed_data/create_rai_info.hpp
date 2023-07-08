@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/create_edge_info.hpp
+// duckdb/parser/parsed_data/create_edge_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/rai_direction.hpp"
-#include "graindb/parser/parsed_data/create_info.hpp"
-#include "graindb/parser/tableref/basetableref.hpp"
+#include "duckdb/common/enums/rai_direction.hpp"
+#include "duckdb/parser/parsed_data/create_info.hpp"
+#include "duckdb/parser/tableref/basetableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct CreateRAIInfo : public CreateInfo {
 	CreateRAIInfo() : CreateInfo(CatalogType::RAI), name(""), table(nullptr), direction(RAIDirection::DIRECTED) {
@@ -25,4 +25,4 @@ struct CreateRAIInfo : public CreateInfo {
 	vector<unique_ptr<ParsedExpression>> columns;
 	vector<unique_ptr<ParsedExpression>> references;
 };
-} // namespace graindb
+} // namespace duckdb

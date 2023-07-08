@@ -1,23 +1,23 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/physical_operator.hpp
+// duckdb/execution/physical_operator.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog.hpp"
-#include "graindb/common/common.hpp"
-#include "graindb/common/enums/physical_operator_type.hpp"
-#include "graindb/common/types/data_chunk.hpp"
-#include "graindb/parser/statement/select_statement.hpp"
-#include "graindb/planner/expression.hpp"
-#include "graindb/planner/joinside.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/catalog/catalog.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/enums/physical_operator_type.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
+#include "duckdb/parser/statement/select_statement.hpp"
+#include "duckdb/planner/expression.hpp"
+#include "duckdb/planner/joinside.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 class ClientContext;
 class ExpressionExecutor;
 class PhysicalOperator;
@@ -120,4 +120,4 @@ public:
 		return "";
 	}
 };
-} // namespace graindb
+} // namespace duckdb

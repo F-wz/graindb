@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/rule/move_constants.hpp
+// duckdb/optimizer/rule/move_constants.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/optimizer/rule.hpp"
+#include "duckdb/optimizer/rule.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 // The MoveConstantsRule moves constants to the same side of an expression, e.g. if we have an expression x + 1 = 5000
 // then this will turn it into x = 4999.
@@ -21,4 +21,4 @@ public:
 	unique_ptr<Expression> Apply(LogicalOperator &op, vector<Expression *> &bindings, bool &changes_made) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

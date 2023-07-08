@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/undo_flags.hpp
+// duckdb/common/enums/undo_flags.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 enum class UndoFlags : uint8_t {
 	EMPTY_ENTRY = 0,
@@ -20,4 +20,4 @@ enum class UndoFlags : uint8_t {
 	UPDATE_TUPLE = 4
 };
 
-} // namespace graindb
+} // namespace duckdb

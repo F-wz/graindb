@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/transaction/rollback_state.hpp
+// duckdb/transaction/rollback_state.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/transaction/undo_buffer.hpp"
+#include "duckdb/transaction/undo_buffer.hpp"
 
-namespace graindb {
+namespace duckdb {
 class DataChunk;
 class DataTable;
 class WriteAheadLog;
@@ -24,4 +24,4 @@ public:
 	void RollbackEntry(UndoFlags type, data_ptr_t data);
 };
 
-} // namespace graindb
+} // namespace duckdb

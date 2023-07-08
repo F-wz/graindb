@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/drop_info.hpp
+// duckdb/parser/parsed_data/drop_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/parse_info.hpp"
-#include "graindb/common/enums/catalog_type.hpp"
+#include "duckdb/parser/parsed_data/parse_info.hpp"
+#include "duckdb/common/enums/catalog_type.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct DropInfo : public ParseInfo {
 	DropInfo() : schema(INVALID_SCHEMA), if_exists(false), cascade(false) {
@@ -30,4 +30,4 @@ struct DropInfo : public ParseInfo {
 	bool cascade = false;
 };
 
-} // namespace graindb
+} // namespace duckdb

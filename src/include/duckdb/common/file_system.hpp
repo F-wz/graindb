@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/file_system.hpp
+// duckdb/common/file_system.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
-#include "graindb/common/file_buffer.hpp"
+#include "duckdb/common/constants.hpp"
+#include "duckdb/common/file_buffer.hpp"
 
 #include <functional>
 
-namespace graindb {
+namespace duckdb {
 class ClientContext;
 class FileSystem;
 
@@ -111,4 +111,4 @@ private:
 	void SetFilePointer(FileHandle &handle, idx_t location);
 };
 
-} // namespace graindb
+} // namespace duckdb

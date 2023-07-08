@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression_binder.hpp
+// duckdb/planner/expression_binder.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/exception.hpp"
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/expression/bound_expression.hpp"
-#include "graindb/parser/tokens.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/common/exception.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/expression/bound_expression.hpp"
+#include "duckdb/parser/tokens.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class Binder;
 class ClientContext;
@@ -99,4 +99,4 @@ protected:
 	bool bound_columns = false;
 };
 
-} // namespace graindb
+} // namespace duckdb

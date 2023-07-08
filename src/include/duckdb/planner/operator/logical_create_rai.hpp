@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_create_rai.hpp
+// duckdb/planner/operator/logical_create_rai.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "graindb/parser/parsed_data/create_rai_info.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "duckdb/parser/parsed_data/create_rai_info.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class LogicalCreateRAI : public LogicalOperator {
 public:
@@ -34,4 +34,4 @@ protected:
 		types.push_back(TypeId::INT64);
 	}
 };
-} // namespace graindb
+} // namespace duckdb

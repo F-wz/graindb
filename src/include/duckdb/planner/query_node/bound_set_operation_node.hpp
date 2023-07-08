@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/query_node/bound_set_operation_node.hpp
+// duckdb/planner/query_node/bound_set_operation_node.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/set_operation_type.hpp"
-#include "graindb/planner/binder.hpp"
-#include "graindb/planner/bound_query_node.hpp"
+#include "duckdb/common/enums/set_operation_type.hpp"
+#include "duckdb/planner/binder.hpp"
+#include "duckdb/planner/bound_query_node.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! Bound equivalent of SetOperationNode
 class BoundSetOperationNode : public BoundQueryNode {
@@ -40,4 +40,4 @@ public:
 	}
 };
 
-}; // namespace graindb
+}; // namespace duckdb

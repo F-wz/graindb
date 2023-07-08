@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression_iterator.hpp
+// duckdb/planner/expression_iterator.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/planner/expression.hpp"
 
 #include <functional>
 
-namespace graindb {
+namespace duckdb {
 class BoundQueryNode;
 class BoundTableRef;
 
@@ -30,4 +30,4 @@ public:
 	static void EnumerateQueryNodeChildren(BoundQueryNode &node, std::function<void(Expression &child)> callback);
 };
 
-} // namespace graindb
+} // namespace duckdb

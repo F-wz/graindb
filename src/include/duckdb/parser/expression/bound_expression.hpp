@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/expression/bound_expression.hpp
+// duckdb/parser/expression/bound_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/exception.hpp"
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/common/exception.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! BoundExpression is an intermediate dummy class used by the binder. It is a ParsedExpression but holds an Expression.
 //! It represents a successfully bound expression. It is used in the Binder to prevent re-binding of already bound parts
@@ -45,4 +45,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

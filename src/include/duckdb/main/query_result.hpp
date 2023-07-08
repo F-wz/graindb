@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/query_result.hpp
+// duckdb/main/query_result.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/statement_type.hpp"
-#include "graindb/common/types/data_chunk.hpp"
+#include "duckdb/common/enums/statement_type.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 enum class QueryResultType : uint8_t { MATERIALIZED_RESULT, STREAM_RESULT };
 
@@ -134,4 +134,4 @@ private:
 	QueryResult(const QueryResult &) = delete;
 };
 
-} // namespace graindb
+} // namespace duckdb

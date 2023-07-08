@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/helper/physical_vacuum.hpp
+// duckdb/execution/operator/helper/physical_vacuum.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/parser/parsed_data/vacuum_info.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/parser/parsed_data/vacuum_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalVacuum represents a VACUUM operation (e.g. VACUUM or ANALYZE)
 class PhysicalVacuum : public PhysicalOperator {
@@ -47,4 +47,4 @@ typedef enum PGVacuumOption {
 	PG_VACOPT_DISABLE_PAGE_SKIPPING = 1 << 7 /* don't skip any pages */
 } PGVacuumOption;
 
-} // namespace graindb
+} // namespace duckdb

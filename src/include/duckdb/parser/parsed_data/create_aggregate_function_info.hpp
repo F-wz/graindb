@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/parsed_data/create_aggregate_function_info.hpp
+// duckdb/parser/parsed_data/create_aggregate_function_info.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_data/create_function_info.hpp"
-#include "graindb/function/function_set.hpp"
+#include "duckdb/parser/parsed_data/create_function_info.hpp"
+#include "duckdb/function/function_set.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct CreateAggregateFunctionInfo : public CreateFunctionInfo {
 	CreateAggregateFunctionInfo(AggregateFunction function)
@@ -28,4 +28,4 @@ struct CreateAggregateFunctionInfo : public CreateFunctionInfo {
 	AggregateFunctionSet functions;
 };
 
-} // namespace graindb
+} // namespace duckdb

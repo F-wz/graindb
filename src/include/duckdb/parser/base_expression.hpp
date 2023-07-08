@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/base_expression.hpp
+// duckdb/parser/base_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/enums/expression_type.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/enums/expression_type.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //!  The BaseExpression class is a base class that can represent any expression
 //!  part of a SQL statement.
@@ -88,4 +88,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

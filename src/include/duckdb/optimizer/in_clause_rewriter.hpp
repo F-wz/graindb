@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/in_clause_rewriter.hpp
+// duckdb/optimizer/in_clause_rewriter.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/logical_operator_visitor.hpp"
+#include "duckdb/planner/logical_operator_visitor.hpp"
 
-namespace graindb {
+namespace duckdb {
 class Optimizer;
 
 class InClauseRewriter : public LogicalOperatorVisitor {
@@ -27,4 +27,4 @@ public:
 	unique_ptr<Expression> VisitReplace(BoundOperatorExpression &expr, unique_ptr<Expression> *expr_ptr) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

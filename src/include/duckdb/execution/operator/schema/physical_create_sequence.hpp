@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/operator/schema/physical_create_sequence.hpp
+// duckdb/execution/operator/schema/physical_create_sequence.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/execution/physical_operator.hpp"
-#include "graindb/parser/parsed_data/create_sequence_info.hpp"
+#include "duckdb/execution/physical_operator.hpp"
+#include "duckdb/parser/parsed_data/create_sequence_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! PhysicalCreateSequence represents a CREATE SEQUENCE command
 class PhysicalCreateSequence : public PhysicalOperator {
@@ -28,4 +28,4 @@ public:
 	                      DataChunk *rai_chunk = nullptr) override;
 };
 
-} // namespace graindb
+} // namespace duckdb

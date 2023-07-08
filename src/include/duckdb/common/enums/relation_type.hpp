@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/relation_type.hpp
+// duckdb/common/enums/relation_type.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //===--------------------------------------------------------------------===//
 // Catalog Types
@@ -43,4 +43,4 @@ enum class RelationType : uint8_t {
 
 string RelationTypeToString(RelationType type);
 
-} // namespace graindb
+} // namespace duckdb

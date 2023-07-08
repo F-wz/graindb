@@ -1,29 +1,29 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/index/art/art.hpp
+// duckdb/execution/index/art/art.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/types/data_chunk.hpp"
-#include "graindb/common/types/vector.hpp"
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/storage/data_table.hpp"
-#include "graindb/storage/index.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
+#include "duckdb/common/types/vector.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/storage/data_table.hpp"
+#include "duckdb/storage/index.hpp"
 
-#include "graindb/execution/index/art/art_key.hpp"
-#include "graindb/execution/index/art/leaf.hpp"
-#include "graindb/execution/index/art/node.hpp"
-#include "graindb/execution/index/art/node4.hpp"
-#include "graindb/execution/index/art/node16.hpp"
-#include "graindb/execution/index/art/node48.hpp"
-#include "graindb/execution/index/art/node256.hpp"
+#include "duckdb/execution/index/art/art_key.hpp"
+#include "duckdb/execution/index/art/leaf.hpp"
+#include "duckdb/execution/index/art/node.hpp"
+#include "duckdb/execution/index/art/node4.hpp"
+#include "duckdb/execution/index/art/node16.hpp"
+#include "duckdb/execution/index/art/node48.hpp"
+#include "duckdb/execution/index/art/node256.hpp"
 
-namespace graindb {
+namespace duckdb {
 struct IteratorEntry {
 	Node *node = nullptr;
 	idx_t pos = 0;
@@ -126,4 +126,4 @@ private:
 	void GenerateKeys(DataChunk &input, vector<unique_ptr<Key>> &keys);
 };
 
-} // namespace graindb
+} // namespace duckdb

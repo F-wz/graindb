@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/function/aggregate_function.hpp
+// duckdb/function/aggregate_function.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/function/function.hpp"
-#include "graindb/common/vector_operations/aggregate_executor.hpp"
+#include "duckdb/function/function.hpp"
+#include "duckdb/common/vector_operations/aggregate_executor.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class BoundAggregateExpression;
 
@@ -157,4 +157,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

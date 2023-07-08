@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/string_util.hpp
+// duckdb/common/string_util.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 #include <stdarg.h> // for va_list
 
-namespace graindb {
+namespace duckdb {
 /**
  * String Utility Functions
  * Note that these are not the most efficient implementations (i.e., they copy
@@ -87,4 +87,4 @@ public:
 
 	static string Replace(string source, const string &from, const string &to);
 };
-} // namespace graindb
+} // namespace duckdb

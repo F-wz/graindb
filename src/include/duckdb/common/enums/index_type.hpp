@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/enums/index_type.hpp
+// duckdb/common/enums/index_type.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/constants.hpp"
+#include "duckdb/common/constants.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //===--------------------------------------------------------------------===//
 // Index Types
@@ -20,4 +20,4 @@ enum class IndexType {
 	ART = 1      // Adaptive Radix Tree
 };
 
-} // namespace graindb
+} // namespace duckdb

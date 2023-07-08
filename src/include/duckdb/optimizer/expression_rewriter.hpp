@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/expression_rewriter.hpp
+// duckdb/optimizer/expression_rewriter.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/optimizer/rule.hpp"
+#include "duckdb/optimizer/rule.hpp"
 
-namespace graindb {
+namespace duckdb {
 class ClientContext;
 
 //! The ExpressionRewriter performs a set of fixed rewrite rules on the expressions that occur in a SQL statement
@@ -32,4 +32,4 @@ private:
 	                                         unique_ptr<Expression> expr, bool &changes_made);
 };
 
-} // namespace graindb
+} // namespace duckdb

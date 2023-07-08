@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/bound_tableref.hpp
+// duckdb/planner/bound_tableref.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/enums/tableref_type.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/enums/tableref_type.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class BoundTableRef {
 public:
@@ -23,4 +23,4 @@ public:
 	//! The type of table reference
 	TableReferenceType type;
 };
-} // namespace graindb
+} // namespace duckdb

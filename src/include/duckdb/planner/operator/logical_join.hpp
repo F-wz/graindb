@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/operator/logical_join.hpp
+// duckdb/planner/operator/logical_join.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/join_type.hpp"
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/planner/logical_operator.hpp"
+#include "duckdb/common/enums/join_type.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/planner/logical_operator.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 //! LogicalJoin represents a join between two relations
 class LogicalJoin : public LogicalOperator {
@@ -42,4 +42,4 @@ protected:
 	void ResolveTypes() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

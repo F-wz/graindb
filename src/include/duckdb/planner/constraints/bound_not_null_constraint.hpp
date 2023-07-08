@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/constraints/bound_not_null_constraint.hpp
+// duckdb/planner/constraints/bound_not_null_constraint.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/planner/bound_constraint.hpp"
+#include "duckdb/planner/bound_constraint.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class BoundNotNullConstraint : public BoundConstraint {
 public:
@@ -21,4 +21,4 @@ public:
 	column_t index;
 };
 
-} // namespace graindb
+} // namespace duckdb

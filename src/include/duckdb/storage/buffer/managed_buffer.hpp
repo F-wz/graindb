@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/buffer/managed_buffer.hpp
+// duckdb/storage/buffer/managed_buffer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/file_buffer.hpp"
-#include "graindb/storage/storage_info.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/file_buffer.hpp"
+#include "duckdb/storage/storage_info.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BufferManager;
 
 //! Managed buffer is an arbitrarily-sized buffer that is at least of size >= BLOCK_SIZE
@@ -32,4 +32,4 @@ public:
 	block_id_t id;
 };
 
-} // namespace graindb
+} // namespace duckdb

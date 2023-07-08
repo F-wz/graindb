@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/relation/create_view_relation.hpp
+// duckdb/main/relation/create_view_relation.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/main/relation.hpp"
+#include "duckdb/main/relation.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class CreateViewRelation : public Relation {
 public:
@@ -31,4 +31,4 @@ public:
 	}
 };
 
-} // namespace graindb
+} // namespace duckdb

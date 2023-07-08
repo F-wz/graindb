@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/materialized_query_result.hpp
+// duckdb/main/materialized_query_result.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/main/query_result.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/main/query_result.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class MaterializedQueryResult : public QueryResult {
 public:
@@ -41,4 +41,4 @@ public:
 	ChunkCollection collection;
 };
 
-} // namespace graindb
+} // namespace duckdb

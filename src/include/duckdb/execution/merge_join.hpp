@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/execution/merge_join.hpp
+// duckdb/execution/merge_join.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
-#include "graindb/common/enums/expression_type.hpp"
-#include "graindb/common/types/chunk_collection.hpp"
-#include "graindb/common/types/vector.hpp"
+#include "duckdb/common/common.hpp"
+#include "duckdb/common/enums/expression_type.hpp"
+#include "duckdb/common/types/chunk_collection.hpp"
+#include "duckdb/common/types/vector.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct MergeOrder {
 	SelectionVector order;
@@ -105,4 +105,4 @@ struct MergeJoinMark {
 	template idx_t MJCLASS::OPNAME::Operation<double>(L & l, R & r);                                                   \
 	template idx_t MJCLASS::OPNAME::Operation<string_t>(L & l, R & r);
 
-} // namespace graindb
+} // namespace duckdb

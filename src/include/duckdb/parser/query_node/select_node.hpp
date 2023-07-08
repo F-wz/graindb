@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/query_node/select_node.hpp
+// duckdb/parser/query_node/select_node.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/parser/query_node.hpp"
-#include "graindb/parser/sql_statement.hpp"
-#include "graindb/parser/tableref.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/parser/query_node.hpp"
+#include "duckdb/parser/sql_statement.hpp"
+#include "duckdb/parser/tableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 enum class AggregateHandling : uint8_t {
 	STANDARD_HANDLING,     // standard handling as in the SELECT clause
@@ -53,4 +53,4 @@ public:
 	//! Deserializes a blob back into a SelectNode
 	static unique_ptr<QueryNode> Deserialize(Deserializer &source);
 };
-}; // namespace graindb
+}; // namespace duckdb

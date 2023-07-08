@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/common/types/hash.hpp
+// duckdb/common/types/hash.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/common.hpp"
+#include "duckdb/common/common.hpp"
 
 #include <memory.h>
 
-namespace graindb {
+namespace duckdb {
 
 // efficient hash function that maximizes the avalanche effect and minimizes
 // bias
@@ -45,4 +45,4 @@ hash_t Hash(const char *val, size_t size);
 hash_t Hash(char *val, size_t size);
 hash_t Hash(uint8_t *val, size_t size);
 
-} // namespace graindb
+} // namespace duckdb

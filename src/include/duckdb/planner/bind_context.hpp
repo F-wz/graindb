@@ -1,25 +1,25 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/bind_context.hpp
+// duckdb/planner/bind_context.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/catalog/catalog.hpp"
-#include "graindb/catalog/catalog_entry/table_catalog_entry.hpp"
-#include "graindb/catalog/catalog_entry/table_function_catalog_entry.hpp"
-#include "graindb/common/unordered_map.hpp"
-#include "graindb/common/unordered_set.hpp"
-#include "graindb/parser/expression/columnref_expression.hpp"
-#include "graindb/parser/parsed_expression.hpp"
-#include "graindb/planner/expression.hpp"
-#include "graindb/planner/expression_binder.hpp"
-#include "graindb/planner/table_binding.hpp"
+#include "duckdb/catalog/catalog.hpp"
+#include "duckdb/catalog/catalog_entry/table_catalog_entry.hpp"
+#include "duckdb/catalog/catalog_entry/table_function_catalog_entry.hpp"
+#include "duckdb/common/unordered_map.hpp"
+#include "duckdb/common/unordered_set.hpp"
+#include "duckdb/parser/expression/columnref_expression.hpp"
+#include "duckdb/parser/parsed_expression.hpp"
+#include "duckdb/planner/expression.hpp"
+#include "duckdb/planner/expression_binder.hpp"
+#include "duckdb/planner/table_binding.hpp"
 
-namespace graindb {
+namespace duckdb {
 class LogicalGet;
 class BoundQueryNode;
 
@@ -79,4 +79,4 @@ private:
 	//! The set of CTE bindings
 	unordered_map<string, std::shared_ptr<Binding>> cte_bindings;
 };
-} // namespace graindb
+} // namespace duckdb

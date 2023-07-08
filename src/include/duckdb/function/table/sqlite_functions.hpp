@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/function/table/sqlite_functions.hpp
+// duckdb/function/table/sqlite_functions.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/function/table_function.hpp"
+#include "duckdb/function/table_function.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 struct PragmaCollations {
 	static void RegisterFunction(BuiltinFunctions &set);
@@ -24,4 +24,4 @@ struct SQLiteMaster {
 	static void RegisterFunction(BuiltinFunctions &set);
 };
 
-} // namespace graindb
+} // namespace duckdb

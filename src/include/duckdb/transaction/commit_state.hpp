@@ -1,16 +1,16 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/transaction/commit_state.hpp
+// duckdb/transaction/commit_state.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/transaction/undo_buffer.hpp"
+#include "duckdb/transaction/undo_buffer.hpp"
 
-namespace graindb {
+namespace duckdb {
 class CatalogEntry;
 class DataChunk;
 class WriteAheadLog;
@@ -47,4 +47,4 @@ private:
 	void AppendRowId(row_t rowid);
 };
 
-} // namespace graindb
+} // namespace duckdb

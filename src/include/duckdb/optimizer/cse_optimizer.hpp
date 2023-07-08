@@ -1,18 +1,18 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/optimizer/cse_optimizer.hpp
+// duckdb/optimizer/cse_optimizer.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/optimizer/rule.hpp"
-#include "graindb/parser/expression_map.hpp"
-#include "graindb/planner/logical_operator_visitor.hpp"
+#include "duckdb/optimizer/rule.hpp"
+#include "duckdb/parser/expression_map.hpp"
+#include "duckdb/planner/logical_operator_visitor.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! The CommonSubExpression optimizer traverses the expressions of a LogicalOperator to look for duplicate expressions,
 //! and moves duplicate expressions into a shared CommonSubExpression.
 class CommonSubExpressionOptimizer : public LogicalOperatorVisitor {
@@ -36,4 +36,4 @@ private:
 public:
 	void VisitOperator(LogicalOperator &op) override;
 };
-} // namespace graindb
+} // namespace duckdb

@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/main/appender.hpp
+// duckdb/main/appender.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types/data_chunk.hpp"
-#include "graindb/main/table_description.hpp"
+#include "duckdb/common/types/data_chunk.hpp"
+#include "duckdb/main/table_description.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class ClientContext;
 class GrainDB;
@@ -102,4 +102,4 @@ template <> void Appender::Append(const char *value);
 template <> void Appender::Append(Value value);
 template <> void Appender::Append(std::nullptr_t value);
 
-} // namespace graindb
+} // namespace duckdb

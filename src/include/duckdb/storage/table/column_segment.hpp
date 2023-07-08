@@ -1,20 +1,20 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/storage/table/column_segment.hpp
+// duckdb/storage/table/column_segment.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/types.hpp"
-#include "graindb/common/types/vector.hpp"
-#include "graindb/storage/block.hpp"
-#include "graindb/storage/buffer_manager.hpp"
-#include "graindb/storage/table/segment_tree.hpp"
+#include "duckdb/common/types.hpp"
+#include "duckdb/common/types/vector.hpp"
+#include "duckdb/storage/block.hpp"
+#include "duckdb/storage/buffer_manager.hpp"
+#include "duckdb/storage/table/segment_tree.hpp"
 
-namespace graindb {
+namespace duckdb {
 class BlockManager;
 class ColumnSegment;
 class ColumnData;
@@ -90,4 +90,4 @@ public:
 	                    idx_t count) = 0;
 };
 
-} // namespace graindb
+} // namespace duckdb

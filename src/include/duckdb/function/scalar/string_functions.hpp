@@ -1,21 +1,21 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/function/scalar/string_functions.hpp
+// duckdb/function/scalar/string_functions.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/function/function_set.hpp"
+#include "duckdb/function/function_set.hpp"
 #include "utf8proc.hpp"
 
 namespace re2 {
 class RE2;
 }
 
-namespace graindb {
+namespace duckdb {
 
 struct ReverseFun {
 	static void RegisterFunction(BuiltinFunctions &set);
@@ -153,4 +153,4 @@ struct RegexpMatchesBindData : public FunctionData {
 	unique_ptr<FunctionData> Copy() override;
 };
 
-} // namespace graindb
+} // namespace duckdb

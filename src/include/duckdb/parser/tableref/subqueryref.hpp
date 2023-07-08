@@ -1,17 +1,17 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/parser/tableref/subqueryref.hpp
+// duckdb/parser/tableref/subqueryref.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/parser/query_node.hpp"
-#include "graindb/parser/tableref.hpp"
+#include "duckdb/parser/query_node.hpp"
+#include "duckdb/parser/tableref.hpp"
 
-namespace graindb {
+namespace duckdb {
 //! Represents a subquery
 class SubqueryRef : public TableRef {
 public:
@@ -32,4 +32,4 @@ public:
 	//! Deserializes a blob back into a SubqueryRef
 	static unique_ptr<TableRef> Deserialize(Deserializer &source);
 };
-} // namespace graindb
+} // namespace duckdb

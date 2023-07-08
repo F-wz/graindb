@@ -1,19 +1,19 @@
 //===----------------------------------------------------------------------===//
 //                         GrainDB
 //
-// graindb/planner/expression/bound_subquery_expression.hpp
+// duckdb/planner/expression/bound_subquery_expression.hpp
 //
 //
 //===----------------------------------------------------------------------===//
 
 #pragma once
 
-#include "graindb/common/enums/subquery_type.hpp"
-#include "graindb/planner/binder.hpp"
-#include "graindb/planner/bound_query_node.hpp"
-#include "graindb/planner/expression.hpp"
+#include "duckdb/common/enums/subquery_type.hpp"
+#include "duckdb/planner/binder.hpp"
+#include "duckdb/planner/bound_query_node.hpp"
+#include "duckdb/planner/expression.hpp"
 
-namespace graindb {
+namespace duckdb {
 
 class BoundSubqueryExpression : public Expression {
 public:
@@ -56,4 +56,4 @@ public:
 
 	unique_ptr<Expression> Copy() override;
 };
-} // namespace graindb
+} // namespace duckdb
